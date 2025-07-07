@@ -1,0 +1,42 @@
+{
+    "raw_text": " Git \nPython(Basic) \nIOT \nProgramming \n \n \n \n \n \n \n \n \n \n \nbagaleasavari@gmail.com \n \n8698985131 \n \nSolapur, Maharashtra \n \ngithub.com/TechAshi-bagale \n \nhttps://www.linkedin.com/in/ \nasavari-bagale-81a1aa27b \n \n \nSKILLS \n EDUCATION \n \nB.Tech CSE(2025) \nShree Siddheshwar Women\u2019s College Of Engineering, Solapur \n11/2022 - Present \n \nDiploma in Co(2022) \nKai.Kalyanrao (Balasaheb)Ingale Polytechnic Akkalkot, Solapur \n82.17% \n \n \nHSC in Science(2020) \nC.B.Khedgi\u2019s Basaveshwar Science Akkalkot, Solapur \n59.23% \n \n \nSSC(2018) \nK.P.Gaikwad High School Badole bk , Solapur \n86.40% \n \n \n \n \n \nLANGUAGES \nHindi \nFull Professional Proficiency \n \nEnglish \nIntermediate Proficiency \n \nKannada \nNative or Bilingual Proficiency \n \nMarathi \nFull Professional Proficiency \n \nCOURSES \n \n\uf0fa \nFull Stack Java by FUEL \n \n\uf0fa \nInfosys Springboard \nPython Programming \nCertification. \n \nINTERESTS \n \n  INTERNSHIP \n \nHybrid Application Development \nD K Techno\u2019s \n07/2024 - 08/2024 \nAchievements/Tasks \n Attended 6 weeks industrial training in Hybrid Application Development using Flutter Technology. \n Collaborated with team member to design and deploy cross-platform applications using flutter . \n \nFull Stack Java  \nAnudip Foundation \nAchievements/Tasks \n Developed responsive web pages using HTML,CSS. \n Used GitHub for version control and efficient collaboration within the development team. \n \nPROJECTS \n \nLeaveGo App \nTechnology used: Flutter, Dart and Firebase \n Hybrid application which reduces paperwork &, allows students to request, track, and manage their leave status digitally. \n Integrated Firebase as the database to manage student and staff data. \nStudent Performance Predictor \nTechnology used: Python, Pandas, Scikit-learn, Spyder \n Implemented a regression model to predict student grades based on student study time, parental education and other \nfactors with 85%+ accuracy. \n \nACHIEVEMENTS \n \nI volunteered for the 'Technical Reel Making' event at a national-level technical competition. \nI am part of the Infosys springboard Pragati: Path to Future Program Cohort-4(Jan-Apr2025). \nAI/ML \nCore java \nSpyder \nAsavari Bagale \nSeeking a job role where i can enhance my skills, strengthen my knowledge by exploring new things. \nWeb page designing \n",
+    "personal_info": {
+        "name": null,
+        "email": "bagaleasavari@gmail.com",
+        "phone": "8698985131",
+        "linkedin": "linkedin.com/in/",
+        "github": "github.com/TechAshi-bagale",
+        "location": "Solapur"
+    },
+    "resume_score": 60,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Include missing personal information: Name.",
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "numpy",
+        "machine learning",
+        "statistics",
+        "data visualization"
+    ],
+    "predicted_job_field": {
+        "job_title": "Data Scientist",
+        "skills": [
+            "accuracy",
+            "css",
+            "pandas",
+            "python",
+            "training",
+            "html",
+            "java"
+        ],
+        "preferred_location": "Solapur",
+        "recommended_courses": [
+            "Data Science with Python - https://www.coursera.org/specializations/data-science-python",
+            "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+            "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r"
+        ]
+    }
+}

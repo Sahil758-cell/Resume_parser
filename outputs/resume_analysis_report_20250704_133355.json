@@ -1,0 +1,67 @@
+{
+    "raw_text": "C O N T A C T\n+91 9618767500\nindira986679@gmail.com\nBALAJI COLLEGE OF PHARMACY\nBachelor of Pharmacy\nPercentage : 75%\n2021 - 2025\n2018 - 2020\nSASTRA JUNIOR COLLEGE\nIntermediate\nGPA : 9.09\nE D U C A T I O N\nS K I L L S\nProject Management\nTeamwork\nTime Management\nLife Skills\nEffective Communication\nQuick Learner\nEnglish\nTelugu\nL A N G U A G E S\nP R O F I L E  S U M M A R Y\nDedicated and detail-oriented Pharmacy Graduate with a strong\nacademic foundation in pharmaceutical sciences, complemented by\nhands-on experience through projects and certifications in key\npharmacy-related areas. \nC E R T I F I C A T I O N S\nA research talk on recent application\non zebra fish model in Biomedical\nResearch at Raghavendra institute\nof pharmaceutical Education and\nresearch (RIPER),Anantapur\nParticipated \nin \nposter\npresentations \ncertificate \nin\nNational Conference about of\nCORONA VIRUS VARIENTS\nResearch Study\nResearch study on UV-visible\nspectroscopy of tenofovir\nINDIRA RACHERLA\nBachelor of Pharmacy \n2018\nVIGNANA JYOTHI E.M HIGH SCHOOL\nSSC 10th\nGPA : 8.20\nP R O J E C T S\n",
+    "personal_info": {
+        "name": "C O N T A C T",
+        "email": "indira986679@gmail.com",
+        "phone": "9618767500",
+        "linkedin": null,
+        "github": null,
+        "location": null
+    },
+    "resume_score": 75,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "empathy",
+        "crm",
+        "ticketing systems"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Customer Support",
+                "confidence": 0.11,
+                "confidence_percent": "11%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.08,
+                "confidence_percent": "8%"
+            },
+            {
+                "title": "Lawyer",
+                "confidence": 0.07,
+                "confidence_percent": "7%"
+            }
+        ],
+        "job_title": "Customer Support",
+        "skills": [
+            "pharmaceutical",
+            "communication",
+            "spectroscopy",
+            "research"
+        ],
+        "preferred_location": null,
+        "recommended_courses": {
+            "Customer Support": [
+                "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service",
+                "Call Center Training - https://www.udemy.com/course/call-center-training",
+                "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations"
+            ],
+            "HR Manager": [
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Lawyer": [
+                "Law for Non-Lawyers - https://www.edx.org/course/law-for-non-lawyers",
+                "Corporate & Commercial Law - https://www.coursera.org/specializations/corporate-commercial-law",
+                "Legal Research and Writing - https://www.udemy.com/course/legal-writing"
+            ]
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "raw_text": "HTML \n \n \nIOT \n \n   AI / ML \n \nKabaddi \nAvinash Bhalerao \nEnthusiastic and detail-oriented Computer Science graduate with proficiency in HTML, CSS, JavaScript, \nand Database Management Systems (DBMS). Adept at creating responsive and visually appealing web \napplications. Strong problem-solving skills and a passion for staying updated with the latest technologies. \nEager to contribute to dynamic projects and bring a fresh perspective to a collaborative team. \n \n \n \n bhaleraoavinash2019@gmail.com \n8412979854 \n \n At Mahagaon post:- Kalgaon, tq:- Purna dist:- \nParbhani, Parbhani, India, Pune, India \nlinkedin.com/in/avinash-bhalerao-83397a253 \n \nEDUCATION \nBsc. Computer Science(BCS) \nMGM's College of CS & IT, Nanded \n \nMCA (Persuing) \nASM's IBMR, Chinchwad-Pune \n \n \nWORK EXPERIENCE \nFresher \nStudent \n \nVOLUNTEERING EXPERIENCE \nWorked as a placement team member in MCA \n1st Year. Lead the placement co-ordinators \nteam in graduation. \nSKILLS \n \n \n \n \nPERSONAL PROJECTS \nStudent ID Card Generator \nChatrapati Blood Bank System \n \nCERTIFICATES \nEDX : Introduction to Cloud Computing \n \n \nLANGUAGES \nMarathi \nNative or Bilingual Proficiency \nHindi \nFull Professional Proficiency \n \nEnglish \nFull Professional Proficiency \n \n \n \nINTERESTS \n \n",
+    "personal_info": {
+        "name": "Avinash Bhalerao",
+        "email": "bhaleraoavinash2019@gmail.com",
+        "phone": "8412979854",
+        "linkedin": "linkedin.com/in/avinash-bhalerao-83397a253",
+        "github": null,
+        "location": "Mahagaon"
+    },
+    "resume_score": 75,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Mention any internships or trainee roles you've done."
+    ],
+    "ai_skill_suggestions": [
+        "node.js",
+        "react",
+        "responsive design"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.09,
+                "confidence_percent": "9%"
+            },
+            {
+                "title": "Full Stack Developer",
+                "confidence": 0.07,
+                "confidence_percent": "7%"
+            },
+            {
+                "title": "Software Desveloper",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "javascript",
+            "html",
+            "iot",
+            "css"
+        ],
+        "preferred_location": "Mahagaon",
+        "recommended_courses": {
+            "Web Developer": [
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+            ],
+            "Full Stack Developer": [
+                "Full-Stack Web Development with React - https://www.coursera.org/specializations/full-stack-react"
+            ],
+            "Software Desveloper": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ]
+        }
+    }
+}

@@ -1,0 +1,8 @@
+pg = post graduation, dr = Doctorate, g = graduate, ug = Undergraduate, HSC = 12th , SSC = 10% 
+
+personal info = 20% 
+education = 40% (pg/dr = 10%; g = 10%; ug/HSC = 10%; SSC = 10%) #here is education 40% are divide perfectly 									"/" means "or" eg pg or dr has done it so 10% for 								that .
+Project and Internship = 10% (5% for Project and 5% for Internship)
+Work Experiance = 10% 
+Skill = 10%
+Language = 10%

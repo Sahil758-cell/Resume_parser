@@ -1,0 +1,34 @@
+{
+    "raw_text": " / \n / \n / \nABHISHEK PATIL\n9022413246\nabhishekpatil172002@gmail.com\nwww.linkedin.com/in/abhishekdpatil9\nPune\nOBJECTIVE\nAspiring Software Engineer with expertise in Java, SQL, and web development. Passionate about coding and problem-solving,\n seeking a challenging role to contribute innovative solutions.\nEDUCATION\nBachelor of Engineering in Computer Engineering\nPune District Education Associations\u2019s College of Engineering,Manjari,Pune\n2021 - 2025\u00a0\nCGPA\n8.64\n10\nHSC\nShri P. B. Patil Junior College Mudal\n2020 - 2021\u00a0\nPERCENTAGE\n93.5\n100\nSSC\nShri P. B. Patil Highschool Mudal\n2018 - 2019\u00a0\nPERCENTAGE\n89.6\n100\nPROJECTS\nCovid-19 Information Website\n2025\u00a0\nCreated\u00a0a dynamic\u00a0Covid-19\u00a0informational\u00a0website that\u00a0presented\u00a0real-time updates,user registration, safety\u00a0measures, and \nvaccination\u00a0information\u00a0to\u00a0inform\u00a0users.\nHandles authentication, user registration, and database management using Spring Boot, Hibernate, and MySQL\nE-Commerce Website\n2024\u00a0\nIt enhances user experience with a feature allowing customers to check real-time locker availability.\nIt gives a user-friendly platform where customers can retrieve their information such as transaction history, account\n details, etc.\nSKILLS\nProgramming Languages\nJava, SQL,Python\nWeb Technologies\nHTML, CSS,JavaScript, Bootstrap, React \nJS\nDatabase\nMySQL\nFrameworks\nSpring Boot, Hibernate, JSP, Servlets\nDeveloper Tools\nVS Code, Eclipse, JyputerNotebook\nCERTIFICATES\nJava Full Stack Development - YESS INFOTECH\n2025\u00a0\nCloud Computing Exam Certified by NPTEL\n2024\u00a0\nLANGUAGES\nEnglish, Hindi, Marathi\n\u2022\n\u2022\n\u2022\n\u2022\nE\n\ue069\nq\n\ue092\n",
+    "personal_info": {
+        "name": "Abhishek Patil",
+        "email": "abhishekpatil172002@gmail.com",
+        "phone": "9022413246",
+        "linkedin": "linkedin.com/in/abhishekdpatil9",
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 85,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done."
+    ],
+    "ai_skill_suggestions": [],
+    "predicted_job_field": {
+        "job_title": "No matching job found in knowledge base.",
+        "skills": [
+            "tools",
+            "safety",
+            "java",
+            "python",
+            "react",
+            "html",
+            "javascript",
+            "css",
+            "sql"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": []
+    }
+}

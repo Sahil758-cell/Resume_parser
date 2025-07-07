@@ -1,0 +1,13 @@
+Flask==2.3.3
+python-docx==1.1.0
+pdf2image==1.17.0
+pytesseract==0.3.10
+spacy==3.7.2
+Pillow==10.3.0
+python-dateutil==2.9.0.post0
+Werkzeug==2.3.8
+python-poppler
+python -m spacy download en_core_web_trf
+fitz 
+PyMuPDF
+docx

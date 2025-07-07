@@ -1,0 +1,45 @@
+{
+    "raw_text": "LUKESH NEHETE  \n \n \n \n \nContact no: 7038285613 \nSoftware Engineer  \n \n \n \n \nE-mail ID: lukeshanehete@gmail.com \nExperience: 2Years  \n \n \n \n \n \n \n\u2756 ABOUT ME  \nFull Stack Developer with 2 Years of Experience in front end and back end application \ndesign & development using Python. \n \n\u2756 WORK EXPERIENCE  \nSquad InfoTech Pvt Ltd \nTrainee Software Engineer \nJan 2023 \u2013 Present \n \n \nResponsibilities: \nPerform Analysis on Client Requirement. \nPerform code review and identifying errors to fix them. \nPerform Database operation including Queries As per Requirement. \nWorked on Git to manage code. \nWorked on backend logic using Python and Django Framework. \nSupport team for project documentation to complete additional requirements from client. \n \nProject Details: \nElevator Management System  \nLanguage: Python \nDatabase: SQL Server \n \n\u2756 TECHNICAL SKILLS \n\u2713 Programming Languages: Python \nObject oriented programming, Functions and lambda, class and constructor, python variables and methods, \nEncapsulation, inheritance, module, Exception Handling, multithreading, file handling, Structured Query \nLanguage (SQL), python database connectivity \nDjango :- Basics Django Templates ,Django Forms ,Django Admin Customization , \nORM (object relational mapping), Class Based Views, REST APIs, \n User Authentication, Numpy, pandas, matplotlib \nDjango architecture, model view template  \naxios is a JavaScript library which is used to consume API, \n Jinja documentation \n\u2713 Database: Microsoft SQL Server, MySQL \n\u2713 Development Tools: Visual studio code version 1.78 \n\u2713 Web Technologies:  Framework ,JavaScript,jQuery,HTML5,CSS3,bootstrap \n\u2713 Operating System: Windows 10,Linux \n \n\u2756 EDUCATION \n\u2022 \nBachelor of Engineering  \nShivajirao S. Jhondhale College of Engineering, Mumbai University \nJuly 2018 to May 2022 \n\u2022 HSC, MUMBAI BOARD -MARCH 2018 \n\u2022 SSC, MUMBAI BOARD -MARCH 2016 \n \n\u2756 ADDITIONAL QUALIFICATION \nPython Full stack development Course from Squad InfoTech, June 2022-December 2022 \nPROJECTS: \n\u2022 Bank Management system \nUser can create an account by entering information such as his or her username, opening balance, The user must \nthen submit those data The user can see transaction information, balance inquiries, credit and debit amounts, and \nmore. \nTechnologies: python, SQL database connectivity  \n \n \n\u2022 Student management system \nStudent management system can handle all the details about a student. The details include student personal details \netc. Student management system is a management information system for education establishments to manage \nstudent data.it provide capabilities for registering students in courses admitting students and fees payment etc. \nTechnologies: python, SQL, Pretty Table module, OS module   \n \n\u2022 Resume project using Django framework \nDeveloped resume using python Django and MySQL \nUser is normally used for managing user resume contains all the functionality related to resume \nRun manage.py file then aspirant needs fill personal details after submitting the form resume will be \ngenerated \nTechnologies: python, Django rest framework, HTML, JavaScript, CSS, Bootstrap, pillow \n \n\u2022 Github profile:- https://github.com/LUKESHN \n \n\u2756 PERSONAL SKILL \n\u2022 \nQuick learner \n\u2022 \nReady to adapt to new technologies. \n\u2022 \nGood communication. \n\u2022 \nDecision making. \n\u2022 \nTime Management. \n \n\u2756 PERSONAL ACHIVEMENTS \nWon 2nd Prize in Intercollegiate Quiz Answer competition - Kalindika 2016 organized by science association, \nS.I.C.E.S Degree College of arts, science and Commerce. \n \n\u2756 PERSONAL DETAILS \n\u2022 \nLanguages Known: Marathi, English and Hindi. \n\u2022 \nDate of Birth: 1th Feb 2001 \n\u2022 \nAddress: kalyan west 400708. \n \n \n",
+    "personal_info": {
+        "name": "Lukesh Nehete",
+        "email": "lukeshanehete@gmail.com",
+        "phone": "7038285613",
+        "linkedin": null,
+        "github": "https://github.com/LUKESHN",
+        "location": "Mumbai"
+    },
+    "resume_score": 85,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "machine learning",
+        "statistics",
+        "data visualization"
+    ],
+    "predicted_job_field": {
+        "job_title": "Data Scientist",
+        "skills": [
+            "communication",
+            "mba",
+            "python",
+            "java",
+            "css",
+            "numpy",
+            "javascript",
+            "sql",
+            "html",
+            "pandas",
+            "tools"
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": [
+            "Data Science with Python - https://www.coursera.org/specializations/data-science-python",
+            "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+            "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r"
+        ]
+    }
+}

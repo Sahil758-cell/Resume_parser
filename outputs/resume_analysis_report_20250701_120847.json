@@ -1,0 +1,72 @@
+{
+    "raw_text": "Prathamesh Mahajan\npratham3118@gmail.com |  +91 9730955647 | Pune\nCAREER OBJECTIVE\nTo obtain a position in IT where I can apply my technical skills, grow through continuous learning, and contribute to innovative solutions\nthat enhance system efficiency and support organizational goals.\nWORK EXPERIENCE\nSoftware Development \u2022 Internship\nJan 2025 - Mar 2025\nGPT Softwares, Pune\nHere i built a project named as theproficient that is also known as Online Book Store\u00a0\nThe Technologies which i used are as follows :\n1. HTML5\n2. CSS3\n3. Java\n4. Angular\n5. jQuery\nEDUCATION\nMCA, MCA\n2023 - 2025\nDY Patil Institute Of Management And Entrepreneurship Development\nBachelor of Computer Science (B.C.S.), Computer Science\n2019 - 2023\nRajarshi Shahu Mahavidyalaya Latur\nCGPA: 6.68/10\nSenior Secondary (XII), Maharashtra State Board Of Secondary And Higher Secondary Education\nScience\n2020\nShri Chatrapati Shahu Maharaj Sainiki Vidyalaya , Udgir, Latur.\nPercentage: 56.00%\nSecondary (X), Maharashtra State Board Of Secondary And Higher Secondary Education\n2018\nShri Kholeshwar Madhyamik Vidyalaya, Ambejogai , Beed\nPercentage: 77.40%\nTRAININGS / CERTIFICATIONS\nData Visualization\nMar 2025\nAnudip Foundation, Virtual\nhere i learnded about Data Visualization-1.\u00a0\nI passed the Exam with the A grade.\n\u00a0\nData Structure & Algorithms In Java For\nIntermediate Level\nMay 2024 - Jul 2024\nGreat Learning, Virtual\n1. Here i had completed Data Structure and Algorithums in Java\nfor Intermediate Level.\nPython\nOct 2023 - Dec 2023\nGreat Learning, Virtual\nHere i had completed my Python Certification in Online mode.\u00a0\nUnder the Great Learning Organization.\u00a0\nBig Data 101\nFeb 2023\nInfosys Springboard, Virtual\n1. Here i had Completed the certification of Big Data 101 under\nthe Infosys Springboard.\u00a0\nPage - 1/2\nOracle Sql\nFeb 2023\nInfosys Springboard, Virtual\n1. Here i had completed the certification of Oracle SQL under\nthe Infosys Springboard.\u00a0\nIntroduction To Machine Learning\nJan 2023 - Feb 2023\nInfosys Springboard, Virtual\nHere i had completed my Machine Learning Certification under\nthe Infosys Springboard.\u00a0\nAndroid Application Development\nAug 2020 - May 2023\nRajarshi Shahu Mahavidyalaya(Autonomous), Latur, Latur\n1. I completed this Certification under the guidence of my\nCollege Staff.\u00a0\n2. I had completed this certification under my college.\u00a0\n3. I passed these exams with O+ grade\nAndroid Operating System\nAug 2020 - May 2023\nRajarshi Shahu Mahavidyalaya(Autonomous), Latur, Latur\n1. I had completed this course under the guidence of my\ncollege staff.\n2. I passed the exam with O+ grade\nPROJECTS\nHealth Management System\nNov 2024 - Jan 2025\nI had created a Application using android and submitted it to my\ncollege as my mini project\nHostel Management System\nSep 2023 - Apr 2024\nMy Project title is Hostel Management System and i used PHP\nand MySQL for this and i submitted it in my college.\u00a0\nRandom Password Generator\nMar 2023 - Apr 2023\nI had created this project using Python and submitted it into my\ncollege as my mini project\u00a0\nSKILLS\n\u2022\u00a0 HTML\n\u2022\u00a0 CSS\n\u2022\u00a0 JavaScript\n\u2022\u00a0 Python\n\u2022\u00a0 Software Testing\n\u2022\u00a0 Artificial intelligence\n\u2022\u00a0 Machine Learning\n\u2022\u00a0 Internet of Things (IoT)\nEXTRA CURRICULAR ACTIVITIES\nNational Level Online Quiz Competition organized by Rajarshi Shahu Mahavidyalaya(Atonomous), Latur\nADDITIONAL DETAILS\nCompleted Some Courses and Certifications from Infosys Springbord. And I had complited a Certificate of Data Visualization under the\nAnudip Foundation and i have a A Grade in it.\nPage - 2/2\n",
+    "personal_info": {
+        "name": "Prathamesh Mahajan",
+        "email": "pratham3118@gmail.com",
+        "phone": "9730955647",
+        "linkedin": null,
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "clustering",
+        "regression",
+        "streamlit",
+        "seaborn",
+        "deep learning",
+        "tensorflow",
+        "statistics",
+        "matplotlib",
+        "flask",
+        "classification",
+        "scikit-learn",
+        "pandas",
+        "numpy",
+        "pytorch"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Data Scientist",
+                "confidence": 0.13,
+                "confidence_percent": "13%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.08,
+                "confidence_percent": "8%"
+            },
+            {
+                "title": "Software Desveloper",
+                "confidence": 0.08,
+                "confidence_percent": "8%"
+            }
+        ],
+        "job_title": "Data Scientist",
+        "skills": [
+            "sql",
+            "python",
+            "machine learning",
+            "artificial intelligence",
+            "mysql",
+            "iot",
+            "angular",
+            "data visualization",
+            "css",
+            "html",
+            "java",
+            "javascript"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": [
+            "Data Science with Python - https://www.coursera.org/specializations/data-science-python",
+            "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+            "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r"
+        ]
+    }
+}

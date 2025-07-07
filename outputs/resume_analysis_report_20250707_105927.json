@@ -1,0 +1,76 @@
+{
+    "raw_text": " \nProfessional Summary \nDedicated B.Pharm professional with expertise in medical coding, pharmacology, and \nhealthcare compliance. Proficient in ICD-10, CPT, and HCPCS coding with a strong \nunderstanding of medical terminologies, disease classification, and healthcare reimbursement \nprocesses. Skilled in clinical data abstraction, regulatory compliance, and documentation \naccuracy to ensure proper claim processing and minimize denials. Experienced in drug safety \nreporting, ADR monitoring, and case processing, contributing to efficient healthcare services.  \n \nEducation \nBachelor of Pharmacy (B.Pharm) \nBalaji College of Pharmacy, Ananthapuramu \nJawaharlal Nehru Technological University Anantapur (JNTUA) \nYear of Passing: 2024 | Percentage: 69% \nIntermediate \nSri Chaitanya Junior College \nBoard of Intermediate Education, A.P. \nYear of Passing: 2019 | Percentage: 89% \nSSC \nZ.P High School \nBoard of Secondary Education, A.P. \nYear of Passing: 2017 | Percentage: 80% \n \nCertifications & Training \n\uf0b7 Medical Coding Certificate from Solution 3X, Hyderabad (2024) \n\uf0b7 Certified Professional Coder (CPC) - Score: 74% \n\uf0b7 ID: 02303296 \n \n \nR. Ramesh \n \nPhone:   +91 9019520558    \nEmail:   ramesha7442@gmail.com \n   \n|  Linkdin: R Ramesh \n  \n   \n  \n  \n \nTechnical Skills \n\uf0b7 MS Office (Word, Excel, PowerPoint) \n\uf0b7 Medical Coding Software (Epic, Cerner, Meditech) \n \n \nStrengths \n\uf0b7 Strong medical terminology and anatomy knowledge \n\uf0b7 Expertise in ICD-10-CM and HCPCS Coding systems \n\uf0b7 Strong analytical skills in pharmaceutical and healthcare settings \n\uf0b7 Effective communication with healthcare professionals \n \n \nHobbies & Interests \n\uf0b7 Reading Books \n\uf0b7 Playing Cricket \n\uf0b7 Watching Movies \n \n \nPersonal Details \n\uf0b7 Father\u2019s Name: B Rajappa \n\uf0b7 Date of Birth: April 19, 2002 \n\uf0b7 Gender: Male \n\uf0b7 Nationality: Indian \n\uf0b7 Marital Status: Unmarried \n\uf0b7 Languages Known: English, Telugu (Fluent), Kannada and hindi \n\uf0b7 Address: CC Giri (v),madakasira(T),satya sai (dist),andhra Pradesh 515271 \n \n \n \n \nDeclaration \nI hereby declare that the information provided is true and accurate to the best of my knowledge. \nPlace:Bangalore                                                                                           \nDate:                                                                                                      Signature: R Ramesh \n \n",
+    "personal_info": {
+        "name": "Reading Books",
+        "email": "ramesha7442@gmail.com",
+        "phone": "9019520558",
+        "linkedin": null,
+        "github": null,
+        "location": "Hyderabad"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done."
+    ],
+    "ai_skill_suggestions": [
+        "medical records"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Medical Coder",
+                "confidence": 0.37,
+                "confidence_percent": "37%"
+            },
+            {
+                "title": "Pharmacist",
+                "confidence": 0.27,
+                "confidence_percent": "27%"
+            },
+            {
+                "title": "Clinical Pharmacy",
+                "confidence": 0.25,
+                "confidence_percent": "25%"
+            }
+        ],
+        "job_title": "Medical Coder",
+        "skills": [
+            "classification",
+            "excel",
+            "pharmacy",
+            "pharmaceutical",
+            "accuracy",
+            "compliance",
+            "claim",
+            "cpt",
+            "medical coding",
+            "communication",
+            "drug",
+            "safety",
+            "healthcare",
+            "training",
+            "healthcare compliance",
+            "pharmacology",
+            "documentation",
+            "hcpcs",
+            "icd-10"
+        ],
+        "preferred_location": "Hyderabad",
+        "recommended_courses": {
+            "Medical Coder": [
+                "Medical Coding Basics \u2013 Coursera"
+            ],
+            "Pharmacist": [
+                "Diploma in Pharmacy",
+                "B.Pharm",
+                "Pharmacy Technician Training - https://www.coursera.org/learn/pharmacy"
+            ],
+            "Clinical Pharmacy": [
+                "Clinical Pharmacy Practice \u2013 Coursera"
+            ]
+        }
+    }
+}

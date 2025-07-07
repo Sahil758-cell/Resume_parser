@@ -1,0 +1,42 @@
+{
+    "raw_text": "  ANIKET DHANGARE \n  Email -ID:  aniket.r.dhangare@gmail.com  | 7559362670    |    linkedin.com/in/aniket-dhangare \n\"Python and SQL developer skilled in AWS and DBMS, delivering efficient solutions while advancing technical capabilities.\" \n \nAcademic Projects \nLSTM-Based Spare Predictive Analytics for Short Cycling Inventory \u2013  \nInventory Management System  \n-\u200b\nDeveloped a web-based analytics platform using Flask (Python) and MySQL to streamline \nspare part management for showrooms through efficient data flow. \n-\u200b\nImplemented clustering logic to group vehicle service data by region, enabling precise \ndemand forecasting and reducing showroom stockouts by 20%. \n-\u200b\nDesigned an interactive dashboard with Bootstrap for visualizing showroom-level analytics, \nenhancing decision-making speed by 30%. \nPark-Insight \u2013 Automated Parking Services  \n-\u200b\nBuilt an intelligent system using license plate recognition and QR code scanning, automating \nvehicle entry/exit. \n-\u200b\nImproved parking spot allocation accuracy, reducing user wait times by 25%. \nExam Duty Exchange Portal \u2013 Invigilator Management System \n-\u200b\nEnhanced real-time communication between admin and invigilators, reducing scheduling \nconflicts. \n-\u200b\nDeveloped a web portal to automate teacher supervision duties, centralizing data and \nimproving coordination efficiency by 30%. \nHyperBus \u2013 Online Ticket Booking System \n-\u200b\nCreated a user-friendly platform that simplified the ticket booking process, eliminating \nredundant steps and improving user experience. \n-\u200b\nIntegrated export options using Python, improving data management efficiency by 15%. \nTechnical Skills \n Languages & Frameworks\u200b\n\u200b\nPython, Flask, Django, React, HTML/CSS, Bootstrap, MySQL, Computer Network, OS \nSoftware & Tools \n AWS, Docker, Git, Tableau, JIRA \nSoft Skills \n               Problem-Solving, Analytical Research, Adaptability,  Team Collaboration \n \nEducation \u200b\n\u200b\n\u200b\n\u200b\n\u200b\n\u200b\n\u200b\n\u200b\n \nPIMPRI CHINCHWAD COLLEGE OF ENGINEERING PUNE                                      CGPA:  7.66 \nMaster of computer Applications(2025) \n \nDY PATIL INTERNATIONAL UNIVERSITY AKURDI PUNE                                          CGPA: 7.49   \nBachelor of Computer Applications (2022) (Cloud Technology and Information Security)  \n  \nHEDA JUNIOR ENGINEERING COLLEGE WASHIM                             Percentage | 60.46%      \nXII (Higher Secondary Education) \u200b  \n \u200b\n \u200b\n \u200b\n  \n SHANTINIKETAN ENGLISH SCHOOL WASHIM \u200b\n  \u200b\n          Percentage | 84.60% \nX (Higher Secondary Education)   \n \n Position of Responsibility  (Coordinated activities from 2017 to 2021.) \n-\u200b\nEdited monthly articles for PCCOE College's Samvaad, boosting student engagement. \n-\u200b\nOrganized coding quizzes, virtual gaming events, and sports association activities, increasing \nstudent participation by 20%. \nAchievements and Certifications  (Hobbies) \n-\u200b\n Advanced React by Meta from Coursera. (May 2025) \n-\u200b\n 100 Days of code : Python Programming from Udemy.(Nov 2024) \n-\u200b\nCertified in Full-Stack Development. \n-\u200b\nworkshops on web development cloud technology AWS. \n-\u200b\nRepresented the 59th National School Games in Skipping; won 10+ sports certificates.(2014) \n \n  \n \n \n \n \n \n \n \n \n  \n",
+    "personal_info": {
+        "name": "Aniket Dhangare",
+        "email": "aniket.r.dhangare@gmail.com",
+        "phone": "7559362670",
+        "linkedin": "linkedin.com/in/aniket-dhangare",
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 100,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [],
+    "ai_skill_suggestions": [
+        "javascript",
+        "responsive design",
+        "node.js"
+    ],
+    "predicted_job_field": {
+        "job_title": "Web Developer",
+        "skills": [
+            "html",
+            "tableau",
+            "sql",
+            "cad",
+            "analytics",
+            "react",
+            "communication",
+            "python",
+            "tools",
+            "css",
+            "forecasting",
+            "accuracy"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": [
+            "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+            "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+            "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+        ]
+    }
+}

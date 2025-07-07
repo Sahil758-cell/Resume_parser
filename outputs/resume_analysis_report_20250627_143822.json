@@ -1,0 +1,43 @@
+{
+    "raw_text": " \n \n \n \nEducation \n  \nVishal Dubey \nThane, 400604, Maharashtra \n+91 9987391388  dubeyvishal917@gmail.com    linkedin.com/in/wishaldubey \n \nDilkap Research Institute of Engineering & Management \nJan 2021 \u2013 June 2025 \nBachelor of Engineering (B.E), Computer Science & Engineering \n \nMuchhala Polytechnic \nJan 2017 \u2013 June 2021 \nDiploma, Computer Science \nRelevant Coursework \n\u2022 Data Structures \n\u2022 Software Methodology \nExperience \n\u2022 Algorithms Analysis \n\u2022 Database Management \n\u2022 Artificial Intelligence \n\u2022 Internet Technology \n\u2022 Systems Programming \n\u2022 Computer Architecture \n \nMetaBullsMedia.com \n         Jan 2023 - Jan 2024 \nFull stack Developer Intern \nRemote \n\u2022 Worked with React.js, Node.js, and Express to develop scalable web applications. \n\u2022 Built and integrated RESTful APIs, worked with MySQL and PostgreSQL for relational databases, and improved backend \nperformance. \n\u2022 Collaborated with the development team on code reviews, testing, and debugging to ensure the delivery of high-quality, \nmaintainable code. \nVedant Soft Solutions Private Limited \nMay 2019 \u2013 August 2019 \nWeb Developer Intern \nMulund \n\u2022 Developed the company\u2019s website using HTML, CSS, PHP, and WordPress. \n\u2022 Learned and worked with Bootstrap for responsive design and familiarized myself with CRM software integration. \nProjects \nRoast2Story| Next JS, Firebase, Google Gemini \nJanuary 2025 \n\u2022 \nInspired by NGL.link, this platform allows users to anonymously roast their friends. \n\u2022 \nUses Google Gemini AI to generate even more brutal AI-generated roasts based on user submissions. \n\u2022 \nBuilt with Next.js for a seamless and dynamic user experience. \n\u2022 \nFirebase handles authentication, real-time database storage, and cloud functions. \nJavaScript Playground | JavaScript, React \n     January 2025 \n\u2022 \nA browser-based JavaScript execution environment where users can write, run, and test JavaScript code directly in their \nbrowser. \n\u2022 \nBuilt with React for a responsive UI. \n\u2022 \nSupports code evaluation, syntax highlighting, and error detection in real time \nSingle/Multiplayer Location guessing game |  Next.js, Web Sockets, MongoDB, Google Maps API \nMay 2024 \n\u2022 \nA browser-based JavaScript execution environment where users can write, run, and test JavaScript code directly in their \nbrowser. \n\u2022 \nBuilt with React for a responsive UI. \n\u2022 \nSupports code evaluation, syntax highlighting, and error detection in real time \nTechnical Skills \nLanguages: Python, Java, C, JavaScript, SQL, PHP \nFull Stack Technologies: React.js, AngularJS, HTML, CSS, Bootstrap, Tailwind, Node.js, Express, Python \nDatabases: MongoDB, MySQL, supabase, Firebase \ngithub.com/wishaldubey \nTools & Platforms: Git, GitHub, Jenkins, Google Cloud Platform, Firebase, Eclipse, Android Studio \nOther Technologies: WebRTC, Socket.io, WordPress, Unity Engine \nCertifications \n\u2022 \nCompleted Udemy courses in C++, Front-end Web Development (Ultimate Guide) \n\u2022 \nLearned AngularJS, Node.js, ReactJS, Python, and MySQL through various projects and coursework \n \nAccomplishments \n\u2022 \nQualified Google Hash Code 2022 with 1709765 points. \n\u2022 \nRanked #3 in the GFG institute-level DSA leaderboard. \n \n \n \n \n",
+    "personal_info": {
+        "name": "Vishal Dubey",
+        "email": "dubeyvishal917@gmail.com",
+        "phone": "9987391388",
+        "linkedin": "linkedin.com/in/wishaldubey",
+        "github": "github.com/wishaldubey",
+        "location": "Thane"
+    },
+    "resume_score": 80,
+    "education_summary": "PG/Dr: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI)/HSC: Yes, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention your Secondary School (10th) education."
+    ],
+    "ai_skill_suggestions": [],
+    "predicted_job_field": {
+        "job_title": "Web Developer",
+        "skills": [
+            "javascript",
+            "react",
+            "crm",
+            "lighting",
+            "responsive design",
+            "tools",
+            "android studio",
+            "sql",
+            "restful apis",
+            "css",
+            "html",
+            "java",
+            "python",
+            "node.js"
+        ],
+        "preferred_location": "Thane",
+        "recommended_courses": [
+            "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+            "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+            "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+        ]
+    }
+}

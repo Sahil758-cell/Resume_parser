@@ -1,0 +1,77 @@
+{
+    "raw_text": " \nYAPAMANU KALYANI \nEmail: yapamanukalyani@gmail.com \nMobile: 7075758608 \nHyderabad \n \n \n \n \n \n CAREER OBJECTIVE \n \nTo work in a Global class Environment that gives me an opportunity to learn new things to face \nstimulating challenges. To put my skills to the best use of the organization that is taking care of my career. \n ACADEMIC \n \n \nCourse \nInstitution \nYear of \nPassing \nScore \nM.Sc \n(Computer Science) \nRayalaseema University, \nKurnool \n2022-2024 \n7.5 \nB.Sc \n(M.P.Cs) \n \nSri Ramakrishna Degree (autonomous) \nCollege, Nandyal \n2019-2022 \n8.78 \n12TH \nRao's Junior College, \nNandyal \n2017-2019 \n9.32 \n10TH \nZ.P.High School, \nGorukallu \n2016-2017 \n8.5 \n PROFESSIONAL TRAINING: \n \n\u2756 SOFTWARE DEVELOPMENT \n SKILLS \n \n \n\uf0dc Core Java: \n\u27a2 Good knowledge in basics of JAVA and OOPs concept \n\u27a2 Good knowledge in features of java and tokens. \n\u27a2 Familiar with data types and variables and it\u2019s classification. \n\u27a2 Good understanding on operators, conditional statements. \n\u27a2 Good in methods, method overloading, method overriding, static, non-static. \n\u27a2 Good knowledge in constructor, constructor overloading, this(), super(). \n\u27a2 Good in non-primitive type casting . \n\u27a2 Good Knowledge in Exception\n\uf0dc SQL: \n\u27a2 Good knowledge in writing SQL queries. \n\u27a2 Good knowledge in DQL. \n\u2022 \nProjection, selection, joins. \n\u2022 \nSelect, group by, order by, having. \n\u2022 \nSingle row function, multi row function. \n\u27a2 Sub-quarry & co-related sub-quarry. \n\u27a2 Good knowledge in DDL, DML, DCL, TCL. \n\u27a2 Practiced extensively on oracle 11g database. \n \n\uf0dcWeb Technology: \n \n\u27a2 Good knowledge in HTML. \n\u2022 \nTags,Formatting tags. \n\u2022 \nDiv&Span, Lists. \n\u2022 \nTables,Forms. \n\u2022 \nSemantic Tags. \n\u27a2 Good Knowledge in CSS. \n\u2022 \nTextProperty. \n\u2022 \nBackground. \n\u2022 \nBox Model,Flex Model. \n\u2022 \nPosition. \n\u27a2 Good in JavaScript. \n\u2022 \nType Casting,Variables. \n\u2022 \nType of Operator. \n\u2022 \nFunction,Dom. \n\u2022 \nString,ArrayMethods. \n\u27a2 Good Understanding in Bootstrap. \n \n \n ACADEMIC PROJECT \n \nProject name: predicting stroke risk: machine learning approach for early detection \nKEY STRENGTH \n \n\u27a2 Ability to work with speed and learn quickly. \n\u27a2 Positive approach to work with integrity. \n\u27a2 Self-motivated and disciplined \n PERSONAL PROFILE \n \n \nName \n: Y. KALYANI \nDate of Birth \n: 08-12-2001 \nFather\u2019s name \n: Y. Pedda Venkataswamy \nMother name \n: Y.Ussainamma \nNationality \n: Indian. \nLanguages Known \n:English, Telugu. \nCurrent Address \n: Punjagutta,  Hyderabad . \n \nI hereby declare that the above written particulars are true to the best of \nmy knowledge and belief. References will be provided on requirements. \nPlace: Hyderabad \nDate: 31-08-2024 \n(YAPAMANU KALYANI) \n",
+    "personal_info": {
+        "name": "Y. Kalyani",
+        "email": "yapamanukalyani@gmail.com",
+        "phone": "7075758608",
+        "linkedin": null,
+        "github": null,
+        "location": "Hyderabad"
+    },
+    "resume_score": 45,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): No, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add your Bachelor's degree qualification.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "oop",
+        "object-oriented programming",
+        "debugging",
+        "c#",
+        "api development",
+        "project planning",
+        "desktop applications",
+        "python"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Software Desveloper",
+                "confidence": 0.05,
+                "confidence_percent": "5%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.02,
+                "confidence_percent": "2%"
+            }
+        ],
+        "job_title": "Software Desveloper",
+        "skills": [
+            "training",
+            "css",
+            "writing",
+            "machine learning",
+            "java",
+            "javascript",
+            "classification",
+            "html",
+            "sql"
+        ],
+        "preferred_location": "Hyderabad",
+        "recommended_courses": {
+            "Software Desveloper": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ],
+            "Web Developer": [
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+            ]
+        }
+    }
+}

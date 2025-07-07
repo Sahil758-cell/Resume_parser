@@ -1,0 +1,72 @@
+{
+    "raw_text": "Ankit Thakur\nA Mobile Application developer with specialization in Flutter and Dart. Creates Cross platform Application for \nAndroid and ios. \nankitsthakur171@gmail.com\n7400450001\nMumbai, India\nAnkitsthakur171\nankit-thakur-018881290\nWORK EXPERIENCE\nEdu.Intern\nFlutter Developer Intern\njune 2024 - august 2024\nCollaborated with senior developers to develop and deploy 2 Flutter apps, receiving positive feedback from \nclients and achieving a 25% reduction in project timelines.\nEDUCATION\nS.S English High School of Mumbai\nB. sc Science    - 8.25\nB.k Birla College of Kalyan\nBoostmySites\nFlutter Application Developer  - A+\nJan 2024 - Sept 2024\n\u2022\u00a0Developed expertise in Application development from BoostMySites, specializing in Flutter and Dart.\n\u2022\u00a0Cross-platform Application developer with strong understanding of curriculum.\nPROJECTS\nName : Social E-com App\nMarch 2024 - August 2024\nDescription : Developed a social e-commerce platform for sneakers and fashion items, leveraging Sopsy's \ninfrastructure.\nConceived a unique online marketplace integrating social media and e-commerce, offering curated fashion \nproducts.\nRoles and Responsibility : UI Development, Firebase/Firestore setup, Backend connectivity, Razaor-pay \nIntegration.\nTechniques : Flutter, Dart, State management (Setstate, provider ), Razorpay, Firebase hosting, Firebase Auth, \nJson etc.\nName : Meals Grid Recipes\nSept 2024 - Dec 2024\nDescription : Comprehensive multi-screen app for meals of all categories  and calories with engaging UI.\nInnovative Flutter-based app with meals integrated along with their recipes', divided into categories and \ncomplexity levels.\nRoles and Responsibility : Complete Application development. testing and debugging.\nTechniques :  Flutter, Dart, State management (Setstate, provider), Navigations Through multi-Screen \napplication, \nName : Expense Tracker \nJan 2025\nDescription :  Tracking Your daily Expense's and forming it into a chart, for easier assessment of your expenses.\nDynamic chart view changes according to expenses added ,With a Lean and Attractive UI.\nRoles and Responsibility : Complete application development, testing and Debugging.\nTechniques : Flutter, Dart, State management (Setstate, provider), Navigations Through multi-Screen application, \nsq\ufb02ite , path, Maps and charts for chart development.\nSKILLS\n\u2022 Flutter development.\n\u2022 Dart \n\u2022 Expertise in Cross Platform Application Development.\n\u2022 Experience with CI/CD pipelines.\n\u2022 Pro\ufb01cient in Firebase and Firestore database solutions.\n\u2022 REST API\n\u2022 Java\n\u2022 Familiarity with Android SDK and its features.\n\u2022 Skilled in debugging.\n\u2022 Pro\ufb01cient in Git and GitHub version control systems.\n\u2022 Understanding of Flutter State Management using Provider and Bloc.\n\u2022 Effective public speaking and presentation skills.\n\u2022 Demonstrated leadership skills in various projects and teams.\nCERTIFICATE\nFlutter developer \nAccenture SDE Simulation \nLANGUAGE\nEnglish Advance (Read & write)\nHindi Advance (Read & write)\nMarathi pro\ufb01cient (Read & write)\n",
+    "personal_info": {
+        "name": "Ankit Thakur",
+        "email": "ankitsthakur171@gmail.com",
+        "phone": "7400450001",
+        "linkedin": null,
+        "github": null,
+        "location": "Mumbai"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education."
+    ],
+    "ai_skill_suggestions": [],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Flutter Developer",
+                "confidence": 0.27,
+                "confidence_percent": "27%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.06,
+                "confidence_percent": "6%"
+            },
+            {
+                "title": "Android Developer",
+                "confidence": 0.04,
+                "confidence_percent": "4%"
+            }
+        ],
+        "job_title": "Flutter Developer",
+        "skills": [
+            "cross-platform",
+            "rest api",
+            "recipes",
+            "features",
+            "git",
+            "android sdk",
+            "ios",
+            "api",
+            "android",
+            "backend",
+            "dart",
+            "java",
+            "firebase",
+            "flutter",
+            "social media"
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": {
+            "Flutter Developer": [
+                "Firebase Essentials",
+                "Flutter App Dev with Dart"
+            ],
+            "Web Developer": [
+                "HTML/CSS",
+                "Flask",
+                "JavaScript"
+            ],
+            "Android Developer": [
+                "Data Structures",
+                "Algorithms",
+                "System Design"
+            ]
+        }
+    }
+}

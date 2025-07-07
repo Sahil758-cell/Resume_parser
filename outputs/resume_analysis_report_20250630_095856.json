@@ -1,0 +1,39 @@
+{
+    "raw_text": "Sahil Surendra Deshmukh\nsahidesh02@gmail.com\n \n9766545836\n \nThane\n \nlinkedin.com/in/sahil-deshmukh-298a60187\n \ngithub.com/Sahil758-cell\n \nProfile\nA passionate and driven Computer Engineering graduate (final exam completed, results awaited) with \nstrong programming expertise and a solid foundation in Data Science, Artificial intelligence , \nMachine Learning, and Software Development. Skilled in Python, C#, and Java with hands-on project \nexperience in real-world systems such as a \"Face and Iris-Based Attendance System using Python\" and \na \"Salon Management System in C#\". Certified in Core Java, Advanced Python, and Data Visualization. \nKnown for analytical thinking, leadership as an NSS leader, and a commitment to building efficient, \nuser-focused software solutions.\nEducation\nK.E.S English Medium School , Karjat\nSSC 10th\nMar\u00a02018\nKarjat Raigad, India\nA. J Mandir Junior College\nHSC 12th\nMar\u00a02018 \u2013 Feb\u00a02020\nKarjat- Raigad, India\nG.V Acharya Polytechnic , Shelu\nDiploma In Computer Engineering\nFeb\u00a02020 \u2013 Jun\u00a02022\nShelu-Mumbai, India\nG.V Acharya Institute of Engineering and Technology under Mumbai \nUniversity\nB.E in Computer Engineering\nFeb\u00a02022 \u2013 May\u00a02025\nShelu - Raigad, India\nSkills\nAI&ML\n\u2022Programming: Python (NumPy, Pandas, \nScikit-learn, TensorFlow, PyTorch)\n\u2022ML Algorithms: Regression, Decision Trees,\n     Random Forests, SVM, K-Means, Gradient\n     Boosting (XGBoost)\n\u2022Data Preprocessing: Feature engineering,\n     handling missing data\n\u2022Model Deployment: Flask, Streamlit\n\u2022Visualization: pandas,Matplotlib, Seaborn, \nPlotly\nSoft Skills\n\u2022Leadership and Team Management (NSS \nLeader)\n\u2022Analytical Thinking and Problem-Solving\n\u2022Project Planning and Execution\n\u2022Effective Communication\nProgramming Languages\n\u2022Python\n\u2022C#\n\u2022Java\n\u2022HTML and PHP\nIOT\n\u2022IoT Architecture \u2013 System components \nunderstanding\n\u2022Sensor Integration \u2013 Connecting physical \nsensors\n\u2022Actuator Control \u2013 Controlling mechanical \npart\n\u2022Data Encryption \u2013 Secure communication\n\u2022Authentication \u2013 User/device verification\nCertificates\nCore Java \u2013 Internshala\nUdemy Basic to Advance Python\nAnudip Data Visualization-1\nProjects\nFace and Iris Based Attendence System\nbased on Deep Learning\nDesigned and developed a desktop-based application in Python to automate attendance tracking \nusing facial and iris recognition. The system employs advanced image processing and machine \nlearning algorithms for precise identification and verification. Features include real-time data \ncapture, secure storage, and detailed reporting. This project showcases expertise in Python \nprogramming, computer vision (OpenCV), and biometric authentication systems, providing a \nreliable and efficient solution for attendance management.\nSalon Management System\nSystem Based Application\nDeveloped a desktop-based application using C# to streamline salon operations, including \ncustomer management, appointment scheduling, service tracking, and billing. Designed an intuitive \nuser interface for seamless navigation and integrated backend support for efficient data handling. \nThe system enhanced operational efficiency, improved customer experience, and demonstrated \nproficiency in object-oriented programming and desktop application development.\nIoT-Based Gas Leakage Detector\nAs part of my college mini project, I developed an IoT-based gas leakage detection system that uses \nan MQ6 gas sensor and an Arduino microcontroller to monitor the presence of LPG gas in the \nsurrounding environment. The system was designed to detect leaks in real time and alert users, \nhelping to prevent hazards such as explosions and health risks. A simple Java-based frontend was \nused for user interaction, while the backend logic and data handling were managed through \nArduino. This project demonstrates practical skills in embedded systems, sensor integration, and \nsafety automation, with applications in home safety, industrial gas pipelines, and CNG automobile \nsystems. It is also scalable for future integration into smart homes and IoT-enabled environments.\n",
+    "personal_info": {
+        "name": "Sahil Surendra Deshmukh",
+        "email": "sahidesh02@gmail.com",
+        "phone": "9766545836",
+        "linkedin": "linkedin.com/in/sahil-deshmukh-298a60187",
+        "github": "github.com/Sahil758-cell",
+        "location": "Thane"
+    },
+    "resume_score": 100,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [],
+    "ai_skill_suggestions": [],
+    "predicted_job_field": {
+        "job_title": "No matching job found in knowledge base.",
+        "skills": [
+            "html",
+            "communication",
+            "java",
+            "data preprocessing",
+            "flask",
+            "computer vision",
+            "data visualization",
+            "pytorch",
+            "machine learning",
+            "pandas",
+            "python",
+            "opencv",
+            "safety",
+            "streamlit",
+            "tensorflow",
+            "deep learning",
+            "numpy"
+        ],
+        "preferred_location": "Thane",
+        "recommended_courses": []
+    }
+}

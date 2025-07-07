@@ -1,0 +1,43 @@
+{
+    "raw_text": "FIRST LAST\nBay Area, California \u2022 +1-234-456-789 \u2022 professionalemail@resumeworded.com \u2022 linkedin.com/in/username\nPROFESSIONAL EXPERIENCE\nResume Worded, New York, NY\nJun 2018 \u2013 Present\nQA Manual Tester\n\u25cf\nEnabled critical test case complexity metrics with support for Rapid adoption of functional automation using\na scriptless test case adaptor by standardizing a Test Case construction method that was built\nAutomation-ready & supported a test automation framework leading to a 45% increase in reusability with\nreductions in TCO approaching 25%.\n\u25cf\nOptimized scripting, modularity, & maintenance which resulted in an 18% decrease in workflow friction.\n\u25cf\nIncreased the company\u2019s ability to take and complete projects without increasing manpower by 15% by\nreducing QA testing turnaround time by 30%.\nGrowthsi, New York, NY\nJan 2015 \u2013 May 2018\nQA Manual Tester\n\u25cf\nRestructured utilities & improved the process documentation leading to a 40% reduction in client support\ntickets & an 80% increase in uptime.\n\u25cf\nAchieved department-wide improvement metrics based on QA scorecard through the 46% & 22% workload\nreduction of the customer support & IT departments respectively.\n\u25cf\nStandardized Test Plan, Test Scripts/Test Cases, Daily Status Reports, etc., documents leading to a 20%\nincrease in productivity.\n\u25cf\nEstablished monthly sprint backlog items as well as performed agile meetings while updating the activities in\nMicrosoft TFS in an optimized manner which resulted in saving 10 hours of monthly lost time.\nRW Capital, San Diego, CA\nMay 2008 \u2013 Dec 2014\nQA Manual Tester (Nov 2011 \u2013 Dec 2014)\n\u25cf\nOptimized the build process by increasing the system\u2019s quality level and reducing 45% of defects found.\n\u25cf\nEstablished proper team communication that identified, triaged, reproduced, & fixed found issues using JIRA\nincreasing the overall workflow by 25%.\nJunior QA Manual Tester (May 2010 \u2013 Oct 2011)\n\u25cf\nWrote & optimized test scripts in towels which led to a 9% reduction in the overall testing hours.\n\u25cf\nCreated traceability matrix to fill in the gap between requirements and tests covered contributing to the 10%\nincrease in test case count.\nEDUCATION\nResume Worded University, San Francisco, CA\nMay 2010\nBSc. Computer Science\nSKILLS\n\u25cfTest Automation\nFrameworks\n\u25cfJava\n\u25cfJavascript\n\u25cf\nMicrosoft TFS\n\u25cf\nCharlesProxy\n\u25cf\nSQL/NoSQL\n\u25cf\nSelenium/Webdriver\n\u25cf\nTestNG\n\u25cf\nJIRA\n\u25cf\nJenkins\n\u25cf\nAgile\n\u25cf\nSource Versioning\n\u25cf\nJUnit\n\u25cf\nScrum\n\u25cf\n\u2026\n",
+    "personal_info": {
+        "name": "First Last",
+        "email": "professionalemail@resumeworded.com",
+        "phone": null,
+        "linkedin": "linkedin.com/in/username",
+        "github": null,
+        "location": "California"
+    },
+    "resume_score": 35,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Include missing personal information: Phone.",
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "crm",
+        "ticketing systems",
+        "empathy"
+    ],
+    "predicted_job_field": {
+        "job_title": "Customer Support",
+        "skills": [
+            "sql",
+            "communication",
+            "java",
+            "javascript",
+            "nosql"
+        ],
+        "preferred_location": "California",
+        "recommended_courses": [
+            "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service",
+            "Call Center Training - https://www.udemy.com/course/call-center-training",
+            "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations"
+        ]
+    }
+}

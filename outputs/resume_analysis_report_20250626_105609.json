@@ -1,0 +1,48 @@
+{
+    "raw_text": "Sahil Surendra Deshmukh\nsahidesh02@gmail.com\n \n9766545836\n \nThane\n \nlinkedin.com/in/sahil-deshmukh-298a60187\n \ngithub.com/Sahil758-cell\n \nProfile\nI am a highly motivated and detail-oriented Data Science Engineer with a strong foundation in \nprogramming, machine learning, and data analytics. Equipped with a solid academic background in \nComputer Engineering and hands-on experience in Python for Data Science, I have successfully \napplied my expertise to real-world projects such as 'Face and Iris-Based Attendance System.' My \nproficiency in tools like Python, Hadoop, and relational databases, combined with my ability to \nextract actionable insights from complex datasets, positions me as a versatile professional ready to \nsolve challenging problems.\nEducation\nG.V Acharya Institute of Engineering and Technology under Mumbai \nUniversity\nB.E in Computer Engineering\nShelu - Raigad, India\nSkills\nMachine Learning\nMachine Learning\n\u2022Programming: Python (NumPy, Pandas, \nScikit-\nlearn, TensorFlow, PyTorch)\n\u2022ML Algorithms: Regression, Decision Trees,\nRandom Forests, SVM, K-Means, Gradient\nBoosting (XGBoost)\n\u2022Data Preprocessing: Feature engineering,\nhandling missing data\n\u2022Model Deployment: Flask, Streamlit\n\u2022Visualization: pandas,Matplotlib, Seaborn, \nPlotly\nSoft Skills\n\u2022Leadership and Team Management (NSS \nLeader)\n\u2022Analytical Thinking and Problem-Solving\n\u2022Project Planning and Execution\n\u2022Effective Communication\nProgramming Languages\n\u2022Python\n\u2022c#\n\u2022Java\n\u2022HTML and PHP\nCertificates\nIntershala Core java\nUdemy Basic to Advance Python\nProjects\nFace and Iris Based Attendence System\nbased on Deep Learning\nDesigned and developed a desktop-based application in Python to automate attendance tracking \nusing facial and iris recognition. The system employs advanced image processing and machine \nlearning algorithms for precise identification and verification. Features include real-time data \ncapture, secure storage, and detailed reporting. This project showcases expertise in Python \nprogramming, computer vision (OpenCV), and biometric authentication systems, providing a \nreliable and efficient solution for attendance management.\nSalon Management System\nSystem Based Application\nDeveloped a desktop-based application using C# to streamline salon operations, including \ncustomer management, appointment scheduling, service tracking, and billing. Designed an intuitive \nuser interface for seamless navigation and integrated backend support for efficient data handling. \nThe system enhanced operational efficiency, improved customer experience, and demonstrated \nproficiency in object-oriented programming and desktop application development.\n",
+    "personal_info": {
+        "name": "Sahil Surendra Deshmukh",
+        "email": "sahidesh02@gmail.com",
+        "phone": "9766545836",
+        "linkedin": "linkedin.com/in/sahil-deshmukh-298a60187",
+        "github": "github.com/Sahil758-cell",
+        "location": "Thane"
+    },
+    "resume_score": 65,
+    "education_summary": "PG/Dr: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI)/HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Mention any internships or trainee roles you've done."
+    ],
+    "ai_skill_suggestions": [
+        "data visualization",
+        "statistics"
+    ],
+    "predicted_job_field": {
+        "job_title": "Data Scientist",
+        "skills": [
+            "deep learning",
+            "python",
+            "numpy",
+            "pandas",
+            "mba",
+            "communication",
+            "html",
+            "analytics",
+            "tools",
+            "tensorflow",
+            "pytorch",
+            "machine learning",
+            "cad",
+            "java"
+        ],
+        "preferred_location": "Thane",
+        "recommended_courses": [
+            "Data Science with Python - https://www.coursera.org/specializations/data-science-python",
+            "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+            "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r"
+        ]
+    }
+}

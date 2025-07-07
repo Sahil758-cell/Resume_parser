@@ -1,0 +1,77 @@
+{
+    "raw_text": "SAMARTH MURLIDHAR JAGAKAR\n9833431924 | samarthjagakar2001@gmail.com\n\u00ef samarth-jagakar | \u00a7 Samarth0809 | \u008a SamarthJagakar\nDombivli, Maharashtra - 421202, India\nOBJECTIVE\nAspiring Java Full Stack Developer with a solid foundation in Java, Spring Boot, HTML, CSS, JavaScript, and SQL.\nSeeking to contribute to dynamic development teams by building scalable, responsive web applications.\nPassionate about developing end-to-end solutions, integrating robust backend services with intuitive front-end\ninterfaces to enhance user experience and deliver business value.\nINTERNSHIP\n\u2022 Techiolaza Innovations\nDecember 2024 \u2013 Present\nJava Developer & Flutter Developer\nThane, India\n\u25e6Helpinn: Designed and developed a cross-platform mobile application for hotel search, booking, and profile\nmanagement using Flutter and Dart.\n\u25e6Implemented real-time hotel search, wishlist management, booking flows, and user profile features, integrating\nRESTful APIs and Firebase for authentication and data management.\nPROJECTS\n\u2022 NGO Website for Chetna Foundation\nDecember 2024\nTools: HTML, CSS, JavaScript, Spring Boot, Razorpay Integration\n\u00a7\n\u25e6Designed and developed a responsive and dynamic website for the Chetna Foundation NGO to enhance outreach\nand engagement.\n\u25e6Implemented functional modules including an event gallery, volunteer registration, and contact forms.\n\u25e6Integrated Razorpay payment gateway for seamless and secure donation processing.\nEDUCATION\n\u2022 University of Mumbai\nJune 2020 \u2013 July 2024\nBachelor\u2019s Degree in Computer Science (AIML)\nThane, India\n\u25e6CGPA: 6.94\nPercentage: 62.32%\n\u2022 K.V. Pendharkar College\n2018 \u2013 2020\nHigher Secondary Education (HSC)\nDombivli, India\n\u2022 K.N.T. Public School\nUntil 2018\nSecondary Education (SSC)\nTitwala, India\nCERTIFICATIONS\n\u2022 JSPIDER, Thane : Java Full Stack Development Course\n2024\nCovered: Core Java, JDBC, Servlet, JSP, Spring, Spring Boot, Spring MVC, Hibernate, REST APIs, Microservices,\nSQL/PLSQL, Web Services, HTML, CSS, JavaScript. Hands-on projects, problem solving, and real-time application\ndevelopment.\n\u2022 Udemy: The complete GSAP; HTML, CSS, Javascript\n2023\nPATENTS AND PUBLICATIONS\nC=CONFERENCE, J=JOURNAL, P=PATENT, S=IN SUBMISSION, T=THESIS\n[C.1]\nSamarth Jagakar, et al. (2024). OpenCv based virtual interactive whiteboard. In 11th International Conference\non Microelectronics, Circuits, and Systems, pp. 17 May 2024, Location. DOI: VDC0E4SM/MICRO-2024/001\nSKILLS\n\u2022 Programming Languages:Java, Kotlin\n\u2022 Web Technologies:HTML, CSS, JavaScript, jQuery, Responsive Web Design, Cross-Browser Compatibility\n\u2022 Framework:Spring Boot, Spring MVC, Hibernate, JPA, Microservices, API Integrations\n\u2022 Database Systems:PostgreSQL, MySQL, Firebase Realtime Database\n\u2022 Cloud Platform:Firebase, AWS, Google Cloud Platform\n\u2022 DevOps & Version Control Tools:Git, GitHub, Docker, Postman, Swagger, Android Studio, Eclipse, Visual Studio\nCode, PgAdmin, Spring Tool Suite (STS), Struts 2\n\u2022 Research Skills:Problem-Solving, Debugging, Data Analysis, Report Writing, Critical Thinking, Literature\nReview\nAvailable to work in rotational shifts as required.\n",
+    "personal_info": {
+        "name": "Samarth Murlidhar Jagakar",
+        "email": "samarthjagakar2001@gmail.com",
+        "phone": "9833431924",
+        "linkedin": null,
+        "github": null,
+        "location": "Thane"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education."
+    ],
+    "ai_skill_suggestions": [
+        "responsive design",
+        "node.js",
+        "react"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.17,
+                "confidence_percent": "17%"
+            },
+            {
+                "title": "Full Stack Developer",
+                "confidence": 0.13,
+                "confidence_percent": "13%"
+            },
+            {
+                "title": "Software Desveloper",
+                "confidence": 0.1,
+                "confidence_percent": "10%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "sql",
+            "research",
+            "android studio",
+            "kotlin",
+            "postman",
+            "writing",
+            "java",
+            "mysql",
+            "tools",
+            "html",
+            "git",
+            "javascript",
+            "opencv",
+            "debugging",
+            "backend",
+            "data analysis",
+            "full stack",
+            "css"
+        ],
+        "preferred_location": "Thane",
+        "recommended_courses": {
+            "Web Developer": [
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+            ],
+            "Full Stack Developer": [
+                "Full-Stack Web Development with React - https://www.coursera.org/specializations/full-stack-react"
+            ],
+            "Software Desveloper": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ]
+        }
+    }
+}

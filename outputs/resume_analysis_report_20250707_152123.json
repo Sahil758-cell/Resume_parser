@@ -1,0 +1,72 @@
+{
+    "raw_text": "Prajwal Gaikwad\nPhone: +91 9284747711\nLocation: Nashik, Maharashtra\nEmail: gaikwadprajwal18@gmail.com\nLinkedIn: linkedin.com/in/prajwal-gaikwad-23a616256\nOBJECTIVE\nMotivated and detail-oriented Computer Engineering graduate with a strong foundation in programming, data\nhandling, and cybersecurity. Seeking an entry-level role in the IT industry to apply my technical skills, con-\ntribute to impactful projects, and continuously grow in a collaborative and innovative environment.\nEDUCATION\nComputer Engineering, Sanghavi College Of Engineering, Nashik\n2025\nHSC, MET BKC Bhujbal Academy of Science and Commerce, Nashik\n2021\nSSC, Jawahar Navodaya Vidyalaya Kagal, Kolhapur (JNV Kolhapur)\n2019\nSKILLS\n\u2022 Programming Languages: C, C++, Python (Basic), MySQL.\n\u2022 CS Basics: Data Structures and Algorithms, Oops, Cloud Computing (Basics), DBMS.\n\u2022 Cyber-security: Penetration testing, Fundamentals of Cybersecurity, Kali Linux, and Bug Bounty.\n\u2022 Soft Skills: Problem-solving, Teamwork, Attention to Detail, Fast Learner with Adaptability.\n\u2022 Development: Html, CSS, Python Flask and Frameworks.\nEXPERIENCE\nIntern\nDec 2023 - Jan 2024\nNetLeap\nNashik, Maharashtra\n\u2022 Achieved hands-on experience in designing, developing, and maintaining web applications.\n\u2022 Strengthened skills in various web technologies including HTML, CSS, and popular frameworks.\n\u2022 Built a web-based internship project on an Online Food Ordering System.\nIntern\nNov 2022 - Oct 2023\nAlancesec pvt.ltd\nSangamner, Maharashtra\n\u2022 Performed Network Vulnerability Assessment and Penetration Testing (VAPT).\n\u2022 Carried out scans of the client\u2019s network to identify open ports that could be exploited by external traffic.\n\u2022 Analyzing the potential vulnerabilities associated with these open ports and Implementing measures to\nsecure these ports.\nPROJECTS\nFake Social Media Account Detection - Group project\nWeb Application for the detection of fake social media account.\nSkills : Python, Web Scraping, ML.\nGovernment Educational Search Policy\nDeveloped an intelligent search platform to help users find relevant government educational policies based on\npersonalized filters like caste, income, gender, and education level.\nOnline Food Ordering System - Group Project\nDeveloped a web-based food ordering platform enabling users to browse menus, place orders, and manage carts.\nRole: Built web application with HTML/CSS for the frontend and MySQL for robust backend order and data\nmanagement.\n",
+    "personal_info": {
+        "name": "Prajwal Gaikwad",
+        "email": "gaikwadprajwal18@gmail.com",
+        "phone": "9284747711",
+        "linkedin": "linkedin.com/in/prajwal-gaikwad-23a616256",
+        "github": null,
+        "location": "Nashik"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "javascript",
+        "web development"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.19,
+                "confidence_percent": "19%"
+            },
+            {
+                "title": "Cybersecurity Analyst",
+                "confidence": 0.13,
+                "confidence_percent": "13%"
+            },
+            {
+                "title": "Python Developer",
+                "confidence": 0.07,
+                "confidence_percent": "7%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "python",
+            "backend",
+            "flask",
+            "kali linux",
+            "mysql",
+            "penetration testing",
+            "vapt",
+            "frontend",
+            "css",
+            "scans",
+            "html",
+            "social media",
+            "ports"
+        ],
+        "preferred_location": "Nashik",
+        "recommended_courses": {
+            "Web Developer": [
+                "HTML/CSS",
+                "Flask",
+                "JavaScript"
+            ],
+            "Cybersecurity Analyst": [
+                "Kali Linux, Wireshark\",\"Penetration Testing",
+                "Network Security"
+            ],
+            "Python Developer": [
+                "Flask API",
+                "Python Scripting"
+            ]
+        }
+    }
+}

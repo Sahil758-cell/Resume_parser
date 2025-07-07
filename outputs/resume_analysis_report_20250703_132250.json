@@ -1,0 +1,71 @@
+{
+    "raw_text": "CONTACT ME\nPROJECT\nL/57,Jawahar Nagar , Ratlam (M.P)\n9753161052\n@reallygreatsite\nkusahgraojha111@gmail.com\nSTRENGTH\nLeadership Quality\nObservation and Quick Learner \nConvensing Power\nEDUCATION\nREFERENCES\nKUSHAGRA\nO J H A\n F R E S H E R\n2021-2023\n2018-2021\nJuly,2nd 2000\nMBA(Master of Business Administration)\nDAVV , Indore\nPERCENTAGE-64(1st Semester)\nMBA(Master of Business Administration)\nDAVV , Indore\nPERCENTAGE-65(2st Semester)\nBBA(Bachelor of Business Administration)\nVikram University,Ujjain\nPERCENTAGE-69\nHigher Secondary\nSant Meera School , Ratlam\nPERCENTAGE-59\n Secondary\nSant Meera School , Ratlam\nPERCENTAGE-55\n2017-2018\n2015-2016\nSKILLS\nInterpersonal Communication Skills\nHighly Motivated\nMS Excel\nProject Management\nMS Word\nPower Point\nCERTIFICATES\nOffice Automation and Financial Accounting\nDiploma in Computer Application(DSA)\nAttending Motivational Seminar and Workshop\nSolar bottle lamp\nMajor Research Project on JioMart vs BigBasket\nEntrepreneurial startup project made by waste\nplastic bottles, water cleaner, small LED bulb and a\nsmall solar panel at top . Made to provide light to all\nsections of society at lowest cost .\nIt was an analytical study on consumer preference\ntoward \nJioMart vs. BigBasket \n(with reference to Indore city). The research project\nwas conducted  using online survey method and data\nanalysis techniques.\n",
+    "personal_info": {
+        "name": "CONTACT ME",
+        "email": "kusahgraojha111@gmail.com",
+        "phone": "9753161052",
+        "linkedin": null,
+        "github": null,
+        "location": "Indore"
+    },
+    "resume_score": 75,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Mention any internships or trainee roles you've done.",
+        "Include work experience or volunteering.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "market research",
+        "crm",
+        "strategy",
+        "marketing",
+        "advertising",
+        "branding"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Marketing Manager",
+                "confidence": 0.08,
+                "confidence_percent": "8%"
+            },
+            {
+                "title": "Software Developer",
+                "confidence": 0.06,
+                "confidence_percent": "6%"
+            },
+            {
+                "title": "Finance Analyst",
+                "confidence": 0.06,
+                "confidence_percent": "6%"
+            }
+        ],
+        "job_title": "Marketing Manager",
+        "skills": [
+            "communication",
+            "ms excel",
+            "accounting",
+            "research",
+            "excel",
+            "mba",
+            "bba"
+        ],
+        "preferred_location": "Indore",
+        "recommended_courses": {
+            "Marketing Manager": [
+                "Marketing Analytics - https://www.coursera.org/learn/marketing-analytics",
+                "Strategic Marketing - https://www.edx.org/course/strategic-marketing",
+                "Social Media Marketing - https://www.udemy.com/course/social-media-marketing"
+            ],
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ],
+            "Finance Analyst": [
+                "Financial Analyst Certification - https://www.coursera.org/specializations/financial-analysis",
+                "Excel for Financial Analysis - https://www.udemy.com/course/excel-for-financial-analysis",
+                "Introduction to Corporate Finance - https://www.edx.org/course/corporate-finance"
+            ]
+        }
+    }
+}

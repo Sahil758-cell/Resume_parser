@@ -1,0 +1,78 @@
+{
+    "raw_text": "VAIBHAV ASHOK RASAL\n+91 7249708705\nrasalvaibhav30121@gmail.com\nKatkarpada, Boisar (W)\nCareer Objectives\nAs a recent Mechanical Engineering graduate with a solid academic foundation, I seek to join an organization\nwhere I can acquire new skills and enhance my abilities to contribute to both the organization's goals and my\npersonal growth.\nEducation\nBachelor Of Engineering In Mechanical Engineering\nMay 2024\nTheem College of Engineering, Boisar (E).\nPercentage: 66.48%\nDiploma In Mechanical Engineering\nMay 2021\nTheem College of Engineering, Boisar (E).\nPercentage: 85.36%\nSSC\nMay 2017\nSuvidya Marathi Medium School, Mumbai (E).\nPercentage: 61.20%\nProjects\n\u25cf\nElectromagnetic Braking System\n\u25cf\nGyroscope Self Balancing Wheel\n\u25cf\nComparative Study of Filtrates Through Different Xylem of Plants\nInternship\nStone Crusher (Supervisor)\nJuly 2018\nTexwiz (Supervisor)\nJune 2023\nAdele Industry (Supervisor)\nDec 2022 - Jan 2023\nSoftware skills\nWriting tools: Microsoft Office (Word, Excel, PowerPoint), Google docs.\nPersonal Details\nDate of Birth : 30/12/2001.\nKnown Languages : Marathi, Hindi, and English.\nHobbies: Singing, Dancing, Sport (Kho-kho).\n",
+    "personal_info": {
+        "name": "Vaibhav Ashok Rasal",
+        "email": "rasalvaibhav30121@gmail.com",
+        "phone": "7249708705",
+        "linkedin": null,
+        "github": null,
+        "location": "Boisar"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "cad",
+        "cooling",
+        "gear",
+        "thermodynamics",
+        "robotics",
+        "production",
+        "brake system",
+        "maintenance",
+        "solidworks",
+        "compressor",
+        "machines",
+        "mechatronics",
+        "ansys",
+        "manufacturing"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Mechanical Engineer",
+                "confidence": 0.07,
+                "confidence_percent": "7%"
+            },
+            {
+                "title": "Content Writer",
+                "confidence": 0.02,
+                "confidence_percent": "2%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.02,
+                "confidence_percent": "2%"
+            }
+        ],
+        "job_title": "Mechanical Engineer",
+        "skills": [
+            "excel",
+            "tools",
+            "mechanical",
+            "gyroscope",
+            "writing"
+        ],
+        "preferred_location": "Boisar",
+        "recommended_courses": {
+            "Mechanical Engineer": [
+                "Mechanical Engineering Design - https://www.coursera.org/learn/mechanical-design",
+                "SolidWorks CAD - https://www.udemy.com/course/solidworks-course"
+            ],
+            "Content Writer": [
+                "Writing for the Web - https://www.open.edu/openlearn/ocw/mod/oucontent/view.php?id=87109",
+                "SEO Content Writing - https://www.udemy.com/course/seo-content-writing-course",
+                "Creative Writing Specialization - https://www.coursera.org/specializations/creative-writing"
+            ],
+            "Data Entry Operator": [
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy"
+            ]
+        }
+    }
+}

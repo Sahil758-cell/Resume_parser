@@ -1,0 +1,75 @@
+{
+    "raw_text": "Amitava Chakraborty  \n\u200b\n30/1A A.C. Banerjee Road Ariadaha, Kolkata: 700057, West Bengal \u200b\nE-mail: amitavachakraborty012@gmail.com  \nContact: (+91) 8777216784 \u200b\nLinkedIn: Amitava Chakraborty  \n  \n \nPROFESSIONAL SUMMARY  \nMotivated and detail-oriented MBA candidate at the Institute of Engineering and Management, \nspecializing in Marketing with plans to pursue a second specialization in Supply Chain and \nManagement. Strong academic foundation in Psychology, Economics, Political Science. Adept at \nunderstanding consumer behaviour, market trends and strategic business operations.  \n \nSKILLS & COMPETENCIES  \nTechnical Skills:  \n\u25cf\u200b MS Word (Table & Chart, Mail Merge, Document Automation)  \n\u25cf\u200b MS Excel (VLOOKUP & HLOOKUP, Data Management, Pivot Tables)  \n\u25cf\u200b MS PowerPoint (Data Visualization, Professional Presentation Design)  \nSoft Skills:  \n\u25cf\u200b Communication & Leadership  \n\u25cf\u200b Team Collaboration & Management  \n\u25cf\u200b Time Management & Problem-Solving  \n\u25cf\u200b Analytical Thinking & Decision Making  \n \nINTERNSHIP EXPERIENCE   \nAditya Birla Fashion & Retail Ltd. (Internship) | Duration: 30 Days  \n\u25cf\u200b Assisted in Operations Management and as a Marketing Intern ensuring 100% \naccuracy.  \n\u25cf\u200b Managed and analysed product distribution to optimise inventory efficiency.  \n\u25cf\u200b Coordinate operations and product placement for improved customer experience.  \n \nEDUCATION  \n\u25cf\u200b Master of Business Administration (MBA) (Pursuing) \u2013 Institute of Engineering and \nManagement, 2026 (1st Sem Marks: 9.06 CGPA)  \n\u25cf\u200b Bachelor of Science (Honours) \u2013 West Bengal State University, 2023 | SGPA: 8.72  \n\u25cf\u200b Higher Secondary (Science) \u2013 Baranagar Narendranath Vidyamandir High School, 2020 \n| 77.6%  \n\u25cf\u200b Secondary Education \u2013 Baranagar Ramakrishna Mission Ashram High School, 2018 | \n85.85%  \n \nCERTIFICATIONS  \n\u25cf\u200b Managerial Economics (LinkedIn)  \n\u25cf\u200b Digital Marketing Foundations  \n\u25cf\u200b Managerial Economics (from: ILLINOIS TECH)  \n\u25cf\u200b Generative AI for Digital Marketers   \n\u25cf\u200b Learning to Write Marketing Copy\u202f  \n\u25cf\u200b Mastering Communications as a Leader  \n\u25cf\u200b Job Skills: Learning the Basics  \n\u25cf\u200b Nestl\u00e9 E-Learning 2025 (Sustainability)  \n\u25cf\u200b Supply Chain Foundations   \n\u25cf\u200b Inventory Management Foundations  \n\u25cf\u200b Creating Your Personal Brand  \n \nACHIEVEMENTS  \n\u25cf\u200b 1st Runners-Up \u2013 The Marketing Plan Contest 2025  \n\u25cf\u200b Winner- Intra College Skit Competition  \n\u25cf\u200b Winner \u2013 Intra-School Cricket Competition.  \n\u25cf\u200b 2nd Runners-Up \u2013 Intra-School Football Competitions.  \n \nLANGUAGE PROFICIENCY  \n\u25cf\u200b English \u2013 Fluent (Read, Write, Speak)  \n\u25cf\u200b Bengali \u2013 Native (Read, Write, Speak)  \n\u25cf\u200b Hindi \u2013 Proficient (Read, Speak)  \n",
+    "personal_info": {
+        "name": "Amitava Chakraborty",
+        "email": "amitavachakraborty012@gmail.com",
+        "phone": "8777216784",
+        "linkedin": null,
+        "github": null,
+        "location": "Kolkata"
+    },
+    "resume_score": 95,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Add academic or personal projects."
+    ],
+    "ai_skill_suggestions": [
+        "sourcing",
+        "stock",
+        "inventory control",
+        "vendor management",
+        "logistics",
+        "cost saving",
+        "procurement",
+        "crm",
+        "nabl"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Supply Chain Analyst",
+                "confidence": 0.15,
+                "confidence_percent": "15%"
+            },
+            {
+                "title": "Teacher",
+                "confidence": 0.1,
+                "confidence_percent": "10%"
+            },
+            {
+                "title": "Digital Marketer",
+                "confidence": 0.08,
+                "confidence_percent": "8%"
+            }
+        ],
+        "job_title": "Supply Chain Analyst",
+        "skills": [
+            "sem",
+            "supply chain",
+            "communication",
+            "data visualization",
+            "excel",
+            "accuracy",
+            "mba",
+            "operations",
+            "ms excel",
+            "distribution"
+        ],
+        "preferred_location": "Kolkata",
+        "recommended_courses": {
+            "Supply Chain Analyst": [
+                "Supply Chain Analytics - https://www.coursera.org/learn/supply-chain-analytics"
+            ],
+            "Teacher": [
+                "Instructional Design - https://www.coursera.org/learn/instructional-design",
+                "Online Teaching - https://www.edx.org/course/online-teaching",
+                "Educational Psychology - https://www.coursera.org/learn/educational-psychology"
+            ],
+            "Digital Marketer": [
+                "SEO Fundamentals - https://www.coursera.org/learn/seo",
+                "Google Ads Certification - https://skillshop.withgoogle.com",
+                "Content Marketing Strategy - https://www.udemy.com/course/content-marketing"
+            ]
+        }
+    }
+}

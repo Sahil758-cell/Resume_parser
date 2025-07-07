@@ -1,0 +1,72 @@
+{
+    "raw_text": "FUNCTIONAL (MILITARY) \n \nIM A. SAMPLE V \n 987 Northridge Drive \nOmaha, Nebraska 68123 \n(402) 543-1234 \nimasample5@xxx.com \n \n \nPROFESSIONAL PROFILE \n \nSelf-motivated, resourceful and dynamic leader with extensive experience and a strong \neducational background in management, training and employee development; exceptional \ncommunication skills and a demonstrated ability to create and manage cohesive, productive work \nteams; proficient in the use of Microsoft Word, Excel and other software applications. \n \n \nPROFESSIONAL SKILLS AND ACCOMPLISHMENTS \n \nManagement and Administration \n\uf0b7 Directed, guided and motivated a workforce of up to 300 individuals with diverse technical \nbackgrounds and experiences. \n\uf0b7 Successfully improved work performance of a \u201cmarginal\u201d work team, as evidenced by an \nincrease to a \u201csatisfactory\u201d performance rating after only six months as team leader. \n\uf0b7 Provided day-to-day supervision for an administrative staff of up to sixty employees. \n\uf0b7 Planned, designed and coordinated the programming of computer-based products; designed \nand coordinated computer system testing in facilities throughout the world. \n\uf0b7 Planned, developed and administered annual budgets ranging from $150,000 to $300,000. \nTraining and Development \n\uf0b7 Taught college level courses in leadership, management, team building, effective writing and \nspeech communications. \n\uf0b7 Certified as Master Instructor; designed and developed curriculum; selected, trained and \nevaluated other instructors. \n\uf0b7 Advised and educated personnel on ways to enhance and strengthen their promotability and \njob performance; identified and documented career development plans for employees. \n\uf0b7 Provided on-the-job training and guidance for new employees. \nCommunication and Counseling \n\uf0b7 Conducted formal investigations and utilized a variety of counseling techniques and \nstrategies to successfully resolve highly complex and sensitive issues involving domestic \nabuse, racial discrimination, minor law infractions and academic failures. \n\uf0b7 Worked one-on-one with customers and employees to enhance self esteem and resolve \ncommunication problems. \n\uf0b7 Marketed and promoted company programs to employees and the general public through a \nvariety of activities including presentations to audiences of over 1000 people. \n\uf0b7 Established and maintained effective working relationships with co-workers, superiors and \nsubordinates to facilitate the achievement of business objectives. \n \n \nCONTINUED . . . . . . . . . . . \n",
+    "personal_info": {
+        "name": "Management And Administration",
+        "email": "imasample5@xxx.com",
+        "phone": null,
+        "linkedin": null,
+        "github": null,
+        "location": "Omaha"
+    },
+    "resume_score": 20,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): No, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Include missing personal information: Phone.",
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add your Bachelor's degree qualification.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "crm",
+        "ticketing systems",
+        "empathy"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Customer Support",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            },
+            {
+                "title": "Software Desveloper",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            }
+        ],
+        "job_title": "Customer Support",
+        "skills": [
+            "training",
+            "writing",
+            "excel",
+            "counseling",
+            "communication"
+        ],
+        "preferred_location": "Omaha",
+        "recommended_courses": {
+            "Customer Support": [
+                "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service",
+                "Call Center Training - https://www.udemy.com/course/call-center-training",
+                "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations"
+            ],
+            "HR Manager": [
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Software Desveloper": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ]
+        }
+    }
+}

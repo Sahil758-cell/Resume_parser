@@ -1,0 +1,72 @@
+{
+    "raw_text": "Anjali \nSharma \nSales Executive \n sharmaandanjali200@gmail.com \n \n 7440358229 \n        Indore \n  EDUCATION \n \n\u2022 MBA IN MARKETING MANAGEMNT  \nSHRI VAISHNAV INSTITUDE IF \nMANAGEMENT  \n\u2022 B.COM FROM SHRI MKHS GUJRATI GIRLS \nCOLLEGE  65% \n \n\u2022 10TH M.P BOARD FROM SHRI K.B PATEL \nGUJRATI GIRLS H.S SCHOOL 70%  \n \n\u2022 12TH M.P BOARD FROM SHRI K.B PATEL \nGUJRATI GIRLS  \nH.S SCHOOL 70% \nWORK EXPERIENCE \n \nSales Executive and Marketing \nA PLANET  \nFeb 2020 \nPresent, Indore \nManaged social media advertising to attract potential customers \nand build a solid networking and community around the \ncompany's brand. Recently collaborated across departments to \ncomplete a system conversion. \nWorked and collaborated with team members to efficiently \ncomplete projects and tasks. \nLANGUAGES \n \nENGLISH, HINDI  \nABOUT ME \n \nDigital marketing full time with one year of experience working \nin commercial, B2B, and non-profit marketing. Experience in \ndesigning, writing and maintaining websites and social media \noutlets. \nAlso \nexperienced \nin \ncreating \ncomplementary content: press releases, \nmarketing content, social media posts and \nediting email blasts. \nSKILLS \n \n Communication  \nCritical thinking \nAdvertising \nBranding \nDirect Marketing \nPROJECTS \n \ncomparative study of Apple and Samsung \nAfter covid with Reference to Indore \nEnter Details About Your Project Here \n \nACHIEVEMENTS \n \nDescription \n \nDECLARATION \n \nI do hereby declare that all the details \nmentioned above are accurate to the best of \nmy familiarity and confidence. \nAnjali Sharma \nDate :-  \n",
+    "personal_info": {
+        "name": "Anjali Sharma",
+        "email": "sharmaandanjali200@gmail.com",
+        "phone": "7440358229",
+        "linkedin": null,
+        "github": null,
+        "location": "Indore"
+    },
+    "resume_score": 95,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "seo",
+        "social media marketing",
+        "google ads",
+        "analytics",
+        "sem"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Digital Marketer",
+                "confidence": 0.21,
+                "confidence_percent": "21%"
+            },
+            {
+                "title": "Marketing Manager",
+                "confidence": 0.13,
+                "confidence_percent": "13%"
+            },
+            {
+                "title": "Content Writer",
+                "confidence": 0.07,
+                "confidence_percent": "7%"
+            }
+        ],
+        "job_title": "Digital Marketer",
+        "skills": [
+            "writing",
+            "communication",
+            "editing",
+            "advertising",
+            "marketing",
+            "digital marketing",
+            "mba",
+            "branding"
+        ],
+        "preferred_location": "Indore",
+        "recommended_courses": {
+            "Digital Marketer": [
+                "SEO Fundamentals - https://www.coursera.org/learn/seo",
+                "Google Ads Certification - https://skillshop.withgoogle.com",
+                "Content Marketing Strategy - https://www.udemy.com/course/content-marketing"
+            ],
+            "Marketing Manager": [
+                "Marketing Analytics - https://www.coursera.org/learn/marketing-analytics",
+                "Strategic Marketing - https://www.edx.org/course/strategic-marketing",
+                "Social Media Marketing - https://www.udemy.com/course/social-media-marketing"
+            ],
+            "Content Writer": [
+                "Writing for the Web - https://www.open.edu/openlearn/ocw/mod/oucontent/view.php?id=87109",
+                "SEO Content Writing - https://www.udemy.com/course/seo-content-writing-course",
+                "Creative Writing Specialization - https://www.coursera.org/specializations/creative-writing"
+            ]
+        }
+    }
+}

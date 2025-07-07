@@ -1,0 +1,64 @@
+{
+    "raw_text": "Your Name \nSoftware Tester \nCity, Country  \u2022  (123) 456-789  \u2022  yourname@resumeworded.com  \u2022  linkedin.com/in/your-profile \nEXPERIENCE \nResume WordedJune 2020 - Present \nLead Software Tester \nPioneered a strategic initiative to implement AI-driven testing procedures, increasing code coverage by 45% and \nreducing bug detection time by 30% \nSpearheaded a cross-functional team to adopt Continuous Integration/Continuous Deployment (CI/CD) practices, \nresulting in a 20% improvement in deployment frequency \nOrchestrated a complete overhaul of the manual testing framework, which led to a reduction of regression testing \ntime by 50%, saving 100+ hours monthly \nDesigned and executed comprehensive test plans for high-stakes software rollouts, ensuring a 99% success rate \non initial product launches \nMentored a team of 8 junior testers, enhancing team productivity by 25% and fostering a culture of technical \nexcellence and innovation \nCoached.comJanuary 2017 - May 2020 \nSenior Software Tester \nRevolutionized the company\u2019s testing processes by integrating Behavior Driven Development (BDD), enhancing \ntest accuracy and stakeholder communication \nLed a targeted project to reduce technical debt, diminishing error rates by 40% through rigorous test automation \nCollaborated with developers to establish a Selenium-based automation framework, which reduced testing cycle \ntime by 35% \nIBMMay 2014 - December 2016 \nSoftware Tester \nExecuted over 500 test cases for enterprise-level software, resulting in an enhancement of software reliability by \n25% \nUtilized Python to develop test scripts, shortening the testing phase by three weeks for a critical software update \nContributed to the creation of a bug-tracking system that hastened issue resolution times by 15% \nMicrosoftJanuary 2012 - April 2014 \nJunior Software Tester \nIdentified and documented an average of 30 critical bugs per month, directly leading to more stable release \ncandidates \nParticipated in weekly product team meetings to provide insightful feedback on user experience and potential \nimprovements \nEDUCATION \nResume Worded InstituteApril 2023 \nCertified Software Testing Professional (CSTP) \nAcquired expertise in advanced testing methodologies and tools, enhancing quality assurance strategies \nResume Worded UniversityMay 2016 \nMaster of Science in Computer Science \nFocused on Software Quality Assurance, Performance Testing, and Agile Methodologies \nPart-time program completed alongside full-time employment \nSKILLS \nTesting Methodologies: Manual Testing, Automated Testing, Regression Testing, Acceptance Testing, \nPerformance/Load Testing, Security Testing \nAutomation Tools: Selenium WebDriver, QTP/UFT, TestComplete, SoapUI, Postman, JMeter \nProgramming & Scripting: Java, Python, C#, Bash, SQL, JavaScript \nOther Tools & Technologies: Git, Jenkins, Docker, JIRA, Agile/Scrum Methodologies, DevOps Practices \nOTHER \nCertifications: ISTQB Advanced Level Test Analyst (2022), Certified SAFe 5 Practitioner (2021) \nLeadership & Volunteering: Volunteer Code Instructor for CodeNewbie since 2019, Mentor for Women Who Code \nsince 2020 \nAwards: Employee of the Year, Coached.com (2019), IBM Excellence Award in Software Testing (2016) \nPublications: Co-authored 'Efficient Test Automation Practices\u2019 in Testing Circus Magazine, Featured in \nTechBeacon's 'Top QA Influencers' article (2018) \n \n",
+    "personal_info": {
+        "name": "Your Name",
+        "email": "yourname@resumeworded.com",
+        "phone": null,
+        "linkedin": "linkedin.com/in/your-profile",
+        "github": null,
+        "location": null
+    },
+    "resume_score": 35,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): No, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Include missing personal information: Phone.",
+        "Add your Bachelor's degree qualification.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Mention any internships or trainee roles you've done.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "testng",
+        "bug reporting",
+        "api testing"
+    ],
+    "predicted_job_field": {
+        "job_title": "Software Tester",
+        "skills": [
+            "manual testing",
+            "soapui",
+            "qa",
+            "accuracy",
+            "test automation",
+            "performance testing",
+            "excel",
+            "python",
+            "automated testing",
+            "cstp",
+            "quality assurance",
+            "jira",
+            "test cases",
+            "test analyst",
+            "jmeter",
+            "java",
+            "postman",
+            "regression testing",
+            "load testing",
+            "selenium",
+            "istqb",
+            "communication",
+            "security testing",
+            "tools",
+            "javascript"
+        ],
+        "preferred_location": null,
+        "recommended_courses": [
+            "Software Testing Fundamentals - https://www.udemy.com/course/software-testing-fundamentals",
+            "Selenium WebDriver with Python - https://www.coursera.org/learn/selenium-webdriver",
+            "ISTQB Foundation Level Certification - https://www.istqb.org/certifications/certified-tester-foundation-level",
+            "API Testing with Postman - https://www.udemy.com/course/postman-the-complete-guide",
+            "Performance Testing with JMeter - https://www.coursera.org/learn/performance-testing-jmeter"
+        ]
+    }
+}

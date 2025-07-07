@@ -1,0 +1,66 @@
+{
+    "raw_text": "OBJECTIVE\nTo contribute my skills and experience in pharmacy fields, while\ncontinuously learning and growing in a dynamic work environment\nEXPERIENCE\nNimra Pharmacy\n11/07/2023 - 11/07/2024\nRetailer and salesman\nEDUCATION\nChaitanya Deemed to be University\n2025\nBachelor of Pharmacy\n9.091\nMAKAK MAYUM\nFAKARUDDIN\nCONTACT\n\ue947\nLilong Tamyai Ushoipokpi Suptu karong\nP.O - Lilong\nP. S - Lilong\nDistrict - 795130\nState - Manipur\n\ue9649366799766\n\ue91emmfakaruddin55@gmail.com\nSKILLS\nSincere at work and responsible 80%\nability to work in a team achieve goal\ngood communication skills and\nproblem solving skills punctuality and\nflexible to work basic computer skills\non Ms-off\nLANGUAGES\nEnglish\nHindi\nManipuri\nINTERESTS\nPlaying football\nPlaying basketball\nReading books\n",
+    "personal_info": {
+        "name": "Nimra Pharmacy",
+        "email": "mmfakaruddin55@gmail.com",
+        "phone": "9366799766",
+        "linkedin": null,
+        "github": null,
+        "location": "Lilong"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "empathy",
+        "crm",
+        "ticketing systems"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Customer Support",
+                "confidence": 0.11,
+                "confidence_percent": "11%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.07,
+                "confidence_percent": "7%"
+            },
+            {
+                "title": "Pharmacist",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            }
+        ],
+        "job_title": "Customer Support",
+        "skills": [
+            "communication"
+        ],
+        "preferred_location": "Lilong",
+        "recommended_courses": {
+            "Customer Support": [
+                "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service",
+                "Call Center Training - https://www.udemy.com/course/call-center-training",
+                "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations"
+            ],
+            "HR Manager": [
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Pharmacist": [
+                "Drug Commercialization - https://www.coursera.org/learn/drug-commercialization",
+                "Introduction to Pharmacology - https://www.edx.org/course/pharmacology",
+                "Pharmaceutical and Medical Device Innovations - https://www.coursera.org/learn/medical-device"
+            ]
+        }
+    }
+}

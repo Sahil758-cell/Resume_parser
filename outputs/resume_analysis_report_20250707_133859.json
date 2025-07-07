@@ -1,0 +1,71 @@
+{
+    "raw_text": "To secure a position in a dynamic, growth-oriented company where, I can apply my technical expertise and\nproblem-solving skills and contribute while continuously expanding my knowledge in a challenging\nenvironment.\nDiploma(Information Technology)\nSecondary School\nShri Siddheshwar Women\u2019s Polytechnic, Solapur\nLearnomate Technologies: \nPursued a comprehensive training program in SQL and Linux, gaining hands-on experience in database\nmanagement and system administration.\nVertex Technosys:\nCompleted a  industrial internship in Web Development under Web Designing, gaining hands-on experience in\ndesigning and developing responsive web interfaces using HTML, CSS, and front-end technologies.\nBachelor of Technology(Electronics and Telecommunication)\nShree Siddheshwar Women\u2019s College of Engineering, Solapur\n2022-2025\n2019-2022\n2019\nOBJECTIVE\nVAISHNAVI PANDURANG NANDAL\nEDUCATION\nD.R Shriram English Medium School, Solapur\nSKILLS\nProgramming Languages:  C | C++ | JAVA | Python | HTML | CSS \nSoft Skills: Communication | Teamwork | Decision Making | Planning\nDatabase Management: SQL | MySQL  \nINTERNSHIP\nPROJECTS\nOnline Mobile Management System:\nIt is a Java console-based application using Hibernate and SQL for managing mobile purchases, users, orders,\npayments, and admin operations. It enables admins to manage mobile data and users to register, log in.\nGesture Gloves for Video Gaming:\nDeveloped an interactive gesture-based glove system for controlling video games through hand movements.\nIntegrated motion sensors and signal processing algorithms to detect gestures and convert them into game.\nCERTIFICATIONS\nDigital Productivity Certification \nSQL and Linux Training Certificate  \nCertificate of completion of MS Office \nState Level Blog making competition\nDECLARATION\nI here by declare that the information provided above is true and correct for the best of my knowledge and\nbelief.\n     (+91)9373876139        vaishnavinandal01@gmail.com\n     https://www.linkedin.com/in/vaishnavi-nandal     \n     Solapur,Maharashtra,India\n",
+    "personal_info": {
+        "name": "Vaishnavi Pandurang Nandal",
+        "email": "vaishnavinandal01@gmail.com",
+        "phone": "9373876139",
+        "linkedin": "linkedin.com/in/vaishnavi-nandal",
+        "github": null,
+        "location": "Solapur"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education."
+    ],
+    "ai_skill_suggestions": [
+        "javascript",
+        "flask",
+        "frontend",
+        "backend"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.1,
+                "confidence_percent": "10%"
+            },
+            {
+                "title": "Teacher",
+                "confidence": 0.04,
+                "confidence_percent": "4%"
+            },
+            {
+                "title": "Full Stack Developer",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "web development",
+            "operations",
+            "css",
+            "planning",
+            "mysql",
+            "html",
+            "java",
+            "communication",
+            "python",
+            "training",
+            "sensors"
+        ],
+        "preferred_location": "Solapur",
+        "recommended_courses": {
+            "Web Developer": [
+                "HTML/CSS",
+                "Flask",
+                "JavaScript"
+            ],
+            "Teacher": [
+                "General Skills"
+            ],
+            "Full Stack Developer": [
+                "Data Structures",
+                "Algorithms",
+                "System Design"
+            ]
+        }
+    }
+}

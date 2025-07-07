@@ -1,0 +1,188 @@
+2025-07-04 17:23:52,206 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 17:23:52,206 INFO:[33mPress CTRL+C to quit[0m
+2025-07-04 17:23:52,211 INFO: * Restarting with stat
+2025-07-04 17:24:41,069 WARNING: * Debugger is active!
+2025-07-04 17:24:41,098 INFO: * Debugger PIN: 142-891-814
+2025-07-04 17:24:42,848 INFO:127.0.0.1 - - [04/Jul/2025 17:24:42] "POST /analyze HTTP/1.1" 200 -
+2025-07-04 17:34:50,889 INFO:127.0.0.1 - - [04/Jul/2025 17:34:50] "POST /analyze HTTP/1.1" 200 -
+2025-07-04 17:43:34,534 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-04 17:43:34,534 INFO:[33mPress CTRL+C to quit[0m
+2025-07-04 17:43:34,537 INFO: * Restarting with stat
+2025-07-04 17:44:04,958 WARNING: * Debugger is active!
+2025-07-04 17:44:05,002 INFO: * Debugger PIN: 142-891-814
+2025-07-04 17:45:14,749 INFO:127.0.0.1 - - [04/Jul/2025 17:45:14] "POST /analyze HTTP/1.1" 200 -
+2025-07-04 17:55:04,914 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-04 17:55:14,477 INFO: * Restarting with stat
+2025-07-04 17:56:04,798 WARNING: * Debugger is active!
+2025-07-04 17:56:04,818 INFO: * Debugger PIN: 142-891-814
+2025-07-04 17:57:20,813 INFO:127.0.0.1 - - [04/Jul/2025 17:57:20] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-07-04 17:59:43,742 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-04 17:59:46,052 INFO: * Restarting with stat
+2025-07-04 18:00:38,474 WARNING: * Debugger is active!
+2025-07-04 18:00:38,520 INFO: * Debugger PIN: 142-891-814
+2025-07-04 18:01:15,718 INFO:127.0.0.1 - - [04/Jul/2025 18:01:15] "POST /analyze HTTP/1.1" 200 -
+2025-07-04 18:09:33,199 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-04 18:09:38,820 INFO: * Restarting with stat
+2025-07-04 18:10:12,481 WARNING: * Debugger is active!
+2025-07-04 18:10:12,519 INFO: * Debugger PIN: 142-891-814
+2025-07-04 18:12:10,487 INFO:127.0.0.1 - - [04/Jul/2025 18:12:10] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 11:02:22,525 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-05 11:02:22,527 INFO:[33mPress CTRL+C to quit[0m
+2025-07-05 11:02:22,530 INFO: * Restarting with stat
+2025-07-05 11:03:00,375 WARNING: * Debugger is active!
+2025-07-05 11:03:00,423 INFO: * Debugger PIN: 142-891-814
+2025-07-05 11:04:53,984 INFO:127.0.0.1 - - [05/Jul/2025 11:04:53] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 11:20:13,343 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-05 11:20:23,568 INFO: * Restarting with stat
+2025-07-05 11:20:57,834 WARNING: * Debugger is active!
+2025-07-05 11:20:57,869 INFO: * Debugger PIN: 142-891-814
+2025-07-05 11:22:58,580 INFO:127.0.0.1 - - [05/Jul/2025 11:22:58] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 11:25:56,390 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-05 11:26:00,111 INFO: * Restarting with stat
+2025-07-05 11:26:41,345 WARNING: * Debugger is active!
+2025-07-05 11:26:41,387 INFO: * Debugger PIN: 142-891-814
+2025-07-05 11:27:43,926 INFO:127.0.0.1 - - [05/Jul/2025 11:27:43] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 11:38:04,615 INFO:127.0.0.1 - - [05/Jul/2025 11:38:04] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 12:37:06,518 INFO:127.0.0.1 - - [05/Jul/2025 12:37:06] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 12:55:49,717 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-05 12:55:55,735 INFO: * Restarting with stat
+2025-07-05 12:56:31,696 WARNING: * Debugger is active!
+2025-07-05 12:56:31,729 INFO: * Debugger PIN: 142-891-814
+2025-07-05 13:02:48,234 INFO:127.0.0.1 - - [05/Jul/2025 13:02:48] "POST /analyze HTTP/1.1" 200 -
+2025-07-05 13:15:37,589 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-05 13:15:43,410 INFO: * Restarting with stat
+2025-07-05 13:16:19,944 WARNING: * Debugger is active!
+2025-07-05 13:16:20,004 INFO: * Debugger PIN: 142-891-814
+2025-07-05 13:17:07,726 INFO:127.0.0.1 - - [05/Jul/2025 13:17:07] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 09:29:35,287 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-07 09:29:35,287 INFO:[33mPress CTRL+C to quit[0m
+2025-07-07 09:29:35,292 INFO: * Restarting with stat
+2025-07-07 09:30:19,284 WARNING: * Debugger is active!
+2025-07-07 09:30:19,331 INFO: * Debugger PIN: 142-891-814
+2025-07-07 09:31:47,724 INFO:127.0.0.1 - - [07/Jul/2025 09:31:47] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 09:40:02,130 INFO:127.0.0.1 - - [07/Jul/2025 09:40:02] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 09:41:49,577 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 09:41:56,638 INFO: * Restarting with stat
+2025-07-07 09:43:30,487 WARNING: * Debugger is active!
+2025-07-07 09:43:30,535 INFO: * Debugger PIN: 142-891-814
+2025-07-07 09:45:55,429 INFO:127.0.0.1 - - [07/Jul/2025 09:45:55] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 09:47:10,451 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 09:47:14,499 INFO: * Restarting with stat
+2025-07-07 09:48:03,553 WARNING: * Debugger is active!
+2025-07-07 09:48:03,607 INFO: * Debugger PIN: 142-891-814
+2025-07-07 09:48:17,297 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 09:48:20,254 INFO: * Restarting with stat
+2025-07-07 09:49:13,464 WARNING: * Debugger is active!
+2025-07-07 09:49:13,504 INFO: * Debugger PIN: 142-891-814
+2025-07-07 09:51:51,774 INFO:127.0.0.1 - - [07/Jul/2025 09:51:51] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 09:54:05,481 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\debug_name_extraction.py', reloading
+2025-07-07 09:54:17,368 INFO: * Restarting with stat
+2025-07-07 09:56:01,845 WARNING: * Debugger is active!
+2025-07-07 09:56:01,885 INFO: * Debugger PIN: 142-891-814
+2025-07-07 09:57:08,310 INFO:127.0.0.1 - - [07/Jul/2025 09:57:08] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 09:58:35,973 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 09:58:44,783 INFO: * Restarting with stat
+2025-07-07 09:59:26,581 WARNING: * Debugger is active!
+2025-07-07 09:59:26,633 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:00:11,828 INFO:127.0.0.1 - - [07/Jul/2025 10:00:11] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:01:10,867 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:01:20,374 INFO: * Restarting with stat
+2025-07-07 10:01:54,525 WARNING: * Debugger is active!
+2025-07-07 10:01:54,549 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:02:43,237 INFO:127.0.0.1 - - [07/Jul/2025 10:02:43] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:04:54,508 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:05:05,539 INFO: * Restarting with stat
+2025-07-07 10:05:56,533 WARNING: * Debugger is active!
+2025-07-07 10:05:56,573 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:06:43,779 INFO:127.0.0.1 - - [07/Jul/2025 10:06:43] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:07:51,661 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:07:59,023 INFO: * Restarting with stat
+2025-07-07 10:08:33,928 WARNING: * Debugger is active!
+2025-07-07 10:08:33,988 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:09:18,647 INFO:127.0.0.1 - - [07/Jul/2025 10:09:18] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:10:28,708 INFO:127.0.0.1 - - [07/Jul/2025 10:10:28] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:11:24,793 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:11:32,945 INFO: * Restarting with stat
+2025-07-07 10:12:18,299 WARNING: * Debugger is active!
+2025-07-07 10:12:18,330 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:13:11,655 INFO:127.0.0.1 - - [07/Jul/2025 10:13:11] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:14:28,908 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:14:36,092 INFO: * Restarting with stat
+2025-07-07 10:15:07,448 WARNING: * Debugger is active!
+2025-07-07 10:15:07,469 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:16:04,241 INFO:127.0.0.1 - - [07/Jul/2025 10:16:04] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:16:29,357 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:16:30,761 INFO: * Restarting with stat
+2025-07-07 10:16:58,831 WARNING: * Debugger is active!
+2025-07-07 10:16:58,852 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:17:34,933 INFO:127.0.0.1 - - [07/Jul/2025 10:17:34] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:17:36,130 INFO:127.0.0.1 - - [07/Jul/2025 10:17:36] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-07-07 10:18:49,945 INFO:127.0.0.1 - - [07/Jul/2025 10:18:49] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:22:04,044 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:22:15,524 INFO: * Restarting with stat
+2025-07-07 10:23:03,684 WARNING: * Debugger is active!
+2025-07-07 10:23:03,733 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:23:45,366 INFO:127.0.0.1 - - [07/Jul/2025 10:23:45] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:24:42,847 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:24:48,718 INFO: * Restarting with stat
+2025-07-07 10:26:16,922 WARNING: * Debugger is active!
+2025-07-07 10:26:16,973 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:27:54,130 INFO:127.0.0.1 - - [07/Jul/2025 10:27:54] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:30:30,569 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:30:33,730 INFO: * Restarting with stat
+2025-07-07 10:31:15,499 WARNING: * Debugger is active!
+2025-07-07 10:31:15,532 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:31:34,387 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:31:36,370 INFO: * Restarting with stat
+2025-07-07 10:32:07,284 WARNING: * Debugger is active!
+2025-07-07 10:32:07,312 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:35:21,823 INFO:127.0.0.1 - - [07/Jul/2025 10:35:21] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:49:03,732 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:49:09,094 INFO: * Restarting with stat
+2025-07-07 10:50:00,917 WARNING: * Debugger is active!
+2025-07-07 10:50:00,996 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:50:37,858 INFO:127.0.0.1 - - [07/Jul/2025 10:50:37] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:55:02,667 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:55:08,003 INFO: * Restarting with stat
+2025-07-07 10:55:46,531 WARNING: * Debugger is active!
+2025-07-07 10:55:46,559 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:56:37,244 INFO:127.0.0.1 - - [07/Jul/2025 10:56:37] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 10:57:55,210 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 10:58:03,732 INFO: * Restarting with stat
+2025-07-07 10:58:37,044 WARNING: * Debugger is active!
+2025-07-07 10:58:37,081 INFO: * Debugger PIN: 142-891-814
+2025-07-07 10:59:27,688 INFO:127.0.0.1 - - [07/Jul/2025 10:59:27] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 11:01:32,433 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 11:01:36,002 INFO: * Restarting with stat
+2025-07-07 11:02:08,064 WARNING: * Debugger is active!
+2025-07-07 11:02:08,096 INFO: * Debugger PIN: 142-891-814
+2025-07-07 11:02:58,215 INFO:127.0.0.1 - - [07/Jul/2025 11:02:58] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 11:10:21,910 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 11:10:27,642 INFO: * Restarting with stat
+2025-07-07 11:11:03,457 WARNING: * Debugger is active!
+2025-07-07 11:11:03,500 INFO: * Debugger PIN: 142-891-814
+2025-07-07 11:11:57,354 INFO:127.0.0.1 - - [07/Jul/2025 11:11:57] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 11:39:13,415 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 11:39:18,238 INFO: * Restarting with stat
+2025-07-07 11:39:52,003 WARNING: * Debugger is active!
+2025-07-07 11:39:52,027 INFO: * Debugger PIN: 142-891-814
+2025-07-07 11:40:37,611 INFO:127.0.0.1 - - [07/Jul/2025 11:40:37] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 11:50:14,783 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 11:50:19,071 INFO: * Restarting with stat
+2025-07-07 11:50:54,579 WARNING: * Debugger is active!
+2025-07-07 11:50:54,612 INFO: * Debugger PIN: 142-891-814
+2025-07-07 11:51:55,556 INFO:127.0.0.1 - - [07/Jul/2025 11:51:55] "POST /analyze HTTP/1.1" 200 -
+2025-07-07 11:53:38,642 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\app.py', reloading
+2025-07-07 11:53:41,957 INFO: * Restarting with stat
+2025-07-07 11:54:12,774 WARNING: * Debugger is active!
+2025-07-07 11:54:12,806 INFO: * Debugger PIN: 142-891-814
+2025-07-07 11:54:21,875 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\job_predictor.py', reloading
+2025-07-07 11:54:23,212 INFO: * Restarting with stat
+2025-07-07 11:54:43,998 WARNING: * Debugger is active!
+2025-07-07 11:54:43,998 INFO: * Debugger PIN: 142-891-814
+2025-07-07 11:55:00,419 INFO: * Detected change in 'c:\\Users\\SAHIL DESHMUKH.SAHIL\\Desktop\\Resume Parser\\resume_parser.py', reloading
+2025-07-07 11:55:02,169 INFO: * Restarting with stat

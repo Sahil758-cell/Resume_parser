@@ -1,0 +1,74 @@
+{
+    "raw_text": "CHRONOLOGICAL \n \nIM A. SAMPLE III \n3456 Westview Road \n(402) 291-5678 \nBellevue, Nebraska 68005 \nimasample3@xxx.com \n \nSUMMARY OF QUALIFICATIONS \n \nExperienced business professional with a solid academic background and a demonstrated \ncommitment to providing high quality customer service; described as a \"take charge\" person with \nexceptional communication and human relations skills; proficient in the use of MS Office (Word, \nExcel, PowerPoint) with basic knowledge of PeopleSoft. \n \nEDUCATION \n \nBellevue University, Bellevue, NE (June 20xx) \nBachelor of Science in Management of Human Resources \n\uf0b7 GPA in major: 3.84/4.00 \nGraduated with distinction \n \nPROFESSIONAL EXPERIENCE \n \nWest Telemarketing, Omaha, NE (20xx to Present) \nCustomer Service Supervisor (20xx to present) \n\uf0b7 \nSupervise operations and staff in a 20-person inbound telemarketing unit, including \nhiring, training and evaluating employees, preparing and administering annual \nbudgets, developing business plans, etc. \n\uf0b7 \nAssess level of customer satisfaction and resolve sensitive and complex issues raised \nby customers; provide additional training and take other action as required to \nmaintain a high level of customer satisfaction. \n \nCustomer Service Representative (20xx-20xx) \n\uf0b7 \nHandled incoming calls from customers and potential customers, provided \ninformation and received orders using CRT to input data. \n\uf0b7 \nInterviewed customers and recommended other available products to meet their \nneeds; received several Incentive Awards for sales efforts. \n\uf0b7 \nProvided orientation and training to new staff members. \n \nPROFESSIONAL AFFILIATIONS AND ACTIVITIES \n \nMember, Society for Human Resources Management (SHRM) (20xx to 20xx) \n \n \nBellevue University Student Chapter \n\uf0b7 \nChair, Program Development Committee (20xx) \n \nPresident, American Business Women's Association, Gold Star Chapter (20xx) \n \nREFERENCES FURNISHED UPON REQUEST \n",
+    "personal_info": {
+        "name": "Chronological",
+        "email": "imasample3@xxx.com",
+        "phone": null,
+        "linkedin": null,
+        "github": null,
+        "location": "Bellevue"
+    },
+    "resume_score": 20,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): No, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Include missing personal information: Phone.",
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add your Bachelor's degree qualification.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "recruitment",
+        "onboarding",
+        "payroll",
+        "compliance"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "HR Manager",
+                "confidence": 0.04,
+                "confidence_percent": "4%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.02,
+                "confidence_percent": "2%"
+            },
+            {
+                "title": "Teacher",
+                "confidence": 0.02,
+                "confidence_percent": "2%"
+            }
+        ],
+        "job_title": "HR Manager",
+        "skills": [
+            "operations",
+            "excel",
+            "communication",
+            "training"
+        ],
+        "preferred_location": "Bellevue",
+        "recommended_courses": {
+            "HR Manager": [
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Data Entry Operator": [
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy"
+            ],
+            "Teacher": [
+                "Instructional Design - https://www.coursera.org/learn/instructional-design",
+                "Online Teaching - https://www.edx.org/course/online-teaching",
+                "Educational Psychology - https://www.coursera.org/learn/educational-psychology"
+            ]
+        }
+    }
+}

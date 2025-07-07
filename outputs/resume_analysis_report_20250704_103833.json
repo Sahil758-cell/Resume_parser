@@ -1,0 +1,76 @@
+{
+    "raw_text": "VAIBHAV ASHOK RASAL\n+91 7249708705\nrasalvaibhav30121@gmail.com\nKatkarpada, Boisar (W)\nCareer Objectives\nAs a recent Mechanical Engineering graduate with a solid academic foundation, I seek to join an organization\nwhere I can acquire new skills and enhance my abilities to contribute to both the organization's goals and my\npersonal growth.\nEducation\nBachelor Of Engineering In Mechanical Engineering\nMay 2024\nTheem College of Engineering, Boisar (E).\nPercentage: 66.48%\nDiploma In Mechanical Engineering\nMay 2021\nTheem College of Engineering, Boisar (E).\nPercentage: 85.36%\nSSC\nMay 2017\nSuvidya Marathi Medium School, Mumbai (E).\nPercentage: 61.20%\nProjects\n\u25cf\nElectromagnetic Braking System\n\u25cf\nGyroscope Self Balancing Wheel\n\u25cf\nComparative Study of Filtrates Through Different Xylem of Plants\nInternship\nStone Crusher (Supervisor)\nJuly 2018\nTexwiz (Supervisor)\nJune 2023\nAdele Industry (Supervisor)\nDec 2022 - Jan 2023\nSoftware skills\nWriting tools: Microsoft Office (Word, Excel, PowerPoint), Google docs.\nPersonal Details\nDate of Birth : 30/12/2001.\nKnown Languages : Marathi, Hindi, and English.\nHobbies: Singing, Dancing, Sport (Kho-kho).\n",
+    "personal_info": {
+        "name": "VAIBHAV ASHOK RASAL",
+        "email": "rasalvaibhav30121@gmail.com",
+        "phone": "7249708705",
+        "linkedin": null,
+        "github": null,
+        "location": "Boisar"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering.",
+        "List your technical or domain-specific skills."
+    ],
+    "ai_skill_suggestions": [
+        "mechanical",
+        "cad",
+        "robotics",
+        "tools",
+        "compressor",
+        "production",
+        "gear",
+        "maintenance",
+        "thermodynamics",
+        "cooling",
+        "solidworks",
+        "brake system",
+        "machines",
+        "ansys",
+        "mechatronics",
+        "gyroscope",
+        "manufacturing"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Mechanical Engineer",
+                "confidence": 0.04,
+                "confidence_percent": "4%"
+            },
+            {
+                "title": "Digital Marketer",
+                "confidence": 0.01,
+                "confidence_percent": "1%"
+            },
+            {
+                "title": "Finance Analyst",
+                "confidence": 0.01,
+                "confidence_percent": "1%"
+            }
+        ],
+        "job_title": "Mechanical Engineer",
+        "skills": [],
+        "preferred_location": "Boisar",
+        "recommended_courses": {
+            "Mechanical Engineer": [
+                "Mechanical Engineering Design - https://www.coursera.org/learn/mechanical-design",
+                "SolidWorks CAD - https://www.udemy.com/course/solidworks-course"
+            ],
+            "Digital Marketer": [
+                "SEO Fundamentals - https://www.coursera.org/learn/seo",
+                "Google Ads Certification - https://skillshop.withgoogle.com",
+                "Content Marketing Strategy - https://www.udemy.com/course/content-marketing"
+            ],
+            "Finance Analyst": [
+                "Financial Analyst Certification - https://www.coursera.org/specializations/financial-analysis",
+                "Excel for Financial Analysis - https://www.udemy.com/course/excel-for-financial-analysis",
+                "Introduction to Corporate Finance - https://www.edx.org/course/corporate-finance"
+            ]
+        }
+    }
+}

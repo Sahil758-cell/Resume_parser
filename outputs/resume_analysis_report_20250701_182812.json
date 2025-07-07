@@ -1,0 +1,76 @@
+{
+    "raw_text": "Thane, 400604, Maharashtra\n3 +91 9987391388 dubeyvishal917@gmail.com linkedin.com/in/wishaldubey ithub.com/wishaldube\nEducation\nDilkap Research Institute of Engineering & Management Jan 2021 \u2014 June 2025\nBachelor of Engineering (B.E), Computer Science & Engineering\nMuchhala Polytechnic Jan 2017 \u2014 June 2021\nDiploma, Computer Science\nRelevant Coursework\n- Data Structures - Algorithms Analysis - Artificial Intelligence - Systems Programming\n- Software Methodology - Database Management - Internet Technology - Computer Architecture\nExperience\nMetaBullsMedia.com Jan 2023 - Jan 2024\nFull stack Developer Intern Remote\n* Worked with React.js, Node.js, and Express to develop scalable web applications.\n\u00a9 Built and integrated RESTful APIs, worked with MySQL and PostgreSQL for relational databases, and improved backend\nperformance.\n- Collaborated with the development team on code reviews, testing, and debugging to ensure the delivery of high-quality,\nmaintainable code.\nVedant Soft Solutions Private Limited May 2019 \u2014 August 2019\nWeb Developer Intern Mulund\n* Developed the company\u2019s website using HTML, CSS, PHP, and WordPress.\n- Learned and worked with Bootstrap for responsive design and familiarized myself with CRM software integration.\nProjects\nRoast2Story| Next JS, Firebase, Google Gemini January 2025\ne Inspired by NGL.link, this platform allows users to anonymously roast their friends.\ne Uses Google Gemini Al to generate even more brutal Al-generated roasts based on user submissions.\ne =Built with Next.js for a seamless and dynamic user experience.\ne  Firebase handles authentication, real-time database storage, and cloud functions.\nJavaScript Playground | JavaScript, React January 2025\ne A browser-based JavaScript execution environment where users can write, run, and test JavaScript code directly in their\nbrowser.\ne Built with React for a responsive Ul.\ne Supports code evaluation, syntax highlighting, and error detection in real time\nSingle/Multiplayer Location guessing game | Next.js, Web Sockets, MongoDB, Google Maps API May 2024\ne A browser-based JavaScript execution environment where users can write, run, and test JavaScript code directly in their\nbrowser.\ne Built with React for a responsive UI.\ne Supports code evaluation, syntax highlighting, and error detection in real time\nTechnical Skills\nLanguages: Python, Java, C, JavaScript, SQL, PHP\nFull Stack Technologies: React.js, AngularJS, HTML, CSS, Bootstrap, Tailwind, Node.js, Express, Python\nDatabases: MongoDB, MySQL, supabase, Firebase\n\nTools & Platforms: Git, GitHub, Jenkins, Google Cloud Platform, Firebase, Eclipse, Android Studio\nOther Technologies: WebRTC, Socket.io, WordPress, Unity Engine\nCertifications\ne Completed Udemy courses in C++, Front-end Web Development (Ultimate Guide)\ne Learned AngularJS, Node.js, ReactJS, Python, and MySQL through various projects and coursework\nAccomplishments\ne Qualified Google Hash Code 2022 with 1709765 points.\ne = Ranked #3 in the GFG institute-level DSA leaderboard.",
+    "personal_info": {
+        "name": "Dubey Vishal",
+        "email": "dubeyvishal917@gmail.com",
+        "phone": "9987391388",
+        "linkedin": "linkedin.com/in/wishaldubey",
+        "github": null,
+        "location": "Thane"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education."
+    ],
+    "ai_skill_suggestions": [
+        "angular",
+        "frontend",
+        "express.js"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Full Stack Developer",
+                "confidence": 0.26,
+                "confidence_percent": "26%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.26,
+                "confidence_percent": "26%"
+            },
+            {
+                "title": "Node js Developer",
+                "confidence": 0.15,
+                "confidence_percent": "15%"
+            }
+        ],
+        "job_title": "Full Stack Developer",
+        "skills": [
+            "express",
+            "javascript",
+            "git",
+            "crm",
+            "research",
+            "mongodb",
+            "java",
+            "android studio",
+            "css",
+            "debugging",
+            "responsive design",
+            "react",
+            "sql",
+            "python",
+            "tools",
+            "mysql",
+            "node.js",
+            "full stack",
+            "artificial intelligence",
+            "html",
+            "backend"
+        ],
+        "preferred_location": "Thane",
+        "recommended_courses": {
+            "Full Stack Developer": [
+                "Full-Stack Web Development with React - https://www.coursera.org/specializations/full-stack-react"
+            ],
+            "Web Developer": [
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+            ],
+            "Node js Developer": []
+        }
+    }
+}

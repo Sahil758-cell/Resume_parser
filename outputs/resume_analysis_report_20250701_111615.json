@@ -1,0 +1,58 @@
+{
+    "raw_text": " \n \n \n \n \nNANDANI PARMAR \nPROFILE \nI am MBA student with a BBA background and strong \nunderstanding of business concepts like marketing, finance, \nand management. Eager to learn, grow, and apply my academic \nknowledge to real-world business situations. Known for being a \nquick learner, a good team player, and someone who is always \nready to take on new challenges. \nEDUCATION \nJG University \nMBA (2024 \u2013 2026) \nAsia Pacific Institute of Management  \nBBA (2021 \u2013 2024) \nSaraswati Higher Secondary School  \nHSC (2020 \u2013 2021) \nMani Prabhu High School \nSSC (2018 \u2013 2019) \n  \nSKILLS \nQuick Lerner \nTime Management \nFlexibility \nMulti-Tasking \nGood Communication \nLANGUAGE \nGujarati \nHindi \nEnglish \n \nAhmedabad \n \n6352903566 \n \nNanduu0107@gmail.com \n \n \n \nOBJECTIVE \nMBA fresher with a diverse academic \nbackground and a strong foundation \nin management principles. Looking to \ntransition into a corporate role where \nI can blend my analytical thinking and \nleadership skills for mutual growth. \n \n \n",
+    "personal_info": {
+        "name": "Quick Lerner",
+        "email": "Nanduu0107@gmail.com",
+        "phone": "6352903566",
+        "linkedin": null,
+        "github": null,
+        "location": "Ahmedabad"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "crm",
+        "market research",
+        "branding",
+        "strategy",
+        "advertising"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Marketing Manager",
+                "confidence": 0.1,
+                "confidence_percent": "10%"
+            },
+            {
+                "title": "Teacher",
+                "confidence": 0.09,
+                "confidence_percent": "9%"
+            },
+            {
+                "title": "Customer Support",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            }
+        ],
+        "job_title": "Marketing Manager",
+        "skills": [
+            "mba",
+            "bba",
+            "communication"
+        ],
+        "preferred_location": "Ahmedabad",
+        "recommended_courses": [
+            "Marketing Analytics - https://www.coursera.org/learn/marketing-analytics",
+            "Strategic Marketing - https://www.edx.org/course/strategic-marketing",
+            "Social Media Marketing - https://www.udemy.com/course/social-media-marketing"
+        ]
+    }
+}

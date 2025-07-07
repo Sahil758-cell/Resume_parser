@@ -1,0 +1,120 @@
+{
+    "raw_text": "   Karjat, India, 410201\n   8550931823\n   saydesh02@gmail.com\n\n  SUMMARY\n\n\n  \n\n\n\n\n\n\nSKILLS\n\nOrganic synthesis procedures\nChromatography software\n applications\nMass spectrometry\nChromatography\nSpectroscopy\nHigh-performance liquid \nchromatography\nOrganic compound analysis\nScientific writing\nLaboratory setup\nTitration methods\nLaboratory safety practices\nNuclear magnetic resonance \nspectroscopy\nInfrared spectroscopy\n\n\nPERSONAL INFORMATION\n\nDate of Birth : 21/12/2000\nNationality : Indian\nMartial Status : Single\nGender : Female",
+    "personal_info": {
+        "name": "Chromatography Spectroscopy",
+        "email": "saydesh02@gmail.com",
+        "phone": "8550931823",
+        "linkedin": null,
+        "github": null,
+        "location": "Karjat"
+    },
+    "resume_score": 30,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): No, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add your Bachelor's degree qualification.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "dark field microscopy",
+        "materials science",
+        "radiopharmaceuticals",
+        "pharmaceutical",
+        "transmission electron microscopy",
+        "confocal microscopy",
+        "inductively coupled plasma optical emission spectrometry",
+        "gc-ms",
+        "high performance liquid chromatography",
+        "thin layer chromatography",
+        "nuclear magnetic resonance spectroscopy",
+        "polarized light microscopy",
+        "molecular biology",
+        "catalysis",
+        "research",
+        "atomic force microscopy",
+        "ultraviolet-visible spectroscopy",
+        "electron microscopy",
+        "ir",
+        "data analysis",
+        "atomic absorption spectroscopy",
+        "ultraviolet spectroscopy",
+        "gas chromatography-mass spectrometry",
+        "inductively coupled plasma mass spectrometry",
+        "raman spectroscopy",
+        "fluorescence microscopy",
+        "bright field microscopy",
+        "experiments",
+        "nanotechnology",
+        "medicinal chemistry",
+        "ion exchange chromatography",
+        "affinity chromatography",
+        "inductively coupled plasma",
+        "phase contrast microscopy",
+        "analytical chemistry",
+        "column chromatography",
+        "hplc",
+        "nmr",
+        "size exclusion chromatography",
+        "differential interference contrast microscopy",
+        "drug discovery",
+        "liquid chromatography-mass spectrometry",
+        "fourier transform infrared spectroscopy",
+        "chemical engineering",
+        "scanning electron microscopy",
+        "polymer chemistry",
+        "x-ray diffraction",
+        "scanning tunneling microscopy",
+        "liquid chromatography",
+        "gas chromatography",
+        "fluorescence spectroscopy",
+        "biochemistry",
+        "purification",
+        "ultra high performance liquid chromatography",
+        "organic chemistry",
+        "x-ray crystallography"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Research Scientist",
+                "confidence": 0.49,
+                "confidence_percent": "49%"
+            },
+            {
+                "title": "Pharmacist",
+                "confidence": 0.33,
+                "confidence_percent": "33%"
+            },
+            {
+                "title": "Chef",
+                "confidence": 0.22,
+                "confidence_percent": "22%"
+            }
+        ],
+        "job_title": "Research Scientist",
+        "skills": [
+            "safety",
+            "mass spectrometry",
+            "spectroscopy",
+            "synthesis",
+            "laboratory",
+            "nuclear magnetic resonance",
+            "chromatography",
+            "infrared spectroscopy"
+        ],
+        "preferred_location": "Karjat",
+        "recommended_courses": [
+            "Introduction to Chemistry - https://www.coursera.org/learn/chemistry",
+            "Organic Chemistry - https://www.edx.org/course/organic-chemistry",
+            "Analytical Chemistry - https://www.coursera.org/learn/analytical-chemistry",
+            "Spectroscopy and Structure Determination - https://www.udemy.com/course/spectroscopy",
+            "Research Methods in Chemistry - https://www.coursera.org/learn/research-methods"
+        ]
+    }
+}

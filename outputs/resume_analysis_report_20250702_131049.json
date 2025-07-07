@@ -1,0 +1,73 @@
+{
+    "raw_text": "Mayur patil \n       Mayurkpatil9359@gmail.com, Ph: +91-9359229951, Pune \n \nKEY SILKS \n \n\uf0b7 Operating system:- Linux (ubuntu), windows \n\uf0b7 Virtualization Technologies:- VirtualBox, VMware \n\uf0b7 Web servers:-HTTPD, nginx  \n\uf0b7 Cloude platform:-AWS(vpc,EC2,S3,Cloudwatch,IAM) \n\uf0b7 frontend technology:- ,HTML(basic) \n\uf0b7 Version Control Tools: Git and GitHub  \n \nROLES AND RESPONSIBILITIES \n\uf0b7  I am good at managing AWS services such as EC2, S3, VPC, IAM,  and CloudFormation. \n\uf0b7 managed scalable, secure applications using EC2 instances and load balancer. \n\uf0b7 I am good at managing S3 buckets for data storage, backups, and hosting static websites. \n\uf0b7 Automated EC2 instance using EC2 Auto Scaling. \n\uf0b7 I am good at implementing secure VPCs (Virtual Private Cloud) with private and public subnets. \n\uf0b7 Configured IAM roles, users, and policies for secure access control. \n\uf0b7 Managed large-scale data storage solutions using AWS S3 for backup, archiving, and static  \n\uf0b7 website  hosting. \n\uf0b7 Implemented Auto Scaling Groups for EC2 instances to ensure high availability. \n\uf0b7 version control using Git (branching, merging). \n\uf0b7 Good at staging, committing, and reverting changes in Git. \n\uf0b7 managing pull requests, code reviews, and resolving merge conflicts. \n\uf0b7 I am good at repository management, including forking, cloning. \n\uf0b7 Familiar with basic Docker commands like docker run, docker build, docker ps, and docker exec. \n\uf0b7 I am good at Linux based infrastructure, ensuring efficient system administration and maintenance. \n\uf0b7 Linux basic login into the system changing users \n\uf0b7 Running commands and getting help. \n\uf0b7 Open, edit and save text files in vi and vim editor \n\uf0b7 Tex processing tool grep, find \n\uf0b7 User administration (creating, modifying, deleting users and groups) \n\uf0b7 Package managing (yum and rpm) \n\uf0b7 Reding and sating permissions on file directories \n \n \nEDUCATION \n   Master of Computer Application \n \n \n \n \n \n \nAug 2022 - Jun 2024  \n   Parul University, Vadodara | CGPA : 7.39 \n   Bachelor of Computer Application \nJun 2019 - Aug 2022 \n   R.C Patel ASC College , Shirpur | CGPA : 9.31 \n \n personal details \n      Date of birth:- 01 Aug  2000      \n      Gender:- male  \n      Languages:-English, Hindi and Marathi  \n \n",
+    "personal_info": {
+        "name": "Mayur Kpatil",
+        "email": "Mayurkpatil9359@gmail.com",
+        "phone": "9359229951",
+        "linkedin": null,
+        "github": null,
+        "location": "Vadodara"
+    },
+    "resume_score": 60,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "node.js",
+        "angular",
+        "full stack",
+        "express.js",
+        "css",
+        "mysql",
+        "backend",
+        "react",
+        "javascript",
+        "mongodb"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Full Stack Developer",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            },
+            {
+                "title": "Mechanical Engineer",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            },
+            {
+                "title": "IoT Engineer",
+                "confidence": 0.03,
+                "confidence_percent": "3%"
+            }
+        ],
+        "job_title": "Full Stack Developer",
+        "skills": [
+            "html",
+            "maintenance",
+            "tools",
+            "git",
+            "frontend"
+        ],
+        "preferred_location": "Vadodara",
+        "recommended_courses": {
+            "Full Stack Developer": [
+                "Full-Stack Web Development with React - https://www.coursera.org/specializations/full-stack-react"
+            ],
+            "Mechanical Engineer": [
+                "Mechanical Engineering Design - https://www.coursera.org/learn/mechanical-design",
+                "SolidWorks CAD - https://www.udemy.com/course/solidworks-course"
+            ],
+            "IoT Engineer": [
+                "Internet of Things (IoT) - https://www.coursera.org/specializations/iot"
+            ]
+        }
+    }
+}
