@@ -1041,31 +1041,15 @@ def check_education(text):
     }
 
 # === Skill Extractor ===
-def extract_skills_from_section(text, skill):
-    lines = [l.strip() for l in text.splitlines()]
-    skills_section_lines = []
-    in_skills_section = False
-
-    for line in lines:
-        # Start skills section
-        if re.match(r'^(skills|technical skills|skill set)\s*$', line.strip(), re.I):
-            in_skills_section = True
-            continue
-        # If we're in the skills section, check for new section header - stop if found
-        if in_skills_section:
-            if re.match(r'^[A-Z][A-Z\s&-]{3,}$', line):  # Next all-caps section
-                break
-            if line:  # Non-empty, non-header line
-                skills_section_lines.append(line)
-
-    # Now extract skills from these lines, matching only against skill_keywords
-    found_skills = set()
-    for line in skills_section_lines:
-        for kw in skill:
-            # Use word boundary matching to avoid partial matches
-            if re.search(r'\b' + re.escape(kw) + r'\b', line, re.I):
-                found_skills.add(kw)
-    return list(found_skills)
+def extract_skills(text):
+    text = text.lower()
+    skills_found = []
+    for kw in SKILL_KEYWORDS:
+        # Use word boundary matching to avoid partial word matches
+        pattern = r'\b' + re.escape(kw) + r'\b'
+        if re.search(pattern, text, re.IGNORECASE):
+            skills_found.append(kw)
+    return list(set(skills_found))
 
 def is_skill(line):
     line_lower = line.lower()
@@ -1283,7 +1267,7 @@ def analyze_resume(file_path):
         return None
 
     personal_info = extract_personal_details(resume_text)
-    skills = extract_skills_from_section(resume_text)
+    skills = extract_skills(resume_text)
     edu = check_education(resume_text)
     proj_int = check_projects_and_internships(resume_text)
     work_exp = check_work_experience(resume_text)
