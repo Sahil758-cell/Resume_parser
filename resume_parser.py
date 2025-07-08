@@ -17,7 +17,7 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 # Ensure poppler-utils is in PATH
-os.environ["PATH"] += os.pathsep + r"C:\\poppler\\poppler-24.08.0\\Library\\bin"
+os.environ["PATH"] += os.pathsep + r"C:\\poppler-24.08.0\\Library\\bin"
 
 # === Skill Keywords ===
 SKILL_KEYWORDS = set()
@@ -432,7 +432,9 @@ def extract_personal_details(text):
     if lines and not details.get('name'):
         first_line = lines[0]
         words = first_line.split()
-        if 2 <= len(words) <= 4 and all(w.isalpha() for w in words):
+        section_headers_clean = set(h.strip().lower() for h in section_headers)
+        if (2 <= len(words) <= 4 and all(w.isalpha() for w in words) and
+            first_line.strip().lower() not in section_headers_clean):
             details['name'] = first_line
             print(f"DEBUG: details['name'] set to: {details['name']} (from first line priority)")
     # ... rest of the existing code ...
@@ -810,7 +812,7 @@ def extract_personal_details(text):
                 print(f"DEBUG: details['name'] set to: {details['name']} (from robust end-of-resume fallback)")
                 break
 
-    # Robust fallback: scan last 40 lines for a likely name if none found
+       # Robust fallback: scan last 40 lines for a likely name if none found
     name_blacklist = set(h.strip().lower() for h in section_headers)
     name_blacklist.update([
         'mobile', 'email', 'phone', 'contact', 'date', 'place', 'signature', 'major', 'minor',
@@ -829,6 +831,28 @@ def extract_personal_details(text):
                 details['name'] = candidate
                 print(f"DEBUG: details['name'] set to: {details['name']} (from robust end-of-resume fallback)")
                 break
+
+    # Ultra-robust fallback: look near 'Mobile'/'E-mail' at the end
+    if not details.get('name'):
+        for i in range(len(lines)-1, -1, -1):
+            line = lines[i]
+            if re.search(r"Mobile", line, re.I) or re.search(r"E-?mail", line, re.I):
+                # Look a few lines above for the name
+                for j in range(i-1, max(i-5, -1), -1):
+                    possible_name = lines[j].strip()
+                    # Heuristic: not all uppercase, not a heading, no digits, 2-4 words, not empty
+                    if (possible_name and
+                        not possible_name.isupper() and
+                        not re.search(r"\d", possible_name) and
+                        2 <= len(possible_name.split()) <= 4 and
+                        not any(word in possible_name.lower() for word in ["address", "date", "place", "declaration", "details"])):
+                        details['name'] = possible_name
+                        print(f"DEBUG: details['name'] set to: {details['name']} (from ultra robust mobile/email end fallback)")
+                        break
+                if details.get('name'):
+                    break
+
+        return details
 
     # Ultra-robust fallback: scan the entire resume from bottom to top for a likely name if none found
     def clean_candidate(line):
@@ -916,7 +940,7 @@ def split_linkedin_handle(handle):
 
 # === Section Header Names and Helper ===
 section_header_names = set([
-    'extra curricular activities', 'skills', 'projects', 'internships', 'work experience', 'education',
+    'extra curricular activities', 'skills', 'projects', 'internships', 'work experience', 'education', 'educational details',
     'languages', 'certifications', 'achievements', 'personal details', 'profile', 'summary', 'career objective',
     'objective', 'contact', 'email', 'mobile', 'phone', 'address', 'declaration', 'signature', 'place', 'date',
     'major', 'minor', 'courses', 'interests', 'statement', 'references', 'reference', 'hobbies', 'activities',
@@ -1017,15 +1041,31 @@ def check_education(text):
     }
 
 # === Skill Extractor ===
-def extract_skills(text):
-    text = text.lower()
-    skills_found = []
-    for kw in SKILL_KEYWORDS:
-        # Use word boundary matching to avoid partial word matches
-        pattern = r'\b' + re.escape(kw) + r'\b'
-        if re.search(pattern, text, re.IGNORECASE):
-            skills_found.append(kw)
-    return list(set(skills_found))
+def extract_skills_from_section(text, skill):
+    lines = [l.strip() for l in text.splitlines()]
+    skills_section_lines = []
+    in_skills_section = False
+
+    for line in lines:
+        # Start skills section
+        if re.match(r'^(skills|technical skills|skill set)\s*$', line.strip(), re.I):
+            in_skills_section = True
+            continue
+        # If we're in the skills section, check for new section header - stop if found
+        if in_skills_section:
+            if re.match(r'^[A-Z][A-Z\s&-]{3,}$', line):  # Next all-caps section
+                break
+            if line:  # Non-empty, non-header line
+                skills_section_lines.append(line)
+
+    # Now extract skills from these lines, matching only against skill_keywords
+    found_skills = set()
+    for line in skills_section_lines:
+        for kw in skill:
+            # Use word boundary matching to avoid partial matches
+            if re.search(r'\b' + re.escape(kw) + r'\b', line, re.I):
+                found_skills.add(kw)
+    return list(found_skills)
 
 def is_skill(line):
     line_lower = line.lower()
@@ -1174,7 +1214,7 @@ def display_resume_score(rating):
 # === Main Analyzer ===
 major_indian_locations = {
     "Thane", "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat",
-    "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Bhopal", "Visakhapatnam", "Boisar"
+    "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Bhopal", "Visakhapatnam", "Boisar","Hanamkonda"
 }
 
 # Institution keywords for name/section filtering
@@ -1243,7 +1283,7 @@ def analyze_resume(file_path):
         return None
 
     personal_info = extract_personal_details(resume_text)
-    skills = extract_skills(resume_text)
+    skills = extract_skills_from_section(resume_text)
     edu = check_education(resume_text)
     proj_int = check_projects_and_internships(resume_text)
     work_exp = check_work_experience(resume_text)

@@ -74,7 +74,7 @@ def get_recommended_courses(job_title):
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if row["job_title"].strip().lower() == job_title.strip().lower():
-                    return [course.strip() for course in row["courses"].split(";") if course.strip()]
+                    return [course.strip() for course in row["recommended_courses"].split(";") if course.strip()]
         return []
     except FileNotFoundError:
         print("job_knowledge_base.csv not found. No courses recommended.")
