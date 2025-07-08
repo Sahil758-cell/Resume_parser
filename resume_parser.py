@@ -1041,24 +1041,55 @@ def check_education(text):
     }
 
 # === Skill Extractor ===
-def extract_skills(text):
-    text = text.lower()
-    skills_found = []
-    for kw in SKILL_KEYWORDS:
-        # Use word boundary matching to avoid partial word matches
-        pattern = r'\b' + re.escape(kw) + r'\b'
-        if re.search(pattern, text, re.IGNORECASE):
-            skills_found.append(kw)
-    return list(set(skills_found))
 
-def is_skill(line):
-    line_lower = line.lower()
-    for skill in SKILL_KEYWORDS:
-        # Use word boundary matching to avoid partial word matches
-        pattern = r'\b' + re.escape(skill) + r'\b'
-        if re.search(pattern, line_lower, re.IGNORECASE):
-            return True
-    return False
+def extract_skills_from_block(text):
+    """
+    Extract skills from the 'SKILLS' section block in a resume.
+    """
+    skills_section = []
+    lines = text.splitlines()
+    capture = False
+    for i, line in enumerate(lines):
+        # Start capturing after encountering a SKILLS section header
+        if re.match(r"^\s*skills?\s*:?$", line.strip(), re.I):
+            capture = True
+            continue
+        # Stop at the next likely section header (all caps or common format), but not if it's the SKILLS header itself
+        if capture and (
+            (re.match(r"^[A-Z][A-Z\s]{2,}$", line.strip()) or re.match(r"^\s*[A-Z][a-z]+(\s+[A-Z][a-z]+)*\s*:?$", line.strip()))
+            and not re.match(r"^\s*skills?\s*:?$", line.strip(), re.I)
+        ):
+            break
+        if capture and line.strip():
+            skills_section.append(line.strip())
+    # Clean and flatten
+    skills_flat = []
+    for item in skills_section:
+        # Remove bullets or dashes
+        item = re.sub(r"^[•\-*]\s*", "", item)
+        # Split on comma or semicolon, or treat the line as a single skill
+        skills_flat += [s.strip() for s in re.split(r",|;", item) if s.strip()]
+    return set(map(str.lower, skills_flat))
+
+def extract_skills(text):
+    """
+    Enhanced skill extraction:
+    1. Get skills from SKILLS block.
+    2. Supplement with NER and keyword search.
+    """
+    # 1. Block extraction
+    block_skills = extract_skills_from_block(text)
+    # 2. NER extraction
+    doc = nlp(text)
+    ner_skills = set(ent.text.strip().lower() for ent in doc.ents if ent.label_.upper() in ["SKILL", "SKILLS"])
+    # 3. Keyword fallback (assumes SKILL_KEYWORDS is defined elsewhere in your code)
+    keyword_skills = set()
+    for kw in SKILL_KEYWORDS:
+        if re.search(r'\b' + re.escape(kw) + r'\b', text, re.IGNORECASE):
+            keyword_skills.add(kw.lower())
+    # Combine all, prioritize block
+    all_skills = block_skills | ner_skills | keyword_skills
+    return sorted(all_skills)
 
 def is_valid_resume(text, is_ocr=False):
     """
