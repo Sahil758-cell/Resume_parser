@@ -1,0 +1,71 @@
+{
+    "raw_text": "VAIBHAV ASHOK RASAL\n+91 7249708705\nrasalvaibhav30121@gmail.com\nKatkarpada, Boisar (W)\nCareer Objectives\nAs a recent Mechanical Engineering graduate with a solid academic foundation, I seek to join an organization\nwhere I can acquire new skills and enhance my abilities to contribute to both the organization's goals and my\npersonal growth.\nEducation\nBachelor Of Engineering In Mechanical Engineering\nMay 2024\nTheem College of Engineering, Boisar (E).\nPercentage: 66.48%\nDiploma In Mechanical Engineering\nMay 2021\nTheem College of Engineering, Boisar (E).\nPercentage: 85.36%\nSSC\nMay 2017\nSuvidya Marathi Medium School, Mumbai (E).\nPercentage: 61.20%\nProjects\n\u25cf\nElectromagnetic Braking System\n\u25cf\nGyroscope Self Balancing Wheel\n\u25cf\nComparative Study of Filtrates Through Different Xylem of Plants\nInternship\nStone Crusher (Supervisor)\nJuly 2018\nTexwiz (Supervisor)\nJune 2023\nAdele Industry (Supervisor)\nDec 2022 - Jan 2023\nSoftware skills\nWriting tools: Microsoft Office (Word, Excel, PowerPoint), Google docs.\nPersonal Details\nDate of Birth : 30/12/2001.\nKnown Languages : Marathi, Hindi, and English.\nHobbies: Singing, Dancing, Sport (Kho-kho).\n",
+    "personal_info": {
+        "name": "Vaibhav Ashok Rasal",
+        "email": "rasalvaibhav30121@gmail.com",
+        "phone": "7249708705",
+        "linkedin": null,
+        "github": null,
+        "location": "Boisar"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "data analysis",
+        "user stories",
+        "requirement gathering",
+        "frd",
+        "brd",
+        "stakeholder"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Business Analyst",
+                "confidence": 0.33333510160446167,
+                "confidence_percent": "33%"
+            },
+            {
+                "title": "UX Designer",
+                "confidence": 0.3131501078605652,
+                "confidence_percent": "31%"
+            },
+            {
+                "title": "AI Engineer",
+                "confidence": 0.3050890862941742,
+                "confidence_percent": "31%"
+            }
+        ],
+        "job_title": "Business Analyst",
+        "skills": [
+            "excel",
+            "google docs.",
+            "gyroscope",
+            "mechanical",
+            "microsoft office",
+            "powerpoint",
+            "tools",
+            "word",
+            "writing"
+        ],
+        "preferred_location": "Boisar",
+        "recommended_courses": {
+            "Business Analyst": [
+                "Business Analysis & Process Management - https://www.coursera.org/learn/uva-darden-business-analysis"
+            ],
+            "UX Designer": [
+                "Google UX Design - https://www.coursera.org/professional-certificates/google-ux-design"
+            ],
+            "AI Engineer": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone"
+            ]
+        }
+    }
+}

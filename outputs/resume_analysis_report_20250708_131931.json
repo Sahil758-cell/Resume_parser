@@ -1,0 +1,67 @@
+{
+    "raw_text": "PROFILE\nI consider my self a\nresponsible and orderly\nperson.\nI am looking foward for\nmy first work\nexperience.\nCONTACT ME\n6305818913\nakhilagamineni27@gmai.com\nHanamkonda\nVOLUNTEER EXPERIENCE\nNATIONAL SERVICE SCHEME\ni;ve been participating in NSS services since 2\nyears\nEDUCATION\nCHAITANYA DEEMED TO BE UNIVERSITY\nBachelor\u2019s of Science             2022-2025\nCGPA: 8.8 till present\nSR JUNIOR COLLEGE\nIntermediate                               2019-2021\nMarks : 912\nLANGUAGE\nNative Telugu.\nIntermediate English\nSKILLS\nLeadership\nAKHILA\nGAMINENI\nStudent\nCommunication\nTime management\nSelf-Confident\n",
+    "personal_info": {
+        "name": "AKHILA GAMINENI",
+        "email": "akhilagamineni27@gmai.com",
+        "phone": "6305818913",
+        "linkedin": null,
+        "github": null,
+        "location": "Hanamkonda"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "employee engagement",
+        "onboarding",
+        "payroll",
+        "grievance",
+        "recruitment",
+        "hrms"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "HR Generalist",
+                "confidence": 0.2807092070579529,
+                "confidence_percent": "28%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.28043466806411743,
+                "confidence_percent": "28%"
+            },
+            {
+                "title": "Content Writer",
+                "confidence": 0.27079835534095764,
+                "confidence_percent": "27%"
+            }
+        ],
+        "job_title": "HR Generalist",
+        "skills": [
+            "communication"
+        ],
+        "preferred_location": "Hanamkonda",
+        "recommended_courses": {
+            "HR Generalist": [
+                "HR Management and Analytics - https://www.coursera.org/learn/hr-management-analytics"
+            ],
+            "HR Manager": [
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Content Writer": [
+                "Writing for the Web - https://www.open.edu/openlearn/ocw/mod/oucontent/view.php?id=87109",
+                "SEO Content Writing - https://www.udemy.com/course/seo-content-writing-course",
+                "Creative Writing Specialization - https://www.coursera.org/specializations/creative-writing"
+            ]
+        }
+    }
+}

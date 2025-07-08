@@ -1042,54 +1042,58 @@ def check_education(text):
 
 # === Skill Extractor ===
 
-def extract_skills_from_block(text):
-    """
-    Extract skills from the 'SKILLS' section block in a resume.
-    """
+def extract_skills_from_block(text, name=None):
+    import re
+    skill_headers = [
+        r"skills?", r"software skills?", r"technical skills?", r"core skills?", r"it skills?", r"computer skills?"
+    ]
+    header_regex = re.compile(r"^\s*(" + "|".join(skill_headers) + r")\s*:?$", re.I)
+
     skills_section = []
     lines = text.splitlines()
     capture = False
     for i, line in enumerate(lines):
-        # Start capturing after encountering a SKILLS section header
-        if re.match(r"^\s*skills?\s*:?$", line.strip(), re.I):
+        if header_regex.match(line.strip()):
             capture = True
             continue
-        # Stop at the next likely section header (all caps or common format), but not if it's the SKILLS header itself
         if capture and (
-            (re.match(r"^[A-Z][A-Z\s]{2,}$", line.strip()) or re.match(r"^\s*[A-Z][a-z]+(\s+[A-Z][a-z]+)*\s*:?$", line.strip()))
-            and not re.match(r"^\s*skills?\s*:?$", line.strip(), re.I)
+            re.match(r"^[A-Z][A-Z\s]{2,}$", line.strip()) or 
+            re.match(r"^\s*[A-Z][a-z]+(\s+[A-Z][a-z]+)*\s*:?$", line.strip())
         ):
             break
         if capture and line.strip():
             skills_section.append(line.strip())
-    # Clean and flatten
     skills_flat = []
     for item in skills_section:
-        # Remove bullets or dashes
         item = re.sub(r"^[•\-*]\s*", "", item)
-        # Split on comma or semicolon, or treat the line as a single skill
+        if ':' in item:
+            item = item.split(':', 1)[1].strip()
+        parenthesized = re.findall(r"\(([^)]*)\)", item)
+        for p in parenthesized:
+            skills_flat += [s.strip() for s in re.split(r",|;", p) if s.strip()]
+        item = re.sub(r"\([^)]*\)", "", item)
         skills_flat += [s.strip() for s in re.split(r",|;", item) if s.strip()]
-    return set(map(str.lower, skills_flat))
+    # Blacklist for names, roles, fields, and non-skills
+    blacklist = {
+        "student", "resume", "cv", "profile", "summary", "career objectives", "objectives",
+        "mechanical", "engineering", "gyroscope", "wheel", "system", "braking", "supervisor", "industry", "crusher",
+        "project", "internship", "education", "percentage", "balancing", "study", "comparative", "xylem", "plants", "self"
+    }
+    if name:
+        for part in name.lower().split():
+            blacklist.add(part)
+    # Remove trailing punctuation, filter out blacklist and non-skill items
+    result_skills = set()
+    for s in skills_flat:
+        skill = s.lower().strip(" .,:;")
+        if skill and skill not in blacklist and len(skill) > 1 and not skill.replace('.', '').isdigit():
+            result_skills.add(skill)
+    return result_skills
 
-def extract_skills(text):
-    """
-    Enhanced skill extraction:
-    1. Get skills from SKILLS block.
-    2. Supplement with NER and keyword search.
-    """
-    # 1. Block extraction
-    block_skills = extract_skills_from_block(text)
-    # 2. NER extraction
-    doc = nlp(text)
-    ner_skills = set(ent.text.strip().lower() for ent in doc.ents if ent.label_.upper() in ["SKILL", "SKILLS"])
-    # 3. Keyword fallback (assumes SKILL_KEYWORDS is defined elsewhere in your code)
-    keyword_skills = set()
-    for kw in SKILL_KEYWORDS:
-        if re.search(r'\b' + re.escape(kw) + r'\b', text, re.IGNORECASE):
-            keyword_skills.add(kw.lower())
-    # Combine all, prioritize block
-    all_skills = block_skills | ner_skills | keyword_skills
-    return sorted(all_skills)
+def extract_skills(text, name=None):
+    block_skills = extract_skills_from_block(text, name)
+    # Optionally: add NER/keyword skills, but always filter with the same blacklist logic
+    return sorted(block_skills)
 
 def is_valid_resume(text, is_ocr=False):
     """
@@ -1298,7 +1302,7 @@ def analyze_resume(file_path):
         return None
 
     personal_info = extract_personal_details(resume_text)
-    skills = extract_skills(resume_text)
+    skills = extract_skills(resume_text, name=personal_info.get("name"))
     edu = check_education(resume_text)
     proj_int = check_projects_and_internships(resume_text)
     work_exp = check_work_experience(resume_text)
