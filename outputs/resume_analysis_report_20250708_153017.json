@@ -1,0 +1,75 @@
+{
+    "raw_text": "9082350675\nMumbai\ndurgesh.dalvi23@gmail.com\ndurgesh.dalvi23\ndurgesh-dalvi23.github\nDURGESH DALVI\nAI Engineer | Web Designer\n2021 - 2025\n2019 - 2021\nPalghar\nMumbai\nEDUCATION \nSKILLS\nSt. John College Of Engineering & Management \nBachelor of Engineering in Artificial Intelligence & Machine Learning\nAverage CGPA : 7.6\nTechnical Skills \nPython, C,  JavaScript, SQL, Pandas, NumPy, Visualization, Scikit-learn, NLP, CNN,RAGs, Langchain, ReactJS, Git\nThakur College Of Science & Commerce \nSenior Secondary \nPercentage : 79 %\nNon-Technical Skills\nTeamwork, Leadership, Public Speaking, Versatility, Problem Solving, GK, Guitar, Cricket\nPROJECTS \nACHIEVEMENTS\nCERTIFICATION COURSES & SPECIALIZATIONS\nLANGUAGE PROFICIENCY\nIMPERIA | VIVA Institute Of Technology, Virar\nCore Subjects\nEnglish : (Intermediate)  Marathi : (Advance)   Hindi : (Advance)\nAR/VR & Game Development\nUdemy\nXZIBIT | K C College Of Engineering, Thane\nNewsNinja - Personal AI Journalist\nPsycheCounselAI \u2013 AI based Mental Health Chatbot\nDeveloped an AI-powered tool that generates real-time, topic-specific news summaries in audio format,\ncombining trusted media sources and expert insights for accurate, informative updates.\nDeveloped a MERN-based mental health app with LLM-powered chat for therapy, including authentication,\nsession tracking, and responsive design.\nAI Assistant for Windows Systems\nImplemented system tasks and designed a user interface for our AI assistant using the Rasa library, enabling\nenhanced user interaction with Windows systems through voice commands for a college group project\nMachine Learning Project Portfolio\nDeveloped predictive models using regression for house price estimation and natural language processing\nfor WhatsApp chat analysis, as well as recommendation systems using collaborative filtering and content-\nbased algorithms for movies and books\nCollaborated with my team to win 1st place at IMPERIA 2024 with a project focused on Violence Detection\nusing Deep Learning and CNNs\nMachine Learning, Deep Learning, DBMS, DSA, Web Design\nEnrolled in a 4-week AR/VR course, built multiple projects, and explored the immersive dynamics of virtual environments\nEnrolled in \u201cGetting Started with Machine Learning\u201d course for better understanding of basics of Machine Learning\nSecured third place in XZIBIT 2023, a national-level competition, with the Automatic Energy Meter project,\nshowcasing innovative IoT technology for automating energy meter readings and user interactions\nINTERNSHIP\nDesigned multiple website designs for this service-based company, with all successfully\nhosted live, enhancing web designing and client satisfaction\nWorked as Front-End Designer & Developer, building dynamic, creatively designed\nwebsites including a blockchain project, improving UX and visual appeal.\nUnarrow Digital Solutions (Remote)\nUdyog Suvidha Kendra (Hybrid)\n2024 - 2025\n2023 - 2024\n2023 - 2024\n2023 - 2024\nVirar\nPalghar\n2024\n2023\nJune 2024 - July 2024\nJan 2025 - Present\n",
+    "personal_info": {
+        "name": "DURGESH DALVI",
+        "email": "durgesh.dalvi23@gmail.com",
+        "phone": "9082350675",
+        "linkedin": null,
+        "github": null,
+        "location": "Mumbai"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "pytorch",
+        "deep learning",
+        "neural networks",
+        "tensorflow"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "AI Engineer",
+                "confidence": 0.4597158432006836,
+                "confidence_percent": "46%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.4481789469718933,
+                "confidence_percent": "45%"
+            },
+            {
+                "title": "UX Designer",
+                "confidence": 0.40382421016693115,
+                "confidence_percent": "40%"
+            }
+        ],
+        "job_title": "AI Engineer",
+        "skills": [
+            "bachelor of engineering in artificial intelligence & machine learning",
+            "cnn",
+            "git",
+            "javascript",
+            "langchain",
+            "nlp",
+            "numpy",
+            "pandas",
+            "python",
+            "rags",
+            "reactjs",
+            "scikit-learn",
+            "sql",
+            "st. john college of engineering & management",
+            "thakur college of science & commerce",
+            "visualization"
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": {
+            "AI Engineer": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ],
+            "UX Designer": [
+                "Google UX Design - https://www.coursera.org/professional-certificates/google-ux-design"
+            ]
+        }
+    }
+}
