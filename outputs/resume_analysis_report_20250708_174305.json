@@ -1,0 +1,76 @@
+{
+    "raw_text": "OBJECTIVE\nTo contribute my skills and experience in pharmacy fields, while\ncontinuously learning and growing in a dynamic work environment\nEXPERIENCE\nNimra Pharmacy\n11/07/2023 - 11/07/2024\nRetailer and salesman\nEDUCATION\nChaitanya Deemed to be University\n2025\nBachelor of Pharmacy\n9.091\nMAKAK MAYUM\nFAKARUDDIN\nCONTACT\n\ue947\nLilong Tamyai Ushoipokpi Suptu karong\nP.O - Lilong\nP. S - Lilong\nDistrict - 795130\nState - Manipur\n\ue9649366799766\n\ue91emmfakaruddin55@gmail.com\nSKILLS\nSincere at work and responsible 80%\nability to work in a team achieve goal\ngood communication skills and\nproblem solving skills punctuality and\nflexible to work basic computer skills\non Ms-off\nLANGUAGES\nEnglish\nHindi\nManipuri\nINTERESTS\nPlaying football\nPlaying basketball\nReading books\n",
+    "personal_info": {
+        "name": "Mmfakaruddin",
+        "email": "mmfakaruddin55@gmail.com",
+        "phone": "9366799766",
+        "linkedin": null,
+        "github": null,
+        "location": "Lilong"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "pharma sales rep",
+        "client meetings",
+        "communication",
+        "persuasion",
+        "drug",
+        "product promotion",
+        "crm",
+        "pharmaceutical sales",
+        "pharmaceutical",
+        "client handling"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Pharma Sales",
+                "confidence": 0.47447311878204346,
+                "confidence_percent": "47%"
+            },
+            {
+                "title": "Pharmacist",
+                "confidence": 0.4586741328239441,
+                "confidence_percent": "46%"
+            },
+            {
+                "title": "Doctor",
+                "confidence": 0.39135807752609253,
+                "confidence_percent": "39%"
+            }
+        ],
+        "job_title": "Pharma Sales",
+        "skills": [
+            "ability to work in a team achieve goal",
+            "flexible to work basic computer skills",
+            "good communication skills and",
+            "on ms-off",
+            "problem solving skills punctuality and",
+            "sincere at work and responsible 80%"
+        ],
+        "preferred_location": "Lilong",
+        "recommended_courses": {
+            "Pharma Sales": [
+                "Pharma Sales Training \u2013 Udemy"
+            ],
+            "Pharmacist": [
+                "Diploma in Pharmacy",
+                "B.Pharm",
+                "Pharmacy Technician Training - https://www.coursera.org/learn/pharmacy"
+            ],
+            "Doctor": [
+                "Medical Neuroscience - https://www.coursera.org/learn/medical-neuroscience",
+                "Anatomy Specialization - https://www.coursera.org/specializations/anatomy",
+                "Clinical Skills - https://www.futurelearn.com/courses/clinical-skills"
+            ]
+        }
+    }
+}

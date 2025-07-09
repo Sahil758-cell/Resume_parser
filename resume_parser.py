@@ -431,10 +431,15 @@ def extract_personal_details(text):
     lines = [l.strip() for l in text.strip().splitlines() if l.strip()]
     if lines and not details.get('name'):
         first_line = lines[0]
-        words = first_line.split()
+        # Normalize first line by removing zero-width spaces and extra spaces
+        normalized_first_line = re.sub(r'[\u200b\s]+', ' ', first_line).strip().lower()
+        words = normalized_first_line.split()
         section_headers_clean = set(h.strip().lower() for h in section_headers)
-        if (2 <= len(words) <= 4 and all(w.isalpha() for w in words) and
-            first_line.strip().lower() not in section_headers_clean):
+        # Additional check: exclude 'professional summary' explicitly if present
+        if 'professional summary' in normalized_first_line:
+            print(f"DEBUG: Skipping first line as it is a professional summary header")
+        elif (2 <= len(words) <= 4 and all(w.isalpha() for w in words) and
+            normalized_first_line not in section_headers_clean):
             details['name'] = first_line
             print(f"DEBUG: details['name'] set to: {details['name']} (from first line priority)")
     # ... rest of the existing code ...
@@ -1089,11 +1094,36 @@ def extract_skills_from_block(text, name=None):
         if skill and skill not in blacklist and len(skill) > 1 and not skill.replace('.', '').isdigit():
             result_skills.add(skill)
     return result_skills
+def extract_bullet_skills(text, name=None):
+    import re
+    # Collect all bullet points (•, -, *) in the document, even empty ones
+    bullets = re.findall(r"(?:^[•\-\*][ \t]*.+|[\n\r][•\-\*][ \t]*.+)", text, re.MULTILINE)
+    bullets = [b.lstrip("\n\r•-* \t") for b in bullets]
+    candidate_skills = set()
+    blacklist = {
+        "student", "resume", "cv", "profile", "summary", "career objectives", "objectives",
+        "project", "internship", "education", "percentage", "system", "industry", "crusher",
+        "accomplishments", "certifications", "languages", "professional summary"
+    }
+    if name:
+        for part in name.lower().split():
+            blacklist.add(part)
+    for b in bullets:
+        skill = b.lower().strip(" .,:;")
+        # Only keep short lines (max 5 words), ignore obviously non-skill bullets
+        if (skill and skill not in blacklist and 1 < len(skill.split()) <= 5
+                and not skill.replace('.', '').isdigit()):
+            candidate_skills.add(skill)
+    return candidate_skills
+
+
 
 def extract_skills(text, name=None):
     block_skills = extract_skills_from_block(text, name)
-    # Optionally: add NER/keyword skills, but always filter with the same blacklist logic
-    return sorted(block_skills)
+    bullet_skills = extract_bullet_skills(text, name)
+    # Combine and de-duplicate
+    all_skills = block_skills.union(bullet_skills)
+    return sorted(all_skills)
 
 def is_valid_resume(text, is_ocr=False):
     """
