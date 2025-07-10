@@ -1,0 +1,64 @@
+{
+    "raw_text": "Mahima Kishor Jaiswal \nFresher \nAn independent and self motivated B.tech Engineering student willing to obtain a fresher position in a fast paced organization where my\ntechnical skills and creative thinking will be tested. I'm self motivated learner with a eagerness to learn new things. \nmahimajaiswal244@gmail.com \n9158944603 \nAurangabad, MH, India \nlinkedin.com/in/mahima-jaiswal-848728240 \nEDUCATION \nB.Tech in Electronics and Telecommunication\nEngineering \nDeogiri Institute of Engineering and\nManagement Studies, Aurangabad-431001 \n2020 - 2024,  \nCGPA - 8.05 \nDiploma in Electronics and\nTelecommunication Engineering \nMSS College of engineering and technology,\nJalna-431203 \n2020,  \n69.47% \nSSC \nYashwant Vidhyalay, Selu \n2013,  \n71.60% \nINTERNSHIPS \nSoftware Testing-Intern \nGTT(Global Talent Track)-Virtual mode \n04/2023 - 05/2023,  \nThe training session begins with an introduction to the fundamentals of\nsoftware testing, importance of testing in the software development and\nthe different types of testing, testing tools and frameworks. \nCore Java-Intern \nCSR initiative by Capgemini and FUEL \n02/2023 - 04/2023,  \nAurangabad \nAs a java intern at FUEL provides various aspects of java development,\nincluding OOPS, algorithm and software design pattern. Also get hands-\non projects and experience. \nATM System Project \nBus Reservation System Project \nCyber Security Virtual Internship \nForage \n08/2022 - 09/2022,  \nDuring the internship there is task module to complete. \nCO-CURRICULAR ACTIVITY \nElementry Workshop on MEP system Designing (2017) \nTechnophilia (2019) \nSKILLS \nHTML/CSS \nProject Management \nComputer Skills \nMS o\ufb03ce (Excel, PowerPoint, Word) \nMySQL \nACADEMIC PROJECTS \nLibrary Management System (2023) \nI developed the Library Management System using Java \nIndustrial Temperature Controller (2022) \nI developed a device that monitor and control the temperature of\nindustry \nBidirectional Visitors Counter (2019) \ni developed a device using 8051 Microcontroller is helpful to count\nthe number of people enterning or leaving a hall and displays it on an\nLCD \nCERTIFICATES \nFuture Skills Training in Core Java and Aptitude Training\n (2023) \nFUEL \nCompletion Certi\ufb01cate of Python (2023) \nIBM \nLearning Java (2023) \nLinkedIn Learning \nCloud Fundamental (2023) \nEXCELR \nPython and Django Framework (2021) \nUdemy \nACHIEVEMENTS \nParticipated in State Level Rangoli Competition (2021) \nLANGUAGES \nEnglish \nProfessional Working Pro\ufb01ciency \nHindi \nFull Professional Pro\ufb01ciency \nMarathi \nFull Professional Pro\ufb01ciency \nINTERESTS \nSketching \nRangoli \nMusic \nTasks \nTasks. \n",
+    "personal_info": {
+        "name": "Mahima Kishor Jaiswal",
+        "email": "mahimajaiswal244@gmail.com",
+        "phone": "9158944603",
+        "linkedin": "linkedin.com/in/mahima-jaiswal-848728240",
+        "github": null,
+        "location": "Aurangabad"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List your technical or domain-specific skills."
+    ],
+    "ai_skill_suggestions": [
+        "html",
+        "javascript",
+        "mysql",
+        "css",
+        "web development",
+        "flask",
+        "frontend",
+        "backend"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.58,
+                "confidence_percent": "58%"
+            },
+            {
+                "title": "Software Developer",
+                "confidence": 0.49,
+                "confidence_percent": "49%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [],
+        "preferred_location": "Aurangabad",
+        "recommended_courses": {
+            "Web Developer": [
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development"
+            ],
+            "Data Entry Operator": [
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy",
+                "Typing Mastery - https://www.udemy.com/course/typing-master"
+            ],
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ]
+        }
+    }
+}

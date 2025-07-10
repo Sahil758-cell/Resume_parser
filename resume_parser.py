@@ -995,7 +995,6 @@ def check_education(text):
             line_lower = line.lower()
             if skip_cert_course_for_ug:
                 skip_section_headers = ["certification", "certifications", "certificate", "course", "courses", "training"]
-                # If the current line or nearby lines are section headers for cert/course, skip this line
                 skip_this_line = False
                 for offset in range(-2, 2):
                     i = idx + offset
@@ -1005,14 +1004,27 @@ def check_education(text):
                             skip_this_line = True
                             break
                 if skip_this_line:
-                    continue  # skip this line if in cert/course section
+                    continue
             for pat in patterns:
                 if re.search(pat, line, re.IGNORECASE):
                     if is_edu_context(line, idx):
                         return True
         return False
 
-    # Expanded PG patterns: abbreviations and full names
+    # Also check for multi-line patterns where "Master" and "Pursuing" are on different lines
+    def check_multiline_master_pursuing():
+        for i, line in enumerate(lines):
+            line_lower = line.lower()
+            # Look for "master" or "mba" lines
+            if any(pattern in line_lower for pattern in ['master of business', 'mba', 'master in business']):
+                # Check next 3 lines for "pursuing"
+                for j in range(i+1, min(i+4, len(lines))):
+                    next_line = lines[j].lower()
+                    if 'pursuing' in next_line:
+                        return True
+        return False
+
+    # Enhanced PG patterns with better "pursuing" detection
     pg_patterns = [
         r"\b(m[.\s]*s[.\s]*c[.]?|msc|master of science)\b",
         r"\b(m[.\s]*b[.\s]*a[.]?|mba|master of business administration)\b",
@@ -1021,16 +1033,31 @@ def check_education(text):
         r"\b(m[.\s]*e[.]?|me|master of engineering)\b",
         r"\b(m[.\s]*a[.]?|ma|master of arts)\b",
         r"\b(m[.\s]*c[.\s]*o[.\s]*m[.]?|mcom|master of commerce)\b",
-        r"\bpg\b", r"\bpgd\b", r"\bpgdm\b", r"post[- ]?graduate", r"post[- ]?graduation", r"post graduate diploma", r"post[- ]?grad"
+        r"\bpg\b", r"\bpgd\b", r"\bpgdm\b", 
+        r"post[- ]?graduate", r"post[- ]?graduation", r"post graduate diploma", r"post[- ]?grad",
+        # Enhanced patterns for "pursuing" status
+        r"master.*pursuing", r"pursuing.*master", r"mba.*pursuing", r"pursuing.*mba",
+        r"master.*current", r"current.*master", r"ongoing.*master", r"master.*ongoing",
+        # Specific patterns to catch "Master of business administration"
+        r"master\s+of\s+business\s+administration", r"masters\s+of\s+business\s+administration",
+        r"master\s+in\s+business\s+administration", r"masters\s+in\s+business\s+administration",
+        # Status-based patterns for postgraduate degrees
+        r"pursuing.*postgraduate", r"postgraduate.*pursuing", r"ongoing.*postgraduate",
+        # Match lines that have both master and status words nearby
+        r"master.*\b(pursuing|current|ongoing|continuing|enrolled)\b",
+        r"\b(pursuing|current|ongoing|continuing|enrolled)\b.*master",
+        # New pattern for multi-line detection (Master on one line, Pursuing on next)
+        r"master.*administration.*pursuing",
+        r"business.*administration.*pursuing"
     ]
+    
     dr_patterns = [r"\bphd\b", r"\bdoctorate\b", r"\bdphil\b"]
     g_patterns = [r"b[.\s]*s[.\s]*c[.]*", r"bsc", r"b[.\s]*a[.]*", r"ba", r"b[.\s]*b[.\s]*a[.]*", r"bba", r"b[.\s]*c[.\s]*a[.]*", r"bca", r"b[.\s]*c[.\s]*o[.\s]*m[.]*", r"bcom", r"b[.\s]*e[.\s]*", r"be", r"bachelor", r"ug", r"undergraduate", r"b\.tech", r"btech", r"bachelor's degree"]
-    # Use word boundaries for UG patterns to avoid substring matches
     ug_patterns = [r"\bdiploma\b", r"\bpolytechnic\b", r"\bd\.pharma\b", r"\bdiploma in pharmacy\b", r"\biti\b", r"\bindustrial training institute\b"]
     hsc_patterns = [r"intermediate", r"hsc", r"12th", r"xii", r"higher secondary", r"10\+2", r"senior secondary"]
     ssc_patterns = [r"ssc", r"10th", r"matriculation", r"secondary", r"x", r"10th standard", r"secondary school certificate", r"matric"]
 
-    found_pg = contains_any_pattern_in_context(pg_patterns)
+    found_pg = contains_any_pattern_in_context(pg_patterns) or check_multiline_master_pursuing()
     found_dr = contains_any_pattern_in_context(dr_patterns)
     found_g = contains_any_pattern_in_context(g_patterns)
     found_ug = contains_any_pattern_in_context(ug_patterns, skip_cert_course_for_ug=True)
@@ -1046,7 +1073,18 @@ def check_education(text):
         'ssc': found_ssc
     }
 
+
 # === Skill Extractor ===
+
+def is_education_line(line):
+    """Return True if a line looks like it refers to a school/college/institute/university."""
+    EDU_KEYWORDS = [
+        "school", "college", "university", "institute", "academy", "faculty", "polytechnic",
+        "foundation", "b.sc", "b.e", "b.tech", "m.sc", "m.tech", "phd", "ssc", "hsc", "diploma",
+        "junior college", "department"
+    ]
+    line_lower = line.lower()
+    return any(keyword in line_lower for keyword in EDU_KEYWORDS)
 
 def extract_skills_from_block(text, name=None):
     import re
@@ -1197,6 +1235,8 @@ def extract_skills_from_block(text, name=None):
         # Skip if empty, too short, or in blacklist
         if not skill or len(skill) < 2 or skill in blacklist:
             continue
+        if is_education_line(skill):
+            continue
         # Skip if it's just numbers
         if skill.replace('.', '').replace('-', '').isdigit():
             continue
@@ -1249,6 +1289,8 @@ def extract_bullet_skills(text, name=None):
             blacklist.add(part)
     for b in bullets:
         skill = b.lower().strip(" .,:;")
+        if is_education_line(skill):
+            continue
         # Only keep short lines (max 5 words), ignore obviously non-skill bullets
         if (skill and skill not in blacklist and 1 < len(skill.split()) <= 5
                 and not skill.replace('.', '').isdigit()):
