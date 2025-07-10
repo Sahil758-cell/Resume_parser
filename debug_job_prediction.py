@@ -1,8 +1,46 @@
-import csv
+from job_predictor import predict_job_field
 
-def debug_job_prediction(resume_text):
-    resume_text = resume_text.lower()
-    score_dict = {}
+# Test with Sahil's resume to check if iOS Developer issue is fixed
+sahil_resume = """Sahil Surendra Deshmukh Computer Engineering graduate with 
+strong programming expertise and solid foundation in Data Science, Artificial intelligence, 
+Machine Learning, and Software Development. Skilled in Python, C#, and Java with hands-on project 
+experience. Face and Iris-Based Attendance System using Python deep learning. 
+Programming: Python NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch
+ML Algorithms: Regression, Decision Trees, Random Forests, SVM, K-Means, Gradient Boosting XGBoost
+Data Preprocessing: Feature engineering, handling missing data
+Model Deployment: Flask, Streamlit
+Visualization: pandas,Matplotlib, Seaborn, Plotly
+IoT Architecture, Sensor Integration, Connecting physical sensors, Arduino microcontroller"""
+
+print("🎯 TESTING: Domain-Specific Penalty for iOS Developer")
+print("=" * 60)
+
+result = predict_job_field(sahil_resume, top_n=5)
+
+print("📋 PREDICTIONS:")
+for i, pred in enumerate(result, 1):
+    print(f"{i}. {pred['title']} - {pred['confidence_percent']}")
+
+print("\n📊 ANALYSIS:")
+# Check if iOS Developer is inappropriately ranked high
+ios_position = None
+for i, pred in enumerate(result):
+    if 'iOS' in pred['title']:
+        ios_position = i + 1
+        break
+
+if ios_position and ios_position <= 3:
+    print(f"❌ PROBLEM: iOS Developer is still ranked #{ios_position} (should be much lower)")
+    print("   Sahil has NO iOS experience (Swift, Xcode, iOS SDK)")
+else:
+    print(f"✅ GOOD: iOS Developer is {'not in top 5' if ios_position is None else f'ranked #{ios_position}'}")
+
+# Check if AI/ML jobs are properly ranked
+ai_jobs = [pred for pred in result if any(term in pred['title'] for term in ['AI', 'ML', 'Data Scientist'])]
+if ai_jobs:
+    print(f"✅ CORRECT: AI/ML jobs properly ranked: {ai_jobs[0]['title']} ({ai_jobs[0]['confidence_percent']})")
+else:
+    print("❌ PROBLEM: No AI/ML jobs in top predictions")
     total_weights_dict = {}
     job_keyword_counts = {}
     generic_keywords = {'training', 'tools'}  

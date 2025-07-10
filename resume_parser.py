@@ -1050,49 +1050,138 @@ def check_education(text):
 def extract_skills_from_block(text, name=None):
     import re
     skill_headers = [
-        r"skills?", r"software skills?", r"technical skills?", r"core skills?", r"it skills?", r"computer skills?"
+        r"skills?", r"software skills?", r"technical skills?", r"core skills?", r"it skills?", r"computer skills?",
+        r"key skills?", r"professional skills?", r"relevant skills?", r"skill set?", r"competencies?"
     ]
     header_regex = re.compile(r"^\s*(" + "|".join(skill_headers) + r")\s*:?$", re.I)
 
     skills_section = []
     lines = text.splitlines()
     capture = False
+    
     for i, line in enumerate(lines):
+        # Check if this line is a skills header
         if header_regex.match(line.strip()):
             capture = True
             continue
-        if capture and (
-            re.match(r"^[A-Z][A-Z\s]{2,}$", line.strip()) or 
-            re.match(r"^\s*[A-Z][a-z]+(\s+[A-Z][a-z]+)*\s*:?$", line.strip())
-        ):
-            break
+        
+        # Stop capturing if we hit another major section
         if capture and line.strip():
+            # Check if this is a new section header (all caps or title case)
+            # But be more careful about stopping - don't stop for single words or names
+            line_stripped = line.strip()
+            
+            # Skip obvious non-skill lines that appear in skills sections but don't stop
+            if (line_stripped.upper() in ['STUDENT', 'GRADUATE', 'FRESHER'] or 
+                line_stripped in ['Student', 'Graduate', 'Fresher']):
+                continue
+                
+            # Skip if it looks like a person's name (but allow it to continue)
+            if (re.match(r"^[A-Z]{2,}\s*$", line_stripped) or 
+                re.match(r"^[A-Z][A-Z\s]+$", line_stripped) and 
+                len(line_stripped.split()) <= 3):
+                # Check if next line is also a name part or if we're near the end
+                if i < len(lines) - 3:  # Not near the end
+                    continue
+                else:
+                    break  # Near end of document, probably a name
+            
+            # Check for actual section headers - be more specific
+            known_sections = ['CONTACT', 'EDUCATION', 'EXPERIENCE', 'PROJECTS', 'CERTIFICATIONS', 
+                            'LANGUAGES', 'VOLUNTEER', 'PROFILE', 'SUMMARY', 'OBJECTIVE', 
+                            'WORK EXPERIENCE', 'ACADEMIC', 'ACHIEVEMENTS', 'AWARDS', 'HOBBIES',
+                            'PERSONAL INFORMATION', 'CONTACT INFORMATION']
+            
+            # Only stop for clear section headers
+            if (line_stripped.upper() in known_sections or
+                line_stripped.rstrip(':').upper() in known_sections or
+                # Look for typical section header patterns but exclude skills
+                (re.match(r"^[A-Z][A-Z\s&/]{4,}$", line_stripped) and 
+                 line_stripped.upper() not in ['LEADERSHIP', 'COMMUNICATION', 'PROGRAMMING', 
+                                             'MANAGEMENT', 'PROBLEM SOLVING', 'TEAM WORK',
+                                             'TIME MANAGEMENT', 'SELF-CONFIDENT', 'SELF CONFIDENT']) or
+                # Title case section headers
+                (re.match(r"^\s*[A-Z][a-z]+(\s+[A-Z][a-z]+)*\s*:?$", line_stripped) and
+                 len(line_stripped.split()) >= 2 and
+                 line_stripped.rstrip(':') not in ['Time Management', 'Problem Solving', 'Team Work'])):
+                break
+        
+        if capture and line.strip():
+            # Skip if it looks like a person's name (all caps, 2-3 words)
+            if re.match(r"^[A-Z]{2,}\s+[A-Z]{2,}(\s+[A-Z]{2,})?$", line.strip()):
+                continue
             skills_section.append(line.strip())
+    
     skills_flat = []
     for item in skills_section:
+        # Remove bullet points
         item = re.sub(r"^[•\-*]\s*", "", item)
+        
+        # Handle items with colons (like "Programming: Python, Java")
         if ':' in item:
-            item = item.split(':', 1)[1].strip()
+            parts = item.split(':', 1)
+            if len(parts) == 2:
+                # Add both the category and the items after colon
+                category = parts[0].strip()
+                items_after_colon = parts[1].strip()
+                if category and len(category.split()) <= 3:  # Category shouldn't be too long
+                    skills_flat.append(category)
+                item = items_after_colon
+        
+        # Extract skills from parentheses
         parenthesized = re.findall(r"\(([^)]*)\)", item)
         for p in parenthesized:
             skills_flat += [s.strip() for s in re.split(r",|;", p) if s.strip()]
+        
+        # Remove parentheses and extract remaining skills
         item = re.sub(r"\([^)]*\)", "", item)
-        skills_flat += [s.strip() for s in re.split(r",|;", item) if s.strip()]
-    # Blacklist for names, roles, fields, and non-skills
+        
+        # Split by commas, semicolons, or newlines
+        if ',' in item or ';' in item:
+            skills_flat += [s.strip() for s in re.split(r",|;", item) if s.strip()]
+        else:
+            # Single skill per line
+            if item.strip():
+                skills_flat.append(item.strip())
+    
+    # Enhanced blacklist for names, roles, fields, and non-skills
     blacklist = {
-        "student", "resume", "cv", "profile", "summary", "career objectives", "objectives",
-        "mechanical", "engineering", "gyroscope", "wheel", "system", "braking", "supervisor", "industry", "crusher",
-        "project", "internship", "education", "percentage", "balancing", "study", "comparative", "xylem", "plants", "self"
+        "resume", "cv", "profile", "summary", "career objectives", "objectives",
+        "mechanical", "engineering", "gyroscope", "wheel", "system", "braking", "supervisor", 
+        "industry", "crusher", "project", "internship", "education", "percentage", "balancing", 
+        "study", "comparative", "xylem", "plants", "university", "college", "school",
+        "bachelor", "master", "degree", "cgpa", "marks", "intermediate", "present", "till",
+        "bachelor of engineering", "master of science", "bachelor of technology", "bachelor of arts",
+        "master of technology", "master of engineering", "doctor of philosophy", "phd"
     }
+    
     if name:
         for part in name.lower().split():
             blacklist.add(part)
-    # Remove trailing punctuation, filter out blacklist and non-skill items
+    
+    # Process and filter skills
     result_skills = set()
     for s in skills_flat:
         skill = s.lower().strip(" .,:;")
-        if skill and skill not in blacklist and len(skill) > 1 and not skill.replace('.', '').isdigit():
-            result_skills.add(skill)
+        
+        # Skip if empty, too short, or in blacklist
+        if not skill or len(skill) < 2 or skill in blacklist:
+            continue
+            
+        # Skip if it's just numbers
+        if skill.replace('.', '').replace('-', '').isdigit():
+            continue
+            
+        # Skip if it looks like a year (1990-2025)
+        if re.match(r"^\d{4}$", skill) and 1990 <= int(skill) <= 2030:
+            continue
+            
+        # Skip if it's too long (likely a sentence)
+        if len(skill.split()) > 4:
+            continue
+            
+        result_skills.add(skill)
+    
     return result_skills
 def extract_bullet_skills(text, name=None):
     import re
@@ -1101,7 +1190,7 @@ def extract_bullet_skills(text, name=None):
     bullets = [b.lstrip("\n\r•-* \t") for b in bullets]
     candidate_skills = set()
     blacklist = {
-        "student", "resume", "cv", "profile", "summary", "career objectives", "objectives",
+        "resume", "cv", "profile", "summary", "career objectives", "objectives",
         "project", "internship", "education", "percentage", "system", "industry", "crusher",
         "accomplishments", "certifications", "languages", "professional summary"
     }
@@ -1333,6 +1422,8 @@ def analyze_resume(file_path):
 
     personal_info = extract_personal_details(resume_text)
     skills = extract_skills(resume_text, name=personal_info.get("name"))
+    print(f"DEBUG: Extracted skills: {skills}")
+    print(f"DEBUG: Number of skills: {len(skills)}")
     edu = check_education(resume_text)
     proj_int = check_projects_and_internships(resume_text)
     work_exp = check_work_experience(resume_text)
