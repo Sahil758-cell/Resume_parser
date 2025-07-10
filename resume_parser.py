@@ -7,7 +7,8 @@ from datetime import datetime
 from collections import OrderedDict
 from job_predictor import extract_text_from_pdf, extract_text_from_docx, predict_job_field, get_recommended_courses
 from image_pdf_text_extractor import extract_text_from_image_pdf
-from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+from transformers.pipelines import pipeline
 import unicodedata
 
 nlp = spacy.load("en_core_web_trf")
@@ -71,7 +72,7 @@ RATING_WEIGHTS = {
 try:
     tokenizer_edu = AutoTokenizer.from_pretrained("dslim/bert-base-NER")
     model_edu = AutoModelForTokenClassification.from_pretrained("dslim/bert-base-NER")
-    ner_pipe_edu = pipeline("ner", model=model_edu, tokenizer=tokenizer_edu, aggregation_strategy="simple")
+    ner_pipe_edu = pipeline("ner", model=model_edu, tokenizer=tokenizer_edu, aggregation_strategy="simple")  # type: ignore
 except Exception as e:
     print(f"❌ Could not load NER model for education extraction: {e}")
     ner_pipe_edu = None
@@ -1051,7 +1052,9 @@ def extract_skills_from_block(text, name=None):
     import re
     skill_headers = [
         r"skills?", r"software skills?", r"technical skills?", r"core skills?", r"it skills?", r"computer skills?",
-        r"key skills?", r"professional skills?", r"relevant skills?", r"skill set?", r"competencies?"
+        r"key skills?", r"professional skills?", r"relevant skills?", r"skill set?", r"competencies?",
+        r"strengths?", r"core competencies?", r"expertise", r"technical proficiency", r"areas of expertise",
+        r"highlights", r"key qualifications", r"abilities", r"summary of qualifications"
     ]
     header_regex = re.compile(r"^\s*(" + "|".join(skill_headers) + r")\s*:?$", re.I)
 
@@ -1161,25 +1164,72 @@ def extract_skills_from_block(text, name=None):
     
     # Process and filter skills
     result_skills = set()
+    language_keywords = {"english", "hindi", "marathi", "read", "write", "speak", "advance", "proficient"}
+    certificate_keywords = {"certificate", "certification", "accenture", "simulation"}
+    section_header_terms = {
+        "project", "projects", "internship", "internships", "education", "certifications", "patents", "publications",
+        "skills", "framework", "database systems", "cloud platform", "devops", "version control tools", "research skills",
+        "tools", "platform", "review", "report", "writing", "literature", "school", "college", "university", "ngo", "foundation"
+    }
+    institution_keywords = [
+        "school", "college", "university", "ngo", "foundation", "academy", "institute", "organization", "company"
+    ]
+    # Load known skills from job_knowledge_base.csv if available
+    known_skills = set()
+    try:
+        with open("job_knowledge_base.csv", newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                keywords = [kw.strip().lower() for kw in row["keywords"].split(",") if kw.strip()]
+                known_skills.update(keywords)
+    except FileNotFoundError:
+        pass
+    def normalize_text(text):
+        # Remove punctuation and extra spaces, lowercase
+        return re.sub(r'[^a-zA-Z0-9 ]', ' ', text).lower()
+    def contains_institution_keyword(skill):
+        import re
+        normalized = re.sub(r'[^a-zA-Z0-9 ]', ' ', skill).lower()
+        words = set(normalized.split())
+        return any(inst in words for inst in institution_keywords)
     for s in skills_flat:
         skill = s.lower().strip(" .,:;")
-        
         # Skip if empty, too short, or in blacklist
         if not skill or len(skill) < 2 or skill in blacklist:
             continue
-            
         # Skip if it's just numbers
         if skill.replace('.', '').replace('-', '').isdigit():
             continue
-            
-        # Skip if it looks like a year (1990-2025)
+        # Skip if it looks like a year (1990-2030)
         if re.match(r"^\d{4}$", skill) and 1990 <= int(skill) <= 2030:
             continue
-            
         # Skip if it's too long (likely a sentence)
-        if len(skill.split()) > 4:
+        if len(skill.split()) > 6:
             continue
-            
+        # Skip language lines
+        if any(word in skill for word in language_keywords):
+            continue
+        # Skip certificate/certification lines
+        if any(word in skill for word in certificate_keywords):
+            continue
+        # Exclude section headers and generic terms
+        if skill in section_header_terms:
+            continue
+        if any(term in skill for term in section_header_terms):
+            continue
+        # Exclude if any institution keyword is present in the skill string
+        if any(inst in skill for inst in institution_keywords):
+            continue
+        # Exclude if not in known skills (if known_skills is not empty)
+        if known_skills and not any(skill == ks or skill in ks or ks in skill for ks in known_skills):
+            continue
+        # Normalize skill for robust matching
+        normalized_skill = normalize_text(skill)
+        # Exclude if any institution keyword is present as a word
+        if any(re.search(rf'\\b{re.escape(inst)}\\b', normalized_skill) for inst in institution_keywords):
+            continue
+        if contains_institution_keyword(skill):
+            continue
         result_skills.add(skill)
     
     return result_skills
