@@ -137,6 +137,8 @@ def predict_job_field(resume_text, top_n=3):
             domain_specific_terms = ['circuit', 'plc', 'power systems', 'electrical']
         elif 'data entry' in job_title_lower:
             domain_specific_terms = ['typing', 'excel', 'data entry', 'spreadsheets']
+        elif 'graduate engineer trainee' in job_title_lower or 'get' in job_title_lower:
+            domain_specific_terms = ['trainee', 'fresher', 'graduate engineer', 'engineering graduate', 'bachelor of engineering', 'b.e', 'b.tech', 'engineering trainee', 'engineering student']
         
         # Count domain-specific matches (high weight)
         domain_matches = sum(1 for term in domain_specific_terms if term in resume_text)
@@ -173,10 +175,99 @@ def predict_job_field(resume_text, top_n=3):
         if any(term in resume_text for term in ['project', 'developed', 'designed', 'built', 'created']):
             final_score += 0.05
         
+        # Penalty for mismatched engineering education
+        if 'mechanical engineer' in job_title_lower:
+            # If candidate has electrical education, penalize mechanical engineer
+            elec_edu_keywords = ['electrical engineering', 'b.e electrical', 'b.tech electrical']
+            if any(edu in resume_text.lower() for edu in elec_edu_keywords):
+                final_score -= 0.3  # Penalty for mismatched education
+        elif 'electrical engineer' in job_title_lower:
+            # If candidate has mechanical education, penalize electrical engineer
+            mech_edu_keywords = ['mechanical engineering', 'b.e mechanical', 'b.tech mechanical']
+            if any(edu in resume_text.lower() for edu in mech_edu_keywords):
+                final_score -= 0.3  # Penalty for mismatched education
+        
         # Small boost for relevant education
         education_keywords = str(row['education_required']).lower()
         if any(edu in resume_text for edu in education_keywords.split(';') if edu.strip()):
             final_score += 0.03
+        
+        # Strong boost for specific engineering education matching the job role
+        # But reduce boost if candidate is a fresher/trainee (should prioritize GET instead)
+        trainee_keywords = ['trainee', 'fresher', 'graduate engineer', 'engineering graduate', 'engineering trainee']
+        is_trainee = any(kw in resume_text.lower() for kw in trainee_keywords)
+        
+        # Check for primary career focus vs secondary qualifications
+        # If candidate has both CS/AI/ML and other engineering qualifications, prioritize CS/AI/ML
+        # More specific keywords to avoid false positives from general engineering terms
+        cs_ai_ml_keywords = ['computer science engineering', 'ai&ml', 'artificial intelligence', 'machine learning', 'data science', 'data analyst', 'business analyst', 'tensorflow', 'pytorch', 'scikit-learn', 'pandas', 'numpy']
+        has_cs_ai_ml_focus = any(kw in resume_text.lower() for kw in cs_ai_ml_keywords)
+        
+        # If candidate has CS/AI/ML focus, reduce boost for traditional engineering roles
+        if has_cs_ai_ml_focus:
+            if 'electrical engineer' in job_title_lower or 'mechanical engineer' in job_title_lower or 'civil engineer' in job_title_lower:
+                final_score -= 0.2  # Reduce score for traditional engineering roles when CS/AI/ML focus is detected
+        
+        if 'mechanical engineer' in job_title_lower:
+            mech_edu_keywords = ['mechanical engineering', 'b.e mechanical', 'b.tech mechanical', 'mechanical']
+            if any(edu in resume_text.lower() for edu in mech_edu_keywords):
+                if is_trainee:
+                    final_score += 0.1  # Reduced boost for trainees (GET should be prioritized)
+                else:
+                    final_score += 0.4  # Full boost for experienced candidates
+        elif 'electrical engineer' in job_title_lower:
+            elec_edu_keywords = ['electrical engineering', 'b.e electrical', 'b.tech electrical', 'electrical']
+            if any(edu in resume_text.lower() for edu in elec_edu_keywords):
+                if is_trainee:
+                    final_score += 0.1  # Reduced boost for trainees (GET should be prioritized)
+                else:
+                    final_score += 0.4  # Full boost for experienced candidates
+        elif 'civil engineer' in job_title_lower:
+            civil_edu_keywords = ['civil engineering', 'b.e civil', 'b.tech civil', 'civil']
+            if any(edu in resume_text.lower() for edu in civil_edu_keywords):
+                if is_trainee:
+                    final_score += 0.1  # Reduced boost for trainees (GET should be prioritized)
+                else:
+                    final_score += 0.4  # Full boost for experienced candidates
+        elif 'computer' in job_title_lower or 'software' in job_title_lower:
+            comp_edu_keywords = ['computer engineering', 'b.e computer', 'b.tech computer', 'computer science', 'software engineering']
+            if any(edu in resume_text.lower() for edu in comp_edu_keywords):
+                if is_trainee:
+                    final_score += 0.1  # Reduced boost for trainees (GET should be prioritized)
+                else:
+                    final_score += 0.4  # Full boost for experienced candidates
+        
+        # Boost for Data Scientist and AI/ML roles when CS/AI/ML focus is detected
+        if has_cs_ai_ml_focus:
+            if 'data scientist' in job_title_lower or 'ai engineer' in job_title_lower or 'ai/ml engineer' in job_title_lower:
+                final_score += 0.3  # Strong boost for data science/AI roles when focus is detected
+        
+        # Special handling for GET (Graduate Engineer Trainee) - prioritize for engineering graduates
+        if 'graduate engineer trainee' in job_title_lower or 'get' in job_title_lower:
+            # Check if resume contains engineering education keywords
+            engineering_edu_keywords = ['bachelor of engineering', 'b.e', 'b.tech', 'engineering', 'electrical engineering', 'mechanical engineering', 'civil engineering', 'computer engineering', 'electronics engineering']
+            engineering_edu_matches = sum(1 for edu in engineering_edu_keywords if edu in resume_text.lower())
+            
+            # Check if resume contains trainee/fresher keywords
+            trainee_keywords = ['trainee', 'fresher', 'graduate engineer', 'engineering graduate', 'engineering trainee']
+            trainee_matches = sum(1 for kw in trainee_keywords if kw in resume_text.lower())
+            
+            # Check for specific engineering education that should prioritize specific roles over GET
+            specific_mech_edu = ['mechanical engineering', 'b.e mechanical', 'b.tech mechanical', 'mechanical']
+            specific_elec_edu = ['electrical engineering', 'b.e electrical', 'b.tech electrical', 'electrical']
+            specific_civil_edu = ['civil engineering', 'b.e civil', 'b.tech civil', 'civil']
+            specific_comp_edu = ['computer engineering', 'b.e computer', 'b.tech computer', 'computer science']
+            
+            mech_edu_matches = sum(1 for edu in specific_mech_edu if edu in resume_text.lower())
+            elec_edu_matches = sum(1 for edu in specific_elec_edu if edu in resume_text.lower())
+            civil_edu_matches = sum(1 for edu in specific_civil_edu if edu in resume_text.lower())
+            comp_edu_matches = sum(1 for edu in specific_comp_edu if edu in resume_text.lower())
+            
+            # Boost GET for engineering graduates with trainee experience (regardless of specific branch)
+            if engineering_edu_matches > 0 and trainee_matches > 0:
+                final_score += 0.5  # Very strong boost for engineering graduates with trainee experience
+            elif engineering_edu_matches > 0:
+                final_score += 0.3  # Strong boost for engineering graduates
         
         combined_scores[i] = min(1.0, final_score)
 

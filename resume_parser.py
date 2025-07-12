@@ -1092,219 +1092,324 @@ def extract_skills_from_block(text, name=None):
         r"skills?", r"software skills?", r"technical skills?", r"core skills?", r"it skills?", r"computer skills?",
         r"key skills?", r"professional skills?", r"relevant skills?", r"skill set?", r"competencies?",
         r"strengths?", r"core competencies?", r"expertise", r"technical proficiency", r"areas of expertise",
-        r"highlights", r"key qualifications", r"abilities", r"summary of qualifications"
+        r"highlights", r"key qualifications", r"abilities", r"summary of qualifications", r"Life Skills", r"KEY COMPETENCIES",
+        # Handle spaced-out text like "S K I L L S"
+        r"s\s*k\s*i\s*l\s*l\s*s?", r"s\s*k\s*i\s*l\s*l\s*s?\s*:?"
     ]
     header_regex = re.compile(r"^\s*(" + "|".join(skill_headers) + r")\s*:?$", re.I)
 
     skills_section = []
     lines = text.splitlines()
     capture = False
-    
     for i, line in enumerate(lines):
-        # Check if this line is a skills header
         if header_regex.match(line.strip()):
             capture = True
             continue
-        
-        # Stop capturing if we hit another major section
-        if capture and line.strip():
-            # Check if this is a new section header (all caps or title case)
-            # But be more careful about stopping - don't stop for single words or names
+        if capture:
             line_stripped = line.strip()
-            
-            # Skip obvious non-skill lines that appear in skills sections but don't stop
-            if (line_stripped.upper() in ['STUDENT', 'GRADUATE', 'FRESHER'] or 
-                line_stripped in ['Student', 'Graduate', 'Fresher']):
-                continue
-                
-            # Skip if it looks like a person's name (but allow it to continue)
-            if (re.match(r"^[A-Z]{2,}\s*$", line_stripped) or 
-                re.match(r"^[A-Z][A-Z\s]+$", line_stripped) and 
-                len(line_stripped.split()) <= 3):
-                # Check if next line is also a name part or if we're near the end
-                if i < len(lines) - 3:  # Not near the end
-                    continue
-                else:
-                    break  # Near end of document, probably a name
-            
-            # Check for actual section headers - be more specific
+            # Stop at next section header or empty line
             known_sections = ['CONTACT', 'EDUCATION', 'EXPERIENCE', 'PROJECTS', 'CERTIFICATIONS', 
                             'LANGUAGES', 'VOLUNTEER', 'PROFILE', 'SUMMARY', 'OBJECTIVE', 
                             'WORK EXPERIENCE', 'ACADEMIC', 'ACHIEVEMENTS', 'AWARDS', 'HOBBIES',
-                            'PERSONAL INFORMATION', 'CONTACT INFORMATION']
-            
-            # Only stop for clear section headers
-            if (line_stripped.upper() in known_sections or
-                line_stripped.rstrip(':').upper() in known_sections or
-                # Look for typical section header patterns but exclude skills
-                (re.match(r"^[A-Z][A-Z\s&/]{4,}$", line_stripped) and 
-                 line_stripped.upper() not in ['LEADERSHIP', 'COMMUNICATION', 'PROGRAMMING', 
-                                             'MANAGEMENT', 'PROBLEM SOLVING', 'TEAM WORK',
-                                             'TIME MANAGEMENT', 'SELF-CONFIDENT', 'SELF CONFIDENT']) or
-                # Title case section headers
-                (re.match(r"^\s*[A-Z][a-z]+(\s+[A-Z][a-z]+)*\s*:?$", line_stripped) and
-                 len(line_stripped.split()) >= 2 and
-                 line_stripped.rstrip(':') not in ['Time Management', 'Problem Solving', 'Team Work'])):
+                            'PERSONAL INFORMATION', 'CONTACT INFORMATION', 'PERSONAL PROFILE',
+                            'E D U C A T I O N', 'P R O J E C T S', 'C E R T I F I C A T I O N S', 
+                             'L A N G U A G E S', 'P R O F I L E', 'S U M M A R Y', 'DECLLERATION',
+                             'DECLARATION', 'ACADMIC QUALIFICATION', 'CAREEROBJECTIVE', 'INTERESTS', 'INTERNSHIP', 'PROJECTS', 'CERTIFICATIONS', 'DECLARATION']
+            if line_stripped.upper() in known_sections or not line_stripped:
                 break
-        
-        if capture and line.strip():
-            # Skip if it looks like a person's name (all caps, 2-3 words)
-            if re.match(r"^[A-Z]{2,}\s+[A-Z]{2,}(\s+[A-Z]{2,})?$", line.strip()):
-                continue
-            skills_section.append(line.strip())
-    
+            skills_section.append(line_stripped)
+
+    print(f"\n[DEBUG] extract_skills_from_block - Skills section captured: {skills_section}")
+
+    # Enhanced blacklist for skills processing
+    skill_blacklist = {
+        "technical skills", "personal skills", "skills", "competencies", "strengths", "abilities",
+        "father name", "mother name", "date of birth", "marital status", "gender", "nationality",
+        "male", "female", "married", "un-married", "single", "indian", "muslim", "hindu", "christian",
+        "address", "phone", "email", "contact", "mobile", "tel", "name", "details", "information",
+        "profile", "summary", "objective", "qualification", "percentage", "marks", "grade", "score",
+        "result", "passing", "year", "board", "college", "school", "university", "institute",
+        "academy", "department", "faculty", "pursuing", "completed", "ongoing", "current",
+        "previous", "past", "present", "declaration", "declare", "correct", "true", "knowledge",
+        "signature", "place", "date", "languages known", "hobbies", "personal profile"
+    }
+
+    # Now, process each line to extract only the actual skills
     skills_flat = []
     for item in skills_section:
-        # Remove bullet points
-        item = re.sub(r"^[•\-*]\s*", "", item)
-        
-        # Handle items with colons (like "Programming: Python, Java")
+        print(f"[DEBUG] Processing item: {repr(item)}")
+        # Remove bullet points and special characters
+        item = re.sub(r"^[•\-*\u2022]\s*", "", item)  # Also handle unicode bullet \u2022
+        # If there's a colon, only take the part after the colon
         if ':' in item:
-            parts = item.split(':', 1)
-            if len(parts) == 2:
-                # Add both the category and the items after colon
-                category = parts[0].strip()
-                items_after_colon = parts[1].strip()
-                if category and len(category.split()) <= 3:  # Category shouldn't be too long
-                    skills_flat.append(category)
-                item = items_after_colon
-        
-        # Extract skills from parentheses
-        parenthesized = re.findall(r"\(([^)]*)\)", item)
-        for p in parenthesized:
-            skills_flat += [s.strip() for s in re.split(r",|;", p) if s.strip()]
-        
-        # Remove parentheses and extract remaining skills
-        item = re.sub(r"\([^)]*\)", "", item)
-        
-        # Split by commas, semicolons, or newlines
-        if ',' in item or ';' in item:
-            skills_flat += [s.strip() for s in re.split(r",|;", item) if s.strip()]
-        else:
-            # Single skill per line
-            if item.strip():
-                skills_flat.append(item.strip())
+            item = item.split(':', 1)[1].strip()
+            print(f"[DEBUG] After colon split: {repr(item)}")
+        # Replace ' and ' with ',' for easier splitting, but only if not inside parentheses
+        item = re.sub(r'\s+and\s+', ',', item, flags=re.I)
+        # Remove parentheses but keep content
+        item = re.sub(r"[()]", "", item)
+        # Split by commas and semicolons
+        for skill in re.split(r",|;", item):
+            skill = skill.strip()
+            print(f"[DEBUG] Split skill: {repr(skill)}")
+            # Enhanced filtering
+            if (skill and len(skill) > 1 and 
+                not re.search(r'[\d@#$%^&*]', skill) and
+                skill.lower() not in skill_blacklist and
+                not re.search(r'^[A-Z\s]+$', skill) and  # Skip all caps section headers
+                not re.search(r'[:\-]\s*[A-Z]', skill) and  # Skip lines with colons followed by caps
+                not re.search(r'\d{1,2}[-/]\w+[-/]\d{2,4}', skill) and  # Skip date patterns
+                not re.search(r'^\d{4}$', skill) and  # Skip year numbers only
+                not any(header_word in skill.lower() for header_word in ["name", "date", "status", "nationality", "gender", "marital"])):
+                skills_flat.append(skill)
+                print(f"[DEBUG] Added skill: {skill}")
+            else:
+                print(f"[DEBUG] Skipped skill: {skill}")
     
-    # Enhanced blacklist for names, roles, fields, and non-skills
-    blacklist = {
-        "resume", "cv", "profile", "summary", "career objectives", "objectives",
-        "mechanical", "engineering", "gyroscope", "wheel", "system", "braking", "supervisor", 
-        "industry", "crusher", "project", "internship", "education", "percentage", "balancing", 
-        "study", "comparative", "xylem", "plants", "university", "college", "school",
-        "bachelor", "master", "degree", "cgpa", "marks", "intermediate", "present", "till",
-        "bachelor of engineering", "master of science", "bachelor of technology", "bachelor of arts",
-        "master of technology", "master of engineering", "doctor of philosophy", "phd"
-    }
+    # Remove duplicates while preserving order
+    seen = set()
+    clean_skills = []
+    for skill in skills_flat:
+        if skill not in seen:
+            seen.add(skill)
+            clean_skills.append(skill)
     
-    if name:
-        for part in name.lower().split():
-            blacklist.add(part)
-    
-    # Process and filter skills
-    result_skills = set()
-    language_keywords = {"english", "hindi", "marathi", "read", "write", "speak", "advance", "proficient"}
-    certificate_keywords = {"certificate", "certification", "accenture", "simulation"}
-    section_header_terms = {
-        "project", "projects", "internship", "internships", "education", "certifications", "patents", "publications",
-        "skills", "framework", "database systems", "cloud platform", "devops", "version control tools", "research skills",
-        "tools", "platform", "review", "report", "writing", "literature", "school", "college", "university", "ngo", "foundation"
-    }
-    institution_keywords = [
-        "school", "college", "university", "ngo", "foundation", "academy", "institute", "organization", "company"
-    ]
-    # Load known skills from job_knowledge_base.csv if available
-    known_skills = set()
-    try:
-        with open("job_knowledge_base.csv", newline='', encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                keywords = [kw.strip().lower() for kw in row["keywords"].split(",") if kw.strip()]
-                known_skills.update(keywords)
-    except FileNotFoundError:
-        pass
-    def normalize_text(text):
-        # Remove punctuation and extra spaces, lowercase
-        return re.sub(r'[^a-zA-Z0-9 ]', ' ', text).lower()
-    def contains_institution_keyword(skill):
-        import re
-        normalized = re.sub(r'[^a-zA-Z0-9 ]', ' ', skill).lower()
-        words = set(normalized.split())
-        return any(inst in words for inst in institution_keywords)
-    for s in skills_flat:
-        skill = s.lower().strip(" .,:;")
-        # Skip if empty, too short, or in blacklist
-        if not skill or len(skill) < 2 or skill in blacklist:
-            continue
-        if is_education_line(skill):
-            continue
-        # Skip if it's just numbers
-        if skill.replace('.', '').replace('-', '').isdigit():
-            continue
-        # Skip if it looks like a year (1990-2030)
-        if re.match(r"^\d{4}$", skill) and 1990 <= int(skill) <= 2030:
-            continue
-        # Skip if it's too long (likely a sentence)
-        if len(skill.split()) > 6:
-            continue
-        # Skip language lines
-        if any(word in skill for word in language_keywords):
-            continue
-        # Skip certificate/certification lines
-        if any(word in skill for word in certificate_keywords):
-            continue
-        # Exclude section headers and generic terms
-        if skill in section_header_terms:
-            continue
-        if any(term in skill for term in section_header_terms):
-            continue
-        # Exclude if any institution keyword is present in the skill string
-        if any(inst in skill for inst in institution_keywords):
-            continue
-        # Exclude if not in known skills (if known_skills is not empty)
-        if known_skills and not any(skill == ks or skill in ks or ks in skill for ks in known_skills):
-            continue
-        # Normalize skill for robust matching
-        normalized_skill = normalize_text(skill)
-        # Exclude if any institution keyword is present as a word
-        if any(re.search(rf'\\b{re.escape(inst)}\\b', normalized_skill) for inst in institution_keywords):
-            continue
-        if contains_institution_keyword(skill):
-            continue
-        result_skills.add(skill)
-    
-    return result_skills
+    print(f"[DEBUG] Final skills from block: {clean_skills}")
+    return clean_skills
+
 def extract_bullet_skills(text, name=None):
     import re
     # Collect all bullet points (•, -, *) in the document, even empty ones
     bullets = re.findall(r"(?:^[•\-\*][ \t]*.+|[\n\r][•\-\*][ \t]*.+)", text, re.MULTILINE)
     bullets = [b.lstrip("\n\r•-* \t") for b in bullets]
     candidate_skills = set()
+    
+    # Enhanced blacklist to filter out personal information and non-skills
     blacklist = {
         "resume", "cv", "profile", "summary", "career objectives", "objectives",
         "project", "internship", "education", "percentage", "system", "industry", "crusher",
-        "accomplishments", "certifications", "languages", "professional summary"
+        "accomplishments", "certifications", "languages", "professional summary",
+        # Personal information
+        "father name", "mother name", "date of birth", "marital status", "gender", "nationality",
+        "male", "female", "married", "un-married", "single", "indian", "muslim", "hindu", "christian",
+        "address", "phone", "email", "contact", "mobile", "tel",
+        # Dates and numbers
+        "2020", "2018", "2017", "2021", "2022", "2023", "2024", "2025",
+        "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december",
+        "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "oct", "nov", "dec",
+        # Section headers
+        "personal profile", "languages known", "hobbies", "declaration", "academic qualification",
+        "career objective", "qualification", "institution", "university", "board", "year of passing",
+        # Common non-skill words
+        "name", "details", "information", "profile", "summary", "objective", "qualification",
+        "percentage", "marks", "grade", "score", "result", "passing", "year", "board",
+        "college", "school", "university", "institute", "academy", "department", "faculty",
+        "pursuing", "completed", "ongoing", "current", "previous", "past", "present",
+        "declaration", "declare", "correct", "true", "knowledge", "signature", "place", "date"
     }
+
+    skill_whitelist = {
+        "project management", "teamwork", "time management", "life skills", "effective communication", 
+        "quick learner", "problem solving", "leadership", "communication", "team work", "self confident",
+        "self-confident", "adaptability", "creativity", "critical thinking", "decision making",
+        "organization", "planning", "research", "analysis", "presentation", "negotiation",
+        "customer service", "sales", "marketing", "finance", "accounting", "human resources",
+        "quality assurance", "testing", "development", "programming", "coding", "design",
+        "pharmacy", "dispensing", "clinical pharmacy", "patient counseling", "inventory management",
+        "pharmacy law", "prescription", "medication", "drug", "healthcare", "pharmaceutical",
+        "active listening", "listening skills", "good communication", "communication skills",
+        "hard working", "hardworking", "learn new things", "learning", "focused", "confident",
+        "positive attitude", "handling experience", "dissolution apparatus", "ultra-violet spectroscopy",
+        "sonicator", "spectroscopy", "ms office", "microsoft office", "technical skills",
+        "personal skills", "soft skills", "interpersonal skills", "listening music", "travelling",
+        "traveling", "music", "reading", "writing", "speaking", "english", "hindi", "urdu", "telugu",
+        "manipuri", "playing football", "playing basketball", "reading books", "sincere at work",
+        "responsible", "ability to work in a team", "achieve goal", "problem solving skills",
+        "punctuality", "flexible to work", "basic computer skills", "ms office", "ms-off",
+        "football", "basketball", "books", "sports", "team sports", "reading", "literature"
+    }
+
     if name:
         for part in name.lower().split():
             blacklist.add(part)
+    
     for b in bullets:
         skill = b.lower().strip(" .,:;")
-        if is_education_line(skill):
+        if not skill or len(skill) < 2:
             continue
+            
+        # Skip if it's in blacklist
+        if skill in blacklist:
+            continue
+            
+        # Skip if it contains date patterns
+        if re.search(r'\d{1,2}[-/]\w+[-/]\d{2,4}', skill) or re.search(r'\d{4}', skill):
+            continue
+            
+        # Skip if it's a section header or contains typical header words
+        if any(header_word in skill for header_word in ["name", "date", "status", "nationality", "gender", "marital"]):
+            continue
+            
+        # Always include if in skill_whitelist
+        if skill in skill_whitelist:
+            candidate_skills.add(skill)
+            continue
+            
         # Only keep short lines (max 5 words), ignore obviously non-skill bullets
         if (skill and skill not in blacklist and 1 < len(skill.split()) <= 5
-                and not skill.replace('.', '').isdigit()):
+                and not skill.replace('.', '').isdigit()
+                and not re.search(r'^[A-Z\s]+$', skill)  # Skip all caps section headers
+                and not re.search(r'[:\-]\s*[A-Z]', skill)):  # Skip lines with colons followed by caps
             candidate_skills.add(skill)
+    
     return candidate_skills
 
-
+def extract_short_skills_from_text(text, name=None):
+    """
+    Extract short skills (1-3 words) from paragraph-style skills text using NLP.
+    """
+    import re
+    
+    # Define common skill keywords that we want to extract
+    skill_keywords = {
+        # Communication skills
+        "communication", "communication skills", "verbal communication", "written communication",
+        "interpersonal skills", "presentation skills", "public speaking", "listening skills",
+        
+        # Technical skills
+        "ms office", "microsoft office", "excel", "word", "powerpoint", "computer skills",
+        "basic computer skills", "typing", "data entry", "spreadsheets", "database",
+        
+        # Soft skills
+        "teamwork", "team work", "team player", "leadership", "problem solving", "problem-solving",
+        "critical thinking", "decision making", "time management", "organization", "planning",
+        "adaptability", "flexibility", "creativity", "innovation", "attention to detail",
+        "punctuality", "reliability", "responsibility", "sincerity", "hard working", "hardworking",
+        "quick learner", "fast learner", "learning ability", "self motivated", "self-motivated",
+        
+        # Work-related skills
+        "customer service", "sales", "marketing", "negotiation", "project management",
+        "quality assurance", "quality control", "research", "analysis", "reporting",
+        
+        # Pharmacy-specific skills
+        "pharmacy", "dispensing", "prescription", "medication", "drug knowledge",
+        "patient counseling", "inventory management", "clinical pharmacy", "pharmaceutical",
+        "dissolution apparatus", "spectroscopy", "ultra-violet", "sonicator",
+        
+        # Languages
+        "english", "hindi", "urdu", "telugu", "manipuri", "spanish", "french", "german",
+        
+        # Interests that can be skills
+        "football", "basketball", "sports", "reading", "writing", "music", "traveling",
+        "travelling", "books", "literature", "team sports"
+    }
+    
+    # Blacklist for non-skills
+    skill_blacklist = {
+        "my skills", "skills", "skill", "com skills", "technical skills", "personal skills",
+        "soft skills", "hard skills", "key skills", "core skills", "professional skills",
+        "work", "work and", "work basic", "work in", "work on", "work with", "work to",
+        "at work", "to work", "of work", "work experience", "work environment",
+        "goal", "achieve goal", "team achieve", "team achieve goal",
+        "responsible", "sincere at", "sincere at work", "flexible to", "flexible to work",
+        "ability to", "ability to work", "ability to work in", "ability to work in a team",
+        "good communication skills and", "problem solving skills punctuality and",
+        "basic computer skills on", "on ms-off", "ms-off"
+    }
+    
+    # Clean and normalize text
+    text = re.sub(r'\s+', ' ', text).strip()
+    text = text.lower()
+    
+    # Split text into potential skill phrases
+    # Split by common separators and conjunctions
+    phrases = re.split(r'[,;]|\s+and\s+|\s+or\s+|\s+with\s+|\s+including\s+|\s+such\s+as\s+', text)
+    
+    extracted_skills = set()
+    
+    for phrase in phrases:
+        phrase = phrase.strip()
+        if not phrase or len(phrase) < 2:
+            continue
+            
+        # Remove percentage indicators and numbers
+        phrase = re.sub(r'\d+%', '', phrase)
+        phrase = re.sub(r'\d+', '', phrase)
+        phrase = re.sub(r'\s+', ' ', phrase).strip()
+        
+        # Skip if too long (more than 4 words)
+        if len(phrase.split()) > 4:
+            continue
+            
+        # Skip if in blacklist
+        if phrase in skill_blacklist:
+            continue
+            
+        # Check if phrase contains any skill keywords
+        for skill_keyword in skill_keywords:
+            if skill_keyword in phrase:
+                # Extract the skill keyword, not the entire phrase
+                extracted_skills.add(skill_keyword)
+                break
+        else:
+            # If no keyword found, check if the phrase itself is a skill
+            if phrase in skill_keywords:
+                extracted_skills.add(phrase)
+    
+    # Additional processing: look for specific patterns
+    # Look for "skills" patterns
+    skill_patterns = [
+        r'(\w+\s+skills?)',  # e.g., "communication skills", "problem solving skills"
+        r'(good\s+\w+)',     # e.g., "good communication"
+        r'(basic\s+\w+)',    # e.g., "basic computer"
+        r'(\w+\s+ability)',  # e.g., "learning ability"
+        r'(\w+\s+management)', # e.g., "time management"
+    ]
+    
+    for pattern in skill_patterns:
+        matches = re.findall(pattern, text)
+        for match in matches:
+            match = match.strip()
+            if 1 <= len(match.split()) <= 3 and match not in skill_blacklist:
+                extracted_skills.add(match)
+    
+    # Clean up and return
+    cleaned_skills = []
+    for skill in extracted_skills:
+        skill = skill.strip()
+        if skill and len(skill) > 1 and skill not in skill_blacklist:
+            # Capitalize first letter of each word
+            skill = ' '.join(word.capitalize() for word in skill.split())
+            cleaned_skills.append(skill)
+    
+    return sorted(list(set(cleaned_skills)))
 
 def extract_skills(text, name=None):
-    block_skills = extract_skills_from_block(text, name)
-    bullet_skills = extract_bullet_skills(text, name)
-    # Combine and de-duplicate
-    all_skills = block_skills.union(bullet_skills)
-    return sorted(all_skills)
+    block_skills = set(extract_skills_from_block(text, name))
+    
+    # Check if this is a well-formatted skills section
+    if is_paragraph_skills_section(text):
+        # For paragraph-style, use short skills
+        short_skills = set(extract_short_skills_from_text(text, name))
+        all_skills = short_skills
+    else:
+        # For well-formatted sections, only use block_skills (skip bullet_skills to avoid contamination)
+        all_skills = block_skills
+    
+    # Final cleanup: remove Unicode characters and other artifacts
+    cleaned_skills = []
+    for skill in all_skills:
+        # Remove Unicode characters and normalize
+        cleaned_skill = unicodedata.normalize('NFKD', skill).encode('ASCII', 'ignore').decode('ASCII')
+        cleaned_skill = cleaned_skill.strip()
+        
+        # Skip if it's just punctuation or too short
+        if cleaned_skill and len(cleaned_skill) > 1 and not cleaned_skill.isspace():
+            # Skip if it's just a single character or punctuation
+            if len(cleaned_skill) > 1 and not cleaned_skill in ['•', '-', '*', ':', ';', ',', '.']:
+                cleaned_skills.append(cleaned_skill)
+    
+    return sorted(cleaned_skills)
 
 def is_valid_resume(text, is_ocr=False):
     """
@@ -1476,6 +1581,48 @@ def predict_job_location(personal_location, resume_text):
         predicted_location = None
     return predicted_location
 
+def is_paragraph_skills_section(text):
+    """
+    Detect if the SKILLS section is a paragraph/long format (not bullet/line format).
+    Returns True if the SKILLS section is likely a paragraph.
+    """
+    import re
+    lines = text.splitlines()
+    skill_section_lines = []
+    capture = False
+    for line in lines:
+        if re.match(r"^\s*skills?\s*$", line.strip(), re.I):
+            capture = True
+            continue
+        if capture:
+            line_stripped = line.strip()
+            # Stop at next section header or empty line
+            if not line_stripped or line_stripped.upper() in [
+                'CONTACT', 'EDUCATION', 'EXPERIENCE', 'PROJECTS', 'CERTIFICATIONS', 'LANGUAGES',
+                'VOLUNTEER', 'PROFILE', 'SUMMARY', 'OBJECTIVE', 'WORK EXPERIENCE', 'ACADEMIC',
+                'ACHIEVEMENTS', 'AWARDS', 'HOBBIES', 'PERSONAL INFORMATION', 'CONTACT INFORMATION',
+                'PERSONAL PROFILE', 'E D U C A T I O N', 'P R O J E C T S', 'C E R T I F I C A T I O N S',
+                'L A N G U A G E S', 'P R O F I L E', 'S U M M A R Y', 'DECLLERATION', 'DECLARATION',
+                 'ACADMIC QUALIFICATION', 'CAREEROBJECTIVE', 'INTERESTS', 'INTERNSHIP', 'PROJECTS', 'CERTIFICATIONS', 'DECLARATION']:
+                break
+            skill_section_lines.append(line_stripped)
+    
+    print("\n[DEBUG] SKILLS SECTION LINES CAPTURED:")
+    for idx, l in enumerate(skill_section_lines):
+        print(f"  {idx+1}: {repr(l)}")
+    
+    if not skill_section_lines:
+        print("DEBUG: No skills section lines found")
+        return False
+    
+    for line in skill_section_lines:
+        if (':' in line or '|' in line or line.startswith('•') or line.startswith('-') or line.startswith('*') or len(line) < 30):
+            print(f"DEBUG: Detected well-formatted line: {line}")
+            print("DEBUG: Detected as well-formatted skills section")
+            return False
+    print("DEBUG: Detected as paragraph-style skills section")
+    return True
+
 def analyze_resume(file_path):
     if not os.path.exists(file_path):
         print(f"❌ File not found: {file_path}")
@@ -1513,9 +1660,20 @@ def analyze_resume(file_path):
         return None
 
     personal_info = extract_personal_details(resume_text)
-    skills = extract_skills(resume_text, name=personal_info.get("name"))
+    print(f"DEBUG: Resume text length: {len(resume_text)}")
+    print(f"DEBUG: Resume text sample (first 500 chars): {resume_text[:500]}")
+    print(f"DEBUG: Looking for 'S K I L L S' in text: {'S K I L L S' in resume_text}")
+
+    # --- Adaptive skills extraction ---
+    if is_paragraph_skills_section(resume_text):
+        print("[INFO] Detected paragraph-style skills section. Using only short skills extraction.")
+        skills = extract_short_skills_from_text(resume_text, name=personal_info.get("name"))
+    else:
+        skills = extract_skills(resume_text, name=personal_info.get("name"))
     print(f"DEBUG: Extracted skills: {skills}")
     print(f"DEBUG: Number of skills: {len(skills)}")
+    print(f"DEBUG: Skills type: {type(skills)}")
+
     edu = check_education(resume_text)
     proj_int = check_projects_and_internships(resume_text)
     work_exp = check_work_experience(resume_text)
@@ -1560,7 +1718,7 @@ def analyze_resume(file_path):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_path = f"outputs/resume_analysis_report_{timestamp}.json"
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=4)
+        json.dump(output_data, f, ensure_ascii=False, indent=4)
     print("\n✅ Resume analyzed successfully!")
     print("Predicted Job Field:", job_field)
     print("Resume Score:", rating, "/ 100")

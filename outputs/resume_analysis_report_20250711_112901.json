@@ -1,0 +1,75 @@
+{
+    "raw_text": "C O N T A C T\n+91 9618767500\nindira986679@gmail.com\nBALAJI COLLEGE OF PHARMACY\nBachelor of Pharmacy\nPercentage : 75%\n2021 - 2025\n2018 - 2020\nSASTRA JUNIOR COLLEGE\nIntermediate\nGPA : 9.09\nE D U C A T I O N\nS K I L L S\nProject Management\nTeamwork\nTime Management\nLife Skills\nEffective Communication\nQuick Learner\nEnglish\nTelugu\nL A N G U A G E S\nP R O F I L E  S U M M A R Y\nDedicated and detail-oriented Pharmacy Graduate with a strong\nacademic foundation in pharmaceutical sciences, complemented by\nhands-on experience through projects and certifications in key\npharmacy-related areas. \nC E R T I F I C A T I O N S\nA research talk on recent application\non zebra fish model in Biomedical\nResearch at Raghavendra institute\nof pharmaceutical Education and\nresearch (RIPER),Anantapur\nParticipated \nin \nposter\npresentations \ncertificate \nin\nNational Conference about of\nCORONA VIRUS VARIENTS\nResearch Study\nResearch study on UV-visible\nspectroscopy of tenofovir\nINDIRA RACHERLA\nBachelor of Pharmacy \n2018\nVIGNANA JYOTHI E.M HIGH SCHOOL\nSSC 10th\nGPA : 8.20\nP R O J E C T S\n",
+    "personal_info": {
+        "name": "Indira Racherla",
+        "email": "indira986679@gmail.com",
+        "phone": "9618767500",
+        "linkedin": null,
+        "github": null,
+        "location": null
+    },
+    "resume_score": 65,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done.",
+        "List your technical or domain-specific skills.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "pharmacy law",
+        "dispensing",
+        "clinical pharmacy",
+        "pharmacy",
+        "patient counseling",
+        "inventory management",
+        "hospital",
+        "pharmacy research",
+        "pharmaceutical",
+        "pharmacy education",
+        "prescription",
+        "drug",
+        "healthcare",
+        "medication",
+        "pharmacy management"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Pharmacist",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Pharmacology",
+                "confidence": 0.78,
+                "confidence_percent": "78%"
+            },
+            {
+                "title": "Research Scientist",
+                "confidence": 0.76,
+                "confidence_percent": "76%"
+            }
+        ],
+        "job_title": "Pharmacist",
+        "skills": [],
+        "preferred_location": null,
+        "recommended_courses": {
+            "Pharmacist": [
+                "B.Pharm",
+                "Diploma in Pharmacy",
+                "Pharmacy Technician Training - https://www.coursera.org/learn/pharmacy"
+            ],
+            "Pharmacology": [
+                "Intro to Pharmacology \u2013 edX"
+            ],
+            "Research Scientist": [
+                "Spectroscopy and Structure Determination - https://www.udemy.com/course/spectroscopy",
+                "Analytical Chemistry - https://www.coursera.org/learn/analytical-chemistry",
+                "Research Methods in Chemistry - https://www.coursera.org/learn/research-methods",
+                "Introduction to Chemistry - https://www.coursera.org/learn/chemistry",
+                "Organic Chemistry - https://www.edx.org/course/organic-chemistry"
+            ]
+        }
+    }
+}

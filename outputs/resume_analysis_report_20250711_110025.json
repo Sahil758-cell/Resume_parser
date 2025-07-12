@@ -1,0 +1,108 @@
+{
+    "raw_text": "Pratik Bharne\nbharnepratik10@gmail.com\n \n9860332648\n \nghatkopar\n \nlinkedin.com/in/pratikbharne2002  \n \nProfile\nA highly motivated and detail-oriented Data and Business Analyst with expertise in data analysis, machine \nlearning, and process optimization. Skilled in tools like Excel, SQL, Python, Tableau, and Scikit learn to deliver \nactionable insights and support data-driven decisions. Experienced in leveraging ML models for predictive \nanalytics and automating workflows to enhance operational efficiency. Adept at collaborating with teams to \ngather requirements, design solutions, and drive strategic business improvements. Passionate about solving \ncomplex problems through advanced analytics and innovation.\nEducation\nB.E in Computer Science Engineering(AI&ML), \nG.V Acharya Institute of Engineering and Technology under Mumbai University\n08/2022 \u2013 06/2025\nShelu - Raigad, India\nDiploma In Electrical Engineering, \nInstitute of Technology And Engineering Malegaon (Bk)\n08/2018 \u2013 06/2022\nMalegaon(bk), India\nSSC 10th, SIES APJ MEMORIAL HIGH SCHOOL\n03/2018\nGhatkopar, India\nSkills\nAI&ML Programming Languages\n\u2022Machine Learning \u2022 Programming: Python (NumPy, \nPandas, Scikit learn, TensorFlow, PyTorch)\n\u2022ML Algorithms: Regression, Decision Trees, \nRandom Forests, SVM, K-Means, Gradient Boosting \n(XGBoost) \n\u2022Data Preprocessing: Feature engineering, handling \nmissing data\n\u2022Model Deployment: Flask, Streamlit \n\u2022Visualization: pandas,Matplotlib, Seaborn, Plotly\nProgramming Language\n\u2022 Python\n\u2022 c language\nData Visualization Tools\n\u2022 Advanced Excel \n\u2022 Power BI \n\u2022 Tableau\nDatabase Management\n\u2022 Mysql\nCertificates\nMaster in Data Science & \nAnalytics with Artificial  \nIntelligence\n\u2022 Advanced Excel \n\u2022 Mysql \n\u2022 Power BI \n\u2022 Tablea \n\u2022 Machine Learning \n\u2022 Artificial Intelligence\nProjects\nBank Loan Report, based on Advance Excel\nDeveloped a comprehensive Bank Loan Report Dashboard to analyze key financial metrics, including total loan \napplications, funded amounts, and loan repayment statuses. The dashboard provided a clear breakdown of \ngood (86.18%) and bad loans (13.82%), along with insights on interest rates and debt-to-income ratios. \nInteractive filters allowed dynamic analysis based on loan grades and purposes. This project demonstrated \nskills in data visualization, financial analysis, and the use of tools like Excel/Tableau/Power BI to deliver \nactionable insights.\nHeart Failure clinical Prediction(ML)\nHeart Failure clinical Prediction(ML) Objective: Analyzed and predicted patient outcomes using clinical records \nto assist in early detection and treatment of heart failure. Methodology: Conducted data preprocessing, feature \nselection, and exploratory data analysis using Python libraries like Pandas, NumPy, Seaborn, and Matplotlib. \nBuilt predictive models leveraging classification algorithms. Results: Identified key features such as age, \nejection fraction, and serum creatinine that significantly impact patient outcomes. Achieved high accuracy in \npredictions, enhancing decision-making in healthcare\nVrinda Store Analysis(Power BI)\nVrinda Store Analysis(Power BI) Designed and developed a comprehensive Customer Analysis Dashboard to \nanalyze key demographic and purchasing trends for a customer base of 28.44K. Key findings included the most \nordered sizes (XXI), popular categories (Western Dress), and average customer age. The dashboard featured \ndynamic slicers for detailed filtering by category and date range, visualizing sales metrics by size, shipping \nstate, sales channel, and breakdowns by gender and age. Delivered actionable insights to help stakeholders \nrefine marketing strategies and enhance product offerings based on customer preferences and regional \nperformance\n",
+    "personal_info": {
+        "name": "Pratik Bharne",
+        "email": "bharnepratik10@gmail.com",
+        "phone": "9860332648",
+        "linkedin": "linkedin.com/in/pratikbharne2002",
+        "github": null,
+        "location": "Mumbai"
+    },
+    "resume_score": 85,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done."
+    ],
+    "ai_skill_suggestions": [
+        "power systems",
+        "matlab",
+        "plc",
+        "instrumentation",
+        "load calculation",
+        "fault analysis",
+        "control systems",
+        "transformer",
+        "switchgear",
+        "electrical machines",
+        "pspice",
+        "protection",
+        "electronics",
+        "auto cad",
+        "distribution",
+        "automation",
+        "energy management",
+        "circuit analysis",
+        "relay",
+        "scada",
+        "wiring diagram",
+        "substation",
+        "electrical engineering"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Electrical Engineer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.84,
+                "confidence_percent": "84%"
+            },
+            {
+                "title": "Software Developer",
+                "confidence": 0.74,
+                "confidence_percent": "74%"
+            }
+        ],
+        "job_title": "Electrical Engineer",
+        "skills": [
+            "advanced excel",
+            "artificial intelligence",
+            "c language",
+            "data preprocessing: feature engineering, handling",
+            "flask",
+            "handling",
+            "machine learning",
+            "matplotlib",
+            "ml algorithms: regression, decision trees",
+            "model deployment: flask, streamlit",
+            "pandas",
+            "power bi",
+            "python (numpy",
+            "pytorch)",
+            "regression",
+            "seaborn",
+            "streamlit",
+            "tensorflow",
+            "visualization",
+            "visualization: pandas,matplotlib, seaborn, plotly"
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": {
+            "Electrical Engineer": [
+                "PLC Programming - https://www.udemy.com/course/plc-programming",
+                "Electrical Power Systems - https://www.coursera.org/learn/electric-power-systems",
+                "Circuit Theory - https://www.edx.org/course/circuits-and-electronics"
+            ],
+            "Graduate Engineer Trainee (GET)": [
+                "Git & GitHub - https://www.coursera.org/learn/introduction-git-github\"",
+                "Arduino IDE for Beginners - https://www.udemy.com/course/arduino-bootcamp",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim",
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp",
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training",
+                "MATLAB Basics - https://www.coursera.org/learn/matlab",
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming"
+            ],
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ]
+        }
+    }
+}

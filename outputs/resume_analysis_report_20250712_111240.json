@@ -1,0 +1,79 @@
+{
+    "raw_text": "MITAIGARI MAHAMMAD THOSIF\nAddress: Tadipatri (515411), Anantapur Didtrict, Andhra Pradesh\nPhone No:9347585012\nEmail ID:thosifv@gmail.com\nCAREEROBJECTIVE\nTo\nbe\nable\nto\nwork\nfor\nan\nencouraging\nand\nstable\ncompany\nthat\nwill\nassist\nme\nin\ndeveloping,improving, and obtaining the necessary skills in order to become the best employe in\ncompany. I am looking forward to challenging my potential and be worthy of trust and confidence.\nACADMIC QUALIFICATION\nQualification\nInstitution\nUniversity/Board\nYearofPassing\nPercentage\nB Pharmacy\nBalaji college of pharmacy\nJNTU-A\n2020-pursuing\nIntermediate\nJCNRM junior college\nBoard of\nIntermediate\n2018-2020\n88.4 %\nSSC\nSree Valmeeeki high school\nS.S.C\n2017-2018\n93%\nSKILLS\nTechnical Skills\nBasic knowledge on MS Office\nPersonal skills\n\uf0b7\nActive listening skills\n\uf0b7\nGood communication skills\n\uf0b7\nHard working person\n\uf0b7\nLearn new things\n\uf0b7\nTeamwork\n\uf0b7\nFocused and Confident with positive attitude\n\uf0b7\nHandling experience with instruments like Dissolution apparatus(sonicator),ultra-voilet\nspectroscopy.\nPERSONAL PROFILE\nFather Name\n:\nM. Husman\nMother Name\n:\nM. Mahaboob jaan\nDate of Birth\n:\n01-February-2002\nMarital status\n:\nUn-Married\nGender\n:\nMale\nNationality\n:\nIndian Muslim\nLANGUAGES KNOWN\n\uf0b7\nEnglish\n\uf0b7\nHindi\n\uf0b7\nUrdu\n\uf0b7\nTelugu\nHOBBIES\n\uf0b7\nListening music\n\uf0b7\nTravelling\nDECLLERATION\nI here by declare that the details above are correct and true to the best of my knowledge.\n(M. Thosif)\n",
+    "personal_info": {
+        "name": "Mitaigari Mahammad Thosif",
+        "email": "ID:thosifv@gmail.com",
+        "phone": "9347585012",
+        "linkedin": null,
+        "github": null,
+        "location": "Anantapur Didtrict"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "insurance",
+        "health systems",
+        "clinical documentation",
+        "diagnosis",
+        "patient care",
+        "medical records",
+        "hospital management",
+        "healthcare administration",
+        "emr"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Healthcare",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.78,
+                "confidence_percent": "78%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.72,
+                "confidence_percent": "72%"
+            }
+        ],
+        "job_title": "Healthcare",
+        "skills": [
+            "Active listening skills",
+            "Basic knowledge on MS Office",
+            "Confident with positive attitude",
+            "Focused",
+            "Good communication skills",
+            "Handling experience with instruments like Dissolution apparatussonicator",
+            "Hard working person",
+            "Learn new things",
+            "Teamwork",
+            "spectroscopy.",
+            "ultra-voilet"
+        ],
+        "preferred_location": "Anantapur Didtrict",
+        "recommended_courses": {
+            "Healthcare": [
+                "Healthcare Marketplace \u2013 Coursera"
+            ],
+            "HR Manager": [
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics",
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management"
+            ],
+            "Data Entry Operator": [
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials"
+            ]
+        }
+    }
+}
