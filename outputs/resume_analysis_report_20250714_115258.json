@@ -1,0 +1,72 @@
+{
+    "raw_text": " \nProfessional Summary \nDedicated B.Pharm professional with expertise in medical coding, pharmacology, and \nhealthcare compliance. Proficient in ICD-10, CPT, and HCPCS coding with a strong \nunderstanding of medical terminologies, disease classification, and healthcare reimbursement \nprocesses. Skilled in clinical data abstraction, regulatory compliance, and documentation \naccuracy to ensure proper claim processing and minimize denials. Experienced in drug safety \nreporting, ADR monitoring, and case processing, contributing to efficient healthcare services.  \n \nEducation \nBachelor of Pharmacy (B.Pharm) \nBalaji College of Pharmacy, Ananthapuramu \nJawaharlal Nehru Technological University Anantapur (JNTUA) \nYear of Passing: 2024 | Percentage: 69% \nIntermediate \nSri Chaitanya Junior College \nBoard of Intermediate Education, A.P. \nYear of Passing: 2019 | Percentage: 89% \nSSC \nZ.P High School \nBoard of Secondary Education, A.P. \nYear of Passing: 2017 | Percentage: 80% \n \nCertifications & Training \n Medical Coding Certificate from Solution 3X, Hyderabad (2024) \n Certified Professional Coder (CPC) - Score: 74% \n ID: 02303296 \n \n \nR. Ramesh \n \nPhone:   +91 9019520558    \nEmail:   ramesha7442@gmail.com \n   \n|  Linkdin: R Ramesh \n  \n   \n  \n  \n \nTechnical Skills \n MS Office (Word, Excel, PowerPoint) \n Medical Coding Software (Epic, Cerner, Meditech) \n \n \nStrengths \n Strong medical terminology and anatomy knowledge \n Expertise in ICD-10-CM and HCPCS Coding systems \n Strong analytical skills in pharmaceutical and healthcare settings \n Effective communication with healthcare professionals \n \n \nHobbies & Interests \n Reading Books \n Playing Cricket \n Watching Movies \n \n \nPersonal Details \n Father’s Name: B Rajappa \n Date of Birth: April 19, 2002 \n Gender: Male \n Nationality: Indian \n Marital Status: Unmarried \n Languages Known: English, Telugu (Fluent), Kannada and hindi \n Address: CC Giri (v),madakasira(T),satya sai (dist),andhra Pradesh 515271 \n \n \n \n \nDeclaration \nI hereby declare that the information provided is true and accurate to the best of my knowledge. \nPlace:Bangalore                                                                                           \nDate:                                                                                                      Signature: R Ramesh \n \n",
+    "personal_info": {
+        "name": "Ramesha",
+        "email": "ramesha7442@gmail.com",
+        "phone": "9019520558",
+        "linkedin": null,
+        "github": null,
+        "location": "Anantapur"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done."
+    ],
+    "ai_skill_suggestions": [
+        "medical records",
+        "healthcare compliance",
+        "documentation",
+        "hcpcs",
+        "icd-10",
+        "cpt",
+        "medical coding",
+        "claim"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Medical Coder",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.63,
+                "confidence_percent": "63%"
+            },
+            {
+                "title": "Pharmacist",
+                "confidence": 0.51,
+                "confidence_percent": "51%"
+            }
+        ],
+        "job_title": "Medical Coder",
+        "skills": [
+            "Cerner",
+            "Excel",
+            "MS Office Word",
+            "Medical Coding Software Epic",
+            "Meditech",
+            "PowerPoint"
+        ],
+        "preferred_location": "Anantapur",
+        "recommended_courses": {
+            "Medical Coder": [
+                "Medical Coding Basics – Coursera"
+            ],
+            "Data Entry Operator": [
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy",
+                "Typing Mastery - https://www.udemy.com/course/typing-master"
+            ],
+            "Pharmacist": [
+                "Diploma in Pharmacy",
+                "Pharmacy Technician Training - https://www.coursera.org/learn/pharmacy",
+                "B.Pharm"
+            ]
+        }
+    }
+}

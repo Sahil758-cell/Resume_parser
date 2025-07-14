@@ -244,30 +244,75 @@ def predict_job_field(resume_text, top_n=3):
         
         # Special handling for GET (Graduate Engineer Trainee) - prioritize for engineering graduates
         if 'graduate engineer trainee' in job_title_lower or 'get' in job_title_lower:
-            # Check if resume contains engineering education keywords
-            engineering_edu_keywords = ['bachelor of engineering', 'b.e', 'b.tech', 'engineering', 'electrical engineering', 'mechanical engineering', 'civil engineering', 'computer engineering', 'electronics engineering']
-            engineering_edu_matches = sum(1 for edu in engineering_edu_keywords if edu in resume_text.lower())
-            
-            # Check if resume contains trainee/fresher keywords
-            trainee_keywords = ['trainee', 'fresher', 'graduate engineer', 'engineering graduate', 'engineering trainee']
-            trainee_matches = sum(1 for kw in trainee_keywords if kw in resume_text.lower())
-            
-            # Check for specific engineering education that should prioritize specific roles over GET
-            specific_mech_edu = ['mechanical engineering', 'b.e mechanical', 'b.tech mechanical', 'mechanical']
-            specific_elec_edu = ['electrical engineering', 'b.e electrical', 'b.tech electrical', 'electrical']
-            specific_civil_edu = ['civil engineering', 'b.e civil', 'b.tech civil', 'civil']
-            specific_comp_edu = ['computer engineering', 'b.e computer', 'b.tech computer', 'computer science']
-            
-            mech_edu_matches = sum(1 for edu in specific_mech_edu if edu in resume_text.lower())
-            elec_edu_matches = sum(1 for edu in specific_elec_edu if edu in resume_text.lower())
-            civil_edu_matches = sum(1 for edu in specific_civil_edu if edu in resume_text.lower())
-            comp_edu_matches = sum(1 for edu in specific_comp_edu if edu in resume_text.lower())
-            
-            # Boost GET for engineering graduates with trainee experience (regardless of specific branch)
-            if engineering_edu_matches > 0 and trainee_matches > 0:
-                final_score += 0.5  # Very strong boost for engineering graduates with trainee experience
-            elif engineering_edu_matches > 0:
-                final_score += 0.3  # Strong boost for engineering graduates
+            # Only match if resume contains a clear engineering degree phrase, not just 'engineering' alone
+            engineering_edu_keywords = [
+                'bachelor of engineering', 'b.e', 'b.tech', 'b.e.', 'b.tech.',
+                'b.e mechanical', 'b.tech mechanical', 'b.e electrical', 'b.tech electrical',
+                'b.e civil', 'b.tech civil', 'b.e computer', 'b.tech computer',
+                'b.e electronics', 'b.tech electronics', 'be mechanical', 'be electrical',
+                'be civil', 'be computer', 'be electronics', 'btech mechanical',
+                'btech electrical', 'btech civil', 'btech computer', 'btech electronics',
+                'bachelor of technology', 'bachelor of engineering', 'bachelor in engineering',
+                'bachelor in technology', 'bachelor degree in engineering', 'bachelor degree in technology'
+            ]
+            # Only match if these phrases appear as whole words or with degree context
+            engineering_edu_matches = 0
+            resume_text_lower = resume_text.lower()
+            for edu in engineering_edu_keywords:
+                # Match as a whole word or with degree context
+                if re.search(r'\b' + re.escape(edu) + r'\b', resume_text_lower):
+                    engineering_edu_matches += 1
+            # If no engineering education found, set score to 0 (exclude GET from top matches)
+            if engineering_edu_matches == 0:
+                final_score = 0.0
+            else:
+                # Check if resume contains trainee/fresher keywords
+                trainee_keywords = ['trainee', 'fresher', 'graduate engineer', 'engineering graduate', 'engineering trainee']
+                trainee_matches = sum(1 for kw in trainee_keywords if kw in resume_text.lower())
+                # Check for specific engineering education that should prioritize specific roles over GET
+                specific_mech_edu = ['mechanical engineering', 'b.e mechanical', 'b.tech mechanical', 'mechanical']
+                specific_elec_edu = ['electrical engineering', 'b.e electrical', 'b.tech electrical', 'electrical']
+                specific_civil_edu = ['civil engineering', 'b.e civil', 'b.tech civil', 'civil']
+                specific_comp_edu = ['computer engineering', 'b.e computer', 'b.tech computer', 'computer science']
+                mech_edu_matches = sum(1 for edu in specific_mech_edu if edu in resume_text.lower())
+                elec_edu_matches = sum(1 for edu in specific_elec_edu if edu in resume_text.lower())
+                civil_edu_matches = sum(1 for edu in specific_civil_edu if edu in resume_text.lower())
+                comp_edu_matches = sum(1 for edu in specific_comp_edu if edu in resume_text.lower())
+                # Boost GET for engineering graduates with trainee experience (regardless of specific branch)
+                if engineering_edu_matches > 0 and trainee_matches > 0:
+                    final_score += 0.5  # Very strong boost for engineering graduates with trainee experience
+                elif engineering_edu_matches > 0:
+                    final_score += 0.3  # Strong boost for engineering graduates
+        
+        # Special handling for Fashion Designer - only match if fashion-related keywords are present
+        if 'fashion designer' in job_title_lower:
+            fashion_keywords = ['fashion', 'textile', 'garment', 'draping', 'stitching', 'apparel', 'clothing', 'couture', 'pattern making', 'tailoring', 'costume']
+            if not any(fk in resume_text for fk in fashion_keywords):
+                final_score = 0.0
+
+        # --- FLEXIBLE EDUCATION MATCH FOR SUPPLY CHAIN ANALYST & SIMILAR ROLES ---
+        job_title_lower = row['job_title'].lower()
+        domain = str(row.get('domain', '')).lower()
+        education_required = str(row.get('education_required', '')).lower()
+        # If job is in supply chain/logistics domain, allow flexible education match
+        is_supply_chain = (
+            'supply chain' in job_title_lower or 'logistics' in job_title_lower or 'operations' in job_title_lower or
+            'supply chain' in domain or 'logistics' in domain or 'operations' in domain
+        )
+        resume_text_lower = resume_text.lower()
+        # Flexible education: accept any MBA, B.Tech, B.E, or equivalent if supply chain/logistics/operations exp is present
+        has_flexible_edu = False
+        if is_supply_chain:
+            # Look for MBA, B.Tech, B.E, PGDM, etc. in resume
+            if re.search(r'\bmba\b', resume_text_lower) or re.search(r'\bb\.tech\b', resume_text_lower) or re.search(r'\bb\.e\b', resume_text_lower) or re.search(r'\bpgdm\b', resume_text_lower):
+                # Also require strong supply chain/logistics/operations keyword presence
+                supply_keywords = ['supply chain', 'logistics', 'procurement', 'vendor management', 'inventory', 'scm', 'operations', 'distribution']
+                supply_kw_matches = sum(1 for kw in supply_keywords if kw in resume_text_lower)
+                if supply_kw_matches >= 2:
+                    has_flexible_edu = True
+        # If flexible education applies, boost match score for this job
+        if has_flexible_edu:
+            final_score += 0.25  # Moderate boost for relevant degree + experience
         
         combined_scores[i] = min(1.0, final_score)
 

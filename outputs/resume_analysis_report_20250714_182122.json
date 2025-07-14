@@ -1,0 +1,77 @@
+{
+    "raw_text": "Rohitkumar Singh \nPune, Maharashtra \n❖  rohit.singh814945@gmail.com     \n❖ +91-8421734450   \n❖  LinkedIn  \n❖ Leet code \n  \nOBJECTIVE \nI am a passionate Software Developer and Data Analyst with good knowledge of DSA, Programming, and Data \nAnalysis. I can solve real life problems, work with databases, and create reports using Python, SQL, Power BI, \nand Tableau. I enjoy solving Problems and helping make better decisions using data. \n \nEdUCATION \nSavitribai Phule Pune University  \n  Oct 2021 - July 2025 \nBachelors of Engineering in Computer Engineering \n          CGPA: 7.6 \n \nS.V. Union Jr. college                                                                                                                                                                June 2019 – March 2021 \nSenior Secondary (Class XII)                                                                                                                                                                     Percentage: 82.50 \n \nLonker Madhyamik Vidyalaya                                                                                                                                                                      April 2019 \nSecondary (Class X)                                                                                                                                                                                      Percentage: 80.20 \n \n \nPROJECTS \n \n1. Hate Text Detection API | Deep Learning, Fast API, LSTM                                                           Feb 2025 \n  \n• Built a Hate Text Detection API using FastAPI and LSTM algorithm to analyze text for hate speech or not. \n• Implemented LSTM model to detect and categorize emotional state in the text. \n• Resolved under-fitting by hyper tunning the model and deployed it on Render. \n• Resolved imbalance in that dataset. \n \n2. Construction Delay Predictor | Python, Machine Learning, Pandas                                      Mar 2023 \n \n• Developed a machine learning model to predict construction delays during 24-hour hackathon. \n• Conducted data preprocessing and performed feature engineering collaboratively with the team. \n \n \nSKILLS AND INTERESTS \n \n   Programming Languages \n C++, Python, SQL \n   Libraries /Tools/Algorithm      VS Code, Jupyter Notebook, DSA, NumPy, Pandas, Matplotlib \n    \n \nCERTIFICATIONS \n• Brain O Vision Hackathon - Data Science (Data Science Certificate) \n• Brain O Vision (Certificate for Python) \n• I.mobilothon4.0 Volkswagen (Certificate) \n \nHOBBIES AND INTEREST \n• Cycling \n• Cricket \n• Current Affairs. \n \n",
+    "personal_info": {
+        "name": "Rohitkumar Singh",
+        "email": "rohit.singh814945@gmail.com",
+        "phone": "8421734450",
+        "linkedin": null,
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 75,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "machine learning",
+        "regression",
+        "streamlit",
+        "deep learning",
+        "pytorch",
+        "data visualization",
+        "numpy",
+        "seaborn",
+        "scikit-learn",
+        "flask",
+        "python",
+        "pandas",
+        "matplotlib",
+        "clustering",
+        "statistics",
+        "classification",
+        "tensorflow"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Data Scientist",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.59,
+                "confidence_percent": "59%"
+            },
+            {
+                "title": "AI Engineer",
+                "confidence": 0.58,
+                "confidence_percent": "58%"
+            }
+        ],
+        "job_title": "Data Scientist",
+        "skills": [
+            "Database",
+            "Good Knowledge"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Data Scientist": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r",
+                "Data Science with Python - https://www.coursera.org/specializations/data-science-python"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ],
+            "AI Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning",
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone"
+            ]
+        }
+    }
+}

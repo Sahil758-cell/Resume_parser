@@ -1,0 +1,75 @@
+{
+    "raw_text": "PROFILE\nI consider my self a\nresponsible and orderly\nperson.\nI am looking foward for\nmy first work\nexperience.\nCONTACT ME\n6305818913\nakhilagamineni27@gmai.com\nHanamkonda\nVOLUNTEER EXPERIENCE\nNATIONAL SERVICE SCHEME\ni;ve been participating in NSS services since 2\nyears\nEDUCATION\nCHAITANYA DEEMED TO BE UNIVERSITY\nBachelor’s of Science             2022-2025\nCGPA: 8.8 till present\nSR JUNIOR COLLEGE\nIntermediate                               2019-2021\nMarks : 912\nLANGUAGE\nNative Telugu.\nIntermediate English\nSKILLS\nLeadership\nAKHILA\nGAMINENI\nStudent\nCommunication\nTime management\nSelf-Confident\n",
+    "personal_info": {
+        "name": "AKHILA GAMINENI",
+        "email": "akhilagamineni27@gmai.com",
+        "phone": "6305818913",
+        "linkedin": null,
+        "github": null,
+        "location": "Hanamkonda"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "ticketing systems",
+        "crm",
+        "empathy",
+        "communication"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Customer Support",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.68,
+                "confidence_percent": "68%"
+            },
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.64,
+                "confidence_percent": "64%"
+            }
+        ],
+        "job_title": "Customer Support",
+        "skills": [
+            "Communication",
+            "Leadership",
+            "Student",
+            "Time management"
+        ],
+        "preferred_location": "Hanamkonda",
+        "recommended_courses": {
+            "Customer Support": [
+                "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service",
+                "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations",
+                "Call Center Training - https://www.udemy.com/course/call-center-training"
+            ],
+            "HR Manager": [
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Graduate Engineer Trainee (GET)": [
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training",
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming",
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim"
+            ]
+        }
+    }
+}

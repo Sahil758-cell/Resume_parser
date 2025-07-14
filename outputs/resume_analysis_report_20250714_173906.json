@@ -1,0 +1,96 @@
+{
+    "raw_text": "Work Experience\nProjects\nGraduate Electrical Engineer\nadhyan.agrawal17@gmail.com\nhttps://www.linkedin.com/in/adhyan-agrawal\n9146272350\nDedicated and motivated Electrical Engineering graduate student with a strong foundation in assembly, installation, \nmaintenance, testing & fault diagnosis of electrical systems and circuit design. Demonstrates a solid understanding of both \ntheoretical principles and practical applications through academic coursework and hands-on projects. Skilled in using industry-\nstandard tools and software for simulation and analysis. Possesses excellent problem-solving abilities, strong analytical skills, \nand effective communication capabilities. Eager to contribute to innovative projects and advance in the field of electrical \nengineering.\nAdhyan Pranil Agrawal\nTrainee Engineer\nStatic Electricals | Pune, Maharashtra\n - \nAs a trainee engineer in a transformer manufacturing company should possess a strong foundation in electrical engineering, \nalong with knowledge of transformer design, testing, and quality control. Proficiency in understanding of electrical circuits, \nadherence to safety regulations, and effective communication skills are also crucial for success in this role.\nFeb 2023\nFeb 2023\nInterplay of Mechanical and Electrical Parameters in Design and Development of E-\nVehicle\n - \nAn interesting project that blends technical concepts with creativity for sustainable transportation is designing and modelling an \nelectric vehicle (EV). Typically, it entails the following:\n● Powertrain Modelling: This is the process of putting the battery, electric motor, and power electronics of an electric vehicle \ninto a mathematical model. The performance, range, and energy efficiency of the EV are predicted and simulated with the \naid of this model.\n● Vehicle Design: This concentrates on the aerodynamics, battery location, motor choice, and overall passenger and cargo \nspace of the EV.\nApr 2023\nApr\n2024\nUnderground Cable Fault Detector\n - \nDetecting fault source in Underground Cable is difficult and entire line is to be dug in order to check entire line and fix faults. So \nhere we propose a cable fault detection over IOT that detects the exact fault position over IOT that makes repairing work very \neasy. The potential of your project is broken down as follows:\n● Real-time Monitoring: By integrating IoT into your system, you can keep an eye on the health of your cables from a distance. \nPreventive maintenance and early identification of any problems are made possible by this, which lowers the possibility of \nunplanned outages.\n● Increased Efficiency: You can drastically cut down on the amount of excavation space required for repair by precisely locating \nthe fault. This results in cheaper prices and quicker repair times.\nJul 2022\nDec 2022\nCore Skills\nPower System, MATLAB, AutoCAD, Circuit Design, Microsoft Office, Preventive Maintenance, Project Management,\nLoad Calculation, Innovative, Communication Skills, Teamwork, Organizational Skills\nCertificates\nPublications\nEducation\nDr. D. Y. Patil Institute of Technology, Pimpri, Pune\n - \nBachelor of Engineering Electrical Engineering\nGPA 8.62 CGPA\nMay 2020\nJun 2024\nZulal Bhilajirao Patil College\n - \nMSBSHSC Class XII\nGPA 70%\nMar 2019\nApr 2020\nNorth Point School\n - \nICSE Class X\nGPA 73%\nMar 2017\nApr 2018\nAdvance in UHV Transmission and Distribution\nNPTEL Online Certification\nOct 2023\nResearch Paper Topic: Integrating Mechanical and Electrical Engineering in Electric Vehicle\nDesign and Development\nInternational Journal Of Multidisciplinary Research In Science, Engineering and Technology (IJMRSET)\nThe design of an electric power train-based vehicle \nwas covered in this article, along with consideration for the battery pack, motor, and chassis choices. By outlining the \nmain parts of an electric vehicle system, such as the control unit, power electronics, energy storage system (battery), \nand electric motor. These constituents provide the fundamental structure of the electric vehicle (EV), facilitating its \npropulsion, energy storage, and general functionality. A universal charging system that can safely and efficiently \ncharge the majority of EVs in a variety of exterior conditions is necessary due to the rise in EV usage.\nMay 2024\n",
+    "personal_info": {
+        "name": "Adhyan Agrawal",
+        "email": "adhyan.agrawal17@gmail.com",
+        "phone": "9146272350",
+        "linkedin": "linkedin.com/in/adhyan-agrawal",
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "b.e",
+        "engineering fresher",
+        "trainee engineer",
+        "engineering student",
+        "trainee",
+        "entry level engineer",
+        "fresher engineer",
+        "engineering graduate trainee",
+        "computer science",
+        "electrical",
+        "electronics",
+        "engineering trainee",
+        "fresher",
+        "mechanical",
+        "civil",
+        "graduate engineer",
+        "b.tech",
+        "engineering graduate",
+        "gte"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Electrical Engineer",
+                "confidence": 0.62,
+                "confidence_percent": "62%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.28,
+                "confidence_percent": "28%"
+            }
+        ],
+        "job_title": "Graduate Engineer Trainee (GET)",
+        "skills": [
+            "AutoCAD",
+            "Certificates",
+            "Circuit Design",
+            "Communication Skills",
+            "Innovative",
+            "Load Calculation",
+            "Microsoft Office",
+            "Organizational Skills",
+            "Power System",
+            "Preventive Maintenance",
+            "Project Management",
+            "Publications",
+            "Teamwork"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Graduate Engineer Trainee (GET)": [
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming",
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim"
+            ],
+            "Electrical Engineer": [
+                "PLC Programming - https://www.udemy.com/course/plc-programming",
+                "Electrical Power Systems - https://www.coursera.org/learn/electric-power-systems",
+                "Circuit Theory - https://www.edx.org/course/circuits-and-electronics"
+            ],
+            "Data Entry Operator": [
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials"
+            ]
+        }
+    }
+}

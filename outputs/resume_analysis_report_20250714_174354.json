@@ -1,0 +1,79 @@
+{
+    "raw_text": "Python \nPandas \nNumPy \nDjango \nSQL\nExcel\nAI/ML\nhttps://www.linkedin.com/in/renuka-pohekar-8630b3231\n7666922656\nrenukapohekar02@gmail.com\nPune\nAI-ML Virtual Internship\nApril 24 - June 24\nAWS Data Engineering Virtual Internship\nJuly 24 - August 24\nAWS Cloud Architecture Virtual Internship\nAugust 24 - September 24\nMaster of Computer Application. \nPIMPRI CHINCHWAD UNIVERSITY,PUNE.| 2023 - 2025 \nCGPA: 7.67\nBachelor of Computer Application.\nDEGREE COLLEGE OF PHYSICAL EDUCATION ,HVPM ,AMRAVATI.. | 2020 - 2023\nCGPA: 7.50\nSenior Secondary (XII), Maharashtra State Board Of Secondary And Higher Secondary Education.\nMODEL JR. COLLEGE ,ARVI. | 2020\nPERCENTAGE: 65.08%\nSecondary (X), Maharashtra State Board Of Secondary And Higher Secondary Education.\nKRISHAK ENGLISH SCHOOL ,ARVI. | 2018\nPERCENTAGE: 80.40%\nMCA student at Pimpri Chinchwad University with hands-on experience in machine learning, data\nanalysis, and software development. Proficient in Python, SQL, and data analysis tools, with a\nstrong foundation in building applications and working on real-world data problems. Completed\nvirtual internships in AI/ML and data engineering, gaining practical exposure to model training,\ndata preprocessing, and analysis tasks. A quick learner with strong problem-solving skills, I excel in\ncollaborative environments and effectively manage multiple priorities with a positive, goal-oriented\nattitude.\nRENUKA POHEKAR\nSKILLS\nPROFILE\nEDUCATIONAL HISTORY\nINTERNSHIP / CERTIFICATION\n",
+    "personal_info": {
+        "name": "Renuka Pohekar",
+        "email": "renukapohekar02@gmail.com",
+        "phone": "7666922656",
+        "linkedin": "linkedin.com/in/renuka-pohekar-8630b3231",
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 75,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add academic or personal projects.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "seaborn",
+        "data visualization",
+        "pandas",
+        "clustering",
+        "pytorch",
+        "regression",
+        "classification",
+        "statistics",
+        "scikit-learn",
+        "flask",
+        "matplotlib",
+        "streamlit",
+        "numpy",
+        "machine learning",
+        "tensorflow",
+        "deep learning",
+        "python"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Data Scientist",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.57,
+                "confidence_percent": "57%"
+            },
+            {
+                "title": "AI Engineer",
+                "confidence": 0.54,
+                "confidence_percent": "54%"
+            }
+        ],
+        "job_title": "Data Scientist",
+        "skills": [
+            "Analysis",
+            "Pohekar Skills",
+            "Problem-solving",
+            "Solving Skills"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Data Scientist": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r",
+                "Data Science with Python - https://www.coursera.org/specializations/data-science-python"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ],
+            "AI Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning",
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone"
+            ]
+        }
+    }
+}

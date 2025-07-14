@@ -1,0 +1,80 @@
+{
+    "raw_text": "SainiNaz\nfresher\nProfile\nBBA graduate - Fresher with less than 1 year experience is\nseeking a full time position in a reputable organization.\nCommitted\nto utilizing my skills to further the mission of a\nCompany.\nBringing fortha motivated attitude and avariety of powerful skills.\nAble to effectivelyself-manage during independent projects,as\nwell as collaborate as part of a productive team.\nEducation\nKendriya Vidyalaya No. 2 Salt Lake\nat Kolkata\nHigher Secondary(HS) Graduate.\nI cleared my 12the higher secondaryboard from Kendriya\nVidyalaya No.2SaltLake\nwith 71.2%\nSister Nivedita\nUniversity\nat Kolkata\nUnderGraduate\nIdid my BBA (digital\nmarketing) from Sister Nivedita University with cgpa of 7.28.\nInternships\nContent\nWriting at Team Everest NGO at Volunteer,\nKolkata\nSeptember 2023-Present\nI Did Internship As Story Content\nWriting for Team Everest NGO.\nDeveloped and managed a team of content writers to produce content\non\na\nconsistent basis\n• Managed a team of freelance writers to ensure\nall content was delivered on time\nand within budget\nAddress\nHC BlockSector - ii, Police Abasan\nSalt Lake\nKolkata,\nWest Bengal, 700106\nIndia\nEmail\nsaininaaz1435@gmail.com\nPhone\n9903904898\nDate / Place Of Birth\n28/12/2001, West Bengal\nDriving License\nNone\nNationality\nIndian\nSkills\nCommunication\nSkills\nConflict\nResolution\nLeadership Skills\nDecision Making\nProblem\nSolving\nAdaptability\nMicrosoftOffice Word\nMicrosoftPowerPoint\nTime Management\nMicrosoft\nExcel\nLeadership\nMicrosoft\nOffice\nAbility\nto Workin a Team\nHobbies\nDrawing, Sketching. Singing\nand\nPlayingGuitar.\nLanguages\nHindi\nEnglish\nBengali\n",
+    "personal_info": {
+        "name": "Saininaz Fresher",
+        "email": "saininaaz1435@gmail.com",
+        "phone": "9903904898",
+        "linkedin": null,
+        "github": null,
+        "location": "Kolkata"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "brd",
+        "user stories",
+        "stakeholder",
+        "frd",
+        "data analysis",
+        "requirement gathering"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Business Analyst",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.83,
+                "confidence_percent": "83%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.81,
+                "confidence_percent": "81%"
+            }
+        ],
+        "job_title": "Business Analyst",
+        "skills": [
+            "Ability",
+            "Adaptability",
+            "Communication",
+            "Conflict",
+            "Decision Making",
+            "Excel",
+            "Leadership",
+            "Leadership Skills",
+            "Microsoft",
+            "MicrosoftOffice Word",
+            "MicrosoftPowerPoint",
+            "Office",
+            "Problem",
+            "Resolution",
+            "Solving",
+            "Time Management",
+            "to Workin a Team"
+        ],
+        "preferred_location": "Kolkata",
+        "recommended_courses": {
+            "Business Analyst": [
+                "Business Analysis & Process Management - https://www.coursera.org/learn/uva-darden-business-analysis"
+            ],
+            "HR Manager": [
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics",
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management"
+            ],
+            "Data Entry Operator": [
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy"
+            ]
+        }
+    }
+}
