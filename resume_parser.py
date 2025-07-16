@@ -255,11 +255,16 @@ def robust_extract_name(lines, blacklist=None):
     return None
 
 def extract_name_from_profile_section(lines):
+    # Only extract if a personal info section is present
+    personal_info_headers = ['personal details', 'personal profile', 'personal information', 'profile']
+    has_personal_info = any(any(header in line.lower() for header in personal_info_headers) for line in lines)
+    if not has_personal_info:
+        return None
     for line in lines:
         # Remove zero-width spaces and normalize whitespace
         clean_line = re.sub(r'[\u200b\s]+', ' ', line).strip()
-        # Match lines like "Name : BHUTHALE ARAVIND" or "Name: BHUTHALE ARAVIND"
-        match = re.match(r'^name\s*[:\-]?\s*([A-Za-z]{2,}(?:\s+[A-Za-z]{2,}){1,2})', clean_line, re.IGNORECASE)
+        # Match 'Name :' pattern anywhere in the line
+        match = re.search(r'name\s*[:\-]?\s*([A-Za-z]{2,}(?:\s+[A-Za-z]{2,}){1,2})', clean_line, re.IGNORECASE)
         if match:
             return match.group(1).title()
     return None
@@ -457,39 +462,59 @@ def extract_personal_details(text):
             print(f"DEBUG: search_for_actual_name_in_text failed: {e}")
     # First line priority: if first line looks like a name, use it (only if robust logic not used)
     lines = [l.strip() for l in text.strip().splitlines() if l.strip()]
-    if lines and not details.get('name'):
-        first_line = lines[0]
-        # Normalize first line by removing zero-width spaces and extra spaces
-        normalized_first_line = re.sub(r'[\u200b\s]+', ' ', first_line).strip().lower()
-        words = normalized_first_line.split()
-        section_headers_clean = set(h.strip().lower() for h in section_headers)
-        # Additional check: exclude 'professional summary' explicitly if present
-        if 'professional summary' in normalized_first_line:
-            print(f"DEBUG: Skipping first line as it is a professional summary header")
-        elif (2 <= len(words) <= 4 and all(w.isalpha() for w in words) and
-            normalized_first_line not in section_headers_clean):
-            details['name'] = first_line
-            print(f"DEBUG: details['name'] set to: {details['name']} (from first line priority)")
-    # --- NEW: Try to extract name from first two lines if both look like names and no name found yet ---
+    section_headers_clean = set(h.strip().lower() for h in section_headers)
+    # --- IMPROVED: Scan from bottom up for a likely name (2-4 words, all alpha, all uppercase or title case, not a section header) near contact/email ---
     if not details.get('name'):
-        non_empty_lines = [l for l in lines if l.strip()]
-        if len(non_empty_lines) >= 2:
-            first, second = non_empty_lines[0], non_empty_lines[1]
-            section_headers_clean = set(h.strip().lower() for h in section_headers)
-            first_clean = first.strip().lower()
-            second_clean = second.strip().lower()
-            # If first line is a single word and second is in blacklist, use only first
-            if (first.isalpha() and 2 <= len(first) <= 20 and ' ' not in first and second_clean in section_headers_clean):
-                details['name'] = first.title()
-                print(f"DEBUG: details['name'] set to: {details['name']} (from single-word first line, second in blacklist)")
-            elif (first.isalpha() and 2 <= len(first) <= 20 and first_clean not in section_headers_clean):
-                if (second.isalpha() and 2 <= len(second) <= 20 and second_clean not in section_headers_clean):
-                    details['name'] = f'{first.title()} {second.title()}'
-                    print(f"DEBUG: details['name'] set to: {details['name']} (from first two lines heuristic)")
-                else:
-                    details['name'] = first.title()
-                    print(f"DEBUG: details['name'] set to: {details['name']} (from first line only, second line in blacklist)")
-    # ... rest of the existing code ...
+        candidate_lines = []
+        for i in range(len(lines)-1, -1, -1):
+            line = lines[i]
+            words = line.strip().split()
+            line_clean = ' '.join(line.lower().split())
+            if (
+                2 <= len(words) <= 4 and
+                all(w.isalpha() for w in words) and
+                (all(w.isupper() for w in words) or all(w.istitle() for w in words)) and
+                line_clean not in section_headers_clean and
+                not any(lbl in line_clean for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"])
+            ):
+                candidate_lines.append((i, line, words))
+        # Enhanced: Prefer all-uppercase line if followed by title case, or shorter words if both title case
+        for idx in range(len(candidate_lines)-1):
+            idx1, line1, words1 = candidate_lines[idx]
+            idx2, line2, words2 = candidate_lines[idx+1]
+            if idx1 == idx2 + 1:
+                if all(w.isupper() for w in words1) and all(w.istitle() for w in words2):
+                    details['name'] = line1.title()
+                    print(f"DEBUG: details['name'] set to: {details['name']} (all-uppercase before title case)")
+                    break
+                elif all(w.istitle() for w in words1) and all(w.istitle() for w in words2):
+                    avg1 = sum(len(w) for w in words1) / len(words1)
+                    avg2 = sum(len(w) for w in words2) / len(words2)
+                    if avg1 <= avg2:
+                        details['name'] = line1.title()
+                        print(f"DEBUG: details['name'] set to: {details['name']} (shorter words in consecutive title case)")
+                        break
+                    else:
+                        details['name'] = line2.title()
+                        print(f"DEBUG: details['name'] set to: {details['name']} (shorter words in consecutive title case)")
+                        break
+        else:
+            # Otherwise, pick the candidate closest to the contact/email/phone lines
+            contact_indices = []
+            for idx, line in enumerate(lines):
+                phone_val = details.get('phone')
+                email_val = details.get('email')
+                if (isinstance(phone_val, str) and phone_val in line) or (isinstance(email_val, str) and email_val in line):
+                    contact_indices.append(idx)
+            if contact_indices and candidate_lines:
+                # Find candidate with minimal distance to any contact index
+                best = min(candidate_lines, key=lambda x: min(abs(x[0]-ci) for ci in contact_indices))
+                details['name'] = best[1].title()
+                print(f"DEBUG: details['name'] set to: {details['name']} (from proximity to contact/email)")
+            elif candidate_lines:
+                details['name'] = candidate_lines[0][1].title()
+                print(f"DEBUG: details['name'] set to: {details['name']} (from fallback candidate)")
+    # --- rest of the existing code ...
 
     # If name_candidate is a single word, try to find a better multi-word name near contact info
     if name_candidate and len(name_candidate.split()) == 1:
@@ -793,7 +818,7 @@ def extract_personal_details(text):
             'address', 'education', 'academic', 'skills', 'experience', 'projects', 'certifications', 'languages', 'interests',
             'project', 'predictor', 'app', 'system', 'generator', 'website', 'application', 'report', 'analysis', 'certificate',
             'internship', 'achievement', 'interest', 'objective', 'training', 'course', 'workshop', 'seminar', 'conference',
-            'award', 'publication', 'activity', 'volunteering', 'team', 'leadership', 'hobby', 'reference'
+            'award', 'publication', 'activity', 'volunteering', 'team', 'leadership', 'hobby', 'reference','Finance And Analytics'
         ])
         # 1. Try after personal section
         section_name = extract_name_after_personal_section(lines, local_blacklist)
@@ -839,7 +864,7 @@ def extract_personal_details(text):
                     break
 
     # Final fallback: if name_candidate is a single word, scan for a better multi-word name
-    if name_candidate and len(name_candidate.split()) == 1:
+    if name_candidate and len(name_candidate.split()) == 1 and not details['name']:
         for line in lines:
             words = line.split()
             if 2 <= len(words) <= 4 and all(w.isalpha() for w in words):
@@ -874,7 +899,7 @@ def extract_personal_details(text):
     name_blacklist = set(h.strip().lower() for h in section_headers)
     name_blacklist.update([
         'mobile', 'email', 'phone', 'contact', 'date', 'place', 'signature', 'major', 'minor',
-        'languages known', 'local address', 'permanent address', 'address', 'linkedin', 'github'
+        'languages known', 'local address', 'permanent address', 'address', 'linkedin', 'github','Finance And Analytics '
     ])
     if not details.get('name'):
         for line in reversed(lines[-30:]):
@@ -977,6 +1002,260 @@ def extract_personal_details(text):
             if name_words[1].strip().lower() in section_headers_clean:
                 details['name'] = name_words[0].title()
                 print(f"DEBUG: details['name'] set to: {details['name']} (final post-processing, removed blacklisted second word)")
+
+    # --- NEW: Try to extract name from profile section (Name : ... pattern) if still not found ---
+    if not details.get('name'):
+        profile_name = extract_name_from_profile_section(lines)
+        if profile_name and not is_section_header_name(profile_name) and not is_date_line(profile_name):
+            details['name'] = profile_name
+            print(f"DEBUG: details['name'] set to: {details['name']} (from profile section Name : ... pattern)")
+
+    # --- NEW FINAL FALLBACK: Scan for all-uppercase or title-case name-like lines anywhere in the resume ---
+    if not details.get('name'):
+        for line in lines:
+            words = line.strip().split()
+            if 2 <= len(words) <= 4 and all(w.isalpha() for w in words):
+                # Check if all words are uppercase or title case
+                if (all(w.isupper() for w in words) or all(w.istitle() for w in words)):
+                    candidate_clean = ' '.join(line.lower().split())
+                    # Avoid section headers and known labels
+                    if not is_section_header_name(candidate_clean) and not any(lbl in candidate_clean for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"]):
+                        details['name'] = line.title()
+                        print(f"DEBUG: details['name'] set to: {details['name']} (from new final fallback)")
+                        break
+
+    # --- NEW FINAL-FINAL FALLBACK: Two consecutive single-word lines, all alpha, all uppercase or title case ---
+    if not details.get('name'):
+        for i in range(len(lines) - 1):
+            w1 = lines[i].strip()
+            w2 = lines[i+1].strip()
+            if (w1 and w2 and
+                w1.isalpha() and w2.isalpha() and
+                (w1.isupper() or w1.istitle()) and (w2.isupper() or w2.istitle()) and
+                not is_section_header_name(w1.lower()) and not is_section_header_name(w2.lower()) and
+                not any(lbl in w1.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"]) and
+                not any(lbl in w2.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"])):
+                details['name'] = f"{w1.title()} {w2.title()}"
+                print(f"DEBUG: details['name'] set to: {details['name']} (from two-line fallback)")
+                break
+
+    # --- REFINED ROBUST FINAL-FINAL FALLBACK: Only use 2-3 consecutive single-word lines as name if between EDUCATION and CONTACT ---
+    if details.get('name') and len(details['name'].split()) == 1:
+        section_headers_priority = ["education", "contact"]
+        section_headers_exclude = ["languages", "skills", "interests", "hobbies", "projects", "achievements", "certifications"]
+        header_indices = {h: -1 for h in section_headers_priority + section_headers_exclude}
+        for idx, line in enumerate(lines):
+            lclean = line.strip().lower()
+            for h in header_indices:
+                if h in lclean:
+                    header_indices[h] = idx
+        edu_idx = header_indices["education"]
+        contact_idx = header_indices["contact"] if header_indices["contact"] != -1 else len(lines)
+        # Find all candidate groups strictly between EDUCATION and CONTACT
+        candidates = []
+        for i in range(edu_idx+1, contact_idx-1):
+            w1 = lines[i].strip()
+            w2 = lines[i+1].strip()
+            if (w1 and w2 and
+                w1.isalpha() and w2.isalpha() and
+                (w1.isupper() or w1.istitle()) and (w2.isupper() or w2.istitle()) and
+                not is_section_header_name(w1.lower()) and not is_section_header_name(w2.lower()) and
+                not any(lbl in w1.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"]) and
+                not any(lbl in w2.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"])):
+                # Optionally check for a third line
+                name_parts = [w1.title(), w2.title()]
+                if i+2 < contact_idx:
+                    w3 = lines[i+2].strip()
+                    if (w3 and w3.isalpha() and (w3.isupper() or w3.istitle()) and not is_section_header_name(w3.lower()) and not any(lbl in w3.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"])):
+                        name_parts.append(w3.title())
+                # Exclude if after any exclude section header
+                exclude_after = False
+                for h in section_headers_exclude:
+                    if header_indices[h] != -1 and i > header_indices[h]:
+                        exclude_after = True
+                        break
+                if exclude_after:
+                    continue
+                candidates.append((i, " ".join(name_parts)))
+        # Pick the first valid candidate
+        if candidates:
+            best = candidates[0]
+            if len(best[1].split()) > 1:
+                details['name'] = best[1]
+                print(f"DEBUG: details['name'] set to: {details['name']} (from refined robust fallback between EDUCATION and CONTACT)")
+
+    # --- FINAL REFINED ROBUST FALLBACK: Allow blank lines between candidate name lines between EDUCATION and CONTACT ---
+    if details.get('name') and len(details['name'].split()) == 1:
+        section_headers_priority = ["education", "contact"]
+        section_headers_exclude = ["languages", "skills", "interests", "hobbies", "projects", "achievements", "certifications"]
+        header_indices = {h: -1 for h in section_headers_priority + section_headers_exclude}
+        for idx, line in enumerate(lines):
+            lclean = line.strip().lower()
+            for h in header_indices:
+                if h in lclean:
+                    header_indices[h] = idx
+        edu_idx = header_indices["education"]
+        contact_idx = header_indices["contact"] if header_indices["contact"] != -1 else len(lines)
+        # Find all candidate groups strictly between EDUCATION and CONTACT, allowing blank lines
+        candidates = []
+        i = edu_idx + 1
+        while i < contact_idx:
+            # Skip blank lines
+            while i < contact_idx and not lines[i].strip():
+                i += 1
+            name_parts = []
+            j = i
+            while j < contact_idx and len(name_parts) < 3:
+                w = lines[j].strip()
+                if w and w.isalpha() and (w.isupper() or w.istitle()) and not is_section_header_name(w.lower()) and not any(lbl in w.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"]):
+                    name_parts.append(w.title())
+                elif w:
+                    break
+                j += 1
+            if len(name_parts) > 1:
+                # Exclude if after any exclude section header
+                exclude_after = False
+                for h in section_headers_exclude:
+                    if header_indices[h] != -1 and i > header_indices[h]:
+                        exclude_after = True
+                        break
+                if not exclude_after:
+                    candidates.append((i, " ".join(name_parts)))
+            i = j + 1 if j > i else i + 1
+        # Pick the first valid candidate
+        if candidates:
+            best = candidates[0]
+            if len(best[1].split()) > 1:
+                details['name'] = best[1]
+                print(f"DEBUG: details['name'] set to: {details['name']} (from final robust fallback between EDUCATION and CONTACT, tolerant to blanks)")
+
+    # --- ULTIMATE ROBUST FALLBACK: Always try to find multi-word name between education/contact (or reasonable defaults) ---
+    if details.get('name') and len(details['name'].split()) == 1:
+        # Normalize lines for header detection
+        norm_lines = [re.sub(r'\s+', ' ', l.strip().lower()) for l in lines]
+        def find_header_idx(header):
+            header_norm = header.lower().strip()
+            for idx, l in enumerate(norm_lines):
+                if header_norm == l:
+                    return idx
+            for idx, l in enumerate(norm_lines):
+                if header_norm in l:
+                    return idx
+            return -1
+        section_headers_priority = ["education", "contact"]
+        section_headers_exclude = ["languages", "skills", "interests", "hobbies", "projects", "achievements", "certifications"]
+        header_indices = {h: find_header_idx(h) for h in section_headers_priority + section_headers_exclude}
+        edu_idx = header_indices["education"] if header_indices["education"] != -1 else 0
+        contact_idx = header_indices["contact"] if header_indices["contact"] != -1 else len(lines)
+        # Find all candidate groups strictly between EDUCATION and CONTACT, allowing blank lines
+        candidates = []
+        i = edu_idx + 1
+        while i < contact_idx:
+            # Skip blank lines
+            while i < contact_idx and not lines[i].strip():
+                i += 1
+            name_parts = []
+            j = i
+            while j < contact_idx and len(name_parts) < 3:
+                w = lines[j].strip()
+                if w and w.isalpha() and (w.isupper() or w.istitle()) and not is_section_header_name(w.lower()) and not any(lbl in w.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"]):
+                    name_parts.append(w.title())
+                elif w:
+                    break
+                j += 1
+            if len(name_parts) > 1:
+                # Exclude if after any exclude section header
+                exclude_after = False
+                for h in section_headers_exclude:
+                    hidx = header_indices[h]
+                    if hidx != -1 and i > hidx:
+                        exclude_after = True
+                        break
+                if not exclude_after:
+                    candidates.append((i, " ".join(name_parts)))
+            i = j + 1 if j > i else i + 1
+        # Pick the first valid candidate
+        if candidates:
+            best = candidates[0]
+            if len(best[1].split()) > 1:
+                details['name'] = best[1]
+                print(f"DEBUG: details['name'] set to: {details['name']} (from ultimate robust fallback between EDUCATION and CONTACT, tolerant to blanks and header variants)")
+
+    # --- TRULY ROBUST FALLBACK: Find best group of 1-3 lines between EDUCATION and CONTACT, concatenating words, 2-5 total words, not hardcoded ---
+    if details.get('name') and len(details['name'].split()) == 1:
+        norm_lines = [re.sub(r'\s+', ' ', l.strip().lower()) for l in lines]
+        def find_header_idx(header):
+            header_norm = header.lower().strip()
+            for idx, l in enumerate(norm_lines):
+                if header_norm == l:
+                    return idx
+            for idx, l in enumerate(norm_lines):
+                if header_norm in l:
+                    return idx
+            return -1
+        section_headers_priority = ["education", "contact"]
+        section_headers_exclude = ["languages", "skills", "interests", "hobbies", "projects", "achievements", "certifications"]
+        header_indices = {h: find_header_idx(h) for h in section_headers_priority + section_headers_exclude}
+        edu_idx = header_indices["education"] if header_indices["education"] != -1 else 0
+        contact_idx = header_indices["contact"] if header_indices["contact"] != -1 else len(lines)
+        # Find all candidate groups strictly between EDUCATION and CONTACT, allowing blank lines
+        best_group = None
+        best_word_count = 0
+        i = edu_idx + 1
+        while i < contact_idx:
+            # Skip blank lines
+            while i < contact_idx and not lines[i].strip():
+                i += 1
+            group = []
+            j = i
+            while j < contact_idx and len(group) < 3:
+                w = lines[j].strip()
+                if w and not is_section_header_name(w.lower()) and all(x.isalpha() for x in w.replace(' ', '').split()):
+                    # All words in line must be alpha, and line must be uppercase or title case
+                    words = w.split()
+                    if all(word.isupper() or word.istitle() for word in words):
+                        group.append(w.title())
+                    else:
+                        break
+                elif w:
+                    break
+                j += 1
+            # Only consider groups with 2-5 total words
+            total_words = sum(len(g.split()) for g in group)
+            if 2 <= total_words <= 5:
+                # Exclude if after any exclude section header
+                exclude_after = False
+                for h in section_headers_exclude:
+                    hidx = header_indices[h]
+                    if hidx != -1 and i > hidx:
+                        exclude_after = True
+                        break
+                if not exclude_after and total_words > best_word_count:
+                    best_group = group
+                    best_word_count = total_words
+            i = j + 1 if j > i else i + 1
+        if best_group:
+            details['name'] = ' '.join(best_group)
+            print(f"DEBUG: details['name'] set to: {details['name']} (from truly robust fallback, best group between EDUCATION and CONTACT)")
+
+    # --- Email prefix fallback: try to match split parts as a line in the resume if no name found yet ---
+    if not details.get('name') and details.get('email'):
+        email_prefix = details['email'].split('@')[0]
+        # Try splitting by common separators
+        for sep in ['.', '_', '-']:
+            if sep in email_prefix:
+                parts = [p for p in email_prefix.split(sep) if p.isalpha() and len(p) > 1]
+                if 1 < len(parts) <= 4:
+                    for line in lines:
+                        line_words = [w.lower() for w in line.split()]
+                        if len(line_words) == len(parts) and all(w.isalpha() for w in line_words):
+                            # Check if all parts are present in the line (order-insensitive)
+                            if all(part.lower() in line_words for part in parts):
+                                details['name'] = ' '.join(w.title() for w in line_words)
+                                print(f"DEBUG: details['name'] set to: {details['name']} (from email prefix split fallback)")
+                                break
+                if details.get('name'):
+                    break
 
     return details
 
@@ -1091,7 +1370,7 @@ def check_education(text):
             return lines[edu_start:edu_end]
         return []
 
-    def contains_any_pattern_in_context(patterns, skip_cert_course_for_ug=False, restrict_to_edu_section=False):
+    def contains_any_pattern_in_context(patterns, skip_cert_course_for_ug=False, restrict_to_edu_section=False, ssc_mode=False):
         search_lines = lines
         if restrict_to_edu_section:
             edu_section = extract_education_section(lines)
@@ -1112,13 +1391,30 @@ def check_education(text):
                 if skip_this_line:
                     continue
             for pat in patterns:
+                if ssc_mode:
+                    # Only match 'x' and 'secondary' if not part of 'higher secondary', 'senior secondary', '10+2', etc.
+                    if pat == r"x":
+                        # Only match if line is exactly 'x' or 'x std' or 'xth', not as part of another word
+                        if re.fullmatch(r"x(\s|$|th|std|standard)", line_lower.strip()):
+                            if is_edu_context(line, idx):
+                                return True
+                        continue
+                    if pat == r"secondary":
+                        # Skip if line contains 'higher' or 'senior' or '10+2'
+                        if ("higher" in line_lower or "senior" in line_lower or "10+2" in line_lower):
+                            continue
+                        # Only match if 'secondary' is not part of 'higher secondary', 'senior secondary', etc.
+                        if re.search(r"\bsecondary\b", line_lower):
+                            if is_edu_context(line, idx):
+                                return True
+                        continue
+                # --- FIX: For SSC, skip 'secondary' if line contains 'higher' or 'senior' ---
+                if pat == r"secondary" and ("higher" in line_lower or "senior" in line_lower):
+                    continue
                 if re.search(pat, line, re.IGNORECASE):
                     # Special handling for UG patterns to avoid false positives from PG diploma
                     if "diploma" in pat and any(pg_term in line_lower for pg_term in ["post graduate", "postgraduate", "pgdm", "pgd", "master"]):
                         continue  # Skip if it's a postgraduate diploma
-                    # --- FIX: For SSC, skip 'secondary' if line contains 'higher' or 'senior' ---
-                    if pat == r"secondary" and ("higher" in line_lower or "senior" in line_lower):
-                        continue
                     if is_edu_context(line, idx):
                         return True
         return False
@@ -1184,7 +1480,8 @@ def check_education(text):
         if found_ug:
             break
     found_hsc = contains_any_pattern_in_context(hsc_patterns)
-    found_ssc = contains_any_pattern_in_context(ssc_patterns)
+    # --- FIX: Use ssc_mode for SSC patterns ---
+    found_ssc = contains_any_pattern_in_context(ssc_patterns, ssc_mode=True)
 
     return {
         'pg': found_pg,
@@ -1265,7 +1562,7 @@ def extract_skills_from_block(text, name=None):
         "result", "passing", "year", "board", "college", "school", "university", "institute",
         "academy", "department", "faculty", "pursuing", "completed", "ongoing", "current",
         "previous", "past", "present", "declaration", "declare", "correct", "true", "knowledge",
-        "signature", "place", "date", "languages known", "hobbies", "personal profile"
+        "signature", "place", "date", "languages known", "hobbies", "personal profile","Finance And Analytics"
     }
 
     # Now, process each line to extract only the actual skills
@@ -1703,7 +2000,7 @@ def display_resume_score(rating):
 # === Main Analyzer ===
 major_indian_locations = {
     "Thane", "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat",
-    "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Bhopal", "Visakhapatnam", "Boisar","Hanamkonda","Anantapur"
+    "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Bhopal", "Visakhapatnam", "Boisar","Hanamkonda","Anantapur","Wagholi"
 }
 
 # Institution keywords for name/section filtering

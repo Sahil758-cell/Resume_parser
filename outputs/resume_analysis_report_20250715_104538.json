@@ -1,0 +1,72 @@
+{
+    "raw_text": "STUDENT :\nCONTACT\n@ +918919562049 CAREER OBJECTIVE:\nnn ad Seeking a role to apply my blend of commerce and computer skills for efficient data\nre) ‘LE Wagar management and contribute to organizational success.\nKashibugga, Warangal -\n506002 . STRENGTH\n° Excellent communication skills.\nEDUCATION * Ability to handle difficult situations.\nMaster’s Degree: * Flexible and adaptable.\nSR University * Extremely motivated towards career. .\n2024 - present * Quick Learner.\nBachelor’s Degree:\nMasterji degree & P.G. EXTRA CURRICULUM\nco EES HR Club President:\n70% e Led HR club, organizing events & boosting membership.\n(2021-24) ¢ Managed budgets & represented club at university events.\n: Discipline Committee Member:\nIntermediate (MEC) : ¢ Enforced event rules & resolved participant disputes.\nJB Junior College for ¢ Maintained fair environment & documented incidents.\ncommerce. Overall Coordinator (Vyuha):\n60% ¢ Coordinated prestigious event, managing logistics & budget.\n(2019-21) * Led volunteer team & improved event registration process.\nee PERSONAL DETAILS\n\" ee Land high Name : Esampelly Dhanraj.\n“ a ° Father Name : E Satyanarayana.\nai se adh Mother Name : EShobha\n. Date of Birth : 22-10-2002.\nSKILLS Gender : Male\nLanguages Known : English, Telugu and Hindi\n\n© MS-OFFICE Permanent Address _; H.NO.11-23-78.\ne TALLY ERP9 & PRIME. L.B. Nagar, Kashibugga.\ne Basic knowledge in Warangal-506002.\n\nC&C++Language, .\n\nOracle, RDBMS, HTML. DECLARATION\n» Completed I hear by declare that the information furnished above is true to the best of my\n\nPGDCAorganizedby knowledge.\n\nSatyam Computers.",
+    "personal_info": {
+        "name": "Esampelly Dhanraj",
+        "email": null,
+        "phone": "8919562049",
+        "linkedin": null,
+        "github": null,
+        "location": "Kashibugga"
+    },
+    "resume_score": 50,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Include missing personal information: Email.",
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "ms excel",
+        "spreadsheets",
+        "typing",
+        "accuracy"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.73,
+                "confidence_percent": "73%"
+            },
+            {
+                "title": "HR Manager",
+                "confidence": 0.7,
+                "confidence_percent": "70%"
+            }
+        ],
+        "job_title": "Data Entry Operator",
+        "skills": [
+            "Basic Knowledge",
+            "Communication Skills",
+            "Computer Skills",
+            "Telugu",
+            "Wagar Management"
+        ],
+        "preferred_location": "Kashibugga",
+        "recommended_courses": {
+            "Data Entry Operator": [
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy"
+            ],
+            "Web Developer": [
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp"
+            ],
+            "HR Manager": [
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ]
+        }
+    }
+}

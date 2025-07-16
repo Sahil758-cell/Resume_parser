@@ -1,0 +1,68 @@
+{
+    "raw_text": "SKILLS\nHOBBIES\nLANGUAGE \nEDUCATION\nEXPERIENCE\nAND TRAINING\nCERTIFICATIONS\nVIDYODAYA P U COLLEGE, BH ROAD, TUMKUR\nRNS \nINSTITUTE \nOF \nTECHNOLOGY,\nCHANNASANDRA, BANGALORE\nINTERNSHIP AT HELIOS DECOR PVT. LTD.\nVIDYAVARDHAKA FIRST GRADE COLLEGE, MYSORE\nSRI BASAVESWARA ENG.MED. HIGH SCHOOL, BH ROAD,\nTUMKUR\nKannada\nEnglish\nTally ERP 9\nAdvance excel.\nStock market\nPlaying cricket\nCooking \nSocial Media Management\nPowerPoint\nTeamwork and Collaboration\nMicrosoft office Excel\nRelationship Building\nTally ERP 9\nSSLC, 55.04%, 2016\nPUC, Commerce: 66.33%, 2018\nB.Com, CGPA: 6.192, 2021\nM.B.A: Finance And Analytics: 70.58, 2023\nI'm a hardworking guy, good at observing and analysing the situation, and I know how to build\n a good relationship with people. I like solving problems and working with others to get thing\ns done. I'm excited about the opportunity to bring my skills to Business Standards and help t\nhe team succeed.\nYOGESH K M \nFINANCE AND ANALYTICS \nBangalore, India 560098\nyogesh.km2000@gmail.com\n6362369967\n",
+    "personal_info": {
+        "name": "Finance And Analytics",
+        "email": "yogesh.km2000@gmail.com",
+        "phone": "6362369967",
+        "linkedin": null,
+        "github": null,
+        "location": "Bangalore"
+    },
+    "resume_score": 65,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "Add academic or personal projects."
+    ],
+    "ai_skill_suggestions": [
+        "accounting",
+        "excel",
+        "financial modeling",
+        "forecasting",
+        "budgeting"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Finance Analyst",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.69,
+                "confidence_percent": "69%"
+            },
+            {
+                "title": "Financial Analyst",
+                "confidence": 0.63,
+                "confidence_percent": "63%"
+            }
+        ],
+        "job_title": "Finance Analyst",
+        "skills": [
+            "Good At",
+            "Good Relationship",
+            "Hardworking",
+            "Media Management"
+        ],
+        "preferred_location": "Bangalore",
+        "recommended_courses": {
+            "Finance Analyst": [
+                "Excel for Financial Analysis - https://www.udemy.com/course/excel-for-financial-analysis",
+                "Financial Analyst Certification - https://www.coursera.org/specializations/financial-analysis",
+                "Introduction to Corporate Finance - https://www.edx.org/course/corporate-finance"
+            ],
+            "Data Entry Operator": [
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Typing Mastery - https://www.udemy.com/course/typing-master"
+            ],
+            "Financial Analyst": [
+                "Financial Markets by Yale - https://www.coursera.org/learn/financial-markets-global"
+            ]
+        }
+    }
+}

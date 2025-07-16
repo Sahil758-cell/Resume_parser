@@ -1,0 +1,70 @@
+{
+    "raw_text": "OBJECTIVE\nTo contribute my skills and experience in pharmacy fields, while\ncontinuously learning and growing in a dynamic work environment\nEXPERIENCE\nNimra Pharmacy\n11/07/2023 - 11/07/2024\nRetailer and salesman\nEDUCATION\nChaitanya Deemed to be University\n2025\nBachelor of Pharmacy\n9.091\nMAKAK MAYUM\nFAKARUDDIN\nCONTACT\n\nLilong Tamyai Ushoipokpi Suptu karong\nP.O - Lilong\nP. S - Lilong\nDistrict - 795130\nState - Manipur\n9366799766\nmmfakaruddin55@gmail.com\nSKILLS\nSincere at work and responsible 80%\nability to work in a team achieve goal\ngood communication skills and\nproblem solving skills punctuality and\nflexible to work basic computer skills\non Ms-off\nLANGUAGES\nEnglish\nHindi\nManipuri\nINTERESTS\nPlaying football\nPlaying basketball\nReading books\n",
+    "personal_info": {
+        "name": "Mmfakaruddin",
+        "email": "mmfakaruddin55@gmail.com",
+        "phone": "9366799766",
+        "linkedin": null,
+        "github": null,
+        "location": "Lilong"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs."
+    ],
+    "ai_skill_suggestions": [
+        "pedagogy",
+        "classroom management",
+        "lesson planning",
+        "edtech"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Teacher",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Pharma Sales",
+                "confidence": 0.78,
+                "confidence_percent": "78%"
+            },
+            {
+                "title": "Pharmacist",
+                "confidence": 0.74,
+                "confidence_percent": "74%"
+            }
+        ],
+        "job_title": "Teacher",
+        "skills": [
+            "Sincere at work",
+            "ability to work in a team achieve goal",
+            "flexible to work basic computer skills",
+            "good communication skills and",
+            "on Ms-off",
+            "problem solving skills punctuality and"
+        ],
+        "preferred_location": "Lilong",
+        "recommended_courses": {
+            "Teacher": [
+                "Educational Psychology - https://www.coursera.org/learn/educational-psychology",
+                "Instructional Design - https://www.coursera.org/learn/instructional-design",
+                "Online Teaching - https://www.edx.org/course/online-teaching"
+            ],
+            "Pharma Sales": [
+                "Pharma Sales Training – Udemy"
+            ],
+            "Pharmacist": [
+                "B.Pharm",
+                "Diploma in Pharmacy",
+                "Pharmacy Technician Training - https://www.coursera.org/learn/pharmacy"
+            ]
+        }
+    }
+}
