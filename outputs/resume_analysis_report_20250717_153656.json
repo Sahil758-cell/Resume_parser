@@ -1,0 +1,76 @@
+{
+    "raw_text": "SANTOSH\nMUDLIYAR\nCONTACT DETAILS\n  santoshmudliyar35@gmail.co\n  m\n   Pune, Maharashtra\n   (+91) 7020166741\n   27 Feb '02\n   LinkedIn\nSKILLS\nJava\nHTML & CSS\nAI/ML\nDeep Learning\nAzure IoT\nMYSQL (Database)\nLANGUAGES\nEnglish\nHindi\nMarathi\nHOBBIES\nListen Songs\nPlay Sports \nOBJECTIVE\nTo associate with a growth oriented enterprises and strive towards \nachieving the organizational goals by utilizing hard work and smart \npractices as the sole means. Thereby achieving self improvement and \nability to give optimum Performance under pressure conditions.\nEDUCATION\nDY.Patil Technical Campus\nAug 2023 — Present\nMCA\nATSS CBSC\nJun 2020 — Mar 2022\nBCA\n68.70%\nSNBP School & Jr. College\nMay 2018 — Apr 2019\nHSC\n64.46%\nSNBP School & Jr. College\nApr 2016 — Mar 2017\nSSC\n60.40%\nPROJECTS\n1. Student Result Management System : -\nStudent Result Management System is a Web based Application Developed for \nColleges to Analyze the Result and keep the Track of Students.\nTechnology :- Java ( Eclipse IDE), HTML, CSS & JavaScript (For Front End), MYSQL \nDatabase.\n2. Daily Dukaan : -\nDukaan is a DIY platform that enables merchants with zero programming skills to \nset up their e-commerce store using smartphones in 30 seconds.\nIt powers over 2 million small and medium-sized businesses across India to start, \ngrow, market and manage their businesses over the internet.\n In short, the app is helping create a large impact across the country and Making \n“Digital India” truly come to life.\nTechnology : - HTML, CSS & JavaScript\nCERTIFICATIONS\nQA Automation (Selenium) / Manual Tester\nExcelR\n27 Jan 2025\nHTML & CSS for Web Development\nSkill Academy\n18 Jun 2023\nJAVA FULL STACK\nSymbiosis Skills & Professional University's \nSymbiosis Digital Academy. \n17 Mar 2023\nMS - Excel & Word\nMaharashtra Knowledge Corporation Limited \n(MKCL). \n18 Feb 2018\n \nPERSONAL SKILLS\n•   Possession of great analytical and Problem Solving skills. Ability to think \nRationally & Thoughtfully. \n•   Strong Passion and interest in learning and working on new technologies \n& innovations.\n•   Attentive Listener and Effective Oral Communication Skills.\n•   A Team Player, Good at working collaboratively with people in order to \nachieve a common goal.\nPowered by : ilaforplacements.com\n",
+    "personal_info": {
+        "name": "Santosh",
+        "email": "santoshmudliyar35@gmail.co",
+        "phone": "7020166741",
+        "linkedin": null,
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "backend",
+        "html",
+        "javascript",
+        "web development",
+        "css",
+        "frontend",
+        "mysql",
+        "flask"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.5,
+                "confidence_percent": "50%"
+            },
+            {
+                "title": "AI Engineer",
+                "confidence": 0.5,
+                "confidence_percent": "50%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "Azure",
+            "Azure Iot",
+            "Css",
+            "Daily Dukaan : -",
+            "Deep Learning",
+            "Excel",
+            "Html",
+            "Java",
+            "Javascript",
+            "Mysql Database",
+            "Smartphones In 30 Seconds",
+            "Word"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Web Developer": [
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ],
+            "AI Engineer": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone"
+            ]
+        }
+    }
+}

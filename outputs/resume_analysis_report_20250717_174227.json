@@ -1,0 +1,95 @@
+{
+    "raw_text": "Mahima Kishor Jaiswal \nFresher \nAn independent and self motivated B.tech Engineering student willing to obtain a fresher position in a fast paced organization where my\ntechnical skills and creative thinking will be tested. I'm self motivated learner with a eagerness to learn new things. \nmahimajaiswal244@gmail.com \n9158944603 \nAurangabad, MH, India \nlinkedin.com/in/mahima-jaiswal-848728240 \nEDUCATION \nB.Tech in Electronics and Telecommunication\nEngineering \nDeogiri Institute of Engineering and\nManagement Studies, Aurangabad-431001 \n2020 - 2024,  \nCGPA - 8.05 \nDiploma in Electronics and\nTelecommunication Engineering \nMSS College of engineering and technology,\nJalna-431203 \n2020,  \n69.47% \nSSC \nYashwant Vidhyalay, Selu \n2013,  \n71.60% \nINTERNSHIPS \nSoftware Testing-Intern \nGTT(Global Talent Track)-Virtual mode \n04/2023 - 05/2023,  \nThe training session begins with an introduction to the fundamentals of\nsoftware testing, importance of testing in the software development and\nthe different types of testing, testing tools and frameworks. \nCore Java-Intern \nCSR initiative by Capgemini and FUEL \n02/2023 - 04/2023,  \nAurangabad \nAs a java intern at FUEL provides various aspects of java development,\nincluding OOPS, algorithm and software design pattern. Also get hands-\non projects and experience. \nATM System Project \nBus Reservation System Project \nCyber Security Virtual Internship \nForage \n08/2022 - 09/2022,  \nDuring the internship there is task module to complete. \nCO-CURRICULAR ACTIVITY \nElementry Workshop on MEP system Designing (2017) \nTechnophilia (2019) \nSKILLS \nHTML/CSS \nProject Management \nComputer Skills \nMS oﬃce (Excel, PowerPoint, Word) \nMySQL \nACADEMIC PROJECTS \nLibrary Management System (2023) \nI developed the Library Management System using Java \nIndustrial Temperature Controller (2022) \nI developed a device that monitor and control the temperature of\nindustry \nBidirectional Visitors Counter (2019) \ni developed a device using 8051 Microcontroller is helpful to count\nthe number of people enterning or leaving a hall and displays it on an\nLCD \nCERTIFICATES \nFuture Skills Training in Core Java and Aptitude Training\n (2023) \nFUEL \nCompletion Certiﬁcate of Python (2023) \nIBM \nLearning Java (2023) \nLinkedIn Learning \nCloud Fundamental (2023) \nEXCELR \nPython and Django Framework (2021) \nUdemy \nACHIEVEMENTS \nParticipated in State Level Rangoli Competition (2021) \nLANGUAGES \nEnglish \nProfessional Working Proﬁciency \nHindi \nFull Professional Proﬁciency \nMarathi \nFull Professional Proﬁciency \nINTERESTS \nSketching \nRangoli \nMusic \nTasks \nTasks. \n",
+    "personal_info": {
+        "name": "Mahima Kishor Jaiswal",
+        "email": "mahimajaiswal244@gmail.com",
+        "phone": "9158944603",
+        "linkedin": "linkedin.com/in/mahima-jaiswal-848728240",
+        "github": null,
+        "location": "Aurangabad"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education."
+    ],
+    "ai_skill_suggestions": [
+        "engineering student",
+        "b.e",
+        "trainee",
+        "civil",
+        "computer science",
+        "electronics",
+        "graduate engineer",
+        "engineering trainee",
+        "engineering graduate trainee",
+        "electrical",
+        "engineering fresher",
+        "entry level engineer",
+        "trainee engineer",
+        "fresher engineer",
+        "engineering graduate",
+        "mechanical",
+        "gte",
+        "fresher",
+        "b.tech"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.47,
+                "confidence_percent": "47%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.32,
+                "confidence_percent": "32%"
+            }
+        ],
+        "job_title": "Graduate Engineer Trainee (GET)",
+        "skills": [
+            "Control The Temperature Of",
+            "Css",
+            "Displays It On An",
+            "Excel",
+            "Html",
+            "Industry",
+            "Java",
+            "Linkedin Learning",
+            "Mysql",
+            "Python",
+            "Tech In Electronics And Telecommunication",
+            "Udemy",
+            "Word"
+        ],
+        "preferred_location": "Aurangabad",
+        "recommended_courses": {
+            "Graduate Engineer Trainee (GET)": [
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming",
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training"
+            ],
+            "Web Developer": [
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+            ],
+            "Data Entry Operator": [
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy",
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials"
+            ]
+        }
+    }
+}

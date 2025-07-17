@@ -1,0 +1,91 @@
+{
+    "raw_text": "To secure a position in a dynamic, growth-oriented company where, I can apply my technical expertise and\nproblem-solving skills and contribute while continuously expanding my knowledge in a challenging\nenvironment.\nDiploma(Information Technology)\nSecondary School\nShri Siddheshwar Women’s Polytechnic, Solapur\nLearnomate Technologies: \nPursued a comprehensive training program in SQL and Linux, gaining hands-on experience in database\nmanagement and system administration.\nVertex Technosys:\nCompleted a  industrial internship in Web Development under Web Designing, gaining hands-on experience in\ndesigning and developing responsive web interfaces using HTML, CSS, and front-end technologies.\nBachelor of Technology(Electronics and Telecommunication)\nShree Siddheshwar Women’s College of Engineering, Solapur\n2022-2025\n2019-2022\n2019\nOBJECTIVE\nVAISHNAVI PANDURANG NANDAL\nEDUCATION\nD.R Shriram English Medium School, Solapur\nSKILLS\nProgramming Languages:  C | C++ | JAVA | Python | HTML | CSS \nSoft Skills: Communication | Teamwork | Decision Making | Planning\nDatabase Management: SQL | MySQL  \nINTERNSHIP\nPROJECTS\nOnline Mobile Management System:\nIt is a Java console-based application using Hibernate and SQL for managing mobile purchases, users, orders,\npayments, and admin operations. It enables admins to manage mobile data and users to register, log in.\nGesture Gloves for Video Gaming:\nDeveloped an interactive gesture-based glove system for controlling video games through hand movements.\nIntegrated motion sensors and signal processing algorithms to detect gestures and convert them into game.\nCERTIFICATIONS\nDigital Productivity Certification \nSQL and Linux Training Certificate  \nCertificate of completion of MS Office \nState Level Blog making competition\nDECLARATION\nI here by declare that the information provided above is true and correct for the best of my knowledge and\nbelief.\n     (+91)9373876139        vaishnavinandal01@gmail.com\n     https://www.linkedin.com/in/vaishnavi-nandal     \n     Solapur,Maharashtra,India\n",
+    "personal_info": {
+        "name": "Secondary School",
+        "email": "vaishnavinandal01@gmail.com",
+        "phone": "9373876139",
+        "linkedin": null,
+        "github": null,
+        "location": null
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education."
+    ],
+    "ai_skill_suggestions": [
+        "engineering graduate trainee",
+        "gte",
+        "electrical",
+        "engineering fresher",
+        "computer science",
+        "engineering graduate",
+        "trainee engineer",
+        "electronics",
+        "civil",
+        "mechanical",
+        "trainee",
+        "b.tech",
+        "entry level engineer",
+        "graduate engineer",
+        "engineering trainee",
+        "b.e",
+        "fresher engineer",
+        "engineering student",
+        "fresher"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.74,
+                "confidence_percent": "74%"
+            },
+            {
+                "title": "Full Stack Developer",
+                "confidence": 0.4,
+                "confidence_percent": "40%"
+            }
+        ],
+        "job_title": "Graduate Engineer Trainee (GET)",
+        "skills": [
+            "C++",
+            "CSS",
+            "Communication",
+            "Decision Making",
+            "HTML",
+            "Java",
+            "MySQL",
+            "Planning",
+            "Python",
+            "SQL",
+            "Teamwork"
+        ],
+        "preferred_location": null,
+        "recommended_courses": {
+            "Graduate Engineer Trainee (GET)": [
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim",
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training"
+            ],
+            "Web Developer": [
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp"
+            ],
+            "Full Stack Developer": [
+                "Full-Stack Web Development with React - https://www.coursera.org/specializations/full-stack-react"
+            ]
+        }
+    }
+}

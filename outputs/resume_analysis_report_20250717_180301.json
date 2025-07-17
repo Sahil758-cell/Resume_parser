@@ -1,0 +1,79 @@
+{
+    "raw_text": "  ANIKET DHANGARE \n  Email -ID:  aniket.r.dhangare@gmail.com  | 7559362670    |    linkedin.com/in/aniket-dhangare \n\"Python and SQL developer skilled in AWS and DBMS, delivering efficient solutions while advancing technical capabilities.\" \n \nAcademic Projects \nLSTM-Based Spare Predictive Analytics for Short Cycling Inventory –  \nInventory Management System  \n-​\nDeveloped a web-based analytics platform using Flask (Python) and MySQL to streamline \nspare part management for showrooms through efficient data flow. \n-​\nImplemented clustering logic to group vehicle service data by region, enabling precise \ndemand forecasting and reducing showroom stockouts by 20%. \n-​\nDesigned an interactive dashboard with Bootstrap for visualizing showroom-level analytics, \nenhancing decision-making speed by 30%. \nPark-Insight – Automated Parking Services  \n-​\nBuilt an intelligent system using license plate recognition and QR code scanning, automating \nvehicle entry/exit. \n-​\nImproved parking spot allocation accuracy, reducing user wait times by 25%. \nExam Duty Exchange Portal – Invigilator Management System \n-​\nEnhanced real-time communication between admin and invigilators, reducing scheduling \nconflicts. \n-​\nDeveloped a web portal to automate teacher supervision duties, centralizing data and \nimproving coordination efficiency by 30%. \nHyperBus – Online Ticket Booking System \n-​\nCreated a user-friendly platform that simplified the ticket booking process, eliminating \nredundant steps and improving user experience. \n-​\nIntegrated export options using Python, improving data management efficiency by 15%. \nTechnical Skills \n Languages & Frameworks​\n​\nPython, Flask, Django, React, HTML/CSS, Bootstrap, MySQL, Computer Network, OS \nSoftware & Tools \n AWS, Docker, Git, Tableau, JIRA \nSoft Skills \n               Problem-Solving, Analytical Research, Adaptability,  Team Collaboration \n \nEducation ​\n​\n​\n​\n​\n​\n​\n​\n \nPIMPRI CHINCHWAD COLLEGE OF ENGINEERING PUNE                                      CGPA:  7.66 \nMaster of computer Applications(2025) \n \nDY PATIL INTERNATIONAL UNIVERSITY AKURDI PUNE                                          CGPA: 7.49   \nBachelor of Computer Applications (2022) (Cloud Technology and Information Security)  \n  \nHEDA JUNIOR ENGINEERING COLLEGE WASHIM                             Percentage | 60.46%      \nXII (Higher Secondary Education) ​  \n ​\n ​\n ​\n  \n SHANTINIKETAN ENGLISH SCHOOL WASHIM ​\n  ​\n          Percentage | 84.60% \nX (Higher Secondary Education)   \n \n Position of Responsibility  (Coordinated activities from 2017 to 2021.) \n-​\nEdited monthly articles for PCCOE College's Samvaad, boosting student engagement. \n-​\nOrganized coding quizzes, virtual gaming events, and sports association activities, increasing \nstudent participation by 20%. \nAchievements and Certifications  (Hobbies) \n-​\n Advanced React by Meta from Coursera. (May 2025) \n-​\n 100 Days of code : Python Programming from Udemy.(Nov 2024) \n-​\nCertified in Full-Stack Development. \n-​\nworkshops on web development cloud technology AWS. \n-​\nRepresented the 59th National School Games in Skipping; won 10+ sports certificates.(2014) \n \n  \n \n \n \n \n \n \n \n \n  \n",
+    "personal_info": {
+        "name": "ANIKET DHANGARE",
+        "email": "aniket.r.dhangare@gmail.com",
+        "phone": "7559362670",
+        "linkedin": "linkedin.com/in/aniket-dhangare",
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 100,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [],
+    "ai_skill_suggestions": [
+        "html",
+        "mysql",
+        "backend",
+        "web development",
+        "frontend",
+        "javascript",
+        "css",
+        "flask"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Python Developer",
+                "confidence": 0.38,
+                "confidence_percent": "38%"
+            },
+            {
+                "title": "Customer Support",
+                "confidence": 0.33,
+                "confidence_percent": "33%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "Adaptability",
+            "Aws",
+            "Bootstrap",
+            "Css",
+            "Docker",
+            "Flask",
+            "Full-stack Development",
+            "Git",
+            "Html",
+            "Jira",
+            "License Plate Recognition",
+            "Mysql",
+            "Python",
+            "Qr Code Scanning",
+            "React",
+            "Sql",
+            "Tableau"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Web Developer": [
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development"
+            ],
+            "Python Developer": [
+                "Python Backend Dev"
+            ],
+            "Customer Support": [
+                "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service",
+                "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations",
+                "Call Center Training - https://www.udemy.com/course/call-center-training"
+            ]
+        }
+    }
+}

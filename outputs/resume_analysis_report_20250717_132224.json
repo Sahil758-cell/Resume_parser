@@ -1,0 +1,69 @@
+{
+    "raw_text": "SAMARTH MURLIDHAR JAGAKAR\n9833431924 | samarthjagakar2001@gmail.com\nï samarth-jagakar | § Samarth0809 |  SamarthJagakar\nDombivli, Maharashtra - 421202, India\nOBJECTIVE\nAspiring Java Full Stack Developer with a solid foundation in Java, Spring Boot, HTML, CSS, JavaScript, and SQL.\nSeeking to contribute to dynamic development teams by building scalable, responsive web applications.\nPassionate about developing end-to-end solutions, integrating robust backend services with intuitive front-end\ninterfaces to enhance user experience and deliver business value.\nINTERNSHIP\n• Techiolaza Innovations\nDecember 2024 – Present\nJava Developer & Flutter Developer\nThane, India\n◦Helpinn: Designed and developed a cross-platform mobile application for hotel search, booking, and profile\nmanagement using Flutter and Dart.\n◦Implemented real-time hotel search, wishlist management, booking flows, and user profile features, integrating\nRESTful APIs and Firebase for authentication and data management.\nPROJECTS\n• NGO Website for Chetna Foundation\nDecember 2024\nTools: HTML, CSS, JavaScript, Spring Boot, Razorpay Integration\n§\n◦Designed and developed a responsive and dynamic website for the Chetna Foundation NGO to enhance outreach\nand engagement.\n◦Implemented functional modules including an event gallery, volunteer registration, and contact forms.\n◦Integrated Razorpay payment gateway for seamless and secure donation processing.\nEDUCATION\n• University of Mumbai\nJune 2020 – July 2024\nBachelor’s Degree in Computer Science (AIML)\nThane, India\n◦CGPA: 6.94\nPercentage: 62.32%\n• K.V. Pendharkar College\n2018 – 2020\nHigher Secondary Education (HSC)\nDombivli, India\n• K.N.T. Public School\nUntil 2018\nSecondary Education (SSC)\nTitwala, India\nCERTIFICATIONS\n• JSPIDER, Thane : Java Full Stack Development Course\n2024\nCovered: Core Java, JDBC, Servlet, JSP, Spring, Spring Boot, Spring MVC, Hibernate, REST APIs, Microservices,\nSQL/PLSQL, Web Services, HTML, CSS, JavaScript. Hands-on projects, problem solving, and real-time application\ndevelopment.\n• Udemy: The complete GSAP; HTML, CSS, Javascript\n2023\nPATENTS AND PUBLICATIONS\nC=CONFERENCE, J=JOURNAL, P=PATENT, S=IN SUBMISSION, T=THESIS\n[C.1]\nSamarth Jagakar, et al. (2024). OpenCv based virtual interactive whiteboard. In 11th International Conference\non Microelectronics, Circuits, and Systems, pp. 17 May 2024, Location. DOI: VDC0E4SM/MICRO-2024/001\nSKILLS\n• Programming Languages:Java, Kotlin\n• Web Technologies:HTML, CSS, JavaScript, jQuery, Responsive Web Design, Cross-Browser Compatibility\n• Framework:Spring Boot, Spring MVC, Hibernate, JPA, Microservices, API Integrations\n• Database Systems:PostgreSQL, MySQL, Firebase Realtime Database\n• Cloud Platform:Firebase, AWS, Google Cloud Platform\n• DevOps & Version Control Tools:Git, GitHub, Docker, Postman, Swagger, Android Studio, Eclipse, Visual Studio\nCode, PgAdmin, Spring Tool Suite (STS), Struts 2\n• Research Skills:Problem-Solving, Debugging, Data Analysis, Report Writing, Critical Thinking, Literature\nReview\nAvailable to work in rotational shifts as required.\n",
+    "personal_info": {
+        "name": "Samarth Murlidhar Jagakar",
+        "email": "samarthjagakar2001@gmail.com",
+        "phone": "9833431924",
+        "linkedin": null,
+        "github": null,
+        "location": "Mumbai"
+    },
+    "resume_score": 90,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education."
+    ],
+    "ai_skill_suggestions": [
+        "defect tracking",
+        "bug reporting",
+        "test plan",
+        "manual testing",
+        "test cases",
+        "test execution"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Software Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Software Tester",
+                "confidence": 0.77,
+                "confidence_percent": "77%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.75,
+                "confidence_percent": "75%"
+            }
+        ],
+        "job_title": "Software Developer",
+        "skills": [
+            "API Integrations",
+            "Code, PgAdmin, Spring Tool Suite",
+            "Firebase Realtime Database",
+            "Google Cloud Platform",
+            "Kotlin",
+            "Literature",
+            "Review",
+            "STS",
+            "Visual Studio"
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": {
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ],
+            "Software Tester": [
+                "Manual Software Testing - https://www.udemy.com/course/manual-software-testing/"
+            ],
+            "Web Developer": [
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development"
+            ]
+        }
+    }
+}

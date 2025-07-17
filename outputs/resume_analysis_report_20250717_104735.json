@@ -1,0 +1,94 @@
+{
+    "raw_text": "VAIBHAV ASHOK RASAL\n+91 7249708705\nrasalvaibhav30121@gmail.com\nKatkarpada, Boisar (W)\nCareer Objectives\nAs a recent Mechanical Engineering graduate with a solid academic foundation, I seek to join an organization\nwhere I can acquire new skills and enhance my abilities to contribute to both the organization's goals and my\npersonal growth.\nEducation\nBachelor Of Engineering In Mechanical Engineering\nMay 2024\nTheem College of Engineering, Boisar (E).\nPercentage: 66.48%\nDiploma In Mechanical Engineering\nMay 2021\nTheem College of Engineering, Boisar (E).\nPercentage: 85.36%\nSSC\nMay 2017\nSuvidya Marathi Medium School, Mumbai (E).\nPercentage: 61.20%\nProjects\n●\nElectromagnetic Braking System\n●\nGyroscope Self Balancing Wheel\n●\nComparative Study of Filtrates Through Different Xylem of Plants\nInternship\nStone Crusher (Supervisor)\nJuly 2018\nTexwiz (Supervisor)\nJune 2023\nAdele Industry (Supervisor)\nDec 2022 - Jan 2023\nSoftware skills\nWriting tools: Microsoft Office (Word, Excel, PowerPoint), Google docs.\nPersonal Details\nDate of Birth : 30/12/2001.\nKnown Languages : Marathi, Hindi, and English.\nHobbies: Singing, Dancing, Sport (Kho-kho).\n",
+    "personal_info": {
+        "name": "Vaibhav Ashok Rasal",
+        "email": "rasalvaibhav30121@gmail.com",
+        "phone": "7249708705",
+        "linkedin": null,
+        "github": null,
+        "location": "Mumbai"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "gte",
+        "engineering student",
+        "b.tech",
+        "electrical",
+        "civil",
+        "engineering fresher",
+        "trainee engineer",
+        "engineering graduate trainee",
+        "fresher engineer",
+        "trainee",
+        "b.e",
+        "engineering trainee",
+        "graduate engineer",
+        "electronics",
+        "mechanical",
+        "entry level engineer",
+        "engineering graduate",
+        "fresher",
+        "computer science"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Mechanical Engineer",
+                "confidence": 0.37,
+                "confidence_percent": "37%"
+            },
+            {
+                "title": "Data Entry Operator",
+                "confidence": 0.3,
+                "confidence_percent": "30%"
+            }
+        ],
+        "job_title": "Graduate Engineer Trainee (GET)",
+        "skills": [
+            "Dancing",
+            "English.",
+            "Excel",
+            "Google docs.",
+            "Hindi",
+            "Marathi",
+            "Microsoft Office Word",
+            "Personal Details",
+            "PowerPoint",
+            "Singing",
+            "Sport Kho-kho."
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": {
+            "Graduate Engineer Trainee (GET)": [
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training",
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim",
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training"
+            ],
+            "Mechanical Engineer": [
+                "SolidWorks CAD - https://www.udemy.com/course/solidworks-course",
+                "Mechanical Engineering Design - https://www.coursera.org/learn/mechanical-design"
+            ],
+            "Data Entry Operator": [
+                "Typing Mastery - https://www.udemy.com/course/typing-master",
+                "Microsoft Excel Essentials - https://www.coursera.org/learn/excel-essentials",
+                "Basics of Computer Operation - https://www.edx.org/course/digital-literacy"
+            ]
+        }
+    }
+}

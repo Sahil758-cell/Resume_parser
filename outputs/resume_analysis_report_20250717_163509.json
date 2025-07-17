@@ -1,0 +1,75 @@
+{
+    "raw_text": "Pallavi Kait \nPune, Maharashtra \n   +91 86󠇙05564973       pallavimkait2003@gmail.com  \n LinkedIn       Github   \nOBJECTIVE  \n \n  Goal-driven student aspiring to grow as a Java Full Stack Developer by creating impactful web application. Quick learner  \nwith strong foundational skills, eager to contribute fresh ideas and technical knowledge to a dynamic team.     \n \nEDUCATION   \n   \nShree Ramchandra College of Engineering, Pune                                                                                         Nov 2021 - June 2025   \nB.E in Computer Engineering (SGPA of 8.70)                                                                                                         Maharashtra, India   \nSudhakarrao Naik Junior College, Januna                                                                                                     July 2019 - Feb 2021                \nHSC (Percentage 80.67 % Science)                                                                                                                           Maharashtra, India  \nP D Jain School N Colleges, Ansing                                                                                                            June 2019 - March 2020   \nSSC (Percentage of 82.40%)                                                                                                                                     Maharashtra, India        \nTECHNICAL SKILLS   \n Frontend Technologies   :-  HTML, CSS, JavaScript      \n Backend   Technologies  :-  Java    \n Database                          : - MySQL  \n   \nINTERSHIPS  \n   \nJalgi Technology pvt.Ltd                                                                                                       Jan 2024 - Feb 2024  \nRobotics Process Automation Intern                                                                                                                         Maharashtra, Pune                \n➢ Developed and implemented RPA solutions to automate various business processes, enhancing operational efficiency Using UT \nPath Tool .    \nStoic & Salamander Global Corporation                                                                             Jan 2025 - Feb 2025  \nFull Stack Developer Intern                                                                                                                                       Maharashtra, Pune          \n➢ Developed and optimized full-stack web applications using Java, Spring Boot, and Angular, improving both back-end \nfunctionality and front-end user experience. \n  \nPROJECTS   \n \nWeb Dictionary                                                                                                           [MySQL, Python, HTML/CSS, Flask etc.]    \n➢ A web dictionary is an online dictionary that is accessible through a web browser. Online dictionaries provide access to word \ndefinitions, spellings, and other information through large databases. They can be browsed alphabetically or by related terms.   \nGamification In Education : The Power Of Gaming                             [Java, Python, HTML/ CSS, MYSQL etc.]          \n➢ Make learning fun, interactive, and engaging for students. Improve student motivation, participation, and academic \nachievement. Enhance overall educational experience with measurable learning outcomes.  \nACHIEVEMENTS  \n   \n Certificate in [ Programming for Everybody] on [ Coursera,[ March 2024 ].  \n Organized and led the College Cultural Fest , attracting 1,000+ attendees and managing a team of 20 volunteers. \n Ranked 3rd in HSC and 5th in SSC Board Exams in College, showcasing strong academic performance.  \n \n \n \n \n",
+    "personal_info": {
+        "name": "Pallavi Kait",
+        "email": "pallavimkait2003@gmail.com",
+        "phone": "8605564973",
+        "linkedin": null,
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "css",
+        "flask",
+        "backend",
+        "html",
+        "mysql",
+        "web development",
+        "frontend",
+        "javascript"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Software Developer",
+                "confidence": 0.84,
+                "confidence_percent": "84%"
+            },
+            {
+                "title": "Software Tester",
+                "confidence": 0.71,
+                "confidence_percent": "71%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "Access",
+            "Angular",
+            "Css",
+            "Flask",
+            "Git",
+            "Html",
+            "Java",
+            "Javascript",
+            "Measurable Learning Outcomes",
+            "Python",
+            "Spring",
+            "Word"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Web Developer": [
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp"
+            ],
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ],
+            "Software Tester": [
+                "Manual Software Testing - https://www.udemy.com/course/manual-software-testing/"
+            ]
+        }
+    }
+}

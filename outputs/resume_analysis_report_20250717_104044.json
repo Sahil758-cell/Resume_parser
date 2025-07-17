@@ -1,0 +1,82 @@
+{
+    "raw_text": "SaiMore\nMumbai|moersai899@gmail.com|9167960626|linkedin.com/in/sai-more-013185251|\ngithub.com/saimore1234\nEducation\nUniversity of Mumbai, BE in Computer Engineering\tJuly2023–Jul2025\nCGPA:6.62/10\nDiploma in Computer Engineering\tJuly2020–Jul2023\nMaharashtra State Board of Education-\nPercentage:67.41%\nProfile\nMotivated and detail-oriented Computer Engineering graduate with a solid foundation in object-oriented programming, database management, and software development.\nProficient in C# and Microsoft SQL Server, with practical experience developing desktop-based applications such as a Salon Management System.\nAdept at designing intuitive user interfaces and managing robust backend operations.\nA fast learner with strong problem-solving abilities, committed to delivering scalable software solutions and thriving in collaborative, technology-driven environments.\nProjects\nFace and Iris Based Attendance System\nDesigned and developed a desktop-based Python application for automating attendance tracking.\nUtilized facial and iris recognition for biometric identification and verification.\nImplemented advanced image processing and ML algorithms for accurate recognition.\nEnabled real-time data capture via webcam (including phone IP camera).\nEnsured secure storage of attendance records in structured formats (e.g., CSV).\nIntegrated detailed attendance reporting and data management features.\nDemonstrated strong skills in Python, OpenCV, and biometric authentication systems.\nSalon Management System\nDeveloped a desktop-based application in C# to streamline salon operations.\nIncluded key modules: customer management, appointment scheduling, service tracking, and billing.\nApplied object-oriented programming (OOP) principles for modular and maintainable code.\nDesigned an intuitive GUI using Windows Forms for smooth user navigation.\nIntegrated MS SQL Server for backend support with data normalization, indexing, and stored procedures.\n\nTechnologies\nLanguages: Python, C#, Java, SQL, HTML, PHP\nTechnologies: .NET Framework, Microsoft SQL Server, Flask, Streamlit\nLibraries/Frameworks: NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch\nMachine Learning Algorithms: Regression, Decision Trees, Random Forests, SVM, K-Means, XGBoost\nData Preprocessing: Feature Engineering, Missing Data Handling\nVisualization Tools: Matplotlib, Seaborn, Plotly, Pandas\nCertificates\nInternshala Programming with Python\nInternshala Advance Excel\nDeloitte Cyber Security\nDeloitte Technology",
+    "personal_info": {
+        "name": "Deloitte Cyber Security",
+        "email": "moersai899@gmail.com",
+        "phone": "9167960626",
+        "linkedin": "linkedin.com/in/sai-more-013185251",
+        "github": "github.com/saimore1234",
+        "location": "Mumbai"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): Yes, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention your Secondary School (10th) education."
+    ],
+    "ai_skill_suggestions": [
+        "streamlit",
+        "matplotlib",
+        "statistics",
+        "pandas",
+        "machine learning",
+        "data visualization",
+        "pytorch",
+        "scikit-learn",
+        "deep learning",
+        "clustering",
+        "flask",
+        "tensorflow",
+        "seaborn",
+        "python",
+        "numpy",
+        "classification",
+        "regression"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Data Scientist",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.69,
+                "confidence_percent": "69%"
+            },
+            {
+                "title": "AI Engineer",
+                "confidence": 0.67,
+                "confidence_percent": "67%"
+            }
+        ],
+        "job_title": "Data Scientist",
+        "skills": [
+            "Customer Management",
+            "Data Management",
+            "Database",
+            "Database Management",
+            "Problem-solving",
+            "Reporting",
+            "Salon Management",
+            "Strong Skills"
+        ],
+        "preferred_location": "Mumbai",
+        "recommended_courses": {
+            "Data Scientist": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "Data Science with Python - https://www.coursera.org/specializations/data-science-python",
+                "R Programming for Data Analysis - https://www.datacamp.com/courses/free-introduction-to-r"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ],
+            "AI Engineer": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone",
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ]
+        }
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "raw_text": "Career Objective:\nA recent fresh graduate aiming to get a challenging & apex position in a well-established company by\napplying my knowledge & skills efficiently in the domain of Microsoft Dynamics D365 F&O Finance Module.\nEducation:\n• Kakatiya University\nB.comcomputerapplications-Degree\nGPA 75%\n• Ramappajuniorcollege\nCEC -Intermediate\nGPA 934\n• St.thomashighschool\n10th\nGPA 9.2 GPA\nSkills:\n• Basic knowledge in MICROSOFT D365 AX F&0 functional (Finance module — Accountpayable,\nAccount receivable, General ledger, Fixed assets, Consolidation, Cash & bankmanagement,\nCredit & collections.)\n• Project management\n• Strong decision making\n• Good communication skills\n• Complex problem solving\n• Innovative and service focused\nAchievement & Awards:\n• Technical Skill Development Solutions (TSDS) - PGDCA course in the year 2019 withgrade A\n• CSC computer certificate in the year 2021\n• Webinar certificate in python on April 11, 2022\nLanguages Known:\n• English\n• Telugu\n• Hindi\nKyatham. Suryateja\nVillage :Devagiripatnam-506352\nStreet\n: Ramalayam\nDoor no : 2-107\nMandal : Mulugu\nDistrict\nugu\nState\n:Telangana\n9110749341 suryatejakyatham1111@gmaiI.com\nPersonal Details:\n• Date of Birth\n: 12-10-2000\n• Nationality\n: Indian\n• Marital Status\n:\nUnmarried\n• Sex\n:\nMale\n• religion\n:\nHindu\n• Mother's name\n: K.Kavitha\nComputer languages known:\n• C language\n• C++\n• HTML\nDeclaration:\n• Ihereby declare thatalltheinformation mentioned above is trueandcomplete to the\nbest of my knowledge and belief.\nDate :\nPlace : Mulugu\nSuryateja. Kyatham\n",
+    "personal_info": {
+        "name": "Microsoft Dynamics",
+        "email": "suryatejakyatham1111@gmaiI.com",
+        "phone": "9110749341",
+        "linkedin": null,
+        "github": null,
+        "location": "Kyatham"
+    },
+    "resume_score": 75,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention any internships or trainee roles you've done.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "backend",
+        "javascript",
+        "css",
+        "frontend",
+        "flask",
+        "web development",
+        "mysql",
+        "html"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Web Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Finance Analyst",
+                "confidence": 0.66,
+                "confidence_percent": "66%"
+            },
+            {
+                "title": "Customer Support",
+                "confidence": 0.59,
+                "confidence_percent": "59%"
+            }
+        ],
+        "job_title": "Web Developer",
+        "skills": [
+            "Account receivable",
+            "C language",
+            "C++",
+            "Complex problem solving",
+            "Consolidation",
+            "Fixed assets",
+            "General ledger",
+            "Good communication skills",
+            "Ihereby declare thatalltheinformation mentioned above is trueandcomplete to the",
+            "Innovative",
+            "K.Kavitha",
+            "Kyatham. Suryateja",
+            "Mulugu",
+            "Project management",
+            "Ramalayam",
+            "Street",
+            "Strong decision making",
+            "Suryateja. Kyatham",
+            "Technical Skill Development Solutions",
+            "Telangana",
+            "best of my knowledge",
+            "service focused",
+            "ugu"
+        ],
+        "preferred_location": "Kyatham",
+        "recommended_courses": {
+            "Web Developer": [
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp"
+            ],
+            "Finance Analyst": [
+                "Introduction to Corporate Finance - https://www.edx.org/course/corporate-finance",
+                "Excel for Financial Analysis - https://www.udemy.com/course/excel-for-financial-analysis",
+                "Financial Analyst Certification - https://www.coursera.org/specializations/financial-analysis"
+            ],
+            "Customer Support": [
+                "Call Center Training - https://www.udemy.com/course/call-center-training",
+                "Effective Communication Skills - https://www.linkedin.com/learning/communication-foundations",
+                "Customer Service Fundamentals - https://www.coursera.org/learn/customer-service"
+            ]
+        }
+    }
+}

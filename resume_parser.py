@@ -239,9 +239,7 @@ def robust_extract_name(lines, blacklist=None):
             'address', 'education', 'academic', 'skills', 'experience', 'projects', 'certifications', 'languages', 'interests',
             'project', 'predictor', 'app', 'system', 'generator', 'website', 'application', 'report', 'analysis', 'certificate',
             'internship', 'achievement', 'interest', 'objective', 'training', 'course', 'workshop', 'seminar', 'conference',
-            'award', 'publication', 'activity', 'volunteering', 'team', 'leadership', 'hobby', 'reference',
-            'Extra Curricular Activities', 'finance', 'analytics', 'finance and analytics', 'data analytics'
-        ])
+            'award', 'publication', 'activity', 'volunteering', 'team', 'leadership', 'hobby', 'reference','Extra Curricular Activities'        ])
     for line in lines[:20]:
         line = line.strip().strip(",.:;|-_")
         if not line or line.lower() in blacklist:
@@ -349,6 +347,71 @@ def universal_extract_name(lines, blacklist, location_keywords=None):
             return cl.title()
     return None
 
+def find_name_in_personal_section(lines):
+    """
+    Find a name in the personal details section of a resume, which typically comes after
+    a "Personal Details" header and contains lines like "Name: John Doe"
+    """
+    in_personal_section = False
+    
+    for i, line in enumerate(lines):
+        line_lower = line.lower().strip()
+        
+        # Check if this line indicates the start of a personal details section
+        if ('personal details' in line_lower or 'personal information' in line_lower or 
+            'personal profile' in line_lower or 'contact details' in line_lower):
+            in_personal_section = True
+            continue
+        
+        # If in personal section, look for name indicators
+        if in_personal_section:
+            # Look for explicit name indicators
+            if line_lower.startswith('name:') or line_lower.startswith('full name:'):
+                name_part = line.split(':', 1)[1].strip()
+                if name_part and len(name_part.split()) <= 4:  # Reasonable name length
+                    return name_part
+                    
+            # If we hit another section header, exit
+            if is_section_header(line):
+                break
+    
+    return None
+
+def extract_all_caps_name(lines):
+    """
+    Extract an all-caps name from the first few lines of a resume.
+    Handles prefixes like MR., MS., DR., etc.
+    """
+    # Define common section headers that might appear in uppercase
+    section_headers_uppercase = [
+        'CONTACT DETAILS', 'PERSONAL DETAILS', 'RESUME', 'CV', 'CURRICULUM VITAE', 
+        'PROFILE', 'SUMMARY', 'PERSONAL PROFILE', 'PERSONAL INFORMATION',
+        'CAREER OBJECTIVE', 'OBJECTIVE', 'PROFESSIONAL SUMMARY', 'EDUCATION'
+    ]
+    
+    for line in lines[:10]:  # Check just first 10 lines
+        line = line.strip()
+        
+        # Skip if line matches any section header
+        if any(header in line for header in section_headers_uppercase):
+            continue
+            
+        # Check if line is all caps and looks like a name
+        words = line.split()
+        
+        # Special handling for names with prefixes like MR., MS., DR.
+        if len(words) >= 2 and words[0] in ['MR.', 'MS.', 'DR.', 'MISS', 'MRS.', 'ER.', 'PROF.']:
+            # Format name properly (Title case)
+            return ' '.join(w.capitalize() for w in words)
+            
+        # Regular all-caps name detection (allowing names with 1-4 words)
+        if (line.isupper() and 1 <= len(words) <= 4 and 
+            all(w.isalpha() or w.endswith('.') for w in words) and
+            all(len(w) >= 2 for w in words)):  # Require at least 2 chars per word
+            # Format name properly (Title case)
+            return ' '.join(w.capitalize() for w in words)
+    return None
+
 def extract_personal_details(text):
     # Clean non-ASCII characters that may corrupt phone numbers or emails
     def clean_unicode(text):
@@ -393,55 +456,197 @@ def extract_personal_details(text):
         email = f"{username}@{domain}"
         details['email'] = email
 
-    # --- Improved phone extraction for any 10-digit number ---
+    # --- Enhanced phone extraction for various formats including international ---
     phone = None
     phone_candidates = []
     incomplete_phone = None
     contact_keywords = ['contact', 'phone', 'mobile', 'tel', 'cell']
-    phone_regex = re.compile(r'(?:\+\d{1,3}[\s-]*)?(?:\(\+\d{1,3}\)[\s-]*)?(\d{3}[\s-]?\d{3}[\s-]?\d{4})')
+    
+    # More comprehensive phone regex patterns
+    phone_patterns = [
+        # Standard 10-digit number
+        r'(?<!\d)(\d{10})(?!\d)',
+        # Numbers with spaces, dashes, or dots as separators
+        r'(\d{3}[\s.-]?\d{3}[\s.-]?\d{4})',
+        # International format with country code
+        r'\+\d{1,4}\s*\d{5,}',
+        # International format with parentheses
+        r'\(\+\d{1,4}\)\s*\d{5,}',
+        # Specifically match formats like "(+91) 76203 28192"
+        r'\(\+\d{1,4}\)\s*\d{5}\s*\d{5}',
+        # Numbers with spaces in specific groupings (e.g., 76203 28192)
+        r'(?<!\d)(\d{5}\s+\d{5})(?!\d)'
+    ]
+    
+    # First check for phone numbers in context of contact keywords
     for idx, line in enumerate(lines):
         if any(kw in line.lower() for kw in contact_keywords):
-            found = phone_regex.findall(line)
-            found = [re.sub(r'[^0-9]', '', num) for num in found]
-            phone_candidates.extend(found)
+            # Apply all phone patterns
+            for pattern in phone_patterns:
+                found = re.findall(pattern, line)
+                for match in found:
+                    # Clean the match to get just digits
+                    clean_number = re.sub(r'[^0-9]', '', match)
+                    phone_candidates.append(clean_number)
+            
+            # Check next lines too
             for offset in [1, 2]:
                 if idx + offset < len(lines):
                     next_line = lines[idx + offset]
-                    found_next = phone_regex.findall(next_line)
-                    found_next = [re.sub(r'[^0-9]', '', num) for num in found_next]
-                    phone_candidates.extend(found_next)
+                    for pattern in phone_patterns:
+                        found_next = re.findall(pattern, next_line)
+                        for match in found_next:
+                            clean_number = re.sub(r'[^0-9]', '', match)
+                            phone_candidates.append(clean_number)
+    
+    # If no phone found in contact keywords context, scan all lines
     if not phone_candidates:
         for line in lines:
+            # Skip lines that look like dates or percentages
             if re.search(r'\d{1,2}\s*[a-zA-Z]{3,9}\s*\d{2,4}', line) or '%' in line:
                 continue
-            found = phone_regex.findall(line)
-            found = [re.sub(r'[^0-9]', '', num) for num in found]
-            phone_candidates.extend(found)
+            
+            # Apply all phone patterns
+            for pattern in phone_patterns:
+                found = re.findall(pattern, line)
+                for match in found:
+                    clean_number = re.sub(r'[^0-9]', '', match)
+                    phone_candidates.append(clean_number)
+    
+    # If still nothing, check entire text
     if not phone_candidates:
-        fallback_found = phone_regex.findall(full_text)
-        fallback_found = [re.sub(r'[^0-9]', '', num) for num in fallback_found]
-        phone_candidates.extend(fallback_found)
+        for pattern in phone_patterns:
+            fallback_found = re.findall(pattern, full_text)
+            for match in fallback_found:
+                clean_number = re.sub(r'[^0-9]', '', match)
+                phone_candidates.append(clean_number)
+    
+    # Special check for contact info in the first few lines (common resume format)
+    if not phone_candidates and len(lines) > 1:
+        # Check first 3 lines where contact info often appears
+        for line_idx in range(min(3, len(lines))):
+            line = lines[line_idx]
+            
+            # Direct check for the specific format in Shrushti's resume: "(+91) 76203 28192"
+            specific_match = re.search(r'\(\+(\d{1,3})\)\s*(\d{5})\s*(\d{5})', line)
+            if specific_match:
+                country_code = specific_match.group(1)
+                first_part = specific_match.group(2)
+                second_part = specific_match.group(3)
+                digits = first_part + second_part
+                phone_candidates.append(digits)
+                print(f"DEBUG: Found phone in specific format: country code {country_code}, number {digits}")
+                
+            # Look for patterns like "email | phone | location" or "email / phone / location"
+            if '|' in line or '/' in line:
+                segments = re.split(r'[|/]', line)
+                for segment in segments:
+                    segment = segment.strip()
+                    # If segment has digits and is not just a year
+                    if re.search(r'\d', segment) and not re.match(r'^\d{4}$', segment.strip()):
+                        # Extract all digits
+                        digits = re.sub(r'[^0-9]', '', segment)
+                        if len(digits) >= 10:
+                            phone_candidates.append(digits)
+                            print(f"DEBUG: Found phone in contact line: {digits} from segment '{segment}'")
+    
+    # Process candidates, prioritizing Indian phone numbers (10 digits)
     if phone_candidates:
+        # First look for Indian 10-digit numbers
         phone = next((num for num in phone_candidates if len(num) == 10), None)
+        
+        # If not found, try numbers with country code (usually 91 for India + 10 digits = 12)
         if not phone:
-            incomplete_phone = next((num for num in phone_candidates if 8 <= len(num) < 10), None)
+            indian_phone = next((num for num in phone_candidates if len(num) == 12 and num.startswith('91')), None)
+            if indian_phone:
+                # Remove country code for consistency
+                phone = indian_phone[2:]
+            else:
+                # Try any other number within reasonable length
+                phone = next((num for num in phone_candidates if len(num) >= 10 and len(num) <= 15), None)
+        
+        # Fallback to any number with reasonable length
+        if not phone:
+            phone = next((num for num in phone_candidates if 8 <= len(num) < 10), None)
     if phone:
         details['phone'] = phone
     elif incomplete_phone:
         details['phone'] = f"{incomplete_phone} (possibly incomplete)"
     else:
-        match_10 = re.search(r'(\d{10})', full_text)
-        if match_10:
-            details['phone'] = match_10.group(1)
-        else:
-            match_12 = re.search(r'(\d{2})[\s-](\d{10})', full_text)
-            if match_12:
-                details['phone'] = f"{match_12.group(1)} {match_12.group(2)}"
+        # Try more specific Indian phone number formats
+        indian_formats = [
+            # Standard 10-digit
+            r'(?<!\d)(\d{10})(?!\d)',
+            # With country code
+            r'(?<!\d)(91\d{10})(?!\d)',
+            # With + country code
+            r'\+91[\s.-]?(\d{10})',
+            # With formatted country code
+            r'\(\+91\)[\s.-]?(\d{10})',
+            # With spaces after 5 digits (common format)
+            r'(\d{5})[\s.-](\d{5})',
+            # With spaces after 3 and 6 digits
+            r'(\d{3})[\s.-](\d{3})[\s.-](\d{4})'
+        ]
+        
+        for pattern in indian_formats:
+            match = re.search(pattern, full_text)
+            if match:
+                if len(match.groups()) == 1:
+                    details['phone'] = match.group(1)
+                    break
+                elif len(match.groups()) == 2:
+                    details['phone'] = match.group(1) + match.group(2)
+                    break
+                elif len(match.groups()) == 3:
+                    details['phone'] = match.group(1) + match.group(2) + match.group(3)
+                    break
+        
+        # Final fallback
+        if not details['phone']:
+            # Look for any 10+ digit sequence not part of another number
+            digits = re.findall(r'(?<!\d)[1-9]\d{9,14}(?!\d)', full_text)
+            if digits:
+                if len(digits[0]) > 10 and digits[0].startswith('91'):
+                    details['phone'] = digits[0][2:] if len(digits[0]) - 2 == 10 else digits[0]
+                else:
+                    details['phone'] = digits[0]
             else:
                 details['phone'] = None
 
     # --- Name Extraction ---
     name_candidate = None
+    
+    # Filter out common section headers that might be mistakenly identified as names
+    name_blacklist_keywords = [
+        # Section headers
+        'seminars', 'digital marketing', 'training', 'resume', 'cv', 'curriculum vitae', 
+        'contact', 'details', 'personal details', 'profile', 'summary', 'professional',
+        'objective', 'career', 'education', 'experience', 'skills', 'projects',
+        
+        # Education-related terms
+        'intermediate', 'college', 'university', 'school', 'institute', 'academy',
+        'bachelor', 'master', 'phd', 'b.', 'm.', 'dr.', 'degree', 'diploma', 'board',
+        'secondary', 'senior', 'junior', 'high school', 'primary', 'elementary',
+        'pursuing', 'expected', 'graduation', 'management', 'technology', 'engineering',
+        
+        # Document sections
+        'certification', 'declaration', 'references', 'hobbies', 'interests',
+        'strengths', 'achievements', 'languages', 'technical', 'personal',
+        
+        # Social media and contact terms
+        'linkedin', 'account', 'accomplishments', 'work history', 'phone', 'email',
+        'address', 'contact', 'mobile', 'tel', 'www', 'http', '.com', '@',
+        'fathers name', 'mothers name', 'parent name', 'guardian name', 'spouse name',
+        'date of birth', 'gender', 'nationality', 'marital status', 'language known',
+        
+        # Skills and accomplishment items that might be mistaken as names
+        'cost savings', 'cost reduction', 'operational control', 'inventory management',
+        'transportation', 'sourcing', 'procurement', 'customer relationship',
+        'time management', 'problem solving', 'analytical skills', 'leadership',
+        'communication', 'negotiation', 'ms office'
+    ]
+    
     # Conditional: Only use robust email-prefix-based extraction for likely concatenated email names
     email_match = re.search(r'[^\s]+@[\w\-]+(?:\.[\w\-]+)+', text)
     use_robust_email_name = False
@@ -450,7 +655,308 @@ def extract_personal_details(text):
         if len(email_prefix) > 8 and all(sep not in email_prefix for sep in ['.', '_', '-']):
             use_robust_email_name = True
 
-    if use_robust_email_name:
+    # Initialize lines variable first so all extraction methods can use it
+    lines = [l.strip() for l in text.strip().splitlines() if l.strip()]
+    
+    # Priority 1: Look for names in the personal details section
+    personal_section_name = find_name_in_personal_section(lines)
+    if personal_section_name:
+        details['name'] = personal_section_name
+        print(f"DEBUG: details['name'] set to: {details['name']} (from personal section)")
+    
+    # Priority 1.1: Look for names that appear after section headers like "LANGUAGES" and before skills/accomplishments
+    if not details.get('name'):
+        # Find lines with section headers that often precede names
+        section_patterns = [
+            r'\b(?:LANGUAGES|ACCOMPLISHMENTS|SKILLS)\b',
+            r'\b(?:CONTACT|PERSONAL\s+DETAILS)\b'
+        ]
+        
+        for pattern in section_patterns:
+            section_match = re.search(pattern, text, re.IGNORECASE)
+            if section_match:
+                # Get text after this section
+                text_after_section = text[section_match.end():]
+                lines_after = text_after_section.strip().split('\n')
+                
+                # Look in the first few lines after the section
+                for line in lines_after[:5]:
+                    line = line.strip()
+                    if line and len(line.split()) >= 2 and len(line) <= 50:
+                        words = line.split()
+                        
+                        # Check for all caps names (very common in resumes)
+                        if all(word.isupper() and word.isalpha() and len(word) > 1 for word in words):
+                            line_lower = line.lower()
+                            if not any(blacklist_term in line_lower for blacklist_term in name_blacklist_keywords):
+                                if not re.search(r'\b(phone|email|linkedin|www|http|\.com|@)\b', line_lower):
+                                    details['name'] = line.strip()
+                                    print(f"DEBUG: details['name'] set to: {details['name']} (from after {pattern} section - all caps)")
+                                    break
+                if details.get('name'):
+                    break
+    
+    # Priority 1.2: Look for standalone name lines that appear between major sections
+    if not details.get('name'):
+        # Find lines that are likely to be standalone names (2-4 words, all alphabetic, properly capitalized)
+        for i, line in enumerate(lines):
+            line = line.strip()
+            words = line.split()
+            
+            # Skip if it's empty or too long
+            if not line or len(words) > 4 or len(words) < 2:
+                continue
+                
+            # Check if all words are alphabetic and properly capitalized
+            if all(w.isalpha() and w[0].isupper() for w in words):
+                # Additional checks to ensure it's likely a name
+                line_lower = line.lower()
+                
+                # Skip if it contains education-related terms
+                if any(term in line_lower for term in ['pursuing', 'expected', 'university', 'college', 'institute', 'management', 'technology']):
+                    continue
+                    
+                # Skip if it's a section header or common resume terms
+                if is_section_header_name(line_lower):
+                    continue
+                    
+                # Use comprehensive blacklist to filter out non-name terms
+                if any(blacklist_term in line_lower for blacklist_term in name_blacklist_keywords):
+                    continue
+                    
+                # Skip if it's right after certain section headers (within 3 lines)
+                is_after_section = False
+                for j in range(max(0, i-3), i):
+                    prev_line = lines[j].strip().lower()
+                    if any(section in prev_line for section in ['education', 'work history', 'experience', 'skills', 'contact']):
+                        is_after_section = True
+                        break
+                
+                # If it's not immediately after a section header, it's likely a name
+                if not is_after_section:
+                    details['name'] = line
+                    print(f"DEBUG: details['name'] set to: {details['name']} (from standalone name line)")
+                    break
+    
+    # Priority 1.3: Check for name patterns right before "SKILLS" section (added for LinkedIn issue)
+    if not details.get('name'):
+        skills_pattern = r'\b(?:SKILLS|TECHNICAL\s+SKILLS|CORE\s+SKILLS)\b'
+        skills_match = re.search(skills_pattern, text, re.IGNORECASE)
+        if skills_match:
+            text_before_skills = text[:skills_match.start()]
+            lines_before_skills = text_before_skills.strip().split('\n')
+            
+            # Look in the last few lines before SKILLS section
+            for line in reversed(lines_before_skills[-10:]):  # Increased range to 10 lines
+                line = line.strip()
+                if line and len(line.split()) >= 2 and len(line) <= 50:
+                    # Check if this looks like a name (multiple words, proper capitalization)
+                    words = line.split()
+                    
+                    # Special check for all caps names (common in resumes)
+                    if all(word.isupper() and word.isalpha() and len(word) > 1 for word in words):
+                        line_lower = line.lower()
+                        if not any(blacklist_term in line_lower for blacklist_term in name_blacklist_keywords):
+                            if not re.search(r'\b(district|pin|code|email|phone|mobile|linkedin|account)\b', line_lower):
+                                details['name'] = line.strip()
+                                print(f"DEBUG: details['name'] set to: {details['name']} (from before SKILLS section - all caps)")
+                                break
+                    
+                    # Check for normal capitalized names
+                    elif all(word[0].isupper() and len(word) > 1 for word in words if word.isalpha()):
+                        line_lower = line.lower()
+                        if not any(blacklist_term in line_lower for blacklist_term in name_blacklist_keywords):
+                            if not re.search(r'\b(district|pin|code|email|phone|mobile|linkedin|account)\b', line_lower):
+                                details['name'] = line.strip()
+                                print(f"DEBUG: details['name'] set to: {details['name']} (from before SKILLS section)")
+                                break
+    
+    # Priority 1.4: Look for names in PERSONAL DETAILS section (common in Indian resumes)
+    if not details.get('name'):
+        personal_details_idx = None
+        for i, line in enumerate(lines):
+            if re.search(r'\b(personal\s+details|personal\s+information)\b', line, re.IGNORECASE):
+                personal_details_idx = i
+                break
+        
+        if personal_details_idx is not None:
+            # Look in the next 15 lines after PERSONAL DETAILS
+            for i in range(personal_details_idx + 1, min(len(lines), personal_details_idx + 16)):
+                line = lines[i].strip()
+                
+                # Look for "NAME : actual_name" pattern
+                name_match = re.search(r'name\s*:?\s*([A-Za-z\s\.]+)', line, re.IGNORECASE)
+                if name_match:
+                    name_part = name_match.group(1).strip()
+                    # Validate it's not a blacklisted term
+                    if not any(blacklist_term in name_part.lower() for blacklist_term in name_blacklist_keywords):
+                        details['name'] = name_part
+                        print(f"DEBUG: details['name'] set to: {details['name']} (from PERSONAL DETAILS section)")
+                        break
+                
+                # Also check if line after "NAME" label contains the actual name
+                if re.match(r'^\s*name\s*:?\s*$', line, re.IGNORECASE) and i + 1 < len(lines):
+                    next_line = lines[i + 1].strip()
+                    if next_line and len(next_line.split()) <= 4:
+                        words = next_line.split()
+                        if all(word.isalpha() for word in words):
+                            if not any(blacklist_term in next_line.lower() for blacklist_term in name_blacklist_keywords):
+                                details['name'] = next_line
+                                print(f"DEBUG: details['name'] set to: {details['name']} (from line after NAME label)")
+                                break
+    
+    # Priority 1.5: Look for names that appear after education section and before contact section
+    if not details.get('name'):
+        education_idx = None
+        contact_idx = None
+        
+        for i, line in enumerate(lines):
+            line_lower = line.strip().lower()
+            if line_lower in ['education', 'educational details', 'academic qualification']:
+                education_idx = i
+            elif line_lower in ['contact', 'contact details', 'contact information', 'personal details']:
+                contact_idx = i
+                break
+        
+        # Look for name candidates between education and contact sections
+        if education_idx is not None and contact_idx is not None:
+            name_parts = []
+            for i in range(education_idx + 1, contact_idx):
+                line = lines[i].strip()
+                # Skip empty lines and lines with numbers/years
+                if not line or re.search(r'\d{4}', line) or re.search(r'\d+\.\d+', line):
+                    continue
+                # Skip education-related terms
+                if any(term in line.lower() for term in ['university', 'college', 'bachelor', 'pharmacy', 'deemed', 'pursuing', 'expected']):
+                    continue
+                # Look for lines that look like names (1-4 words, all alphabetic)
+                words = line.split()
+                if 1 <= len(words) <= 4 and all(w.isalpha() for w in words):
+                    # Check if it's likely a person's name (starts with capital letters)
+                    if all(w[0].isupper() for w in words):
+                        name_parts.extend(words)
+                        # If we have collected enough name parts, break
+                        if len(name_parts) >= 2:
+                            break
+            
+            # Combine all name parts found
+            if name_parts:
+                full_name = ' '.join(w.capitalize() for w in name_parts)
+                details['name'] = full_name
+                print(f"DEBUG: details['name'] set to: {details['name']} (from education-contact section, combined parts)")
+                # Return early to prevent other methods from overwriting this good result
+                # --- Combined spaCy and keyword-based location extraction ---
+                def extract_location(full_text, major_locations):
+                    text_lower = full_text.lower()
+                    
+                    # 1. Prioritize Major Cities
+                    first_major_city = None
+                    first_major_pos = float('inf')
+
+                    for city in major_locations:
+                        try:
+                            pos = re.search(r'\b' + re.escape(city.lower()) + r'\b', text_lower)
+                            if pos and pos.start() < first_major_pos:
+                                first_major_pos = pos.start()
+                                first_major_city = city
+                        except re.error:
+                            continue
+                        
+                    if first_major_city:
+                        return first_major_city
+
+                    # 2. Fallback to smaller locations (GPEs from spaCy) if no major city is found
+                    doc = nlp(full_text)
+                    all_gpes = list(OrderedDict.fromkeys([ent.text.strip() for ent in doc.ents if ent.label_ == 'GPE']))
+                    
+                    # Filter out noise
+                    noise = {'objective', 'summary', 'skills', 'education', 'experience', 'project', 'india'}
+                    all_gpes = [loc for loc in all_gpes if loc.lower() not in noise and len(loc) > 2]
+
+                    if not all_gpes:
+                        return None
+
+                    first_gpe = None
+                    first_gpe_pos = float('inf')
+
+                    for gpe in all_gpes:
+                        try:
+                            pos = re.search(r'\b' + re.escape(gpe.lower()) + r'\b', text_lower)
+                            if pos and pos.start() < first_gpe_pos:
+                                first_gpe_pos = pos.start()
+                                first_gpe = gpe
+                        except re.error:
+                            continue
+                        
+                    return first_gpe
+                
+                details['location'] = extract_location(full_text, major_indian_locations)
+                return details
+    
+    # Priority 2: Look for name patterns like "Name: John Doe" or lines with just a name and signature
+    if not details.get('name'):
+        for line in lines:
+            line = line.strip()
+            # Check for name near signature
+            signature_match = re.search(r'signature:?\s*([A-Za-z\s\.]+)$', line, re.IGNORECASE)
+            if signature_match:
+                name_part = signature_match.group(1).strip()
+                if len(name_part.split()) <= 4:  # Reasonable name length
+                    details['name'] = ' '.join(w.capitalize() for w in name_part.split())
+                    print(f"DEBUG: details['name'] set to: {details['name']} (from signature line)")
+                    break
+                    
+            # Check for "Name:" pattern - enhanced to handle various formats
+            name_label_patterns = [
+                r'^name\s*:?\s*([A-Za-z\s\.]+)$',
+                r'name\s*:\s*([A-Za-z\s\.]+)',
+                r'^\s*:\s*([A-Za-z\s\.]+)$'  # For cases where "NAME" is on previous line
+            ]
+            
+            for pattern in name_label_patterns:
+                name_label_match = re.search(pattern, line, re.IGNORECASE)
+                if name_label_match:
+                    name_part = name_label_match.group(1).strip()
+                    # Additional validation - should not be a section header
+                    if not any(blacklist_term in name_part.lower() for blacklist_term in name_blacklist_keywords):
+                        details['name'] = name_part
+                        print(f"DEBUG: details['name'] set to: {details['name']} (from name label pattern)")
+                        break
+            
+            if details.get('name'):
+                break
+                
+            # Look for standalone names with initial patterns (like "R. Ramesh")
+            initial_pattern_match = re.match(r'^([A-Z]\.\s+[A-Z][a-z]+)$', line) 
+            if initial_pattern_match and len(line) < 30:
+                details['name'] = line
+                print(f"DEBUG: details['name'] set to: {details['name']} (from initial pattern)")
+                break
+    
+    # Priority 3: Try to extract an all-caps name, as this is a common format in resumes and usually reliable
+    if not details.get('name'):
+        all_caps_name = extract_all_caps_name(lines)
+        if all_caps_name:
+            details['name'] = all_caps_name
+            print(f"DEBUG: details['name'] set to: {details['name']} (from all_caps_name extraction)")
+    
+    # Second priority: Look for names with prefixes like "MR." in the first line
+    if lines and not details.get('name'):
+        first_line = lines[0].strip()
+        # Check first line for prefixed names like "MR. JOHN DOE"
+        prefix_match = re.match(r'^(MR\.|MS\.|DR\.|MISS|MRS\.|ER\.|PROF\.)\s+([A-Z\s\.]+)$', first_line, re.IGNORECASE)
+        if prefix_match:
+            prefix = prefix_match.group(1).capitalize()
+            name_part = ' '.join(w.capitalize() for w in prefix_match.group(2).split())
+            details['name'] = f"{prefix} {name_part}"
+            print(f"DEBUG: details['name'] set to: {details['name']} (from prefix name extraction)")
+    
+    if details.get('name') and any(keyword in details['name'].lower() for keyword in name_blacklist_keywords):
+        print(f"DEBUG: Potential section header detected as name: '{details['name']}'. Clearing and trying again.")
+        details['name'] = None
+
+    # Continue with other extraction methods if needed
+    if use_robust_email_name and not details.get('name'):
         try:
             actual_name = search_for_actual_name_in_text(text)
             print(f"DEBUG: search_for_actual_name_in_text returned: {actual_name}")
@@ -463,61 +969,110 @@ def extract_personal_details(text):
         except Exception as e:
             print(f"DEBUG: search_for_actual_name_in_text failed: {e}")
     # First line priority: if first line looks like a name, use it (only if robust logic not used)
-    lines = [l.strip() for l in text.strip().splitlines() if l.strip()]
-    section_headers_clean = set(h.strip().lower() for h in section_headers)
-    # --- IMPROVED: Scan from bottom up for a likely name (2-4 words, all alpha, all uppercase or title case, not a section header) near contact/email ---
+    if lines and not details.get('name'):
+        first_line = lines[0]
+        # Normalize first line by removing zero-width spaces and extra spaces
+        normalized_first_line = re.sub(r'[\u200b\s]+', ' ', first_line).strip()
+        normalized_first_line_lower = normalized_first_line.lower()
+        words = normalized_first_line.split()
+        section_headers_clean = set(h.strip().lower() for h in section_headers)
+        # Additional check: exclude 'professional summary' explicitly if present
+        if 'professional summary' in normalized_first_line_lower:
+            print(f"DEBUG: Skipping first line as it is a professional summary header")
+        elif (2 <= len(words) <= 4 and all(w.isalpha() for w in words) and
+            normalized_first_line_lower not in section_headers_clean):
+            # Special handling for names - apply proper capitalization
+            if first_line.isupper():
+                # Convert ALL CAPS to Title Case
+                details['name'] = ' '.join(w.capitalize() for w in words)
+                print(f"DEBUG: details['name'] set to: {details['name']} (from first line priority - converted ALL CAPS)")
+            elif first_line.islower():
+                # Convert lowercase to Title Case
+                details['name'] = ' '.join(w.capitalize() for w in words)
+                print(f"DEBUG: details['name'] set to: {details['name']} (from first line priority - converted lowercase)")
+            else:
+                # Keep original if it has mixed case (likely already formatted correctly)
+                details['name'] = first_line
+                print(f"DEBUG: details['name'] set to: {details['name']} (from first line priority)")
+    # --- NEW: Try to extract name from first two lines if both look like names and no name found yet ---
     if not details.get('name'):
-        candidate_lines = []
-        for i in range(len(lines)-1, -1, -1):
-            line = lines[i]
-            words = line.strip().split()
-            line_clean = ' '.join(line.lower().split())
-            if (
-                2 <= len(words) <= 4 and
-                all(w.isalpha() for w in words) and
-                (all(w.isupper() for w in words) or all(w.istitle() for w in words)) and
-                line_clean not in section_headers_clean and
-                not any(lbl in line_clean for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"])
-            ):
-                candidate_lines.append((i, line, words))
-        # Enhanced: Prefer all-uppercase line if followed by title case, or shorter words if both title case
-        for idx in range(len(candidate_lines)-1):
-            idx1, line1, words1 = candidate_lines[idx]
-            idx2, line2, words2 = candidate_lines[idx+1]
-            if idx1 == idx2 + 1:
-                if all(w.isupper() for w in words1) and all(w.istitle() for w in words2):
-                    details['name'] = line1.title()
-                    print(f"DEBUG: details['name'] set to: {details['name']} (all-uppercase before title case)")
-                    break
-                elif all(w.istitle() for w in words1) and all(w.istitle() for w in words2):
-                    avg1 = sum(len(w) for w in words1) / len(words1)
-                    avg2 = sum(len(w) for w in words2) / len(words2)
-                    if avg1 <= avg2:
-                        details['name'] = line1.title()
-                        print(f"DEBUG: details['name'] set to: {details['name']} (shorter words in consecutive title case)")
-                        break
+        non_empty_lines = [l for l in lines if l.strip()]
+        if len(non_empty_lines) >= 2:
+            first, second = non_empty_lines[0], non_empty_lines[1]
+            section_headers_clean = set(h.strip().lower() for h in section_headers)
+            first_clean = first.strip().lower()
+            second_clean = second.strip().lower()
+            # If first line is a single word and second is in blacklist, use only first
+            if (first.isalpha() and 2 <= len(first) <= 20 and ' ' not in first and second_clean in section_headers_clean):
+                # Handle all-caps first name
+                if first.isupper():
+                    details['name'] = first.capitalize()
+                else:
+                    details['name'] = first.title()
+                print(f"DEBUG: details['name'] set to: {details['name']} (from single-word first line, second in blacklist)")
+            elif (first.isalpha() and 2 <= len(first) <= 20 and first_clean not in section_headers_clean):
+                if (second.isalpha() and 2 <= len(second) <= 20 and second_clean not in section_headers_clean):
+                    # Handle all-caps name components
+                    first_formatted = first.capitalize() if first.isupper() else first.title()
+                    second_formatted = second.capitalize() if second.isupper() else second.title()
+                    details['name'] = f'{first_formatted} {second_formatted}'
+                    print(f"DEBUG: details['name'] set to: {details['name']} (from first two lines heuristic)")
+                else:
+                    # Handle all-caps first name
+                    if first.isupper():
+                        details['name'] = first.capitalize()
                     else:
-                        details['name'] = line2.title()
-                        print(f"DEBUG: details['name'] set to: {details['name']} (shorter words in consecutive title case)")
-                        break
-        else:
-            # Otherwise, pick the candidate closest to the contact/email/phone lines
-            contact_indices = []
-            for idx, line in enumerate(lines):
-                phone_val = details.get('phone')
-                email_val = details.get('email')
-                if (isinstance(phone_val, str) and phone_val in line) or (isinstance(email_val, str) and email_val in line):
-                    contact_indices.append(idx)
-            if contact_indices and candidate_lines:
-                # Find candidate with minimal distance to any contact index
-                best = min(candidate_lines, key=lambda x: min(abs(x[0]-ci) for ci in contact_indices))
-                details['name'] = best[1].title()
-                print(f"DEBUG: details['name'] set to: {details['name']} (from proximity to contact/email)")
-            elif candidate_lines:
-                details['name'] = candidate_lines[0][1].title()
-                print(f"DEBUG: details['name'] set to: {details['name']} (from fallback candidate)")
-    # --- rest of the existing code ...
+                        details['name'] = first.title()
+                    print(f"DEBUG: details['name'] set to: {details['name']} (from first line only, second line in blacklist)")
+    # ... rest of the existing code ...
 
+    # Special check for the exact case of "R. Ramesh" or similar names with initials
+    if not details.get('name'):
+        for line in lines:
+            line = line.strip()
+            # Match precisely patterns like "R. Ramesh" which have an initial followed by a name
+            if re.match(r'^([A-Z]\.\s+[A-Z][a-z]+)$', line) or re.match(r'^([A-Z]\.)\s+([A-Z][a-z]+)$', line):
+                details['name'] = line
+                print(f"DEBUG: details['name'] set to: {details['name']} (from precise initial match)")
+                break
+    
+    # Look for name near phone/email contact info
+    if not details.get('name'):
+        # Find lines with phone or email
+        contact_lines = []
+        for i, line in enumerate(lines):
+            if details.get('phone') and details['phone'] in line:
+                # Get surrounding lines for context
+                start = max(0, i-2)
+                end = min(len(lines), i+3)
+                contact_lines.extend(lines[start:end])
+            if details.get('email') and details['email'] in line:
+                # Get surrounding lines for context
+                start = max(0, i-2)
+                end = min(len(lines), i+3)
+                contact_lines.extend(lines[start:end])
+        
+        # Check these contact context lines for name patterns
+        for line in contact_lines:
+            line = line.strip()
+            # Look for standalone short line that could be a name
+            if (2 <= len(line.split()) <= 4 and 
+                all(len(w) >= 2 and w[0].isupper() for w in line.split()) and
+                not any(kw.lower() in line.lower() for kw in name_blacklist_keywords)):
+                details['name'] = line
+                print(f"DEBUG: details['name'] set to: {details['name']} (from contact context)")
+                break
+                
+            # Look for standalone names that are 1-3 words with at least one capital letter
+            words = line.split()
+            if (1 <= len(words) <= 3 and 
+                any(w[0].isupper() for w in words if w) and
+                not any(kw.lower() in line.lower() for kw in name_blacklist_keywords) and
+                len(line) <= 30):  # Not too long
+                details['name'] = ' '.join(w[0].upper() + w[1:].lower() if w else '' for w in words)
+                print(f"DEBUG: details['name'] set to: {details['name']} (from standalone name pattern)")
+                break
+    
     # If name_candidate is a single word, try to find a better multi-word name near contact info
     if name_candidate and len(name_candidate.split()) == 1:
         # Find indices of phone/email lines
@@ -581,7 +1136,7 @@ def extract_personal_details(text):
         details['location'] = found_location
     else:
         # --- Combined spaCy and keyword-based location extraction ---
-        def extract_location(full_text, major_locations):
+        def extract_location_fallback(full_text, major_locations):
             text_lower = full_text.lower()
             
             # 1. Prioritize Major Cities
@@ -625,7 +1180,7 @@ def extract_personal_details(text):
                 
             return first_gpe
 
-        details['location'] = extract_location(full_text, major_indian_locations)
+        details['location'] = extract_location_fallback(full_text, major_indian_locations)
 
     # Debug: Print what name_candidate was found
     print(f"DEBUG: name_candidate found: {name_candidate}")
@@ -637,7 +1192,7 @@ def extract_personal_details(text):
         date_patterns = [
             r'^(january|february|march|april|may|june|july|august|september|october|november|december) \d{4}$',
             r'^\d{4}$',
-            r'^\d{1,2} (january|february|march|april|may|june|july|august|september|october|november|dec) \d{4}$',
+            r'^\d{1,2} (january|february|march|april|may|june|july|august|september|october|november|december) \d{4}$',
             r'^(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec) \d{4}$',
             r'^\d{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec) \d{4}$',
             r'^(january|february|march|april|may|june|july|august|september|october|november|december)$',
@@ -803,26 +1358,7 @@ def extract_personal_details(text):
                 if first_name and not is_section_header_name(first_name):
                     name_candidate = first_name
 
-    # HIGHEST PRIORITY: Check for specific names like "VAISHNAVI PANDURANG NANDAL" in the text
-    specific_name_found = False
-    for line in lines:
-        # Look for specific name patterns that were incorrectly identified before
-        if "PANDURANG" in line or "VAISHNAVI" in line:
-            words = line.strip().split()
-            if 2 <= len(words) <= 4:
-                details['name'] = line.title()
-                print(f"DEBUG: Name from specific pattern match (highest priority): {details['name']}")
-                specific_name_found = True
-                break
-    
-    # NEXT PRIORITY: Extract name near contact information
-    if not specific_name_found:
-        contact_name = extract_name_near_contact_info(lines)
-        if contact_name and not is_section_header_name(contact_name):
-            details['name'] = contact_name
-            print(f"DEBUG: Name from contact proximity (high priority): {details['name']}")
-    
-    # Secondary fallbacks if name not found yet
+    # robust_name_end fallback
     if not details['name']:
         robust_name_end = robust_extract_name(lines[-20:])
         if robust_name_end and not is_section_header_name(robust_name_end):
@@ -839,8 +1375,7 @@ def extract_personal_details(text):
             'address', 'education', 'academic', 'skills', 'experience', 'projects', 'certifications', 'languages', 'interests',
             'project', 'predictor', 'app', 'system', 'generator', 'website', 'application', 'report', 'analysis', 'certificate',
             'internship', 'achievement', 'interest', 'objective', 'training', 'course', 'workshop', 'seminar', 'conference',
-            'award', 'publication', 'activity', 'volunteering', 'team', 'leadership', 'hobby', 'reference',
-            'finance', 'analytics', 'finance and analytics', 'data analytics', 'Finance And Analytics'
+            'award', 'publication', 'activity', 'volunteering', 'team', 'leadership', 'hobby', 'reference'
         ])
         # 1. Try after personal section
         section_name = extract_name_after_personal_section(lines, local_blacklist)
@@ -852,16 +1387,7 @@ def extract_personal_details(text):
             if universal_name and not is_section_header_name(universal_name) and not is_date_line(universal_name):
                 details['name'] = universal_name
 
-    # This is now a second check for contact name (in case the first one missed it)
-    # We already prioritized contact name extraction earlier, so no need to do it again
-    # Keep the code commented for reference
-    # if not details['name']:
-    #     contact_name = extract_name_near_contact_info(lines)
-    #     if contact_name and not is_section_header_name(contact_name):
-    #         details['name'] = contact_name
-    #         print(f"DEBUG: Name from contact proximity: {details['name']}")
-    
-    # Place this fallback after contact info extraction
+    # Place this fallback at the very end, after all other extraction logic
     if not details['name']:
         lines = [l.strip() for l in text.strip().splitlines() if l.strip()]
         # Search from bottom up for two-line names
@@ -902,9 +1428,26 @@ def extract_personal_details(text):
                 name_candidate = line.title()
                 break
 
-    # Set the name in details if not already set
+    # Set the name in details if not already set, but do additional checks
     if name_candidate and not details['name']:
-        details['name'] = name_candidate
+        # Ensure name_candidate is not a section header or contains common section keywords
+        section_keywords = ['summary', 'experience', 'education', 'skills', 'certificates', 'seminars', 
+                           'workshops', 'training', 'digital', 'marketing', 'contact', 'hobby', 'languages']
+        is_section = any(keyword.lower() in name_candidate.lower() for keyword in section_keywords)
+        
+        if not is_section:
+            details['name'] = name_candidate
+        else:
+            print(f"DEBUG: Rejected name candidate '{name_candidate}' as it contains section keywords")
+            
+            # If we rejected a name candidate, try to get name from first line with special handling
+            if lines and not details.get('name'):
+                first_line = lines[0].strip()
+                if first_line.isupper() and 2 <= len(first_line.split()) <= 4:
+                    # Format properly if it's all uppercase
+                    details['name'] = ' '.join(w.capitalize() for w in first_line.split())
+                    print(f"DEBUG: Fallback to first line for name: {details['name']}")
+            
 
     # Ensure location is a string for output
     if isinstance(details.get("location"), dict):
@@ -930,7 +1473,7 @@ def extract_personal_details(text):
     name_blacklist = set(h.strip().lower() for h in section_headers)
     name_blacklist.update([
         'mobile', 'email', 'phone', 'contact', 'date', 'place', 'signature', 'major', 'minor',
-        'languages known', 'local address', 'permanent address', 'address', 'linkedin', 'github','Finance And Analytics '
+        'languages known', 'local address', 'permanent address', 'address', 'linkedin', 'github'
     ])
     if not details.get('name'):
         for line in reversed(lines[-30:]):
@@ -947,8 +1490,7 @@ def extract_personal_details(text):
     name_blacklist = set(h.strip().lower() for h in section_headers)
     name_blacklist.update([
         'mobile', 'email', 'phone', 'contact', 'date', 'place', 'signature', 'major', 'minor',
-        'languages known', 'local address', 'permanent address', 'address', 'linkedin', 'github',
-        'certification', 'certificate', 'digital productivity', 'productivity', 'training', 'completion'
+        'languages known', 'local address', 'permanent address', 'address', 'linkedin', 'github'
     ])
     if not details.get('name'):
         for line in reversed(lines[-40:]):
@@ -1161,7 +1703,59 @@ def extract_personal_details(text):
                 details['name'] = best[1]
                 print(f"DEBUG: details['name'] set to: {details['name']} (from final robust fallback between EDUCATION and CONTACT, tolerant to blanks)")
 
-    # --- ULTIMATE ROBUST FALLBACK: Find best group of 1-3 lines between EDUCATION and CONTACT, concatenating words, 2-5 total words, not hardcoded ---
+    # --- ULTIMATE ROBUST FALLBACK: Always try to find multi-word name between education/contact (or reasonable defaults) ---
+    if details.get('name') and len(details['name'].split()) == 1:
+        # Normalize lines for header detection
+        norm_lines = [re.sub(r'\s+', ' ', l.strip().lower()) for l in lines]
+        def find_header_idx(header):
+            header_norm = header.lower().strip()
+            for idx, l in enumerate(norm_lines):
+                if header_norm == l:
+                    return idx
+            for idx, l in enumerate(norm_lines):
+                if header_norm in l:
+                    return idx
+            return -1
+        section_headers_priority = ["education", "contact"]
+        section_headers_exclude = ["languages", "skills", "interests", "hobbies", "projects", "achievements", "certifications"]
+        header_indices = {h: find_header_idx(h) for h in section_headers_priority + section_headers_exclude}
+        edu_idx = header_indices["education"] if header_indices["education"] != -1 else 0
+        contact_idx = header_indices["contact"] if header_indices["contact"] != -1 else len(lines)
+        # Find all candidate groups strictly between EDUCATION and CONTACT, allowing blank lines
+        candidates = []
+        i = edu_idx + 1
+        while i < contact_idx:
+            # Skip blank lines
+            while i < contact_idx and not lines[i].strip():
+                i += 1
+            name_parts = []
+            j = i
+            while j < contact_idx and len(name_parts) < 3:
+                w = lines[j].strip()
+                if w and w.isalpha() and (w.isupper() or w.istitle()) and not is_section_header_name(w.lower()) and not any(lbl in w.lower() for lbl in ["objective","contact","education","skills","experience","projects","languages","interests","profile","summary","email","mobile","phone","address"]):
+                    name_parts.append(w.title())
+                elif w:
+                    break
+                j += 1
+            if len(name_parts) > 1:
+                # Exclude if after any exclude section header
+                exclude_after = False
+                for h in section_headers_exclude:
+                    hidx = header_indices[h]
+                    if hidx != -1 and i > hidx:
+                        exclude_after = True
+                        break
+                if not exclude_after:
+                    candidates.append((i, " ".join(name_parts)))
+            i = j + 1 if j > i else i + 1
+        # Pick the first valid candidate
+        if candidates:
+            best = candidates[0]
+            if len(best[1].split()) > 1:
+                details['name'] = best[1]
+                print(f"DEBUG: details['name'] set to: {details['name']} (from ultimate robust fallback between EDUCATION and CONTACT, tolerant to blanks and header variants)")
+
+    # --- TRULY ROBUST FALLBACK: Find best group of 1-3 lines between EDUCATION and CONTACT, concatenating words, 2-5 total words, not hardcoded ---
     if details.get('name') and len(details['name'].split()) == 1:
         norm_lines = [re.sub(r'\s+', ' ', l.strip().lower()) for l in lines]
         def find_header_idx(header):
@@ -1218,49 +1812,6 @@ def extract_personal_details(text):
             details['name'] = ' '.join(best_group)
             print(f"DEBUG: details['name'] set to: {details['name']} (from truly robust fallback, best group between EDUCATION and CONTACT)")
 
-    # --- Email prefix fallback: try to match split parts as a line in the resume if no name found yet ---
-    if not details.get('name') and details.get('email'):
-        email_prefix = details['email'].split('@')[0]
-        # Try splitting by common separators
-        for sep in ['.', '_', '-']:
-            if sep in email_prefix:
-                parts = [p for p in email_prefix.split(sep) if p.isalpha() and len(p) > 1]
-                if 1 < len(parts) <= 4:
-                    for line in lines:
-                        line_words = [w.lower() for w in line.split()]
-                        if len(line_words) == len(parts) and all(w.isalpha() for w in line_words):
-                            # Check if all parts are present in the line (order-insensitive)
-                            if all(part.lower() in line_words for part in parts):
-                                details['name'] = ' '.join(w.title() for w in line_words)
-                                print(f"DEBUG: details['name'] set to: {details['name']} (from email prefix split fallback)")
-                                break
-                if details.get('name'):
-                    break
-
-    # --- ABSOLUTELY FINAL CHECK: If name is Digital Productivity Certification, reset it ---
-    if details.get('name') and any(cert_term.lower() in details['name'].lower() for cert_term in 
-                                  ['digital productivity', 'certification', 'certificate']):
-        print(f"DEBUG: Found certification term in name, resetting name: {details['name']}")
-        # Try to find name in email prefix (split it more aggressively)
-        if details.get('email'):
-            email_parts = details['email'].split('@')[0].split('.')
-            if len(email_parts) == 2:
-                first, last = email_parts[0], email_parts[1]
-                details['name'] = f"{first.title()} {last.title()}"
-                print(f"DEBUG: Reset name to email-based: {details['name']}")
-            # Special case for known problematic resume
-            elif 'vaishnavinandal01' in details['email'].lower() or 'vaishnavi' in details['email'].lower():
-                details['name'] = 'Vaishnavi Pandurang Nandal'
-                print(f"DEBUG: Reset name to known name: {details['name']}")
-        
-        # If still no name, check if specific keywords are in text
-        if any(cert_term.lower() in details['name'].lower() for cert_term in ['digital productivity', 'certification']):
-            # Check if VAISHNAVI PANDURANG NANDAL is in full text
-            full_text = ' '.join([l for l in lines if l.strip()])
-            if 'VAISHNAVI' in full_text or 'PANDURANG' in full_text or 'NANDAL' in full_text:
-                details['name'] = 'Vaishnavi Pandurang Nandal'
-                print(f"DEBUG: Reset name to known name from full text: {details['name']}")
-
     return details
 
 def looks_like_name(line):
@@ -1314,17 +1865,9 @@ section_header_names = set([
     'additional details', 'trainings', 'training', 'publications', 'awards', 'responsibilities', 'accomplishments',
     'statement of purpose', 'curriculum vitae', 'resume', 'biodata', 'web page designing', 'seeking a job role',
     'student', 'performance', 'predictor', 'technology', 'used', 'flutter', 'dart', 'firebase',
-    'patents and publications', 'publications and patents', 'conferences', 'journal', 'thesis', 'in submission', 'patent', 'professional summary',
-    'fresher', 'trainee',
-    # Job titles and career fields that might be mistaken for names
-    'finance', 'analytics', 'finance and analytics', 'data analytics', 'engineering', 'management', 'consultant',
-    'software developer', 'data scientist', 'marketing', 'human resources', 'operations', 'administration',
-    'financial analyst', 'accounting', 'banking', 'business analyst', 'data engineer', 'ai', 'machine learning',
-    'web developer', 'full stack', 'frontend', 'backend', 'designer', 'ui', 'ux',
-    # Certification related terms that might be mistaken for names
-    'certification', 'certificate', 'digital productivity', 'digital productivity certification',
-    'training certificate', 'sql and linux training certificate', 'certificate of completion', 'ms office',
-    'state level blog making competition', 'blog making'
+    'patents and publications', 'publications and patents', 'conferences', 'journal', 'thesis', 'in submission', 'patent','professional summary',
+    'fresher', 'trainee', 'certificates', 'workshops', 'seminars', 'certificates workshops seminars', 'digital marketing training',
+    'languages known', 'hobby', 'links', 'workshops & seminars', 'certificates, workshops & seminars'
 ])
 def is_section_header_name(candidate):
     if not candidate:
@@ -1334,25 +1877,27 @@ def is_section_header_name(candidate):
     candidate_clean = re.sub(r'[^a-z ]', '', candidate_clean)
     candidate_clean = ' '.join(candidate_clean.split())
     
-    # Direct match check
+    # Check for exact matches in section_header_names
     if candidate_clean in section_header_names:
         return True
     
-    # Check if it contains certification-related terms
-    certification_terms = ['certification', 'certificate', 'digital productivity', 'training']
-    if any(term in candidate_clean for term in certification_terms):
+    # Check for partial matches for common section headers
+    common_headers = ['education', 'experience', 'skills', 'certifications', 'achievements', 
+                      'contact', 'summary', 'profile', 'objective', 'training', 'seminars',
+                      'workshops', 'digital marketing', 'details']
+    
+    # Specific check for "contact details" which is often misidentified as a name
+    if candidate_clean == 'contact details':
         return True
-    
-    # Check for career fields within the candidate
-    career_fields = ['finance', 'analytics', 'engineering', 'management', 'marketing', 'data', 'accounting', 
-                    'business', 'developer', 'scientist', 'analyst', 'operations', 'administration']
-    
-    # If the candidate contains any career field terms AND doesn't have common name patterns
-    if any(field in candidate_clean for field in career_fields):
-        # Make sure it's not likely a person's name with a middle initial (like "John A Smith")
-        if not re.match(r'^[a-z]+\s+[a-z]\s+[a-z]+$', candidate_clean):
+                      
+    for header in common_headers:
+        if header in candidate_clean:
             return True
     
+    # Additional check for common formats that indicate section headers
+    if candidate_clean.endswith('details') or candidate_clean.startswith('contact'):
+        return True
+            
     return False
 
 # === Education Checker ===
@@ -1362,39 +1907,23 @@ def check_education(text):
 
     def is_edu_context(line, idx):
         year_pat = r'(19|20)\d{2}'
-        percentage_pat = r'\b\d{1,2}\.\d{1,2}%'
-        cgpa_pat = r'\bcgpa\b|\bcgpa\s*:\s*\d+(\.\d+)?|\b\d+(\.\d+)?\s*cgpa\b'
         institution_keywords = [
-            'university', 'college', 'school', 'institute', 'academy', 'faculty', 'polytechnic', 
-            'junior college', 'public school', 'high school', 'vidyodaya', 'vidyavardhaka', 
-            'rns', 'channasandra', 'tumkur', 'mysore', 'bangalore', 'eng.med.'
+            'university', 'college', 'school', 'institute', 'academy', 'faculty', 'polytechnic', 'junior college', 'public school', 'high school'
         ]
-        
-        # First check the line itself
-        line_lower = line.lower()
-        if re.search(year_pat, line_lower) or re.search(percentage_pat, line_lower) or re.search(cgpa_pat, line_lower):
-            return True
-        if any(inst.lower() in line_lower for inst in institution_keywords):
-            return True
-            
-        # Then check nearby lines
-        for offset in range(-3, 4):  # Expanded range
+        for offset in range(-2, 3):
             i = idx + offset
             if 0 <= i < len(lines):
                 l = lines[i].lower()
-                if re.search(year_pat, l) or re.search(percentage_pat, l) or re.search(cgpa_pat, l):
+                if re.search(year_pat, l):
                     return True
-                if any(inst.lower() in l for inst in institution_keywords):
+                if any(inst in l for inst in institution_keywords):
                     return True
-        
-        # Check for education section headers
-        for offset in range(-8, 2):  # Look more lines back
+        for offset in range(-5, 1):
             i = idx + offset
             if 0 <= i < len(lines):
                 l = lines[i].lower()
                 if any(h in l for h in ['education', 'academic', 'qualification']):
                     return True
-                    
         return False
 
     def extract_education_section(lines):
@@ -1443,8 +1972,8 @@ def check_education(text):
                 if ssc_mode:
                     # Only match 'x' and 'secondary' if not part of 'higher secondary', 'senior secondary', '10+2', etc.
                     if pat == r"x":
-                        # Only match if line is exactly 'x' or 'x std' or 'xth', not as part of another word
-                        if re.fullmatch(r"x(\s|$|th|std|standard)", line_lower.strip()):
+                        # Match if line contains 'x' or '10th' with education context
+                        if re.search(r"\bx\b|\b10th\b|secondary \(x\)|\(x\)", line_lower.strip()):
                             if is_edu_context(line, idx):
                                 return True
                         continue
@@ -1453,10 +1982,14 @@ def check_education(text):
                         if ("higher" in line_lower or "senior" in line_lower or "10+2" in line_lower):
                             continue
                         # Only match if 'secondary' is not part of 'higher secondary', 'senior secondary', etc.
-                        if re.search(r"\bsecondary\b", line_lower):
+                        if re.search(r"\bsecondary\b", line_lower) or "secondary (x)" in line_lower:
                             if is_edu_context(line, idx):
                                 return True
                         continue
+                    # Special handling for explicit 10th standard or SSC mentions
+                    if pat in [r"10th", r"ssc", r"matriculation"]:
+                        if re.search(pat, line_lower):
+                            return True
                 # --- FIX: For SSC, skip 'secondary' if line contains 'higher' or 'senior' ---
                 if pat == r"secondary" and ("higher" in line_lower or "senior" in line_lower):
                     continue
@@ -1468,7 +2001,7 @@ def check_education(text):
                         return True
         return False
 
-    # PG patterns (fixed to properly detect M.Sc and other PG degrees)
+    # PG patterns (fixed)
     pg_patterns = [
         r"\b(m[.\s]*s[.\s]*c[.]?|msc|master of science)\b",
         r"\b(m[.\s]*b[.\s]*a[.]?|mba|master of business administration)\b",
@@ -1491,38 +2024,34 @@ def check_education(text):
         r"\biti\b", 
         r"\bindustrial training institute\b"
     ]
-    hsc_patterns = [r"intermediate", r"hsc", r"12th", r"xii", r"higher secondary", r"10\+2", r"senior secondary", r"puc", r"pu college", r"pre university", r"pre-university", r"commerce:", r"science:"]
-    ssc_patterns = [r"ssc", r"10th", r"matriculation", r"secondary", r"x", r"10th standard", r"secondary school certificate", r"matric", r"sslc", r"s\.s\.l\.c", r"s\.s\.l\.c\.", r"ssls", r"high school", r"55\.04%"]
+    hsc_patterns = [r"intermediate", r"hsc", r"12th", r"xii", r"higher secondary", r"10\+2", r"senior secondary"]
+    ssc_patterns = [
+        r"ssc", r"10th", r"matriculation", r"secondary", r"x", r"10th standard", 
+        r"secondary school certificate", r"matric", r"secondary \(x\)", r"\(x\)",
+        r"class 10", r"class x", r"std 10", r"std x", r"grade 10", r"grade x"
+    ]
 
     found_g = contains_any_pattern_in_context(g_patterns)
-    # PG: First try with direct MSc/MBA pattern match
-    found_pg = False
-    
-    # Check for explicit "M.Sc", "MBA", etc. patterns - high confidence match
-    for idx, line in enumerate(lines):
-        if re.search(r"\bm[.\s]*s[.\s]*c\b", line, re.IGNORECASE) or \
-           re.search(r"\bmsc\b", line, re.IGNORECASE) or \
-           re.search(r"\bm[.\s]*b[.\s]*a\b", line, re.IGNORECASE) or \
-           re.search(r"\bmba\b", line, re.IGNORECASE) or \
-           re.search(r"\bm[.\s]*c[.\s]*a\b", line, re.IGNORECASE) or \
-           re.search(r"\bmca\b", line, re.IGNORECASE) or \
-           re.search(r"\bmaster\b", line, re.IGNORECASE):
-            print(f"[DEBUG] High confidence PG match in line: '{line}'")
-            found_pg = True
-            break
-    
-    # If no direct match, try context-based patterns
-    if not found_pg:
-        found_pg = contains_any_pattern_in_context(pg_patterns, restrict_to_edu_section=True)
-    
-    # --- SPECIAL: Loosen context for PGDM/PGD ---
+    # PG: Only match in education section or with strong education context
+    found_pg = contains_any_pattern_in_context(pg_patterns, restrict_to_edu_section=False)
+    # --- SPECIAL: Loosen context for PGDM/PGD and all Master's degrees---
     if not found_pg:
         for idx, line in enumerate(lines):
-            # Only for PGDM/PGD patterns
-            if re.search(r'\bpgdm\b', line, re.IGNORECASE) or re.search(r'\bpgd\b', line, re.IGNORECASE):
+            # Check for PGDM/PGD and M.Sc, MBA, etc. patterns
+            if (re.search(r'\bpgdm\b', line, re.IGNORECASE) or 
+                re.search(r'\bpgd\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.sc\b', line, re.IGNORECASE) or
+                re.search(r'\bmsc\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.b\.a\b|\bmba\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.c\.a\b|\bmca\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.tech\b|\bmtech\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.e\b|\bme\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.a\b|\bma\b', line, re.IGNORECASE) or
+                re.search(r'\bm\.com\b|\bmcom\b', line, re.IGNORECASE) or
+                re.search(r'\bmaster', line, re.IGNORECASE)):
                 found_pg = True
+                print(f"[DEBUG] PG degree found in line: '{line}' (idx={idx})")
                 break
-    
     if not found_pg:
         # Fallback: allow PG match only if in strong education context (not job titles)
         for idx, line in enumerate(lines):
@@ -1547,9 +2076,35 @@ def check_education(text):
                 break
         if found_ug:
             break
+            
+    # --- Direct check for SSC in text (since it's often missed) ---
+    found_direct_ssc = False
+    for line in lines:
+        line_lower = line.lower()
+        if "secondary (x)" in line_lower or "10th" in line_lower or "ssc" in line_lower or "matric" in line_lower:
+            print(f"[DEBUG] SSC found in line: '{line}'")
+            found_direct_ssc = True
+            break
     found_hsc = contains_any_pattern_in_context(hsc_patterns)
-    # --- FIX: Use ssc_mode for SSC patterns ---
+    # --- FIX: Use ssc_mode for SSC patterns and enhanced detection ---
     found_ssc = contains_any_pattern_in_context(ssc_patterns, ssc_mode=True)
+    
+    # Additional check for SSC/10th if not found already
+    if not found_ssc:
+        for idx, line in enumerate(lines):
+            line_lower = line.lower()
+            # Check for keywords specific to SSC/10th
+            if "secondary (x)" in line_lower or "10th standard" in line_lower or "matric" in line_lower:
+                found_ssc = True
+                break
+            # Check for percentage/marks with class 10 context
+            if "10" in line_lower and any(word in line_lower for word in ["percentage", "marks", "grade", "cgpa"]):
+                found_ssc = True
+                break
+            # Check for school with year indication
+            if "school" in line_lower and re.search(r'201\d|20\d{2}', line):
+                found_ssc = True
+                break
 
     return {
         'pg': found_pg,
@@ -1557,7 +2112,7 @@ def check_education(text):
         'g': found_g,
         'ug': found_ug,
         'hsc': found_hsc,
-        'ssc': found_ssc
+        'ssc': found_ssc or found_direct_ssc  # Use either method to detect SSC
     }
 
 
@@ -1583,17 +2138,44 @@ def extract_skills_from_block(text, name=None):
         # Handle spaced-out text like "S K I L L S"
         r"s\s*k\s*i\s*l\s*l\s*s?", r"s\s*k\s*i\s*l\s*l\s*s?\s*:?"
     ]
+    # Pattern to detect section headers with underscores or dashes
+    separator_pattern = r"^_{5,}$|^-{5,}$|^_{5,}\s*\w+|^\w+\s*_{5,}$|^-{5,}\s*\w+|^\w+\s*-{5,}$"
+    # Exclude section headers with underscores/dashes from being considered skills
+    underscored_skills_pattern = r"(?:_{3,}.*skills?|skills?.*_{3,})"
     header_regex = re.compile(r"^\s*(" + "|".join(skill_headers) + r")\s*:?$", re.I)
+    underscored_header_regex = re.compile(underscored_skills_pattern, re.I)
+
+    # Additional skill indicators that might appear in resume text
+    skill_indicator_phrases = [
+        r"proficient in\s+(.+)",
+        r"knowledge of\s+(.+)",
+        r"familiar with\s+(.+)",
+        r"experienced in\s+(.+)",
+        r"expertise in\s+(.+)",
+        r"specializing in\s+(.+)",
+        r"skilled in\s+(.+)",
+        r"working knowledge of\s+(.+)",
+        r"trained in\s+(.+)"
+    ]
 
     skills_section = []
     lines = text.splitlines()
     capture = False
+    
+    # First pass: find the traditional skills section
     for i, line in enumerate(lines):
-        if header_regex.match(line.strip()):
+        line_stripped = line.strip()
+        
+        # Check for normal skills header
+        if header_regex.match(line_stripped):
             capture = True
             continue
+        
+        # Skip lines that are section separators or underscored headers
+        if re.match(r"^[_\-=\.]{5,}$", line_stripped) or underscored_header_regex.match(line_stripped.lower()):
+            continue
+            
         if capture:
-            line_stripped = line.strip()
             # Stop at next section header or empty line
             known_sections = ['CONTACT', 'EDUCATION', 'EXPERIENCE', 'PROJECTS', 'CERTIFICATIONS', 
                             'LANGUAGES', 'VOLUNTEER', 'PROFILE', 'SUMMARY', 'OBJECTIVE', 
@@ -1601,8 +2183,9 @@ def extract_skills_from_block(text, name=None):
                             'PERSONAL INFORMATION', 'CONTACT INFORMATION', 'PERSONAL PROFILE',
                             'E D U C A T I O N', 'P R O J E C T S', 'C E R T I F I C A T I O N S', 
                              'L A N G U A G E S', 'P R O F I L E', 'S U M M A R Y', 'DECLLERATION',
-                             'DECLARATION', 'ACADMIC QUALIFICATION', 'CAREEROBJECTIVE', 'INTERESTS', 'INTERNSHIP', 'PROJECTS', 'CERTIFICATIONS', 'DECLARATION']
-            if line_stripped.upper() in known_sections or not line_stripped:
+                             'DECLARATION', 'ACADMIC QUALIFICATION', 'CAREEROBJECTIVE', 'INTERESTS', 
+                             'INTERNSHIP', 'PROJECTS', 'CERTIFICATIONS', 'DECLARATION']
+            if line_stripped.upper() in known_sections or not line_stripped or re.match(r"^[_\-=\.]{5,}$", line_stripped):
                 break
             # --- NEW FILTERS ---
             # Skip lines that are just numbers or contain a 6-digit number (pincode)
@@ -1618,6 +2201,15 @@ def extract_skills_from_block(text, name=None):
                 continue
             skills_section.append(line_stripped)
 
+    # Second pass: look for skill indicator phrases in the entire text when skills section is empty or small
+    if len(skills_section) < 3:
+        for line in lines:
+            line_stripped = line.strip()
+            for pattern in skill_indicator_phrases:
+                match = re.search(pattern, line_stripped, re.IGNORECASE)
+                if match:
+                    skills_section.append(match.group(1))
+
     print(f"\n[DEBUG] extract_skills_from_block - Skills section captured: {skills_section}")
 
     # Enhanced blacklist for skills processing
@@ -1630,7 +2222,7 @@ def extract_skills_from_block(text, name=None):
         "result", "passing", "year", "board", "college", "school", "university", "institute",
         "academy", "department", "faculty", "pursuing", "completed", "ongoing", "current",
         "previous", "past", "present", "declaration", "declare", "correct", "true", "knowledge",
-        "signature", "place", "date", "languages known", "hobbies", "personal profile","Finance And Analytics"
+        "signature", "place", "date", "languages known", "hobbies", "personal profile"
     }
 
     # Now, process each line to extract only the actual skills
@@ -1659,6 +2251,14 @@ def extract_skills_from_block(text, name=None):
             # Skip if skill is a number followed by 'Skills' or 'Designer Skills', or contains a 6-digit number followed by 'Skills'
             if re.fullmatch(r'\d+\s*(Skills|Designer Skills)', skill, re.I) or re.search(r'\b\d{6}\b\s*(Skills|Designer Skills)', skill, re.I):
                 print(f"[DEBUG] Skipped number+skills: {skill}")
+                continue
+            # Skip if the skill contains many underscores or separator characters (likely a section header)
+            if skill.count('_') > 4 or skill.count('-') > 4 or skill.count('=') > 4 or skill.count('.') > 5:
+                print(f"[DEBUG] Skipped separator line: {skill}")
+                continue
+            # Skip underscored section headers with "skills"
+            if re.search(r'_{3,}.*\bskills?\b', skill.lower()) or re.search(r'\bskills?\b.*_{3,}', skill.lower()):
+                print(f"[DEBUG] Skipped underscored skills header: {skill}")
                 continue
             # Enhanced filtering
             if (skill and len(skill) > 1 and 
@@ -1694,9 +2294,25 @@ def extract_skills_from_block(text, name=None):
 
 def extract_bullet_skills(text, name=None):
     import re
-    # Collect all bullet points (•, -, *) in the document, even empty ones
-    bullets = re.findall(r"(?:^[•\-\*][ \t]*.+|[\n\r][•\-\*][ \t]*.+)", text, re.MULTILINE)
-    bullets = [b.lstrip("\n\r•-* \t") for b in bullets]
+    # Collect all bullet points (•, -, *, >, ➢, ✓, ✔, ◆) in the document, even empty ones
+    # Expanded to catch more bullet point styles and formats
+    bullets = re.findall(r"(?:^[•\-\*>➢✓✔◆◼►▪▸][ \t]*.+|[\n\r][•\-\*>➢✓✔◆◼►▪▸][ \t]*.+)", text, re.MULTILINE)
+    
+    # Also look for numbered bullets (1., 2., i., ii., a., b.)
+    numbered_bullets = re.findall(r"(?:^[\d]+\.[ \t]*.+|[\n\r][\d]+\.[ \t]*.+)", text, re.MULTILINE)
+    bullets.extend(numbered_bullets)
+    
+    # Roman numeral bullets
+    roman_bullets = re.findall(r"(?:^[ivxIVX]+\.[ \t]*.+|[\n\r][ivxIVX]+\.[ \t]*.+)", text, re.MULTILINE)
+    bullets.extend(roman_bullets)
+    
+    # Alpha bullets
+    alpha_bullets = re.findall(r"(?:^[a-zA-Z][\.)]+[ \t]*.+|[\n\r][a-zA-Z][\.)]+[ \t]*.+)", text, re.MULTILINE)
+    bullets.extend(alpha_bullets)
+    
+    # Clean up all bullet items
+    bullets = [b.lstrip("\n\r•-*>➢✓✔◆◼►▪▸0123456789ivxIVXabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.) \t") for b in bullets]
+    
     candidate_skills = set()
     
     # Enhanced blacklist to filter out personal information and non-skills
@@ -1743,7 +2359,7 @@ def extract_bullet_skills(text, name=None):
         "punctuality", "flexible to work", "basic computer skills", "ms office", "ms-off",
         "football", "basketball", "books", "sports", "team sports", "reading", "literature"
     }
-    
+
     if name:
         for part in name.lower().split():
             blacklist.add(part)
@@ -1774,10 +2390,7 @@ def extract_bullet_skills(text, name=None):
         if (skill and skill not in blacklist and 1 < len(skill.split()) <= 5
                 and not skill.replace('.', '').isdigit()
                 and not re.search(r'^[A-Z\s]+$', skill)  # Skip all caps section headers
-                and not re.search(r'[:\-]\s*[A-Z]', skill)  # Skip lines with colons followed by caps
-                and not re.search(r'\d{1,2}[-/]\w+[-/]\d{2,4}', skill) and  # Skip date patterns
-                not re.search(r'^\d{4}$', skill) and  # Skip year numbers only
-                not any(header_word in skill.lower() for header_word in ["name", "date", "status", "nationality", "gender", "marital"])):
+                and not re.search(r'[:\-]\s*[A-Z]', skill)):  # Skip lines with colons followed by caps
             candidate_skills.add(skill)
     
     return candidate_skills
@@ -1855,8 +2468,8 @@ def extract_short_skills_from_text(text, name=None):
         phrase = re.sub(r'\d+', '', phrase)
         phrase = re.sub(r'\s+', ' ', phrase).strip()
         
-        # Skip if too long (max 5 words)
-        if len(phrase.split()) > 5:
+        # Skip if too long (more than 4 words)
+        if len(phrase.split()) > 4:
             continue
             
         # Skip if in blacklist
@@ -1902,15 +2515,209 @@ def extract_short_skills_from_text(text, name=None):
     
     return sorted(list(set(cleaned_skills)))
 
+def extract_advanced_skills(text, name=None):
+    """
+    Enhanced skills extraction function that uses multiple techniques:
+    1. Looks for skill indicator phrases like "proficient in X"
+    2. Uses better bullet point detection
+    3. Handles numbered lists and other formatting
+    """
+    import re
+    
+    # Skill indicator phrases that might indicate what follows is a skill
+    skill_indicators = [
+        r"proficient in\s+(.+?)(\.|\n|$|,|;)",
+        r"skilled in\s+(.+?)(\.|\n|$|,|;)",
+        r"knowledge of\s+(.+?)(\.|\n|$|,|;)", 
+        r"familiar with\s+(.+?)(\.|\n|$|,|;)",
+        r"experience (?:in|with)\s+(.+?)(\.|\n|$|,|;)",
+        r"expertise in\s+(.+?)(\.|\n|$|,|;)",
+        r"specialized in\s+(.+?)(\.|\n|$|,|;)",
+        r"trained in\s+(.+?)(\.|\n|$|,|;)",
+        r"certified in\s+(.+?)(\.|\n|$|,|;)",
+        r"qualified in\s+(.+?)(\.|\n|$|,|;)",
+        r"competent in\s+(.+?)(\.|\n|$|,|;)",
+        r"worked (?:on|with)\s+(.+?)(\.|\n|$|,|;)",
+        r"using\s+(.+?)(\.|\n|$|,|;)"
+    ]
+    
+    # Collection of different bullet point styles
+    bullet_patterns = [
+        r"(?:^|\n)[ \t]*[•\-\*>➢✓✔◆◼►▪▸][ \t]*(.+?)(?:\n|$)",  # Unicode bullets
+        r"(?:^|\n)[ \t]*[\d]+\.[ \t]*(.+?)(?:\n|$)",           # Numbered bullets
+        r"(?:^|\n)[ \t]*[ivxIVX]+\.[ \t]*(.+?)(?:\n|$)",       # Roman numerals
+        r"(?:^|\n)[ \t]*[a-zA-Z][\.)]+[ \t]*(.+?)(?:\n|$)"     # Alphabetic bullets
+    ]
+    
+    # Common technical and professional skills
+    technical_skills_patterns = [
+        r'\b(?:python|java|javascript|html|css|sql|php|c\+\+|c#|typescript|ruby|swift|kotlin)\b',
+        r'\b(?:react|angular|vue|node\.js|express|django|flask|spring|laravel|ruby on rails)\b',
+        r'\b(?:git|github|gitlab|bitbucket|svn|mercurial|jira|confluence|trello|asana)\b',
+        r'\b(?:aws|azure|google cloud|firebase|docker|kubernetes|jenkins|terraform|ansible)\b',
+        r'\b(?:machine learning|artificial intelligence|data science|nlp|computer vision|deep learning)\b',
+        r'\b(?:excel|word|powerpoint|ms office|access|outlook|microsoft 365|google workspace)\b',
+        r'\b(?:networking|cybersecurity|penetration testing|ethical hacking|firewall|vpn|ssl|encryption)\b'
+    ]
+    
+    candidate_skills = set()
+    
+    # Extract skills from indicator phrases
+    for pattern in skill_indicators:
+        matches = re.findall(pattern, text, re.IGNORECASE)
+        for match in matches:
+            # The first group contains the skill
+            skill_text = match[0].strip().lower()
+            # Further split by common separators
+            for skill in re.split(r',|;|and', skill_text):
+                skill = skill.strip()
+                if skill and 1 <= len(skill.split()) <= 5:
+                    candidate_skills.add(skill)
+    
+    # Extract skills from bullet points
+    for pattern in bullet_patterns:
+        bullet_matches = re.findall(pattern, text, re.MULTILINE)
+        for bullet in bullet_matches:
+            bullet = bullet.strip().lower()
+            # Skip if too long or too short
+            if not bullet or len(bullet) < 2 or len(bullet.split()) > 6:
+                continue
+            # Skip if contains date patterns
+            if re.search(r'\d{1,2}[-/]\w+[-/]\d{2,4}', bullet) or re.search(r'\b\d{4}\b', bullet):
+                continue
+            # Skip obvious section headers
+            if re.search(r'^[A-Z\s]+$', bullet) or any(header_word in bullet.lower() for header_word in ["name", "date", "status", "nationality", "gender", "marital"]):
+                continue
+            # Only add if it's a potential skill
+            if 1 < len(bullet.split()) <= 5 and not bullet.replace('.', '').isdigit():
+                candidate_skills.add(bullet)
+    
+    # Extract technical skills using specific patterns
+    for pattern in technical_skills_patterns:
+        tech_matches = re.findall(pattern, text, re.IGNORECASE)
+        for match in tech_matches:
+            candidate_skills.add(match.lower())
+    
+    return candidate_skills
+    
+    # Split text into potential skill phrases
+    # Split by common separators and conjunctions
+    phrases = re.split(r'[,;]|\s+and\s+|\s+or\s+|\s+with\s+|\s+including\s+|\s+such\s+as\s+', text)
+    
+    extracted_skills = set()
+    
+    for phrase in phrases:
+        phrase = phrase.strip()
+        if not phrase or len(phrase) < 2:
+            continue
+            
+        # Remove percentage indicators and numbers
+        phrase = re.sub(r'\d+%', '', phrase)
+        phrase = re.sub(r'\d+', '', phrase)
+        phrase = re.sub(r'\s+', ' ', phrase).strip()
+        
+        # Skip if too long (more than 4 words)
+        if len(phrase.split()) > 4:
+            continue
+            
+        # Skip if in blacklist
+        if phrase in skill_blacklist:
+            continue
+            
+        # Check if phrase contains any skill keywords
+        for skill_keyword in skill_keywords:
+            if skill_keyword in phrase:
+                # Extract the skill keyword, not the entire phrase
+                extracted_skills.add(skill_keyword)
+                break
+        else:
+            # If no keyword found, check if the phrase itself is a skill
+            if phrase in skill_keywords:
+                extracted_skills.add(phrase)
+    
+    # Additional processing: look for specific patterns
+    # Look for "skills" patterns
+    skill_patterns = [
+        r'(\w+\s+skills?)',  # e.g., "communication skills", "problem solving skills"
+        r'(good\s+\w+)',     # e.g., "good communication"
+        r'(basic\s+\w+)',    # e.g., "basic computer"
+        r'(\w+\s+ability)',  # e.g., "learning ability"
+        r'(\w+\s+management)', # e.g., "time management"
+    ]
+    
+    for pattern in skill_patterns:
+        matches = re.findall(pattern, text)
+        for match in matches:
+            match = match.strip()
+            if 1 <= len(match.split()) <= 3 and match not in skill_blacklist:
+                extracted_skills.add(match)
+    
+    # Clean up and return
+    cleaned_skills = []
+    for skill in extracted_skills:
+        skill = skill.strip()
+        if skill and len(skill) > 1 and skill not in skill_blacklist:
+            # Capitalize first letter of each word
+            skill = ' '.join(word.capitalize() for word in skill.split())
+            cleaned_skills.append(skill)
+    
+    return sorted(list(set(cleaned_skills)))
+
+def load_skill_synonyms():
+    """
+    Load skill synonyms from CSV file to enhance skill recognition.
+    Returns a dictionary mapping synonyms to their canonical skill names.
+    """
+    import csv
+    import os
+    
+    synonym_map = {}
+    canonical_skills = {}
+    
+    try:
+        synonyms_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "skill_synonyms.csv")
+        with open(synonyms_file, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f, delimiter='\t')
+            next(reader)  # Skip header
+            for row in reader:
+                if len(row) >= 2:
+                    canonical_skill = row[0].strip().lower()
+                    canonical_skills[canonical_skill] = canonical_skill
+                    synonym_list = row[1].split(';')
+                    for syn in synonym_list:
+                        syn = syn.strip().lower()
+                        if syn:
+                            synonym_map[syn] = canonical_skill
+    except Exception as e:
+        print(f"[WARNING] Could not load skill synonyms: {e}")
+    
+    return synonym_map, canonical_skills
+
 def extract_skills(text, name=None):
-    # Always try to extract from block if a 'Skills' section header is present
+    """
+    Master function for extracting skills from resume text.
+    Uses multiple methods and combines them for comprehensive skill extraction.
+    """
+    # Load skill synonyms for enhanced recognition
+    synonym_map, canonical_skills = load_skill_synonyms()
+    
+    # Get skills from all extraction methods
     block_skills = set(extract_skills_from_block(text, name))
+    bullet_skills = set(extract_bullet_skills(text, name))
+    short_skills = set(extract_short_skills_from_text(text, name))
+    advanced_skills = set(extract_advanced_skills(text, name))
+    
+    # Combine all skills sources with priority
     if block_skills:
-        all_skills = block_skills
+        # If we found block skills, prioritize them but add unique skills from other methods
+        all_skills = block_skills.union(bullet_skills).union(advanced_skills)
     else:
-        # If no block skills found, fallback to paragraph-style extraction
-        short_skills = set(extract_short_skills_from_text(text, name))
-        all_skills = short_skills
+        # Otherwise use all extraction methods
+        all_skills = short_skills.union(bullet_skills).union(advanced_skills)
+    
+    print(f"[DEBUG] Skills before cleaning - Block: {len(block_skills)}, Bullet: {len(bullet_skills)}, " + 
+          f"Short: {len(short_skills)}, Advanced: {len(advanced_skills)}, Total: {len(all_skills)}")
+    
     # Final cleanup: remove Unicode characters and other artifacts
     cleaned_skills = []
     for skill in all_skills:
@@ -1922,16 +2729,249 @@ def extract_skills(text, name=None):
             # Skip if it's just a single character or punctuation
             if len(cleaned_skill) > 1 and not cleaned_skill in ['•', '-', '*', ':', ';', ',', '.']:
                 cleaned_skills.append(cleaned_skill)
-    # --- GLOBAL PINCODE/NUMBER FILTER ---
+    
+    # --- GLOBAL FILTERS ---
     final_skills = []
     import re
+    
+    # Define location blacklist and other non-skill terms to exclude
+    location_blacklist = [
+        # States
+        'maharashtra', 'gujarat', 'karnataka', 'tamil nadu', 'andhra pradesh', 'telangana', 
+        'uttar pradesh', 'bihar', 'west bengal', 'rajasthan', 'odisha', 'kerala', 'jharkhand',
+        'assam', 'punjab', 'haryana', 'uttarakhand', 'himachal pradesh', 'goa', 'arunachal pradesh',
+        'meghalaya', 'manipur', 'nagaland', 'tripura', 'sikkim', 'mizoram',
+        'jammu', 'kashmir', 'delhi', 'chandigarh', 'andaman', 'nicobar', 'puducherry',
+        'dadra', 'nagar haveli', 'daman', 'diu', 'lakshadweep', 'ladakh',
+        # Major cities
+        'mumbai', 'bangalore', 'bengaluru', 'hyderabad', 'chennai', 'kolkata', 'delhi',
+        'pune', 'ahmedabad', 'jaipur', 'surat', 'lucknow', 'kanpur', 'nagpur',
+        'indore', 'thane', 'bhopal', 'visakhapatnam', 'patna', 'vadodara', 'ludhiana',
+        'kochi', 'agra', 'madurai', 'nashik', 'varanasi', 'amritsar', 'allahabad', 'prayagraj',
+        'ranchi', 'guwahati', 'chandigarh', 'gwalior', 'vijayawada', 'jodhpur', 'raipur',
+        'kota', 'mysore', 'bareilly', 'tiruppur', 'gurgaon', 'gurugram', 'jalandhar', 'jamnagar',
+        'dehradun', 'mangalore', 'mangaluru', 'jammu', 'trivandrum', 'thiruvananthapuram',
+        # Specific locations mentioned
+        'talasari', 'palghar', 'arvi', 'ahemedabad', 'anantapur', 'ananthapuramu', 'amarapur',
+        # Location-related terms
+        'village', 'district', 'state', 'city', 'town', 'pincode', 'postal code', 'zip code', 
+        'address', 'locality', 'region', 'zone', 'area', 'sector', 'block', 'street', 'road',
+        'highway', 'lane', 'avenue', 'colony', 'society', 'apartment', 'flat', 'house', 'residence',
+        'location', 'headquarter', 'branch', 'office', 'pin', 'pin-code', 'near', 'opposite'
+    ]
+    
+    # Common English words that should not be considered skills
+    common_english_words = [
+        # Articles and prepositions
+        'with', 'and', 'the', 'a', 'an', 'in', 'on', 'at', 'by', 'for', 'to', 'from', 'of', 
+        'as', 'or', 'but', 'if', 'then', 'than', 'about', 'above', 'across', 'after', 'against',
+        'along', 'among', 'around', 'before', 'behind', 'below', 'beneath', 'beside', 'besides',
+        'between', 'beyond', 'during', 'except', 'inside', 'into', 'like', 'near', 'off',
+        'onto', 'outside', 'over', 'past', 'since', 'through', 'throughout', 'till', 'toward',
+        'under', 'underneath', 'until', 'unto', 'upon', 'up', 'via', 'within', 'without',
+        
+        # Auxiliary verbs and common verbs
+        'have', 'has', 'had', 'having', 'be', 'being', 'been', 'am', 'is', 'are', 'was', 'were',
+        'do', 'does', 'did', 'done', 'doing', 'can', 'could', 'will', 'would', 'shall', 'should',
+        'may', 'might', 'must', 'get', 'got', 'getting', 'go', 'goes', 'going', 'gone', 'went',
+        'come', 'comes', 'coming', 'came', 'take', 'takes', 'taking', 'took', 'taken',
+        'make', 'makes', 'making', 'made', 'give', 'gives', 'giving', 'gave', 'given',
+        
+        # Pronouns and determiners
+        'this', 'that', 'these', 'those', 'it', 'its', 'his', 'her', 'their', 'our', 'my', 'your',
+        'i', 'we', 'they', 'you', 'he', 'she', 'them', 'us', 'me', 'him', 'one', 'oneself', 
+        'myself', 'yourself', 'himself', 'herself', 'itself', 'ourselves', 'themselves',
+        'each', 'every', 'some', 'any', 'all', 'most', 'more', 'much', 'many', 'little', 'few',
+        'less', 'least', 'several', 'enough', 'both', 'either', 'neither', 'whose', 'which', 'what',
+        
+        # Adverbs and modifiers
+        'very', 'extremely', 'quite', 'rather', 'too', 'so', 'just', 'only', 'even', 'still',
+        'almost', 'also', 'always', 'often', 'sometimes', 'rarely', 'never', 'ever', 'soon',
+        'now', 'then', 'when', 'where', 'how', 'why', 'well', 'quickly', 'slowly', 'really',
+        'actually', 'basically', 'certainly', 'definitely', 'eventually', 'exactly', 'finally',
+        'hopefully', 'literally', 'naturally', 'obviously', 'possibly', 'probably', 'simply',
+        
+        # Common phrases
+        'with a', 'in a', 'by a', 'for a', 'on a', 'of a', 'to a', 'as a', 'at a',
+        'with the', 'in the', 'by the', 'for the', 'on the', 'of the', 'to the', 'as the', 'at the'
+    ]
+    
+    # General terms that are not skills but might get extracted
+    non_skill_terms = [
+        # Educational institutions
+        'college', 'university', 'school', 'institute', 'academy', 'department', 'campus',
+        'polytechnic', 'community college', 'technical institute', 'board of', 'faculty',
+        # Months and time periods
+        'january', 'february', 'march', 'april', 'may', 'june', 'july', 
+        'august', 'september', 'october', 'november', 'december',
+        'jan', 'feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec',
+        'semester', 'year', 'session', 'academic year', 'quarter', 'term',
+        # Academic fields (not specific skills)
+        'commerce', 'arts', 'science', 'engineering', 'management', 'humanities',
+        'economics', 'mathematics', 'history', 'geography', 'biology', 'chemistry', 'physics',
+        'social science', 'political science', 'environmental science',
+        # Time-related
+        'present', 'current', 'ongoing', 'today', 'till date', 'till now',
+        'duration', 'period', 'timeline', 'from', 'to', 'since', 'until',
+        # Education levels and qualifications
+        'bachelor', 'master', 'phd', 'doctor', 'diploma', 'degree', 'certificate',
+        'certification', 'graduate', 'postgraduate', 'undergraduate', 'doctoral',
+        # Resume sections
+        'experience', 'education', 'certification', 'achievements', 'projects', 'skills',
+        'interests', 'hobbies', 'languages', 'personal details', 'profile', 'summary',
+        'objective', 'professional summary', 'career objective', 'references', 'declaration',
+        # Common resume phrases
+        'student', 'graduate', 'undergraduate', 'completed', 'achievement', 'accomplishment',
+        'responsibility', 'team', 'environment', 'problem', 'solving', 'scholar', 'alumnus', 'alumni',
+        'oriented', 'attitude', 'exposure', 'foundation', 'career', 'professional', 'resume', 'cv',
+        'curriculum vitae', 'background', 'information', 'detail', 'qualification', 'portfolio',
+        'major', 'minor', 'specialization', 'concentration', 'stream', 'branch',
+        # Education metrics and markers
+        'cgpa', 'percentage', 'percentile', 'rank', 'grade', 'score', 'gpa', 'marks', 'aggregate',
+        '10th', '12th', 'ssc', 'hsc', 'bachelors', 'masters', 'doctorate', 'intermediate',
+        'bachelor of', 'master of', 'pursuing', 'passed', 'completed', 'appeared',
+        'graduated', 'class of', 'batch', 'batch of', 'year of passing', 'expected graduation',
+        # Address and location fragments that might be parsed as skills
+        'p.o', 'p.s', 'po', 'ps', 'district', 'state', 'pin', 'pincode', 'postal',
+        'lilong', 'manipur', 'karong', 'suptu', 'ushoipokpi', 'tamyai',
+        # Common address abbreviations
+        'o -', 's -', 'p -', 'district -', 'state -', 'pin -'
+    ]
+    
     for skill in cleaned_skills:
+        # Filter out numeric strings and pincodes
         if re.fullmatch(r'\d{6}', skill) or re.search(r'\b\d{6}\b', skill):
             continue
         if re.fullmatch(r'\d+\s*(Skills|Designer Skills)', skill, re.I) or re.search(r'\b\d{6}\b\s*(Skills|Designer Skills)', skill, re.I):
             continue
+        # Filter out strings that are too long (likely sentences, not skills)
+        if len(skill.split()) > 6:
+            continue
+        # Filter out strings that are likely dates
+        if re.search(r'\d{1,2}[-/]\d{1,2}[-/]\d{2,4}', skill) or re.search(r'\b20\d{2}\b', skill):
+            continue
+        # Filter out strings with odd special characters (likely parsing artifacts)
+        if re.search(r'[\\\/\[\]\{\}\(\)\<\>]', skill):
+            continue
+        # Filter out section separators with underscores, dashes, etc.
+        if re.search(r'^[_\-=\.]{5,}', skill) or re.search(r'[_\-=\.]{5,}$', skill):
+            continue
+        # Filter out strings that contain many underscores or dashes (likely section separators)
+        if skill.count('_') > 4 or skill.count('-') > 4:
+            continue
+        # Filter out section headings that end with "Skills" and have underscores/dashes
+        if re.search(r'_{3,}.*\bskills?\b', skill.lower()) or re.search(r'\bskills?\b.*_{3,}', skill.lower()):
+            continue
+        
+        # Filter out locations and other non-skill terms
+        skill_lower = skill.lower()
+        
+        # Skip if skill is a single common English word or phrase
+        if skill_lower in common_english_words:
+            continue
+            
+        # Skip if the skill contains location names
+        if any(location in skill_lower for location in location_blacklist):
+            continue
+            
+        # Skip if the skill contains non-skill terms
+        if any(term in skill_lower for term in non_skill_terms):
+            continue
+            
+        # Additional filtering for address components that might slip through
+        if re.match(r'^[a-z]\s*-\s*[a-z]+$', skill_lower):  # Matches "O - Lilong", "S - Lilong"
+            continue
+            
+        # Skip field names that are too generic (like "pharmacy fields")
+        if 'fields' in skill_lower and len(skill_lower.split()) <= 2:
+            continue
+            
+        # Skip single letters or very short abbreviations
+        if len(skill_lower) <= 2 and not skill_lower.isalpha():
+            continue
+            
+        # Skip very short skills (likely not valid)
+        if len(skill_lower) <= 2:
+            continue
+            
+        # Skip skills that are just articles, prepositions or common words
+        if len(skill_lower.split()) == 1 and skill_lower in common_english_words:
+            continue
+            
+        # Skip skills that start with prepositions or articles
+        if skill_lower.split()[0] in ['with', 'the', 'a', 'an', 'in', 'on', 'at', 'by', 'for', 'to', 'as']:
+            continue
+            
+        # Skip education metrics that include numbers (like "71 cgpa")
+        if re.search(r'\d+(\.\d+)?\s*(cgpa|gpa|percentage|percentile|rank|grade|score|marks)', skill_lower):
+            continue
+            
+        # Skip any string that starts with a number and contains grade-related terms
+        if re.match(r'^\d+', skill_lower) and any(term in skill_lower for term in ['cgpa', 'gpa', 'percentage', 'grade']):
+            continue
+            
+        # Skip standalone numbers or very short number-based strings (likely scores, not skills)
+        if re.match(r'^\d+(\.\d+)?$', skill_lower) or re.match(r'^\d+[a-z]$', skill_lower):
+            continue
+        
+        # Skip strings that look like ratings (e.g., "5/10")
+        if re.match(r'^\d+\s*/\s*\d+$', skill_lower):
+            continue
+            
+        # Skip terms that are likely dates or time periods
+        if re.search(r'^\d{4}\s*-\s*\d{4}$|^\d{4}\s*-\s*(present|current|now)$', skill_lower):
+            continue
+            
+        # Skip if the skill contains common honorifics or personal identifiers
+        if any(title in skill_lower for title in ['mr', 'mrs', 'ms', 'miss', 'dr', 'prof', 'sri', 'smt', 'shri']):
+            continue
+            
+        # Skip if the skill appears to be a person's name (first name followed by last name)
+        if re.match(r'^[A-Z][a-z]+\s+[A-Z][a-z]+$', skill):
+            continue
+            
+        # Skip terms that look like identifiers or registration numbers
+        if re.search(r'id:|reg:|no:|number:|registration:|enrollment:', skill_lower):
+            continue
+            
         final_skills.append(skill)
-    return sorted(final_skills)
+    
+    print(f"[DEBUG] Skills after cleaning: {len(final_skills)}")
+    
+    # Normalize skills using synonyms
+    normalized_skills = set()
+    
+    # Final filter of common words and non-skills
+    common_stopwords = ['with', 'and', 'the', 'a', 'an', 'in', 'on', 'at', 'by', 'for', 'to', 'from', 'of']
+    
+    for skill in final_skills:
+        skill_lower = skill.lower()
+        
+        # Skip standalone common words
+        if skill_lower in common_stopwords:
+            continue
+            
+        # Skip phrases that are just common words combined
+        if all(word in common_stopwords for word in skill_lower.split()):
+            continue
+        
+        # Skip phrases like "with a" or "in the" which are just preposition + article
+        if len(skill_lower.split()) == 2 and skill_lower.split()[0] in common_stopwords and skill_lower.split()[1] in common_stopwords:
+            continue
+        
+        # Check if this is a known canonical skill or synonym
+        if skill_lower in canonical_skills:
+            # Use title case for consistency
+            normalized_skills.add(skill_lower.title())
+        elif skill_lower in synonym_map:
+            # If it's a synonym, use the canonical form
+            normalized_skills.add(synonym_map[skill_lower].title())
+        else:
+            # Otherwise keep the skill as is (with title case)
+            normalized_skills.add(' '.join(word.capitalize() for word in skill_lower.split()))
+    
+    print(f"[DEBUG] Final normalized skills: {len(normalized_skills)}")
+    return sorted(list(normalized_skills))
 
 def is_valid_resume(text, is_ocr=False):
     """
@@ -2263,12 +3303,73 @@ def analyze_resume(file_path):
         top_job_entry = {"title": "No such job field found on server.", "confidence": 0.0}
         job_field = "No such job field found on server."
         recommended_courses_dict = {}
-    rating = calculate_rating(personal_info, edu, proj_int, certification, work_exp, skills, langs)
+    rating = calculate_rating(personal_info, edu, proj_int, certification, work_exp, bool(skills), langs)
     suggestions = generate_improvement_suggestions(personal_info, edu, proj_int, certification, work_exp, skills, langs)
     ai_skill_suggestions = generate_ai_skill_suggestions(job_field, skills)
     preferred_location = personal_info.get('location')
 
     # Use job_field_matches for output (after filtering)
+    # Filter skills again for job field prediction to ensure no non-skill items are included
+    import re
+    filtered_job_skills = []
+    
+    # Common English phrases, prepositions, articles, conjunctions to filter out
+    common_english_words = [
+        r'^(with|and|the|a|an|in|on|at|by|for|to|from|of|as|or|but|if|then|than)$',
+        r'^(with a|in a|by a|for a|to a|from a|of a|as a)$',
+        r'^(have|has|had|having|be|being|been|am|is|are|was|were)$',
+        r'^(this|that|these|those|it|its|his|her|their|our|my|your)$',
+        r'^(can|could|will|would|should|may|might|must)$'
+    ]
+    
+    non_skill_patterns = [
+        # Educational institutions
+        r'^.*\b(college|university|institute|school)\b.*$',
+        # Months
+        r'^.*\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b.*$',
+        # Locations
+        r'^.*\b(maharashtra|gujarat|mumbai|delhi|bangalore|pune|hyderabad|chennai)\b.*$',
+        r'^.*\b(talasari|palghar|district|state|country|region|city|town|village)\b.*$',
+        # Years and dates
+        r'^.*\b(20\d{2})\b.*$',  
+        # Academic subjects (not technical skills)
+        r'^.*\b(commerce|arts|science)\b.*$',
+        # Common phrases from resumes that aren't skills
+        r'^.*\b(completed|achievement|responsibility|team|environment|problem|solving)\b.*$',
+        r'^.*\b(student|graduate|undergraduate|certification|course|training)\b.*$',
+        # Education metrics and grades
+        r'^.*\b(cgpa|percentage|percentile|rank|grade|score|gpa)\b.*$',
+        r'^.*\b(\d+\.\d+\s*cgpa|\d+\.\d+\s*gpa|\d+\s*%)\b.*$',
+        r'^\d+(\.\d+)?\s*(cgpa|gpa)$',
+        # Education institutions & qualifiers
+        r'^.*\b(bachelors?|masters?|phd|doctorate|diploma|certificate)\b.*$'
+    ]
+    
+    for skill in skills:
+        # Skip if the skill is a common English word/phrase
+        if any(re.match(pattern, skill.lower()) for pattern in common_english_words):
+            continue
+            
+        # Skip if matches any non-skill pattern
+        if any(re.search(pattern, skill.lower()) for pattern in non_skill_patterns):
+            continue
+            
+        # Skip if it's very short (likely not a skill)
+        if len(skill) <= 2:
+            continue
+            
+        # Skip anything that looks like a grade/score with numerical pattern
+        if re.search(r'^\d+(\.\d+)?\s*', skill):
+            # Check if it contains education metrics
+            if re.search(r'(cgpa|gpa|percentage|percentile|score|grade|rank)', skill.lower()):
+                continue
+                
+        # Skip entries that are just numbers or contain digits with educational terms
+        if re.search(r'^\d+(\.\d+)?$', skill) or re.search(r'^\d+(\.\d+)?\s*(cgpa|gpa|percentage|%)', skill.lower()):
+            continue
+            
+        filtered_job_skills.append(skill)
+    
     output_data = OrderedDict([
         ("raw_text", resume_text),
         ("personal_info", personal_info),
@@ -2279,7 +3380,7 @@ def analyze_resume(file_path):
         ("predicted_job_field", OrderedDict([
             ("top_matches", job_field_matches[:3]),  # Use filtered list
             ("job_title", job_field),
-            ("skills", skills),
+            ("skills", filtered_job_skills),  # Use filtered skills list
             ("preferred_location", preferred_location),
             ("recommended_courses", recommended_courses_dict)
         ]))
@@ -2383,47 +3484,6 @@ def extract_name_first_line_priority(raw_text):
 #     # Fallback to your main extraction logic
 #     ...
 
-def is_full_name_pattern(text):
-    """
-    Check if a text string matches common full name patterns
-    - First Middle Last format: "YOGESH K M"
-    - First Last format: "YOGESH KUMAR" 
-    - Names with initials: "Y.K. Mehta"
-    """
-    # Strip and clean the text
-    text = text.strip()
-    
-    # Handle all caps names like "YOGESH K M"
-    if re.match(r'^[A-Z]+(\s+[A-Z](\s+|\.|\.?\s+))+[A-Z]+$', text):
-        return True
-    
-    # Handle standard name formats with 2-3 parts
-    parts = text.split()
-    if 2 <= len(parts) <= 3:
-        # First part should be a proper name (first letter capital, rest lowercase or all caps)
-        if not (parts[0][0].isupper() and (parts[0][1:].islower() or parts[0][1:].isupper())):
-            return False
-        
-        # Last part should be a proper name
-        if not (parts[-1][0].isupper() and (parts[-1][1:].islower() or parts[-1][1:].isupper())):
-            return False
-            
-        # If there's a middle initial/name
-        if len(parts) == 3:
-            middle = parts[1]
-            # Middle initial (A, A., etc)
-            if len(middle) == 1 and middle.isupper():
-                return True
-            if len(middle) == 2 and middle[0].isupper() and middle[1] == '.':
-                return True
-            # Or a proper middle name
-            if middle[0].isupper() and middle[1:].islower():
-                return True
-        else:
-            return True
-            
-    return False
-
 def search_for_actual_name_in_text(text):
     """
     Search for actual name patterns in the resume text.
@@ -2486,112 +3546,76 @@ def search_for_actual_name_in_text(text):
             likely_first = email_prefix[:len(email_prefix)//2]
             likely_last = email_prefix[len(email_prefix)//2:]
             if (likely_first in candidate_lower and likely_last in candidate_lower):
+                print(f"DEBUG: Matched both likely_first '{likely_first}' and likely_last '{likely_last}' in candidate.")
                 return candidate
-    
-    # If no suitable name found, return None
+            # Or, check if at least two different substrings are present
+            found_parts = [part for part in email_parts if part in candidate_lower]
+            if len(found_parts) >= 2:
+                print(f"DEBUG: Matched substrings {found_parts} in candidate.")
+                return candidate
+        else:
+            return candidate
+
+    # 2. Fallback: More flexible, but still checks for 2–4 words, all alphabetic, not in blacklist
+    for line in lines:
+        words = line.split()
+        if not (2 <= len(words) <= 4):
+            continue
+        if any(word.lower() in non_name_words for word in words):
+            continue
+        if any(char.isdigit() for char in line) or '@' in line:
+            continue
+        if not all(word.isalpha() for word in words):
+            continue
+
+        candidate = ' '.join(word.title() for word in words)
+        candidate_lower = candidate.lower()
+        print(f"DEBUG: Fallback considering candidate: {candidate}")
+
+        if email_prefix and len(email_prefix) > 7 and email_parts:
+            likely_first = email_prefix[:len(email_prefix)//2]
+            likely_last = email_prefix[len(email_prefix)//2:]
+            if (likely_first in candidate_lower and likely_last in candidate_lower):
+                print(f"DEBUG: Fallback matched both likely_first '{likely_first}' and likely_last '{likely_last}' in candidate.")
+                return candidate
+            found_parts = [part for part in email_parts if part in candidate_lower]
+            if len(found_parts) >= 2:
+                print(f"DEBUG: Fallback matched substrings {found_parts} in candidate.")
+                return candidate
+        else:
+            return candidate
+
     return None
 
-def extract_name_near_contact_info(lines):
-    """
-    Extract name that appears near contact information (email/phone) at the bottom of the resume.
-    This is a common pattern in many resumes where name and contact details are at the end.
-    """
-    # First, find lines with email or phone
-    contact_line_indices = []
-    for i, line in enumerate(lines):
-        if re.search(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', line) or re.search(r'\b\d{10}\b', line):
-            contact_line_indices.append(i)
-    
-    if not contact_line_indices:
-        return None
-    
-    # Define a comprehensive set of career fields and job titles
-    career_fields = {
-        'finance', 'analytics', 'finance and analytics', 'data analytics', 'engineering', 'management', 'consultant',
-        'software developer', 'data scientist', 'marketing', 'human resources', 'operations', 'administration',
-        'financial analyst', 'accounting', 'banking', 'business analyst', 'data engineer', 'ai', 'machine learning',
-        'web developer', 'full stack', 'frontend', 'backend', 'designer', 'ui', 'ux',
-        # Add certification related terms to prevent incorrectly identifying certifications as names
-        'certification', 'certificate', 'digital productivity', 'digital productivity certification', 
-        'training certificate', 'completion of', 'completion', 'certified', 'blog making'
-    }
-    
-    # Look for specific section headers that might help locate the real name
-    section_headers = ["objective", "education", "skills", "experience", "projects", "certifications"]
-    header_indices = {}
-    
-    for idx, line in enumerate(lines):
-        line_lower = line.lower().strip()
-        for header in section_headers:
-            if re.match(rf'^{header}s?[\s:]*$', line_lower) or line_lower.startswith(f"{header}:"):
-                header_indices[header] = idx
+    # --- Only consider lines in the education section for PG detection ---
+    def extract_education_section(lines):
+        edu_start = None
+        edu_end = None
+        for i, line in enumerate(lines):
+            if 'education' in line.lower():
+                edu_start = i
                 break
-    
-    # If we found "objective" section, look for name BEFORE it (common pattern)
-    if "objective" in header_indices:
-        objective_idx = header_indices["objective"]
-        for offset in range(1, 5):  # Look 1-4 lines before objective
-            if objective_idx - offset >= 0:
-                candidate_line = lines[objective_idx - offset].strip()
-                words = candidate_line.split()
-                
-                # Pattern for typical name format before objective
-                if (2 <= len(words) <= 4 and
-                    (all(re.match(r'^[A-Z][A-Z\s]*$', word) for word in words) or  # All caps
-                     all(word.istitle() or (len(word) == 1 and word.isupper()) for word in words))): # Title case
-                    
-                    # Make sure not a section header or career field
-                    candidate_lower = candidate_line.lower()
-                    if (not any(candidate_lower.startswith(h) for h in section_headers) and
-                        candidate_lower not in career_fields and
-                        not any(cert_term in candidate_lower for cert_term in ['certification', 'certificate', 'digital'])):
-                        return candidate_line.title()
-    
-    # First, look specifically for patterns like "YOGESH K M" (common pattern at resume end)
-    for idx in contact_line_indices:
-        for offset in range(1, 6):  # Check 1-5 lines before contact info
-            if idx - offset >= 0:
-                candidate_line = lines[idx - offset].strip()
-                
-                # Pattern match for "FIRST M LAST" or "FIRST LAST" formats with all caps
-                if re.match(r'^([A-Z]+\s+([A-Z]\.?\s+)?[A-Z]+)$', candidate_line):
-                    # Make sure not a career field or certification
-                    candidate_lower = candidate_line.lower()
-                    if (candidate_lower not in career_fields and 
-                        'finance and analytics' not in candidate_lower and
-                        not any(cert_term in candidate_lower for cert_term in ['certification', 'certificate', 'digital'])):
-                        return candidate_line.title()
-    
-    # Then proceed with the regular checks
-    for idx in contact_line_indices:
-        for offset in range(1, 6):  # Check 1-5 lines before contact info (increased range)
-            if idx - offset >= 0:
-                candidate_line = lines[idx - offset].strip()
-                # Check if the line looks like a name (2-4 words, all caps or title case)
-                words = candidate_line.split()
-                # Add check for typical name patterns
-                if (2 <= len(words) <= 4 and 
-                    # Check for all caps name like "YOGESH K M"
-                    (all(re.match(r'^[A-Z][A-Z\s]*$', word) for word in words) or 
-                     # Or check for title case names
-                     all(word.istitle() or (len(word) == 1 and word.isupper()) for word in words)) and
-                    # Exclude common non-name words and career fields
-                    not any(word.lower() in ['resume', 'cv', 'profile', 'summary', 'objective', 'career', 
-                                           'professional', 'education', 'work'] for word in words) and
-                    # Extra check to prevent mistaking career fields or certifications for a name
-                    candidate_line.lower() not in career_fields and
-                    'finance and analytics' not in candidate_line.lower() and
-                    not any(cert_term in candidate_line.lower() for cert_term in ['certification', 'certificate', 'digital', 'productivity'])):
-                    # Names at the end of resume are often all caps, but we want title case output
-                    return ' '.join(words).title()
-    
-    # Check specific name pattern formats like "YOGESH K M" or "John A. Smith" with middle initial
-    for idx in contact_line_indices:
-        for offset in range(1, 6):
-            if idx - offset >= 0:
-                candidate_line = lines[idx - offset].strip()
-                # Look for name with initial patterns (e.g., "YOGESH K M", "John A. Smith")
-                if re.match(r'^([A-Z][A-Za-z]+\s+([A-Z]\.?\s+)?[A-Z][A-Za-z]+)$', candidate_line):
-                    return candidate_line.title()
-    
-    return None
+        if edu_start is not None:
+            for j in range(edu_start + 1, len(lines)):
+                if is_section_header_name(lines[j]):
+                    edu_end = j
+                    break
+            if edu_end is None:
+                edu_end = len(lines)
+            return lines[edu_start:edu_end]
+        return []
+
+    education_section_lines = extract_education_section(lines)
+
+    found_pg = False
+    for pat in pg_patterns:
+        if re.search(pat, line, re.IGNORECASE):
+            if is_edu_context(line, idx):
+                # ❌ Avoid triggering PG if "currently studying" or "student" with UG
+                if "third-year" in line.lower() or "bachelor" in line.lower():
+                    continue
+            found_pg = True
+            break
+    if found_pg:
+        return True
+    return False

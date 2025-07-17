@@ -1,0 +1,88 @@
+{
+    "raw_text": "Shrushti Desai\nShrushtidesai.work@gmail.com | (+91) 76203 28192 | Thane, Maharashtra, India  \nLinkedIn | GitHub\n_________________________________________________________________________________\nSummary\nAn aspiring B.E Computer Science & Engineering Student with an high interest and curiosity to learn,\nseeking  an  opportunity  to  utilize  and  implement  the  educational  knowledge  with  technical  and\nprogramming skills in IT sector.\n_________________________________________________________________________________\nSkills\nAchievements\nProgramming Languages: C++ | C\nIT Constructs: OOPS | AI & ML\nDatabase/Tools/Frameworks: \nGit & GitHub | MySQL | Docker\nFamiliar with: Jenkins, MongoDB\nMicrosoft Applied Skill:\n• Develop  solutions  with  Azure  AI  Document\nIntelligence. [Transcript Link].\n•\nKodeKloud Linux lab-tutorial [certificate]\n_______________________________________________________________________________\nExperience\nEduladdr \nIntern cum Trainee [certificate]\n       (June 2022 – July 2022)\nAn internship cum training program where I learned C++ and C programing language along with Data\nStructures from an IT industry expert.\nLocation: Khargar, Navi Mumbai.\n_________________________________________________________________________________\nProjects\nSecurstor [GitHub]\nDesigned and implemented a decentralized file sharing system using blockchain, IPFS, and smart\ncontracts. Utilized HTML, CSS, React.js for the front end, Solidity for the backend, and Ether.js for\nconnectivity. IPFS Pinata and Lit protocol ensure secure, encrypted file storage and sharing.\nSmart Door Lock using Arduino [Tinkercad]\nDesigned and implemented a password-protected smart door lock system using Arduino IDE, C++,\nand Tinkercad. The system features a servo motor, an Arduino, buzzer and an LCD screen. The\nsystem opens upon entering the correct password and closes automatically after a set time.\nVirtual Healthcare Assistant [GitHub]\nDeveloped a remote basic level diagnosis tool during the COVID-19 pandemic to aid underserved\ncommunities. Utilized  Python, MongoDB, and VS Code. It has a  unique feature that sends doctor\ndetails  directly  to  the  patient's  email  along  with  a  booking  link,  enhancing  accessibility  and\naffordability of healthcare.\n____________________________________________________________________\nEducation\nLokmanya Tilak College of Engineering\n                                 (2020 – 2024)\nB.E in Computer Science & Engineering (Internet of Things, Cyber Security including Blockchain) with\nHonors in Artificial Intelligence & Machine Learning.\nLocation: Navi Mumbai, Maharashtra | CGPA: 9.1\nSt. John the Baptist Junior College \n         \n(2018 – 2020)\nStream: Science 11th - 12th (PCBM) \nLocation: Thane, Maharashtra | Percentage: 74.77\n",
+    "personal_info": {
+        "name": "Shrushti Desai",
+        "email": "Shrushtidesai.work@gmail.com",
+        "phone": null,
+        "linkedin": null,
+        "github": null,
+        "location": "Thane"
+    },
+    "resume_score": 60,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: No",
+    "improvement_suggestions": [
+        "Include missing personal information: Phone.",
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Mention your Secondary School (10th) education."
+    ],
+    "ai_skill_suggestions": [
+        "electrical",
+        "b.tech",
+        "trainee engineer",
+        "graduate engineer",
+        "fresher engineer",
+        "civil",
+        "fresher",
+        "trainee",
+        "engineering fresher",
+        "engineering graduate",
+        "b.e",
+        "gte",
+        "entry level engineer",
+        "computer science",
+        "engineering graduate trainee",
+        "engineering trainee",
+        "engineering student",
+        "mechanical",
+        "electronics"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Graduate Engineer Trainee (GET)",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Web Developer",
+                "confidence": 0.62,
+                "confidence_percent": "62%"
+            },
+            {
+                "title": "AI Engineer",
+                "confidence": 0.62,
+                "confidence_percent": "62%"
+            }
+        ],
+        "job_title": "Graduate Engineer Trainee (GET)",
+        "skills": [
+            "Applied Skill",
+            "Basic Level",
+            "Programming Skills",
+            "_________________________________________________________________________________ Skills"
+        ],
+        "preferred_location": "Thane",
+        "recommended_courses": {
+            "Graduate Engineer Trainee (GET)": [
+                "MS Office Essentials - https://www.coursera.org/learn/excel-essentials",
+                "PLC/SCADA Introduction - https://www.udemy.com/course/plc-programming",
+                "SolidWorks Essentials - https://www.linkedin.com/learning/solidworks-essential-training",
+                "AutoCAD (2D/3D) - https://www.linkedin.com/learning/autocad-2d-3d-essential-training",
+                "Proteus for Electronics - https://www.udemy.com/course/proteus-electronics",
+                "Primavera P6 Basics - https://www.udemy.com/course/primavera-p6-basics",
+                "Revit BIM Fundamentals - https://www.udemy.com/course/revit-architecture-bim",
+                "Introduction to Programming (Python/C) - https://www.udemy.com/course/complete-python-bootcamp"
+            ],
+            "Web Developer": [
+                "Complete Python Bootcamp - https://www.udemy.com/course/complete-python-bootcamp",
+                "Full Stack Web Development - https://www.coursera.org/learn/full-stack-web-development",
+                "JavaScript Algorithms and Data Structures - https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures"
+            ],
+            "AI Engineer": [
+                "Machine Learning by Andrew Ng - https://www.coursera.org/learn/machine-learning",
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning",
+                "AI For Everyone - https://www.coursera.org/learn/ai-for-everyone"
+            ]
+        }
+    }
+}

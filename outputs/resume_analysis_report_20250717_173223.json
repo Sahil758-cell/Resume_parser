@@ -1,0 +1,70 @@
+{
+    "raw_text": " \n \n \n \n \nNANDANI PARMAR \nPROFILE \nI am MBA student with a BBA background and strong \nunderstanding of business concepts like marketing, finance, \nand management. Eager to learn, grow, and apply my academic \nknowledge to real-world business situations. Known for being a \nquick learner, a good team player, and someone who is always \nready to take on new challenges. \nEDUCATION \nJG University \nMBA (2024 – 2026) \nAsia Pacific Institute of Management  \nBBA (2021 – 2024) \nSaraswati Higher Secondary School  \nHSC (2020 – 2021) \nMani Prabhu High School \nSSC (2018 – 2019) \n  \nSKILLS \nQuick Lerner \nTime Management \nFlexibility \nMulti-Tasking \nGood Communication \nLANGUAGE \nGujarati \nHindi \nEnglish \n \nAhmedabad \n \n6352903566 \n \nNanduu0107@gmail.com \n \n \n \nOBJECTIVE \nMBA fresher with a diverse academic \nbackground and a strong foundation \nin management principles. Looking to \ntransition into a corporate role where \nI can blend my analytical thinking and \nleadership skills for mutual growth. \n \n \n",
+    "personal_info": {
+        "name": "Nandani Parmar",
+        "email": "Nanduu0107@gmail.com",
+        "phone": "6352903566",
+        "linkedin": null,
+        "github": null,
+        "location": "Ahmedabad"
+    },
+    "resume_score": 80,
+    "education_summary": "Post Graduate: Yes, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: Yes, SSC: Yes",
+    "improvement_suggestions": [
+        "Add academic or personal projects.",
+        "Mention any internships or trainee roles you've done.",
+        "List certifications or training programs.",
+        "Include work experience or volunteering."
+    ],
+    "ai_skill_suggestions": [
+        "onboarding",
+        "training",
+        "human resources",
+        "hr trainee",
+        "conflict management",
+        "hr",
+        "compliance",
+        "employee relations",
+        "recruitment",
+        "payroll"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "HR Manager",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Business Analyst",
+                "confidence": 0.84,
+                "confidence_percent": "84%"
+            },
+            {
+                "title": "Marketing Manager",
+                "confidence": 0.83,
+                "confidence_percent": "83%"
+            }
+        ],
+        "job_title": "HR Manager",
+        "skills": [
+            "English",
+            "Flexibility",
+            "Hindi"
+        ],
+        "preferred_location": "Ahmedabad",
+        "recommended_courses": {
+            "HR Manager": [
+                "People Management Skills - https://www.edx.org/course/people-management",
+                "Human Resource Management - https://www.coursera.org/specializations/human-resource-management",
+                "HR Analytics - https://www.coursera.org/learn/hr-analytics"
+            ],
+            "Business Analyst": [
+                "Business Analysis & Process Management - https://www.coursera.org/learn/uva-darden-business-analysis"
+            ],
+            "Marketing Manager": [
+                "digital marketing, communication, campaign management, creativity, branding, marketing, analytics"
+            ]
+        }
+    }
+}

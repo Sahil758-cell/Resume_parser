@@ -14,6 +14,9 @@ import numpy as np
 nltk.download('punkt', quiet=True)
 nltk.download('punky_tab',quiet=True)
 
+nltk.download('punkt', quiet=True)
+nltk.download('punky_tab',quiet=True)
+
 # Extract text from PDF
 def extract_text_from_pdf(pdf_path):
     text = ""
