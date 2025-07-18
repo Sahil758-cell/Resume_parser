@@ -130,6 +130,12 @@ def predict_job_field(resume_text, top_n=3):
             domain_specific_terms = ['kotlin', 'android', 'xml', 'android studio']
         elif 'web' in job_title_lower or 'frontend' in job_title_lower or 'backend' in job_title_lower:
             domain_specific_terms = ['html', 'css', 'javascript', 'react', 'angular', 'node.js']
+        elif 'ui' in job_title_lower or 'ux' in job_title_lower or ('design' in job_title_lower and any(design_term in job_title_lower for design_term in ['ui', 'ux', 'user', 'interface', 'experience'])):
+            # Dynamically extract design-specific terms from the job's own keywords and tools
+            design_terms_from_job = []
+            design_terms_from_job.extend([kw for kw in keywords if any(dt in kw for dt in ['figma', 'adobe', 'wireframe', 'prototype', 'design', 'user', 'usability', 'sketch'])])
+            design_terms_from_job.extend([tool for tool in tools if any(dt in tool for dt in ['figma', 'adobe', 'sketch', 'xd'])])
+            domain_specific_terms = list(set(design_terms_from_job)) if design_terms_from_job else ['figma', 'adobe xd', 'wireframes', 'prototypes', 'design thinking', 'user research', 'usability testing']
         elif 'data scientist' in job_title_lower:
             domain_specific_terms = ['pandas', 'numpy', 'matplotlib', 'seaborn', 'jupyter']
         elif 'ai' in job_title_lower or 'ml' in job_title_lower:
@@ -177,6 +183,31 @@ def predict_job_field(resume_text, top_n=3):
         # Small boost for project experience (universal indicator)
         if any(term in resume_text for term in ['project', 'developed', 'designed', 'built', 'created']):
             final_score += 0.05
+        
+        # Context-aware penalty: Penalize testing roles when strong design context is present
+        if 'tester' in job_title_lower or 'testing' in job_title_lower or 'qa' in job_title_lower:
+            # Dynamically detect design context by checking if resume has design-related job roles
+            design_job_indicators = 0
+            resume_lines = resume_text.lower().split('\n')
+            
+            # Count design job titles/roles mentioned in resume
+            for line in resume_lines:
+                if any(role_pattern in line for role_pattern in ['designer', 'design intern', 'ux', 'ui']):
+                    design_job_indicators += 1
+            
+            # Count design tools from the job knowledge base itself (dynamic approach)
+            design_tools_count = 0
+            for job_idx, job_row in df.iterrows():
+                if 'design' in job_row['job_title'].lower() or 'ux' in job_row['job_title'].lower() or 'ui' in job_row['job_title'].lower():
+                    job_tools = [tool.strip().lower() for tool in str(job_row['tools']).split(',') if tool.strip()]
+                    job_keywords = [kw.strip().lower() for kw in str(job_row['keywords']).split(';') if kw.strip()]
+                    all_design_terms = job_tools + job_keywords
+                    design_tools_count += sum(1 for term in all_design_terms if term in resume_text.lower())
+            
+            # Apply penalty if strong design context is detected
+            total_design_context = design_job_indicators + (design_tools_count / 3)  # Normalize tool count
+            if total_design_context >= 2:  # Threshold for strong design context
+                final_score -= 0.25  # Penalize testing roles when candidate is clearly a designer
         
         # Penalty for mismatched engineering education
         if 'mechanical engineer' in job_title_lower:

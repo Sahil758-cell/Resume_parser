@@ -1,0 +1,67 @@
+{
+    "raw_text": "Aviral Lakhanpaul\nUX Designer with nearly 2 years of experience crafting meaningful digital \nexperiences through research, heuristics, and user-centric design. I bridge \nuser needs with business goals and thrive on solving complex design \nchallenges.\nOnline Portfolio\nLinkedIn Profile\navirallakhanpaul8@gmail.com\n+91 9971199775\nExperience\nUI/UX Designer at Ambition Hire\nDec 2023 - Present | Gurugram\n® Led brainstorming sessions and iterative design changes, \nincreasing client acquisition by 15% and positive feedback by 20%\n® Collaborated with the Marketing Head to optimize website content, \nboosting SEO rankings by 30-35%\n® Ensured timely design iterations, reducing time-to-market by 25% \nand meeting all launch deadlines\n® Spearheaded the design of four key products (Recruiter-side, \nCandidate-side, Admin Dashboard, Website) for a recruitment and \nassessment SaaS tool\n® Managed the end-to-end design process, from user research and \nprototyping to final product integration.\nUI/UX Designer at Talocity Instasolutions\nMar 2023 - Nov 2023 | Gurugram\n® Partnered with the Product Manager to refine features, reducing \nrecruiter sign-up bounce rates by 20%\n® Streamlined collaboration between front-end and back-end teams, \ncutting project delivery time by 25% and post-launch defects by \n15%\n® Designed a detailed user flow and journey map, enhancing team \nunderstanding of product functionality by 32%.\nDesign Intern at Skai Lama\nJun 2022 - Jan 2023 | Remote\n® Drove a 30-35% increase on Shopify in Monthly Recurring Revenue \n(MRR) and boosted user retention by 40% through impactful design \nsolutions\n® Enhanced the Shopify user experience for Skai Lama’s products, \nachieving a 50% rise in user satisfaction and engagement within six \nmonths\n® Worked closely with developers to overcome platform limitations, \nensuring seamless design integration.\nUI/UX Design Intern at AdoptEV Technologies\nJun 2021 - Jul 2021 | Remote\n® Revamped the user website with modern design elements for an \nimproved experience\n® Collaborated with the founder and design lead to simplify and \nenhance the logistics booking journey\n® Streamlined the admin app design, making it more user-friendly and \nintuitive.\nEducation\nUPES\n2019 - 2023 | Dehradun\nB.Tech. in Computer Science with spz. in Graphics & Gaming\nCase Studies\nDesigning for Simplicity and \nClarity — A UX Case Study on \nConnected-Car Interfaces\nMay 2025 | Medium\nView Case Study\nDigitizing the Trucking Repair \nand Maintenance Industry\nJul 2024 | Medium\nView Case Study\nDesigning a Smarter Employee \nTime Tracking Tool\nSep 2024 | Medium\nView Case Study\nSkills\nMethodology\nUI/UX Design \nWireframing \nPrototyping\nDesign system design\nDesign Sprints\nUser Research\nA/B testing\nUsability testing\nDocumentation\nTools\nFigma\nFramer\nSketch\nAdobe XD\nNotion\nSlack\nZoho Cliq\nTechnical\nHTML\nCSS\nJavaScript\nFlutter\nSoft\nCritical Thinking\nEmpathy\nCommunication\nCollaboration\nProblem Solving\nTime Management\nAttention to Detail\nPatience\n",
+    "personal_info": {
+        "name": "Aviral Lakhanpaul",
+        "email": "avirallakhanpaul8@gmail.com",
+        "phone": "9971199775",
+        "linkedin": null,
+        "github": null,
+        "location": "Dehradun"
+    },
+    "resume_score": 60,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education.",
+        "List certifications or training programs.",
+        "Mention the languages you're fluent in."
+    ],
+    "ai_skill_suggestions": [
+        "design thinking",
+        "wireframe",
+        "prototype",
+        "usability",
+        "user research",
+        "figma"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "UX Designer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Software Developer",
+                "confidence": 0.79,
+                "confidence_percent": "79%"
+            },
+            {
+                "title": "Software Tester",
+                "confidence": 0.72,
+                "confidence_percent": "72%"
+            }
+        ],
+        "job_title": "UX Designer",
+        "skills": [
+            "& Gaming",
+            "Css",
+            "Html",
+            "Javascript",
+            "Methodology"
+        ],
+        "preferred_location": "Dehradun",
+        "recommended_courses": {
+            "UX Designer": [
+                "Google UX Design - https://www.coursera.org/professional-certificates/google-ux-design"
+            ],
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ],
+            "Software Tester": [
+                "Manual Software Testing - https://www.udemy.com/course/manual-software-testing/"
+            ]
+        }
+    }
+}

@@ -1,272 +1,272 @@
-skill	synonyms
-python	py;python3;python2
-java	java8;java se;java ee;jvm
-javascript	js;java script;ecmascript;nodejs;javascript
-node.js	nodejs;node js;node
-react	",reactjs;react.js;react js"
-angular	angularjs;angular.js;ng
-vue	vuejs;vue.js;vue js
-html	html5;hypertex+A9:A263t markup language
-css	css3;cascading style sheets
-sql	structured query language;sqls
-mysql	my sql;my-sql
-mongodb	mongo;mongo db
-postgresql	postgres;postgre sql;postgre
-flask	flask framework
-django	python django
-pandas	pandas library
-numpy	numpy library
-matplotlib	mat plot lib;mat-plotlib
-seaborn	sea born
-scikit-learn	sklearn;scikit learn
-tensorflow	tensor flow;tf
-keras	keras library
-pytorch	py torch
-machine learning	ml;mach learning;machine-learning
-deep learning	dl;deep-learning
-data science	data scientist;ds
-data analysis	data analyst
-data visualization	data viz;dataviz
-statistics	statistical;stats
-ai	artificial intelligence;a.i.
-nlp	natural language processing
-computer vision	cv
-android	android development;android dev
-kotlin	kotlin lang
-android studio	androidstudio
-xml	extensible markup language
-swift	swift language
-xcode	x code
-ios	ios development;ios dev
-objective-c	objective c
-figma	figmaapp
-adobe xd	adobexd
-wireframes	wireframe;wire framing
-prototypes	prototype;prototyping
-design thinking	design-think
-photoshop	psd;adobe photoshop
-illustrator	adobe illustrator
-branding	brand management
-market research	marketresearch
-seo	search engine optimization
-sem	search engine marketing
-google ads	googleads;adwords
-analytics	google analytics;web analytics
-social media marketing	smm;social media;socialmedia
-crm	customer relationship management
-hr	human resources;hrm
-payroll	pay roll
-compliance	compliances
-training	trainings
-recruitment	recruit;hiring
-conflict management	conflict resolution
-employee relations	employee relationship
-git	github;gitlab
-vscode	visual studio code
-jupyter	jupyter notebook
-system design	system-design
-algorithms	algorithm;algo
-data structures	data structure;datastructure
-android sdk	androidsdk
-npm	node package manager
-express	expressjs;express.js;express js
-rest api	restful api;restfulapi;rest
-typescript	ts
-firebase	fire base
-ci/cd	cicd;continuous integration;continuous delivery
-financial modeling	financialmodeling
-budgeting	budget
-forecasting	fore cast;fore-casting
-excel	ms excel;msexcel;excel spreadsheet
-tally	tally erp
-accounting	accounts
-finance	financial
-solidworks	solid works
-autocad	auto cad;auto-cad
-mechanical	mechanical engineering
-thermodynamics	thermo dynamics
-cad	computer aided design
-manufacturing	manufacture
-pspice	ps pice
-plc	programmable logic controller
-power systems	power system
-matlab	mat lab
-lesson planning	lesson plan
-pedagogy	teaching method
-edtech	education technology
-counseling	counselling
-therapy	therapist
-mental health	mentalhealth
-diagnosis	diagnose
-empathy	empathetic
-legal drafting	legal draft
-contracts	contract
-litigation	litigate
-case law	case-law
-ipc	indian penal code
-clinical diagnosis	clinicaldiagnosis
-patient care	patientcare
-medical ethics	medicalethics
-pathology	pathological
-icu	intensive care unit
-first aid	firstaid
-patient monitoring	patientmonitoring
-injection	inject
-hygiene	hygienic
-pharmacy	pharma;pharmacist
-medication	medicine
-dispensing	dispense
-drug	drugs
-pharmacology	pharmacological
-prescription	prescribe
-chemist	chemistry;chemist shop
-hospital	hospital management
-patient counseling	patient counselling
-healthcare	health care
-pharmaceutical	pharma ceutical
-chemist	chemist shop;chemist store
-inventory management	inventory
-clinical pharmacy	clinicalpharmacy
-pharmacy law	pharmacylaw
-pharmacy practice	pharmacypractice
-pharmacy management	pharmacymanagement
-pharmacy assistant	pharmacyassistant
-pharmacy sales	pharmacysales
-pharmacy research	pharmacyresearch
-pharmacy education	pharmacyeducation
-pharmacy administration	pharmacyadministration
-pharmacy services	pharmacyservices
-pharmacy care	pharmacycare
-pharmacy records	pharmacyrecords
-pharmacy compliance	pharmacycompliance
-pharmacy safety	pharmacysafety
-pharmacy quality	pharmacyquality
-pharmacy audit	pharmacyaudit
-pharmacy regulation	pharmacyregulation
-pharmacy supply	pharmacysupply
-pharmacy logistics	pharmacylogistics
-pharmacy billing	pharmacybilling
-pharmacy insurance	pharmacyinsurance
-pharmacy reimbursement	pharmacyreimbursement
-pharmacy benefit	pharmacybenefit
-pharmacy formulary	pharmacyformulary
-pharmacy policy	pharmacypolicy
-pharmacy licensure	pharmacylicensure
-pharmacy certification	pharmacycertification
-pharmacy leadership	pharmacyleadership
-pharmacy mentoring	pharmacymentoring
-pharmacy technology	pharmacytechnology
-pharmacy informatics	pharmacyinformatics
-pharmacy analytics	pharmacyanalytics
-pharmacy documentation	pharmacydocumentation
-pharmacy teamwork	pharmacyteamwork
-pharmacy collaboration	pharmacycollaboration
-pharmacy immunization	pharmacyimmunization
-pharmacy compounding	pharmacycompounding
-pharmacy oncology	pharmacyoncology
-pharmacy pediatrics	pharmacypediatrics
-pharmacy geriatrics	pharmacygeriatrics
-pharmacy nutrition	pharmacynutrition
-pharmacy pain management	pharmacypainmanagement
-pharmacy pharmacokinetics	pharmacypharmacokinetics
-pharmacy pharmacodynamics	pharmacypharmacodynamics
-pharmacy pharmacogenomics	pharmacypharmacogenomics
-pharmacy pharmacoeconomics	pharmacypharmacoeconomics
-pharmacy pharmacovigilance	pharmacypharmacovigilance
-pharmacy clinical trials	pharmacyclinicaltrials
-graphic design	graphic designer;graphics design
-photo editing	photoedit;image editing
-composition	composing
-dslr	ds lr
-studio lighting	studio light
-storytelling	story telling
-grammar	grammer
-proofreading	proof reading
-blogging	blogger;blog
-content creation	content creator
-copywriting	copy writer
-fashion design	fashion designing
-illustration	illustrator
-stitching	stitch
-draping	drape
-textile design	textile designing
-typing	typing speed
-spreadsheets	spreadsheet
-customer support	customer service
-ticketing systems	ticketing;ticket system
-problem-solving	problem solving
-wiring	wire
-switchboard	switch board
-plumbing	plumber;plumbing work
-pipe repair	pipe repairing
-maintenance	maintain
-research	researcher
-experiments	experiment
-laboratory	lab
-chromatography	chromatograph
-spectroscopy	spectroscope
-synthesis	synthesize
-data scientist	data science
-full stack	fullstack
-frontend	front end
-backend	back end
-iot	internet of things
-sensors	sensor
-embedded systems	embedded system
-arduino	arduino board
-raspberry pi	raspberrypi
-actuator	actuator control
-esp32	esp 32
-microcontroller	micro controller
-software development	software dev
-manual testing	manualtest
-test cases	test case
-defect tracking	defecttrack
-bug reporting	bugreport
-test execution	testexecute
-jira	jira software;jira tool
-selenium	selenium webdriver
-testng	testing ng
-regression	regression test
-qa	quality assurance
-automation	automation testing
-trello	trello app
-confluence	confluence app
-epic	epic software
-icd-10	icd10
-cpt	cpt code
-hcpcs	hcpcs code
-penetration testing	pen testing;pentest
-kali linux	kali
-network security	networksecurity
-open ports	openports
-python scripting	python script
-flask api	flask rest;flask restful
-supply chain	supplychain
-logistics	logistic
-procurement	procure
-vendor management	vendor manage
-operations	operation
-planning	plan
-erp	enterprise resource planning
-product management	product manager
-roadmap	road map
-agile	agile methodology
-user stories	user story
-stakeholder	stake holder
-backlog	back log
-features	feature
-test documentation	test docs
-test strategy	teststrategy
-test automation	testautomation
-medical coding	medical code
-claim	claims
-healthcare compliance	health compliance
-sap	sap erp
-oracle	oracle erp
-tableau	tableau software
-powerpoint	ms powerpoint;power point
-ms word	microsoft word
-excel	ms excel;msexcel
-canva	canva app
-zoho	zoho people
+skill,synonyms
+python,py;python3;python2
+java,java8;java se;java ee;jvm
+javascript,js;java script;ecmascript;nodejs;javascript
+node.js,nodejs;node js;node
+react,"reactjs;react.js;react js"""
+angular,angularjs;angular.js;ng
+vue,vuejs;vue.js;vue js
+html,html5;hypertex+A9:A263t markup language
+css,css3;cascading style sheets
+sql,structured query language;sqls
+mysql,my sql;my-sql
+mongodb,mongo;mongo db
+postgresql,postgres;postgre sql;postgre
+flask,flask framework
+django,python django
+pandas,pandas library
+numpy,numpy library
+matplotlib,mat plot lib;mat-plotlib
+seaborn,sea born
+scikit-learn,sklearn;scikit learn
+tensorflow,tensor flow;tf
+keras,keras library
+pytorch,py torch
+machine learning,ml;mach learning;machine-learning
+deep learning,dl;deep-learning
+data science,data scientist;ds
+data analysis,data analyst
+data visualization,data viz;dataviz
+statistics,statistical;stats
+ai,artificial intelligence;a.i.
+nlp,natural language processing
+computer vision,cv
+android,android development;android dev
+kotlin,kotlin lang
+android studio,androidstudio
+xml,extensible markup language
+swift,swift language
+xcode,x code
+ios,ios development;ios dev
+objective-c,objective c
+figma,figmaapp
+adobe xd,adobexd
+wireframes,wireframe;wire framing
+prototypes,prototype;prototyping
+design thinking,design-think
+photoshop,psd;adobe photoshop
+illustrator,adobe illustrator
+branding,brand management
+market research,marketresearch
+seo,search engine optimization
+sem,search engine marketing
+google ads,googleads;adwords
+analytics,google analytics;web analytics
+social media marketing,smm;social media;socialmedia
+crm,customer relationship management
+hr,human resources;hrm
+payroll,pay roll
+compliance,compliances
+training,trainings
+recruitment,recruit;hiring
+conflict management,conflict resolution
+employee relations,employee relationship
+git,github;gitlab
+vscode,visual studio code
+jupyter,jupyter notebook
+system design,system-design
+algorithms,algorithm;algo
+data structures,data structure;datastructure
+android sdk,androidsdk
+npm,node package manager
+express,expressjs;express.js;express js
+rest api,restful api;restfulapi;rest
+typescript,ts
+firebase,fire base
+ci/cd,cicd;continuous integration;continuous delivery
+financial modeling,financialmodeling
+budgeting,budget
+forecasting,fore cast;fore-casting
+excel,ms excel;msexcel;excel spreadsheet
+tally,tally erp
+accounting,accounts
+finance,financial
+solidworks,solid works
+autocad,auto cad;auto-cad
+mechanical,mechanical engineering
+thermodynamics,thermo dynamics
+cad,computer aided design
+manufacturing,manufacture
+pspice,ps pice
+plc,programmable logic controller
+power systems,power system
+matlab,mat lab
+lesson planning,lesson plan
+pedagogy,teaching method
+edtech,education technology
+counseling,counselling
+therapy,therapist
+mental health,mentalhealth
+diagnosis,diagnose
+empathy,empathetic
+legal drafting,legal draft
+contracts,contract
+litigation,litigate
+case law,case-law
+ipc,indian penal code
+clinical diagnosis,clinicaldiagnosis
+patient care,patientcare
+medical ethics,medicalethics
+pathology,pathological
+icu,intensive care unit
+first aid,firstaid
+patient monitoring,patientmonitoring
+injection,inject
+hygiene,hygienic
+pharmacy,pharma;pharmacist
+medication,medicine
+dispensing,dispense
+drug,drugs
+pharmacology,pharmacological
+prescription,prescribe
+chemist,chemistry;chemist shop
+hospital,hospital management
+patient counseling,patient counselling
+healthcare,health care
+pharmaceutical,pharma ceutical
+chemist,chemist shop;chemist store
+inventory management,inventory
+clinical pharmacy,clinicalpharmacy
+pharmacy law,pharmacylaw
+pharmacy practice,pharmacypractice
+pharmacy management,pharmacymanagement
+pharmacy assistant,pharmacyassistant
+pharmacy sales,pharmacysales
+pharmacy research,pharmacyresearch
+pharmacy education,pharmacyeducation
+pharmacy administration,pharmacyadministration
+pharmacy services,pharmacyservices
+pharmacy care,pharmacycare
+pharmacy records,pharmacyrecords
+pharmacy compliance,pharmacycompliance
+pharmacy safety,pharmacysafety
+pharmacy quality,pharmacyquality
+pharmacy audit,pharmacyaudit
+pharmacy regulation,pharmacyregulation
+pharmacy supply,pharmacysupply
+pharmacy logistics,pharmacylogistics
+pharmacy billing,pharmacybilling
+pharmacy insurance,pharmacyinsurance
+pharmacy reimbursement,pharmacyreimbursement
+pharmacy benefit,pharmacybenefit
+pharmacy formulary,pharmacyformulary
+pharmacy policy,pharmacypolicy
+pharmacy licensure,pharmacylicensure
+pharmacy certification,pharmacycertification
+pharmacy leadership,pharmacyleadership
+pharmacy mentoring,pharmacymentoring
+pharmacy technology,pharmacytechnology
+pharmacy informatics,pharmacyinformatics
+pharmacy analytics,pharmacyanalytics
+pharmacy documentation,pharmacydocumentation
+pharmacy teamwork,pharmacyteamwork
+pharmacy collaboration,pharmacycollaboration
+pharmacy immunization,pharmacyimmunization
+pharmacy compounding,pharmacycompounding
+pharmacy oncology,pharmacyoncology
+pharmacy pediatrics,pharmacypediatrics
+pharmacy geriatrics,pharmacygeriatrics
+pharmacy nutrition,pharmacynutrition
+pharmacy pain management,pharmacypainmanagement
+pharmacy pharmacokinetics,pharmacypharmacokinetics
+pharmacy pharmacodynamics,pharmacypharmacodynamics
+pharmacy pharmacogenomics,pharmacypharmacogenomics
+pharmacy pharmacoeconomics,pharmacypharmacoeconomics
+pharmacy pharmacovigilance,pharmacypharmacovigilance
+pharmacy clinical trials,pharmacyclinicaltrials
+graphic design,graphic designer;graphics design
+photo editing,photoedit;image editing
+composition,composing
+dslr,ds lr
+studio lighting,studio light
+storytelling,story telling
+grammar,grammer
+proofreading,proof reading
+blogging,blogger;blog
+content creation,content creator
+copywriting,copy writer
+fashion design,fashion designing
+illustration,illustrator
+stitching,stitch
+draping,drape
+textile design,textile designing
+typing,typing speed
+spreadsheets,spreadsheet
+customer support,customer service
+ticketing systems,ticketing;ticket system
+problem-solving,problem solving
+wiring,wire
+switchboard,switch board
+plumbing,plumber;plumbing work
+pipe repair,pipe repairing
+maintenance,maintain
+research,researcher
+experiments,experiment
+laboratory,lab
+chromatography,chromatograph
+spectroscopy,spectroscope
+synthesis,synthesize
+data scientist,data science
+full stack,fullstack
+frontend,front end
+backend,back end
+iot,internet of things
+sensors,sensor
+embedded systems,embedded system
+arduino,arduino board
+raspberry pi,raspberrypi
+actuator,actuator control
+esp32,esp 32
+microcontroller,micro controller
+software development,software dev
+manual testing,manualtest
+test cases,test case
+defect tracking,defecttrack
+bug reporting,bugreport
+test execution,testexecute
+jira,jira software;jira tool
+selenium,selenium webdriver
+testng,testing ng
+regression,regression test
+qa,quality assurance
+automation,automation testing
+trello,trello app
+confluence,confluence app
+epic,epic software
+icd-10,icd10
+cpt,cpt code
+hcpcs,hcpcs code
+penetration testing,pen testing;pentest
+kali linux,kali
+network security,networksecurity
+open ports,openports
+python scripting,python script
+flask api,flask rest;flask restful
+supply chain,supplychain
+logistics,logistic
+procurement,procure
+vendor management,vendor manage
+operations,operation
+planning,plan
+erp,enterprise resource planning
+product management,product manager
+roadmap,road map
+agile,agile methodology
+user stories,user story
+stakeholder,stake holder
+backlog,back log
+features,feature
+test documentation,test docs
+test strategy,teststrategy
+test automation,testautomation
+medical coding,medical code
+claim,claims
+healthcare compliance,health compliance
+sap,sap erp
+oracle,oracle erp
+tableau,tableau software
+powerpoint,ms powerpoint;power point
+ms word,microsoft word
+excel,ms excel;msexcel
+canva,canva app
+zoho,zoho people

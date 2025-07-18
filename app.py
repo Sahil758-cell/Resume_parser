@@ -9,14 +9,17 @@ import secrets
 from functools import wraps
 import requests
 from urllib.parse import urlparse
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'Uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # === API Key Setup (Fixed) ===
-API_KEY = "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"  # Change this to your desired fixed key
-print(f"[INFO] Your fixed API key: {API_KEY}")
+API_KEY = os.getenv("API_KEY") 
+
 
 def require_api_key(view_function):
     @wraps(view_function)
