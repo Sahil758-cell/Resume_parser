@@ -10,6 +10,40 @@ from image_pdf_text_extractor import extract_text_from_image_pdf
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers.pipelines import pipeline
 import unicodedata
+from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("DB_NAME")
+
+try:
+    client = MongoClient(MONGO_URI, 
+                        serverSelectionTimeoutMS=5000,  # 5 second timeout
+                        connectTimeoutMS=5000,
+                        socketTimeoutMS=5000)
+    db = client[DB_NAME]
+    jobs_collection = db['ups_resume_analyzers']
+    # Test the connection
+    client.admin.command('ping')
+    print("✅ resume_parser.py connected to MongoDB.")
+except Exception as e:
+    print(f"❌ resume_parser.py failed to connect to MongoDB: {e}")
+    jobs_collection = None
+
+# === Skill Keywords (from MongoDB) ===
+SKILL_KEYWORDS = set()
+if jobs_collection is not None: 
+    try:
+        # Fetch only the 'keywords' field from all documents
+        all_jobs = jobs_collection.find({}, {"keywords": 1, "_id": 0})
+        for job in all_jobs:
+            if job.get("keywords"):
+                keywords = [kw.strip().lower() for kw in job["keywords"].split(",") if kw.strip()]
+                SKILL_KEYWORDS.update(keywords)
+    except Exception as e:
+        print(f"❌ MongoDB error fetching skills: {e}")
+
 
 nlp = spacy.load("en_core_web_trf")
 
@@ -3093,16 +3127,20 @@ def generate_improvement_suggestions(personal, edu, proj_int, certification, wor
 
 # === AI Skill Gap Suggestion ===
 def generate_ai_skill_suggestions(job_title, detected_skills):
+    """Generates skill suggestions by comparing detected skills to job requirements in MongoDB."""
     expected_skills = set()
+    if jobs_collection is None: # <-- FIX
+        return []  
     try:
-        with open("job_knowledge_base.csv", newline='', encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                if row['job_title'].strip().lower() == job_title.strip().lower():
-                    expected_skills.update([kw.strip().lower() for kw in row['keywords'].split(",") if kw.strip()])
-    except FileNotFoundError:
-        print("❌ job_knowledge_base.csv not found. AI skill suggestions unavailable.")
-    return list(expected_skills - set(detected_skills))
+        job = jobs_collection.find_one({"job_title": job_title}, {"keywords": 1, "_id": 0})
+        if job and job.get("keywords"):
+            expected_skills.update([kw.strip().lower() for kw in job["keywords"].split(",") if kw.strip()])
+    except Exception as e:
+        print(f"❌ Error fetching AI skill suggestions from MongoDB: {e}")
+
+    # Ensure detected_skills are all lowercase for accurate comparison
+    detected_skills_lower = {skill.lower() for skill in detected_skills}
+    return list(expected_skills - detected_skills_lower) 
 
 # === Resume Score Chart ===
 def display_resume_score(rating):

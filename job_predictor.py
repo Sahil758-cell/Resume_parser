@@ -3,19 +3,63 @@ import docx
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from sentence_transformers import SentenceTransformer, util
 import re
-from nltk.tokenize import word_tokenize
-import nltk
-import nltk.data
-nltk.data.load('tokenizers/punkt/english.pickle')
 import numpy as np
+from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
 
-nltk.download('punkt', quiet=True)
-nltk.download('punky_tab',quiet=True)
+# Import NLTK with error handling
+try:
+    from nltk.tokenize import word_tokenize
+    import nltk
+    import nltk.data
+    # Try to load punkt tokenizer, fallback to simple split if not available
+    try:
+        nltk.data.find('tokenizers/punkt')
+        NLTK_AVAILABLE = True
+    except LookupError:
+        print("⚠️ NLTK punkt tokenizer not found, will use simple tokenization")
+        NLTK_AVAILABLE = False
+except ImportError:
+    print("⚠️ NLTK not available, using simple tokenization")
+    NLTK_AVAILABLE = False
 
-nltk.download('punkt', quiet=True)
-nltk.download('punky_tab',quiet=True)
+# Import SentenceTransformers with error handling
+try:
+    from sentence_transformers import SentenceTransformer, util
+    SENTENCE_TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    print("⚠️ SentenceTransformers not available, will use TF-IDF only")
+    SENTENCE_TRANSFORMERS_AVAILABLE = False
+
+
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("DB_NAME")
+
+try:
+    client = MongoClient(MONGO_URI,
+                        serverSelectionTimeoutMS=5000,  # 5 second timeout  
+                        connectTimeoutMS=5000,
+                        socketTimeoutMS=5000)
+    db = client[DB_NAME]
+    job_collection = db['ups_resume_analyzers']
+    # Test the connection
+    client.admin.command('ping')
+    print("✅ Connected to MongoDB successfully")
+except Exception as e:
+    print(f"❌ Error connecting to MongoDB: {str(e)}")
+    job_collection = None 
+
+# Try to download NLTK data if needed, but don't fail if network is unavailable
+if NLTK_AVAILABLE:
+    try:
+        nltk.download('punkt', quiet=True)
+        print("✅ NLTK punkt tokenizer ready")
+    except Exception as e:
+        print(f"⚠️ Could not download NLTK punkt tokenizer: {e}")
+        NLTK_AVAILABLE = False
 
 # Extract text from PDF
 def extract_text_from_pdf(pdf_path):
@@ -34,38 +78,51 @@ def extract_text_from_docx(docx_path):
 # Helper: Normalize text and split for robust token matching
 def normalize_and_tokenize(text):
     import re
+    if NLTK_AVAILABLE:
+        try:
+            tokens = word_tokenize(text.lower())
+            return set(tokens)
+        except:
+            pass
+    # Fallback to simple regex tokenization
     tokens = re.findall(r'\b\w+\b', text.lower())
     return set(tokens)
 
 # Load job knowledge base into DataFrame and handle duplicates
-def load_job_knowledge_base(file_path="job_knowledge_base.csv"):
+def load_job_knowledge_base():
+    """Loads job knowledge from MongoDB into a pandas DataFrame."""
+    if job_collection is None:
+        print("❌ MongoDB connection not available")
+        return None
+    
     try:
-        df = pd.read_csv(file_path)
-        df = df.fillna('')
-        df = df.groupby('job_title').agg({
-            'keywords': lambda x: ';'.join(set(';'.join(x).split(';'))),
-            'recommended_courses': lambda x: ';'.join(set(';'.join(x).split(';'))),
-            'skills': lambda x: ','.join(set(','.join(x).split(','))),
-            'education_required': lambda x: ';'.join(set(';'.join(x).split(';'))),
-            'domain': 'first',
-            'tools': lambda x: ','.join(set(','.join(x).split(','))),
-            'courses': lambda x: ','.join(set(','.join(x).split(',')))
-        }).reset_index()
-        return df
+        # Fetch all documents from the 'jobs' collection
+        cursor = job_collection.find({})
+        df = pd.DataFrame(list(cursor))
+        
+        if df.empty:
+            print("⚠️ MongoDB collection 'ups_resume_analyzers' is empty. Please add job data to MongoDB.")
+            return None
+        
+        # Drop the '_id' column from MongoDB as it's not needed for processing
+        if '_id' in df.columns:
+            df = df.drop(columns=['_id'])
+        print(f"✅ Loaded {len(df)} jobs from MongoDB")
+        return df.fillna('')
     except Exception as e:
-        print(f"❌ Error loading job knowledge base: {str(e)}")
+        print(f"❌ Error loading job knowledge base from MongoDB: {e}")
         return None
 
-try:
-    semantic_model = SentenceTransformer('all-MiniLM-L6-v2')
-except Exception as e:
-    print("Could not load sentence-transformer model, falling back to TF-IDF.")
-    semantic_model = None
-
-def normalize_and_tokenize(text):
-    text = re.sub(r'[^\w\s]', '', text.lower()).strip()
-    return set(word_tokenize(text))
-
+# Try to load semantic model with better error handling
+semantic_model = None
+if SENTENCE_TRANSFORMERS_AVAILABLE:
+    try:
+        semantic_model = SentenceTransformer('all-MiniLM-L6-v2')
+        print("✅ Sentence transformer model loaded successfully")
+    except Exception as e:
+        print(f"⚠️ Could not load sentence-transformer model: {e}")
+        print("Will fall back to TF-IDF for similarity calculations")
+        semantic_model = None
 
 # Predict job field using semantic similarity and robust keyword/token matching
 def predict_job_field(resume_text, top_n=3):
@@ -74,12 +131,28 @@ def predict_job_field(resume_text, top_n=3):
         return [{"title": "Unknown", "confidence": 0.0, "confidence_percent": "0%"}]
 
     df = load_job_knowledge_base()
-    if df is None:
-        return [{"title": "Unknown", "confidence": 0.0, "confidence_percent": "0%"}]
+    if df is None or df.empty:
+        print("❌ No job knowledge base available from MongoDB. Please add job data to the database.")
+        return [{"title": "No Data Available", "confidence": 0.0, "confidence_percent": "0%", 
+                "error": "MongoDB collection 'ups_resume_analyzers' is empty. Please add job data."}]
+
+    # Check if required columns exist
+    required_columns = ['job_title', 'keywords', 'skills', 'tools', 'education_required']
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    
+    if missing_columns:
+        print(f"❌ Missing required columns in MongoDB data: {missing_columns}")
+        return [{"title": "Invalid Data Structure", "confidence": 0.0, "confidence_percent": "0%",
+                "error": f"MongoDB collection missing required columns: {missing_columns}"}]
+
+    if len(df) == 0:
+        print("❌ MongoDB job knowledge base is empty")
+        return [{"title": "No Data Available", "confidence": 0.0, "confidence_percent": "0%",
+                "error": "MongoDB collection 'ups_resume_analyzers' has no documents"}]
 
     job_titles = df["job_title"].tolist()
     descriptions = [
-        f"{row['job_title']}. {row['keywords']} {row['skills']} {row['tools']} {row['education_required']}"
+        f"{row['job_title']}. {row.get('keywords', '')} {row.get('skills', '')} {row.get('tools', '')} {row.get('education_required', '')}"
         for _, row in df.iterrows()
     ]
 
@@ -116,11 +189,11 @@ def predict_job_field(resume_text, top_n=3):
         
         # Extract skills and keywords for this job
         skills = [skill.strip().lower() for skill in str(row['skills']).split(',') if skill.strip()]
-        keywords = [kw.strip().lower() for kw in str(row['keywords']).split(';') if kw.strip()]
-        tools = [tool.strip().lower() for tool in str(row['tools']).split(',') if tool.strip()]
+        keywords = [kw.strip().lower() for kw in str(row.get('keywords', '')).split(';') if kw.strip()]
+        tools = [tool.strip().lower() for tool in str(row.get('tools', '')).split(',') if tool.strip()]
         
         # Separate domain-specific vs generic skills
-        job_title_lower = row['job_title'].lower()
+        job_title_lower = row.get('job_title', '').lower()
         
         # Domain-specific keywords that should have high weight
         domain_specific_terms = []
@@ -390,16 +463,19 @@ def predict_job_field(resume_text, top_n=3):
 
 # Get recommended courses
 def get_recommended_courses(job_title):
+    """Fetches recommended courses for a job title from MongoDB."""
+    if job_collection is None:
+        return []
     try:
-        df = load_job_knowledge_base("job_knowledge_base.csv")
-        row = df[df["job_title"].str.lower() == job_title.strip().lower()]
-        if not row.empty:
-            courses = row.iloc[0]["recommended_courses"]
+        job = job_collection.find_one({"job_title": job_title})
+        if job and job.get("recommended_courses"):
+            courses = job["recommended_courses"]
             return [course.strip() for course in str(courses).split(";") if course.strip()]
         return []
     except Exception as e:
-        print(f"Error while fetching recommended courses: {e}")
+        print(f"Error fetching recommended courses from MongoDB: {e}")
         return []
+
 
 # Optionally: Utility to get rich job info for UI (courses, tools, etc)
 def get_job_info(job_title):

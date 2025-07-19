@@ -1,0 +1,84 @@
+{
+    "raw_text": "SHUBHAM BHANDARE \nEmail: shubhamonchain@gmail.com | Phone: +91-8080515721 \nLocation: Pune, Maharashtra \nObjective \nAspiring Software Engineer with a strong foundation in programming, AI/ML, and IoT. \nAdept at applying data-driven techniques and software engineering principles to solve real-\nworld problems. Eager to contribute technical skills and innovation to ConsultAdd Services \nin a dynamic and growth-focused environment. \nTechnical Skills \n- Programming Languages: Python, C++ \n- Frameworks/Tools: Flask, Scikit-Learn, Pandas, NumPy, Power BI, Excel \n- Databases: MySQL, SQL Queries \n- Core CS Concepts: Data Structures, Algorithms, Operating Systems, Computer Networks, \nDBMS \n- Data Analysis & Visualization: Matplotlib, Seaborn, Power BI \n- Software Tools: MySQL Workbench, Visual Studio Code \n- Methodologies: Agile (Scrum) \nEducation \nBachelor of Engineering (B.E.) in Artificial Intelligence & Data Science \nSavitribai Phule Pune University \nCGPA: 8.02 | Expected Graduation: 2025 \nRelevant Coursework: Data Structures & Algorithms, Operating Systems, Computer \nNetworks, Database Systems, Machine Learning, Internet of Things \nInternship Experience \nRadiant IT Services, Pune \nMachine Learning Intern | 2023 – 2024 \n- Developed a machine learning model for Boston Housing Price Prediction. \n- Designed and deployed a Flask-based web application for real-time predictions. \n- Performed data preprocessing, feature engineering, and model evaluation. \n- Tools: Python, Scikit-Learn, Pandas, NumPy, Flask, Matplotlib \nProjects \nBoston House Price Prediction \n- Created a regression model to predict housing prices using real-world datasets. \n- Integrated the model with a user-friendly Flask web interface. \n- Focused on improving model performance through data cleaning, feature selection, and \ncross-validation. \n \nIoT-Based Smart Temperature Monitoring (Academic Project) \n- Designed a system using Arduino sensors to monitor and report ambient temperature in \nreal-time. \n- Demonstrated data collection, wireless transmission, and visualization. \nCertifications & Additional Information \n- Certified in Python Programming and Machine Learning Fundamentals \n- Strong analytical and problem-solving mindset \n- Open to roles in AI/ML, IoT, and Software Development \n",
+    "personal_info": {
+        "name": "SHUBHAM BHANDARE",
+        "email": "shubhamonchain@gmail.com",
+        "phone": "8080515721",
+        "linkedin": null,
+        "github": null,
+        "location": "Pune"
+    },
+    "resume_score": 70,
+    "education_summary": "Post Graduate: No, Doctorate: No, Graduate (Bachelor's): Yes, UG (Diploma/ITI): No, HSC: No, SSC: No",
+    "improvement_suggestions": [
+        "Consider adding or pursuing Postgraduate (Master's, PGD) or Doctorate education.",
+        "Include Diploma/ITI or Higher Secondary (12th) education.",
+        "Mention your Secondary School (10th) education."
+    ],
+    "ai_skill_suggestions": [
+        "test cases",
+        "bug reporting",
+        "defect tracking",
+        "manual testing",
+        "test plan",
+        "test execution"
+    ],
+    "predicted_job_field": {
+        "top_matches": [
+            {
+                "title": "Software Developer",
+                "confidence": 0.85,
+                "confidence_percent": "85%"
+            },
+            {
+                "title": "Software Tester",
+                "confidence": 0.82,
+                "confidence_percent": "82%"
+            },
+            {
+                "title": "AI/ML Engineer",
+                "confidence": 0.7,
+                "confidence_percent": "70%"
+            }
+        ],
+        "job_title": "Software Developer",
+        "skills": [
+            "Artificial Intelligence",
+            "C++",
+            "Databases: Mysql, Sql Queries",
+            "Excel",
+            "Feature Selection, And",
+            "Flask",
+            "Machine Learning",
+            "Machine Learning Fundamentals",
+            "Matplotlib",
+            "Mysql",
+            "Mysql Workbench",
+            "Mysql Workbench, Visual Studio Code",
+            "Mysql, Sql Queries",
+            "Numpy",
+            "Pandas",
+            "Price Prediction",
+            "Prices Using Real-world Datasets",
+            "Python",
+            "Python Programming",
+            "Python, C++",
+            "Seaborn",
+            "Sql",
+            "Sql Queries",
+            "Visual Studio Code"
+        ],
+        "preferred_location": "Pune",
+        "recommended_courses": {
+            "Software Developer": [
+                "Software Development Lifecycle - https://www.udemy.com/course/software-development-lifecycle/"
+            ],
+            "Software Tester": [
+                "Manual Software Testing - https://www.udemy.com/course/manual-software-testing/"
+            ],
+            "AI/ML Engineer": [
+                "Deep Learning Specialization - https://www.coursera.org/specializations/deep-learning"
+            ]
+        }
+    }
+}

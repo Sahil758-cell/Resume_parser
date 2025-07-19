@@ -34,6 +34,38 @@ def require_api_key(view_function):
 def index():
     return ("🚀 Resume Analyzer Flask API is running! good")
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint to verify database connectivity"""
+    from job_predictor import load_job_knowledge_base
+    
+    try:
+        df = load_job_knowledge_base()
+        if df is not None:
+            job_count = len(df)
+            sample_jobs = df['job_title'].head(5).tolist() if 'job_title' in df.columns else []
+            return jsonify({
+                'status': 'healthy',
+                'database': 'connected',
+                'job_count': job_count,
+                'sample_jobs': sample_jobs,
+                'message': f'Successfully loaded {job_count} jobs from MongoDB'
+            })
+        else:
+            return jsonify({
+                'status': 'warning',
+                'database': 'connected but empty',
+                'job_count': 0,
+                'message': 'Database connected but no job data found'
+            }), 200
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'database': 'connection failed',
+            'error': str(e),
+            'message': 'Failed to connect to database'
+        }), 500
+
 @app.route('/analyze', methods=['POST'])
 @require_api_key
 def analyze():
